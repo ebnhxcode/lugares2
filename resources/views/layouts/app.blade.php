@@ -454,12 +454,15 @@
                            <!--hr-->
 
                            <span class="small text-center sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                              <b>CATÁLOGO DE SERVICIOS TIC</b>
+                              <b</b>
                            </span>
 
                            <div class="text-center">
                               <a href="#!">
-                                 <img class="img-thumbnail" src="{{url('img/tic_.jpeg')}}" alt="">
+                                 <img class="img-thumbnail rounded" src="{{url('img/header/logo.jpg')}}" alt="">
+                                 <br>
+                                 <br>
+                                 <img class="img-thumbnail rounded" src="{{url('img/LOGO_SALUD RESPONDE_2014.jpg')}}" alt=""> <br>
                               </a>
                            </div>
 

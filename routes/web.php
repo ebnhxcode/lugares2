@@ -15,28 +15,11 @@
 
 Auth::routes();
 
-
-Route::get('/rolestest', 'RoleController@rolestest')->name('rolestest');
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/', function () {
     return redirect()->to('/login');
 });
-#Route::get('/estandares', 'RoleController@estandares');
-
-
-#Ruta para los iframes
-#Route::get('/embed/aplicaciones', 'AplicacionController@index_componente');
-#Route::get('/embed/datacentros', 'DatacentroController@index_componente');
-#Route::get('/embed/dominios', 'DominioController@index_componente');
-#Route::get('/embed/servidores', 'ServidorController@index_componente');
-#Route::get('/embed/servicios', 'ServicioController@index_componente');
-#Route::get('/embed/sistemas_operativos', 'SistemaOperativoController@index_componente');
-#Route::get('/embed/servidores_accesos', 'ServidorAccesoController@index_componente');
-#Route::get('/embed/aplicaciones_accesos', 'AplicacionAccesoController@index_componente');
-#Route::get('/embed/tipos_aplicaciones', 'TipoAplicacionController@index_componente');
-#Route::get('/embed/tipos_servidores', 'TipoServidorController@index_componente');
 
 #Rutas para los ajax de cada index. (No olvidar proteger por perfilamiento, roles y si la peticion es ajax request. )
 #Primeras rutas
@@ -148,19 +131,10 @@ $groups = ['r','c','u','d'];
  * Se pueden incluir todos los métodos que son compartidos entre controladores y rutas (preferentemente rutas de recursos)
  * */
 $http_requests = [
-   'r' => [
-      'index' => 'get',
-      'show' => 'get'
-   ],
-   'c' => [
-      'store' => 'post'
-   ],
-   'u' => [
-      'update' => 'put'
-   ],
-   'd' => [
-      'destroy' => 'delete'
-   ]
+   'r' => ['index' => 'get', 'show' => 'get'],
+   'c' => ['store' => 'post'],
+   'u' => ['update' => 'put'],
+   'd' => ['destroy' => 'delete']
 ];
 
 /*
@@ -204,6 +178,7 @@ $modules = [
    ['route'=>'mantenedores','controller'=>'MantenedorController'],
 
 ];
+
 
 foreach ($groups as $group) {
     Route::group(['middleware' => "${group}"], function() use ($modules,$http_requests,$group){

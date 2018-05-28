@@ -133,7 +133,7 @@ class MenuController extends Controller {
          'det_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:1000',
          'cod_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:1000',
          'imagen_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-\/\!@#$%*&]+)(\d+)?$)/u|max:1000',
-         'font_icon_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-!@#$%*&]+)(\d+)?$)/u|max:1000',
+         #'font_icon_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-!@#$%*&]+)(\d+)?$)/u|max:1000',
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -175,7 +175,7 @@ class MenuController extends Controller {
          'det_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:1000',
          'cod_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:1000',
          'imagen_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-\/\!@#$%*&]+)(\d+)?$)/u|max:1000',
-         'font_icon_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-!@#$%*&]+)(\d+)?$)/u|max:1000',
+         #'font_icon_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-!@#$%*&]+)(\d+)?$)/u|max:1000',
       ]);
       #Valida si la informacion que se envia para editar al usuario son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {

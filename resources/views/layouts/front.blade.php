@@ -58,13 +58,22 @@
          filter: blur(0px);
          /**//* Safari 6.0 - 9.0 */
       }
+      body {
+         -ms-flex-align: center;
+         -ms-flex-pack: center;
+         -webkit-box-align: center;
+         align-items: center;
+         -webkit-box-pack: center;
+         justify-content: center;
+         background-color: #f5f5f5;
+      }
    </style>
 </head>
 <body>
 
-<video src="{{url('video/video_back.mp4')}}" autoplay loop>
-
-</video>
+<!--
+<video src="{{url('video/video_back.mp4')}}" autoplay loop></video>
+-->
 
 <div id="app">
    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
