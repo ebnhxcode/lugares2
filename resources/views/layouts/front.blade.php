@@ -8,7 +8,7 @@
    <!-- CSRF Token -->
    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-   <title>{{ config('app.name', 'Catalogo Servicios') }}</title>
+   <title>{{ config('app.name', 'Lugares') }}</title>
 
    <!-- Styles -->
    <!--
@@ -21,25 +21,6 @@
 
    <link rel="stylesheet" href="{{url('/css/other_libs/bootstrap-material-design.min.css')}}">
    <link rel="stylesheet" href="{{url('/css/other_libs/font-awesome470.min.css')}}">
-
-   {{--
-   <style>
-      body{
-         /* The background image */
-         background-image: url("img/wallpaper_login.png");
-         /* Set a specified height, or the minimum height for the background image */
-         min-height: 500px;
-         /* Set background image to fixed (don't scroll along with the page) */
-         background-attachment: fixed;
-         /* Center the background image */
-         background-position: center;
-         /* Set the background image to no repeat */
-         background-repeat: no-repeat;
-         /* Scale the background image to be as large as possible */
-         background-size: cover;
-      }
-   </style>
-   --}}
 
    <style>
       video {
@@ -79,7 +60,7 @@
    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
       <div class="container">
          <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            {{ config('app.name', 'Lugares') }}
          </a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -95,10 +76,7 @@
             <ul class="navbar-nav ml-auto">
                <!-- Authentication Links -->
                @guest
-               <!--
-               <li><a class="nav-link" href="{{-- route('login') --}}">Login</a></li>
-               <li><a class="nav-link" href="{{-- route('register') --}}">Register</a></li>
-               -->
+
                @else
                   <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

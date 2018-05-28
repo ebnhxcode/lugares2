@@ -3,28 +3,20 @@
 <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   {{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
    <!-- CSRF Token -->
    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-   <title>{{ config('app.name', 'Catalogo Servicios Tic') }}</title>
+   <title>{{ config('app.name', 'Lugares') }}</title>
 
    <!-- Styles -->
-   <!--
-   {{--<link href="{{ asset('/css/app.css') }}" rel="stylesheet">--}}
-   -->
-
-   <!-- Material Design for Bootstrap fonts and icons -->
+   <!-- Material Design for Bootstrap, fonts, sidebar, custom class and icons -->
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-
-
    <link rel="stylesheet" href="{{url('/css/other_libs/bootstrap-material-design.min.css')}}">
    <link rel="stylesheet" href="{{url('/css/other_libs/font-awesome470.min.css')}}">
-   <!-- Custom styles for this template -->
    <link href="{{url('/css/simple-sidebar.css')}}" rel="stylesheet">
-
+   <!-- Custom styles for this template -->
    <style>
 
       body {
@@ -108,12 +100,7 @@
 
       }
 
-
-
-
-
    </style>
-
 
 </head>
 <body>
@@ -131,38 +118,32 @@
 
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-
-            </ul>
+            <ul class="navbar-nav mr-auto"></ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto d-sm-block d-md-none float-right" style="padding-top: 30px;">
-               <!-- Authentication Links -->
-               <!--
-                              <li><a class="nav-link" href="{{-- route('login') --}}">Login</a></li>
-                              <li><a class="nav-link" href="{{-- route('register') --}}">Register</a></li>
-                              -->
-                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        {{ isset(Auth::user()->nom_usuario) ?
-                            Auth::user()->nom_usuario : 'Sin Nombre' }}
-                        <span class="caret"></span>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
+                     {{ isset(Auth::user()->nom_usuario) ?
+                         Auth::user()->nom_usuario : 'Sin Nombre' }}
+                     <span class="caret"></span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        Logout
                      </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                           Logout
-                        </a>
-                        <a class="dropdown-item" href="{{ route('home') }}">
-                           Menú
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                           @csrf
-                        </form>
-                     </div>
-                  </li>
+                     <a class="dropdown-item" href="{{ route('home') }}">
+                        Menú
+                     </a>
+                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                     </form>
+                  </div>
+               </li>
             </ul>
+
          </div>
       </div>
    </nav>
@@ -183,20 +164,13 @@
                        style="border-radius: 5px;padding-top: 20px;">
 
                      <template class="form-group">
-
                         <!-- Input para escribir el termino a buscar -->
                         <input type="text" class="form-control bg-light col-sm-12 sticky-top" aria-describedby="filtro_menu_help"
                                style="z-index: 10; padding-left: 20px;"
                                placeholder="FILTRAR EN EL MENU" v-model="filtro_menu" id="filtro_menu">
-
-                        {{--
-                        <small id="filtro_menu_help" class="form-text text-muted">
-                        </small>
-                        --}}
                      </template>
 
                      <br>
-
 
                      <div class="sidebar-sticky" style="overflow:auto;">
 
@@ -264,6 +238,11 @@
                      <br>
                      <br>
                      <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
                   </nav><!-- #SideMenuController -->
                </div>
             </div>
@@ -281,6 +260,7 @@
                            <a href="#menu-toggle" class="btn btn-xs btn-primary active" id="menu-toggle">ABRIR<i style="padding-left:5px;" class="fa fa-lock" aria-hidden="true"></i></a>
                         </div>
 
+                        <!-- Se establece el punto donde se heredarán las demas vistas en este template -->
                         @yield('content')
 
                      </div>
@@ -314,129 +294,6 @@
                               </ul>
                            </div>
 
-                           &nbsp;
-                           {{--
-                           <div style=""
-                              class="h5 btn-lg bg-light sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                              <span class="<!--h6 small-->">MENSAJES</span>
-                           </div>
-                           --}}
-
-                           {{--
-<div class="" style="overflow-y: scroll;max-height: 600px;z-index: 0 !important;">
-
-                              <ul class="nav flex-column">
-
-                                 <li class="nav-item">
-                                    <button class="btn btn-danger btn-sm float-right"
-                                            data-placement="top" data-toggle="tooltip" title="Eliminar">
-                                       <i class="fa fa-close"></i>
-                                    </button>
-                                    <a class="nav-link" style="font-size: .7rem;padding-left: 0px;" href="#!"
-                                       data-placement="top" data-toggle="tooltip" title="">
-                                       <dl class="">
-                                          <dt>Usuario</dt>
-                                          <dd>Mensaje adjskdaskdjasdj asjdk sjkdas</dd>
-                                       </dl>
-                                    </a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <button class="btn btn-danger btn-sm float-right"
-                                            data-placement="top" data-toggle="tooltip" title="Eliminar">
-                                       <i class="fa fa-close"></i>
-                                    </button>
-                                    <a class="nav-link" style="font-size: .7rem;padding-left: 0px;" href="#!"
-                                       data-placement="top" data-toggle="tooltip" title="">
-                                       <dl class="">
-                                          <dt>Usuario</dt>
-                                          <dd>Mensaje adjskdaskdjasdj asjdk sjkdas</dd>
-                                       </dl>
-                                    </a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <button class="btn btn-danger btn-sm float-right"
-                                            data-placement="top" data-toggle="tooltip" title="Eliminar">
-                                       <i class="fa fa-close"></i>
-                                    </button>
-                                    <a class="nav-link" style="font-size: .7rem;padding-left: 0px;" href="#!"
-                                       data-placement="top" data-toggle="tooltip" title="">
-                                       <dl class="">
-                                          <dt>Usuario</dt>
-                                          <dd>Mensaje adjskdaskdjasdj asjdk sjkdas</dd>
-                                       </dl>
-                                    </a>
-                                 </li>
-
-                              </ul>
-                           </div>
-                           --}}
-
-                           {{--
-                           <div class="" style="overflow-y: scroll;max-height: 600px;z-index: 0 !important;">
-
-                              <ul class="nav flex-column">
-
-                                 <li class="nav-item">
-                                    <button class="btn btn-danger btn-sm float-right"
-                                            data-placement="top" data-toggle="tooltip" title="Eliminar">
-                                       <i class="fa fa-close"></i>
-                                    </button>
-                                    <a class="nav-link" style="font-size: .7rem;padding-left: 0px;" href="#!"
-                                       data-placement="top" data-toggle="tooltip" title="">
-                                       <dl class="">
-                                          <dt>Usuario</dt>
-                                          <dd>Mensaje adjskdaskdjasdj asjdk sjkdas</dd>
-                                       </dl>
-                                    </a>
-                                 </li>
-                                 <li class="nav-item">
-                                    <button class="btn btn-danger btn-sm float-right"
-                                            data-placement="top" data-toggle="tooltip" title="Eliminar">
-                                       <i class="fa fa-close"></i>
-                                    </button>
-                                    <a class="nav-link" style="font-size: .7rem;padding-left: 0px;" href="#!"
-                                       data-placement="top" data-toggle="tooltip" title="">
-                                       <dl class="">
-                                          <dt>Usuario</dt>
-                                          <dd>Mensaje adjskdaskdjasdj asjdk sjkdas</dd>
-                                       </dl>
-                                    </a>
-                                 </li>
-
-
-                              </ul>
-
-                              <div class=" ">
-                                 <div class="" >
-                                    <div class="card bg-light mb-3" style="max-width: 18rem;">
-                                       <div class="card-header">Header</div>
-                                       <div class="card-body">
-                                          <h5 class="card-title">Light card title</h5>
-                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                       </div>
-                                    </div>
-
-                                    <div class="card bg-light mb-3" style="max-width: 18rem;">
-                                       <div class="card-header">Header</div>
-                                       <div class="card-body">
-                                          <h5 class="card-title">Light card title</h5>
-                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                       </div>
-                                    </div>
-
-                                    <div class="card bg-light mb-3" style="max-width: 18rem;">
-                                       <div class="card-header">Header</div>
-                                       <div class="card-body">
-                                          <h5 class="card-title">Light card title</h5>
-                                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-
-                           </div>
-                           --}}
-
                            <ul class="nav flex-column">
                               <li class="nav-item">
 
@@ -452,12 +309,10 @@
                            </ul>
 
                            <!--hr-->
-
-                           <span class="small text-center sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-                              <b</b>
-                           </span>
+                           <br>
 
                            <div class="text-center">
+                              <small>Lugares y Horarios</small>
                               <a href="#!">
                                  <img class="img-thumbnail rounded" src="{{url('img/header/logo.jpg')}}" alt="">
                                  <br>
@@ -493,16 +348,6 @@
 
          </div>
          <!-- /#wrapper -->
-
-
-
-
-
-
-
-
-
-
 
 
       </div>
