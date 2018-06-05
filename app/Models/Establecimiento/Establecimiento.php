@@ -44,8 +44,20 @@ class Establecimiento extends Model {
       return $this->belongsTo(Establecimiento::class, 'id_establecimiento_antiguo');
    }
 
+   public function tipo_establecimiento() {
+      return $this->belongsTo(TipoEstablecimiento::class, 'id_tipo_establecimiento');
+   }
+
    public function servicio_salud() {
       return $this->belongsTo(ServicioSalud::class, 'id_servicio_salud');
+   }
+
+   public function dependencia() {
+      return $this->belongsTo(Dependencia::class, 'id_dependencia');
+   }
+
+   public function organismo() {
+      return $this->belongsTo(Organismo::class, 'id_organismo');
    }
 
    public function region() {
