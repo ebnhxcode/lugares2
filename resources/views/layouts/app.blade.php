@@ -13,8 +13,7 @@
    <!-- Styles -->
    <!-- Material Design for Bootstrap, fonts, sidebar, custom class and icons -->
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-   <link rel="stylesheet" href="{{url('/css/app.css')}}">
-   {{-- <link rel="stylesheet" href="{{url('/css/other_libs/bootstrap-material-design.min.css')}}"> --}}
+   <link rel="stylesheet" href="{{url('/css/other_libs/bootstrap-material-design.min.css')}}">
    <link rel="stylesheet" href="{{url('/css/other_libs/font-awesome470.min.css')}}">
    <link href="{{url('/css/simple-sidebar.css')}}" rel="stylesheet">
    <!-- Custom styles for this template -->
@@ -106,7 +105,7 @@
 </head>
 <body>
 <div id="app">
-   <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top" style="z-index: 1000;">
+   <nav class="navbar navbar-light bg-light navbar-expand-md fixed-top">
       <div class="container">
          <a class="navbar-brand mx-auto" href="{{ url('/') }}">
             {{--<small class="text-muted">{{ config('app.name', 'Catálogo Servicios') }}</small>--}}
@@ -257,7 +256,7 @@
 
                      <div class="col-md-10" style="padding-left: 10px !important;padding-right: 10px !important;">
 
-                        <div class="float-left sticky-top" style="padding-top: 10px;z-index: 1001;">
+                        <div class="float-left sticky-top" style="padding-top: 10px;z-index: 10;">
                            <a href="#menu-toggle" class="btn btn-xs btn-primary active" id="menu-toggle">ABRIR<i style="padding-left:5px;" class="fa fa-lock" aria-hidden="true"></i></a>
                         </div>
 
