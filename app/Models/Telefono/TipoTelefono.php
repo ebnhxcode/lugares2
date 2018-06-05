@@ -25,5 +25,5 @@ class TipoTelefono extends Model {
    public function telefonos () {
       return $this->hasMany(TipoTelefono::class, 'id_tipo_telefono');
    }
-   
+
 }
