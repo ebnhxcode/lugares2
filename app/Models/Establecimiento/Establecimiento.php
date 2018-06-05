@@ -14,17 +14,30 @@ class Establecimiento extends Model {
    protected $primaryKey = 'id_establecimiento';
    protected $fillable = [
       # columns
-      'nombre_establecimiento',
-      'tipo_establecimiento',
+      'sitio_web',
+      'nom_direccion',
+      'nom_responsable',
       'vigencia_desde',
       'fecha_cierre',
+      'email',
+      'fax',
+      'tipo_establecimiento', #este era un dato anterior, ahora se definio tabla de tipos
+      'observaciones',
+      'nom_establecimiento',
 
       # relaciones -> pks
-      'id_establecimiento',
-      'id_establecimiento_antiguo',
+      'id_establecimiento', #se define ya que el dato se ingresa manual y NO autoincremental
+      'id_establecimiento_antiguo', #debe ser string porque es un dato anterior
+      'id_tipo_establecimiento',
       'id_servicio_salud',
+      'id_dependencia',
+      'id_organismo',
       'id_region',
       'id_comuna',
+
+      # relaciones
+      'id_usuario_registra',
+      'id_usuario_modifica',
    ];
 
    public function establecimiento_antiguo() {
