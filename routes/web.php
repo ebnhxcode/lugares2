@@ -40,6 +40,8 @@ Route::get('/ajax/comunas', 'ComunaController@index_ajax');
 
 
 
+
+
 /*
  * Grupos :
  * Se define arreglo (de grupos) con los middlewares que serán distribuídos los recursos
@@ -146,6 +148,23 @@ $modules = [
    ['route'=>'paises','controller'=>'PaisController'],
    ['route'=>'regiones','controller'=>'RegionController'],
    ['route'=>'comunas','controller'=>'ComunaController'],
+
+   ['route'=>'establecimientos','controller'=>'EstablecimientoController'],
+   ['route'=>'tipos_establecimientos','controller'=>'TipoEstablecimientoController'],
+   ['route'=>'telefonos','controller'=>'TelefonoController'],
+   ['route'=>'tipos_telefonos','controller'=>'TipoTelefonoController'],
+   ['route'=>'organismos','controller'=>'OrganismoController'],
+   ['route'=>'tipos_organismos','controller'=>'TipoOrganismoController'],
+   ['route'=>'dependencias','controller'=>'DependenciaController'],
+   ['route'=>'profesionales','controller'=>'ProfesionalController'],
+   ['route'=>'tipos_profesionales','controller'=>'TipoProfesionalController'],
+   ['route'=>'servicios_salud','controller'=>'ServicioSaludController'],
+   ['route'=>'horarios_atencion_profesionales','controller'=>'HorarioAtencionProfesionalController'],
+   ['route'=>'horarios_atencion_establecimientos','controller'=>'HorarioAtencionEstablecimientoController'],
+   ['route'=>'horarios_visita_establecimientos','controller'=>'HorarioVisitaEstablecimientoController'],
+   ['route'=>'dias_semana','controller'=>'DiaSemanaController'],
+
+
 
 ];
 
