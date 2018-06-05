@@ -23,7 +23,7 @@ class TipoEstablecimiento extends Model {
    ];
 
    public function establecimientos () {
-      return $this->hasMany(Establecimiento::class, 'id_establecimiento');
+      return $this->hasMany(Establecimiento::class, 'id_tipo_establecimiento');
    }
 
 }
