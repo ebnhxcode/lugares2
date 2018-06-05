@@ -14,13 +14,12 @@ class ServicioSalud extends Model {
    protected $primaryKey = 'id_servicio_salud';
    protected $fillable = [
       #columns
-      'nombre_servicio_salud',
+      'nom_servicio_salud',
+      'det_servicio_salud',
       'orden',
 
       # relaciones -> pks
-      'id_servicio_salud',
       'id_region',
-
    ];
 
 

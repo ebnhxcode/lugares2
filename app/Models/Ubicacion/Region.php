@@ -13,8 +13,8 @@ class Region extends Model {
    protected $table="region";
    protected $primaryKey="id_region";
    protected $fillable=[
-      'id_region',
-      'nombre_region',
+      'nom_region',
+      'det_region',
       'alias',
       'orden'
    ];

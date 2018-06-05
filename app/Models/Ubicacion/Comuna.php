@@ -13,9 +13,13 @@ class Comuna extends Model {
    protected $table="comuna";
    protected $primaryKey="id_comuna";
    protected $fillable=[
-      'id_comuna',
+      'nom_comuna',
+      'det_comuna',
+      'alias',
+      'orden',
+
+      # relaciones -> pks
       'id_region',
-      'nombre_comuna',
    ];
 
    public function region () {
