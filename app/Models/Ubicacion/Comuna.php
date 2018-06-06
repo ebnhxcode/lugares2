@@ -20,6 +20,10 @@ class Comuna extends Model {
 
       # relaciones -> pks
       'id_region',
+
+      # relaciones
+      'id_usuario_registra',
+      'id_usuario_modifica',
    ];
 
    public function region () {

@@ -47,25 +47,23 @@ mix.js('resources/assets/js/controllers/UsuarioController.js','public/js/control
 mix.js('resources/assets/js/controllers/MenuController.js','public/js/controllers/MenuController.js');
 mix.js('resources/assets/js/controllers/MantenedorController.js','public/js/controllers/MantenedorController.js');
 
-
-
 /* Los nuevos para este aplicativo */
-//mix.js('resources/assets/js/controllers/EstablecimientoController.js','public/js/controllers/EstablecimientoController.js');
-//mix.js('resources/assets/js/controllers/TipoEstablecimientoController.js','public/js/controllers/TipoEstablecimientoController.js');
-//mix.js('resources/assets/js/controllers/TelefonoController.js','public/js/controllers/TelefonoController.js');
-//mix.js('resources/assets/js/controllers/TipoTelefonoController.js','public/js/controllers/TipoTelefonoController.js');
-//mix.js('resources/assets/js/controllers/OrganismoController.js','public/js/controllers/OrganismoController.js');
-//mix.js('resources/assets/js/controllers/TipoOrganismoController.js','public/js/controllers/TipoOrganismoController.js');
-//mix.js('resources/assets/js/controllers/ProfesionalController.js','public/js/controllers/ProfesionalController.js');
-//mix.js('resources/assets/js/controllers/TipoProfesionalController.js','public/js/controllers/TipoProfesionalController.js');
-//mix.js('resources/assets/js/controllers/DependenciaController.js','public/js/controllers/DependenciaController.js');
-//mix.js('resources/assets/js/controllers/ServicioSaludController.js','public/js/controllers/ServicioSaludController.js');
-//mix.js('resources/assets/js/controllers/RegionController.js','public/js/controllers/RegionController.js');
-//mix.js('resources/assets/js/controllers/ComunaController.js','public/js/controllers/ComunaController.js');
-//mix.js('resources/assets/js/controllers/DiaSemanaController.js','public/js/controllers/DiaSemanaController.js');
-//mix.js('resources/assets/js/controllers/HorarioAtencionProfesionalController.js','public/js/controllers/HorarioAtencionProfesionalController.js');
-//mix.js('resources/assets/js/controllers/HorarioAtencionEstablecimientoController.js','public/js/controllers/HorarioAtencionEstablecimientoController.js');
-//mix.js('resources/assets/js/controllers/HorarioVisitaEstablecimientoController.js','public/js/controllers/HorarioVisitaEstablecimientoController.js');
+mix.js('resources/assets/js/controllers/EstablecimientoController.js','public/js/controllers/EstablecimientoController.js');
+mix.js('resources/assets/js/controllers/TipoEstablecimientoController.js','public/js/controllers/TipoEstablecimientoController.js');
+mix.js('resources/assets/js/controllers/TelefonoController.js','public/js/controllers/TelefonoController.js');
+mix.js('resources/assets/js/controllers/TipoTelefonoController.js','public/js/controllers/TipoTelefonoController.js');
+mix.js('resources/assets/js/controllers/OrganismoController.js','public/js/controllers/OrganismoController.js');
+mix.js('resources/assets/js/controllers/TipoOrganismoController.js','public/js/controllers/TipoOrganismoController.js');
+mix.js('resources/assets/js/controllers/ProfesionalController.js','public/js/controllers/ProfesionalController.js');
+mix.js('resources/assets/js/controllers/TipoProfesionalController.js','public/js/controllers/TipoProfesionalController.js');
+mix.js('resources/assets/js/controllers/DependenciaController.js','public/js/controllers/DependenciaController.js');
+mix.js('resources/assets/js/controllers/ServicioSaludController.js','public/js/controllers/ServicioSaludController.js');
+mix.js('resources/assets/js/controllers/RegionController.js','public/js/controllers/RegionController.js');
+mix.js('resources/assets/js/controllers/ComunaController.js','public/js/controllers/ComunaController.js');
+mix.js('resources/assets/js/controllers/DiaSemanaController.js','public/js/controllers/DiaSemanaController.js');
+mix.js('resources/assets/js/controllers/HorarioAtencionProfesionalController.js','public/js/controllers/HorarioAtencionProfesionalController.js');
+mix.js('resources/assets/js/controllers/HorarioAtencionEstablecimientoController.js','public/js/controllers/HorarioAtencionEstablecimientoController.js');
+mix.js('resources/assets/js/controllers/HorarioVisitaEstablecimientoController.js','public/js/controllers/HorarioVisitaEstablecimientoController.js');
 
 
 mix.js('resources/assets/js/app.js', 'public/js')

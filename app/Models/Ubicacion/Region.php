@@ -16,6 +16,14 @@ class Region extends Model {
       'nom_region',
       'det_region',
       'alias',
-      'orden'
+      'orden',
+
+      # relaciones
+      'id_usuario_registra',
+      'id_usuario_modifica',
    ];
+
+   public function comunas () {
+      return $this->hasMany(Comuna::class, 'id_region');
+   }
 }
