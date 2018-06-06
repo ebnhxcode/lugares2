@@ -145,10 +145,12 @@ $modules = [
    ['route'=>'menus','controller'=>'MenuController'],
    ['route'=>'mantenedores','controller'=>'MantenedorController'],
 
+   #Heredado
    ['route'=>'paises','controller'=>'PaisController'],
    ['route'=>'regiones','controller'=>'RegionController'],
    ['route'=>'comunas','controller'=>'ComunaController'],
 
+   #Completar controller
    ['route'=>'establecimientos','controller'=>'EstablecimientoController'],
    ['route'=>'tipos_establecimientos','controller'=>'TipoEstablecimientoController'],
    ['route'=>'telefonos','controller'=>'TelefonoController'],
