@@ -10,7 +10,7 @@ class ServicioSalud extends Model {
    use SoftDeletes;
    protected $dates = ['deleted_at'];
 
-   protected $table = 'servicio_salud';
+   protected $table = 'servicios_salud';
    protected $primaryKey = 'id_servicio_salud';
    protected $fillable = [
       #columns
