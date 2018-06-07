@@ -11,10 +11,10 @@ class DiaSemana extends Model {
    protected $dates = ['deleted_at'];
 
    protected $table = 'dias_semana';
-   protected $primaryKey = 'id_dia';
+   protected $primaryKey = 'id_dia_semana';
    protected $fillable = [
       # columns
-      'nom_dia',
+      'nom_dia_semana',
       'orden',
 
       # relaciones

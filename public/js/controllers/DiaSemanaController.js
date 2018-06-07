@@ -2268,7 +2268,7 @@ var DiaSemanaController = new Vue({
    data: function data() {
       return {
          '$': window.jQuery,
-         'pk_tabla': 'id_dia_semana',
+         'pk_tabla': 'id_dia_semana_semana',
          'nombre_tabla': 'dias_semana', //nombre tabla o de ruta
          'nombre_ruta': 'dias_semana', //nombre tabla o de ruta
          'nombre_model': 'dia_semana',
@@ -2278,8 +2278,8 @@ var DiaSemanaController = new Vue({
 
          'filtro_head': null,
          'dia_semana': {
-            'id_dia': null,
-            'nom_dia': null,
+            'id_dia_semana': null,
+            'nom_dia_semana': null,
             'orden': null,
 
             'id_usuario_registra': null,
@@ -2288,12 +2288,11 @@ var DiaSemanaController = new Vue({
             'updated_at': null,
             'deleted_at': null
          },
-         'permitido_guardar': ['nom_dia', 'orden'],
+         'permitido_guardar': ['nom_dia_semana', 'orden'],
          'relaciones_clase': [],
          'lom': {},
          'lista_objs_model': [],
          'dias_semana': [],
-         'idiomas': [],
          'datos_excel': [],
          'usuario_auth': {},
 
@@ -2317,8 +2316,8 @@ var DiaSemanaController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_dia': false,
-            'nom_dia': true,
+            'id_dia_semana': false,
+            'nom_dia_semana': true,
             'orden': true,
 
             'created_at': false,
@@ -2328,8 +2327,8 @@ var DiaSemanaController = new Vue({
 
          /* Etiquetas */
          'tabla_labels': {
-            'id_dia': 'Id dia semana',
-            'nom_dia': 'Nombre dia',
+            'id_dia_semana': 'Id dia semana',
+            'nom_dia_semana': 'Nombre dia',
             'orden': 'Orden',
 
             'id_usuario_registra': 'Usuario registra',
@@ -2341,8 +2340,8 @@ var DiaSemanaController = new Vue({
 
          /* Campos del modelo en el excel */
          'excel_json_campos': {
-            'id_dia': 'String',
-            'nom_dia': 'String',
+            'id_dia_semana': 'String',
+            'nom_dia_semana': 'String',
             'orden': 'String',
 
             'created_at': 'String',
@@ -2375,8 +2374,8 @@ var DiaSemanaController = new Vue({
          this.excel_json_datos = [];
          return _dias_semana.map(function (dia_semana, index) {
             return self.excel_json_datos.push({
-               'id_dia': dia_semana.id_dia || '-',
-               'nom_dia': dia_semana.nom_dia || '-',
+               'id_dia_semana': dia_semana.id_dia_semana || '-',
+               'nom_dia_semana': dia_semana.nom_dia_semana || '-',
                'orden': dia_semana.orden || '-',
 
                'id_tipo_dia_semana': dia_semana.id_tipo_dia_semana || '-',
