@@ -10,7 +10,7 @@ class TipoProfesional extends Model {
    use SoftDeletes;
    protected $dates = ['deleted_at'];
 
-   protected $table = 'tipos_profesional';
+   protected $table = 'tipos_profesionales';
    protected $primaryKey = 'id_tipo_profesional';
    protected $fillable = [
       # columns
