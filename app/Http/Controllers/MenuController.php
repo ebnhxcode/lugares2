@@ -128,11 +128,11 @@ class MenuController extends Controller {
    public function store(Request $request) {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
-         'url_menu' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
-         'nom_menu' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|unique:$this->nombre_tabla|max:255",
-         'det_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:1000',
-         'cod_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:1000',
-         'imagen_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-\/\!@#$%*&]+)(\d+)?$)/u|max:1000',
+         'url_menu' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'nom_menu' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|unique:$this->nombre_tabla|max:255",
+         'det_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:1000',
+         'cod_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:1000',
+         'imagen_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-\/\!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:1000',
          #'font_icon_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-!@#$%*&]+)(\d+)?$)/u|max:1000',
       ]);
       #Se valida la respuesta con la salida de la validacion
@@ -170,11 +170,11 @@ class MenuController extends Controller {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
          'id_menu' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
-         'url_menu' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
-         'nom_menu' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
-         'det_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:1000',
-         'cod_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:1000',
-         'imagen_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-\/\!@#$%*&]+)(\d+)?$)/u|max:1000',
+         'url_menu' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'nom_menu' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'det_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:1000',
+         'cod_menu' => 'regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:1000',
+         'imagen_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-\/\!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:1000',
          #'font_icon_menu' => 'nullable|regex:/(^([a-zA-Z0-9_ ,.-!@#$%*&]+)(\d+)?$)/u|max:1000',
       ]);
       #Valida si la informacion que se envia para editar al usuario son iguales los ids

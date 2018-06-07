@@ -134,16 +134,16 @@ class UsuarioController extends Controller {
 
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
-         'nom_usuario' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
-         'nom_completo' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|max:255",
+         'nom_usuario' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'nom_completo' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'id_role' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'id_estado' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'id_cargo' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
-         'ape_paterno' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|max:255",
-         'ape_materno' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|max:255",
-         'username' => "regex:/(^([a-zA-Z0-9_.]+)(\d+)?$)/u|required|unique:$this->nombre_tabla|max:255",
+         'ape_paterno' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'ape_materno' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'username' => "regex:/(^([a-zA-Z0-9_.áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|unique:$this->nombre_tabla|max:255",
          'email' => "email|required|unique:$this->nombre_tabla|max:255",
-         'password' => "regex:/(^([a-zA-Z0-9_ !@#$%*&]{8,20}+)(\d+)?$)/u|required|max:255",
+         'password' => "regex:/(^([a-zA-Z0-9_ !@#$%*&áéíóúñÁÉÍÓÚÑ]{8,20}+)(\d+)?$)/u|required|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -209,17 +209,17 @@ class UsuarioController extends Controller {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
          'id_usuario' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
-         'nom_usuario' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
+         'nom_usuario' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          #'nom_completo' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|max:255",
          #'ape_paterno' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|max:255",
          #'ape_materno' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|max:255",
          'id_role' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'id_estado' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'id_cargo' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
-         'username' => "regex:/(^([a-zA-Z0-9_.]+)(\d+)?$)/u|required|max:255",
+         'username' => "regex:/(^([a-zA-Z0-9_.áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'email' => "email|required|max:255",
-         #'password' => "regex:/(^([a-zA-Z0-9_ !@#$%*&]{8,20}+)(\d+)?$)/u|required|max:255",
-         'password' => "regex:/(^([a-zA-Z0-9_ !@#$%*&]{8,20}+)(\d+)?$)/u|required|max:255",
+         #'password' => "regex:/(^([a-zA-Z0-9_ !@#$%*&áéíóúñÁÉÍÓÚÑ]{8,20}+)(\d+)?$)/u|required|max:255",
+         'password' => "regex:/(^([a-zA-Z0-9_ !@#$%*&áéíóúñÁÉÍÓÚÑ]{8,20}+)(\d+)?$)/u|required|max:255",
       ]);
       #Valida si la informacion que se envia para editar al usuario son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {

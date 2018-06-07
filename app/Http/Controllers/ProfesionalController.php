@@ -118,8 +118,8 @@ class ProfesionalController extends Controller {
    public function store(Request $request) {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
-         'nom_profesional' => "regex:/(^([a-zA-Z0-9_ -]+)(\d+)?$)/u|required|max:255",
-         'det_profesional' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-]+)(\d+)?$)/u|required|max:255",
+         'nom_profesional' => "regex:/(^([a-zA-Z0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'det_profesional' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
 
          'id_tipo_profesional' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'id_cargo' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
@@ -162,8 +162,8 @@ class ProfesionalController extends Controller {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
          'id_profesional' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
-         'nom_profesional' => "regex:/(^([a-zA-Z0-9_ -]+)(\d+)?$)/u|required|max:255",
-         'det_profesional' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-]+)(\d+)?$)/u|required|max:255",
+         'nom_profesional' => "regex:/(^([a-zA-Z0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'det_profesional' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
 
          'id_tipo_profesional' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'id_cargo' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",

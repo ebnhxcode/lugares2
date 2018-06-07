@@ -32,7 +32,6 @@ return array(
     'App\\HorarioAtencionEstablecimiento' => $baseDir . '/app/Models/Establecimiento/HorarioAtencionEstablecimiento.php',
     'App\\HorarioAtencionProfesional' => $baseDir . '/app/Models/Profesional/HorarioAtencionProfesional.php',
     'App\\HorarioVisitaEstablecimiento' => $baseDir . '/app/Models/Establecimiento/HorarioVisitaEstablecimiento.php',
-    'App\\Http\\Controllers\\ActividadController' => $baseDir . '/app/Http/Controllers/ActividadController.php',
     'App\\Http\\Controllers\\AplicacionAccesoController' => $baseDir . '/app/Http/Controllers/AplicacionAccesoController.php',
     'App\\Http\\Controllers\\AplicacionController' => $baseDir . '/app/Http/Controllers/AplicacionController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',

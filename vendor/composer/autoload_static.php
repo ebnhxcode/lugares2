@@ -345,7 +345,6 @@ class ComposerStaticInitda4e5015eda97562cfcbbde2cfd3b7e4
         'App\\HorarioAtencionEstablecimiento' => __DIR__ . '/../..' . '/app/Models/Establecimiento/HorarioAtencionEstablecimiento.php',
         'App\\HorarioAtencionProfesional' => __DIR__ . '/../..' . '/app/Models/Profesional/HorarioAtencionProfesional.php',
         'App\\HorarioVisitaEstablecimiento' => __DIR__ . '/../..' . '/app/Models/Establecimiento/HorarioVisitaEstablecimiento.php',
-        'App\\Http\\Controllers\\ActividadController' => __DIR__ . '/../..' . '/app/Http/Controllers/ActividadController.php',
         'App\\Http\\Controllers\\AplicacionAccesoController' => __DIR__ . '/../..' . '/app/Http/Controllers/AplicacionAccesoController.php',
         'App\\Http\\Controllers\\AplicacionController' => __DIR__ . '/../..' . '/app/Http/Controllers/AplicacionController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',

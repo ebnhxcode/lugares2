@@ -111,9 +111,9 @@ class TelefonoController extends Controller {
    public function store(Request $request) {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
-         'num_telefono' => "regex:/(^([0-9_ -]+)(\d+)?$)/u|required|max:255",
-         'det_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-]+)(\d+)?$)/u|required|max:255",
-         'cod_area' => "regex:/(^([0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:255",
+         'num_telefono' => "regex:/(^([0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'det_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'cod_area' => "regex:/(^([0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'id_tipo_telefono' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
@@ -151,9 +151,9 @@ class TelefonoController extends Controller {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
          'id_telefono' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
-         'num_telefono' => "regex:/(^([0-9_ -]+)(\d+)?$)/u|required|max:255",
-         'det_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-]+)(\d+)?$)/u|required|max:255",
-         'cod_area' => "regex:/(^([0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:255",
+         'num_telefono' => "regex:/(^([0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'det_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'cod_area' => "regex:/(^([0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'id_tipo_telefono' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
       ]);
       #Valida si la informacion que se envia para editar al telefono son iguales los ids

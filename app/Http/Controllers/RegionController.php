@@ -106,10 +106,10 @@ class RegionController extends Controller {
    public function store(Request $request) {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
-         'nom_region' => "regex:/(^([a-zA-Z0-9_ -]+)(\d+)?$)/u|required|max:255",
-         'det_region' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-]+)(\d+)?$)/u|required|max:255",
-         'alias' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:255",
-         'orden' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:255",
+         'nom_region' => "regex:/(^([a-zA-Z0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'det_region' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'alias' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'orden' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -146,10 +146,10 @@ class RegionController extends Controller {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
          'id_region' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
-         'nom_region' => "regex:/(^([a-zA-Z0-9_ -]+)(\d+)?$)/u|required|max:255",
-         'det_region' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-]+)(\d+)?$)/u|required|max:255",
-         'alias' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-]+)(\d+)?$)/u|required|max:255",
-         'orden' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-]+)(\d+)?$)/u|required|max:255",
+         'nom_region' => "regex:/(^([a-zA-Z0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'det_region' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'alias' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'orden' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
       ]);
       #Valida si la informacion que se envia para editar al region son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {

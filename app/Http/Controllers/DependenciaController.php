@@ -106,8 +106,8 @@ class DependenciaController extends Controller {
    public function store(Request $request) {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
-         'nom_dependencia' => "regex:/(^([a-zA-Z0-9_ -]+)(\d+)?$)/u|required|max:255",
-         'det_dependencia' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-]+)(\d+)?$)/u|required|max:255",
+         'nom_dependencia' => "regex:/(^([a-zA-Z0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'det_dependencia' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -142,8 +142,8 @@ class DependenciaController extends Controller {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
          'id_dependencia' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
-         'nom_dependencia' => "regex:/(^([a-zA-Z0-9_ -]+)(\d+)?$)/u|required|max:255",
-         'det_dependencia' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-]+)(\d+)?$)/u|required|max:255",
+         'nom_dependencia' => "regex:/(^([a-zA-Z0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'det_dependencia' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
       ]);
       #Valida si la informacion que se envia para editar al dependencia son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {
