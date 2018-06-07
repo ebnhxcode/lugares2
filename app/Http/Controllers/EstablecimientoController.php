@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Comuna;
+use App\Dependencia;
+use App\Organismo;
+use App\Region;
+use App\ServicioSalud;
 use Illuminate\Http\Request;
 use App\Establecimiento;
+use App\TipoEstablecimiento;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,6 +23,14 @@ class EstablecimientoController extends Controller {
    private $nombre_controller;
 
    private $establecimientos;
+   private $tipos_establecimientos;
+   private $servicios_salud;
+   private $dependencias;
+   private $organismos;
+   private $regiones;
+   private $comunas;
+
+
    private $establecimiento;
    private $new_establecimiento;
    private $validacion;
@@ -54,11 +68,24 @@ class EstablecimientoController extends Controller {
       if ($request->wantsJson() && $request->ajax() && $request->isXmlHttpRequest()) {
          $this->validar_paginacion($request);
          $this->establecimientos = Establecimiento::paginate((int)$this->per_page);
+         $this->tipos_establecimientos = TipoEstablecimiento::all();
+         $this->servicios_salud = ServicioSalud::all();
+         $this->dependencias = Dependencia::all();
+         $this->organismos = Organismo::all();
+         $this->regiones = Region::all();
+         $this->comunas = Comuna::all();
+
 
          $this->usuario_auth = Auth::user();
          return response()->json([
             'status' => 200,
             'establecimientos' => $this->establecimientos,
+            'tipos_establecimientos' => $this->tipos_establecimientos,
+            'servicios_salud' => $this->servicios_salud,
+            'dependencias' => $this->dependencias,
+            'organismos' => $this->organismos,
+            'regiones' => $this->regiones,
+            'comunas' => $this->comunas,
             'usuario_auth' => $this->usuario_auth,
          ]);
       }
@@ -108,9 +135,25 @@ class EstablecimientoController extends Controller {
    public function store(Request $request) {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
+         'id_establecimiento' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
          'nom_establecimiento' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
-         'det_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:255",
-         'cod_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:255",
+         'observaciones' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'nom_direccion' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'nom_responsable' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'sitio_web' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'email' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'fax' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'vigencia_desde' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'fecha_cierre' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_establecimiento_antiguo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+
+         'id_tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_servicio_salud' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_dependencia' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_region' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_comuna' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -124,9 +167,26 @@ class EstablecimientoController extends Controller {
       $this->establecimiento = $request->all();
       #Se crea el nuevo registro
       $this->new_establecimiento = Establecimiento::create([
+         'id_establecimiento' => $this->establecimiento['id_establecimiento'],
          'nom_establecimiento' => $this->establecimiento['nom_establecimiento'],
-         'det_establecimiento' => $this->establecimiento['det_establecimiento'],
-         'cod_establecimiento' => $this->establecimiento['cod_establecimiento'],
+         'tipo_establecimiento' => $this->establecimiento['tipo_establecimiento'],
+         'observaciones' => $this->establecimiento['observaciones'],
+         'nom_direccion' => $this->establecimiento['nom_direccion'],
+         'nom_responsable' => $this->establecimiento['nom_responsable'],
+         'sitio_web' => $this->establecimiento['sitio_web'],
+         'email' => $this->establecimiento['email'],
+         'fax' => $this->establecimiento['fax'],
+         'vigencia_desde' => $this->establecimiento['vigencia_desde'],
+         'fecha_cierre' => $this->establecimiento['fecha_cierre'],
+         'id_establecimiento_antiguo' => $this->establecimiento['id_establecimiento_antiguo'],
+
+         'id_tipo_establecimiento' => $this->establecimiento['id_tipo_establecimiento'],
+         'id_servicio_salud' => $this->establecimiento['id_servicio_salud'],
+         'id_dependencia' => $this->establecimiento['id_dependencia'],
+         'id_organismo' => $this->establecimiento['id_organismo'],
+         'id_region' => $this->establecimiento['id_region'],
+         'id_comuna' => $this->establecimiento['id_comuna'],
+
          'id_usuario_registra' => Auth::user()->id_usuario,
          'id_usuario_modifica' => Auth::user()->id_usuario,
       ]);
@@ -145,10 +205,25 @@ class EstablecimientoController extends Controller {
    public function update(Request $request, $id) {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
-         'id_establecimiento' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
+         'id_establecimiento' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
          'nom_establecimiento' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
-         'det_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:255",
-         'cod_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:255",
+         'observaciones' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'nom_direccion' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'nom_responsable' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'sitio_web' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'email' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'fax' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'vigencia_desde' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'fecha_cierre' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_establecimiento_antiguo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+
+         'id_tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_servicio_salud' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_dependencia' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_region' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_comuna' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
       ]);
       #Valida si la informacion que se envia para editar al establecimiento son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {

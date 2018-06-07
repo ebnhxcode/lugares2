@@ -6,18 +6,18 @@
          <img class="card-img-top" src="{{ url('/img/datacentro.png') }}" alt="Card image cap">
          <div class="card-body">
             <h5 class="card-title">
-               @{{ datacentro.nom_datacentro || '' }}
+               @{{ establecimiento.nom_establecimiento || '' }}
             </h5>
             <p class="card-text">
 
-            <dl class="row" v-if="datacentro">
+            <dl class="row" v-if="establecimiento">
 
-               <dd class="col-md-12">@{{ datacentro.det_datacentro || '' }}</dd>
+               <dd class="col-md-12">@{{ establecimiento.nom_establecimiento || '' }}</dd>
 
             </dl>
 
             <dl v-else>
-               No hay información del datacentro.
+               No hay información del establecimiento.
             </dl>
 
             </p>
