@@ -38,6 +38,22 @@ Route::get('/ajax/regiones', 'RegionController@index_ajax');
 Route::get('/ajax/comunas', 'ComunaController@index_ajax');
 
 
+Route::get('/ajax/establecimientos', 'EstablecimientoController@index_ajax');
+Route::get('/ajax/tipos_establecimientos', 'TipoEstablecimientoController@index_ajax');
+Route::get('/ajax/telefonos', 'TelefonoController@index_ajax');
+Route::get('/ajax/tipos_telefonos', 'TipoTelefonoController@index_ajax');
+Route::get('/ajax/organismos', 'OrganismoController@index_ajax');
+Route::get('/ajax/tipos_organismos', 'TipoOrganismoController@index_ajax');
+Route::get('/ajax/dependencias', 'DependenciaController@index_ajax');
+Route::get('/ajax/profesionales', 'ProfesionalController@index_ajax');
+Route::get('/ajax/tipos_profesionales', 'TipoProfesionalController@index_ajax');
+Route::get('/ajax/servicios_salud', 'ServicioSaludController@index_ajax');
+Route::get('/ajax/horarios_atencion_profesionales', 'HorarioAtencionProfesionalController@index_ajax');
+Route::get('/ajax/horarios_atencion_establecimientos', 'HorarioAtencionEstablecimientoController@index_ajax');
+Route::get('/ajax/horarios_visita_establecimientos', 'HorarioVisitaEstablecimientoController@index_ajax');
+Route::get('/ajax/dias_semana', 'DiaSemanaController@index_ajax');
+
+
 
 
 

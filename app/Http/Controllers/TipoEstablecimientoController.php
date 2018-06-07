@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\TipoEstablecimiento;
 use Illuminate\Http\Request;
 use Auth;
-use App\TipoEstablecimiento;
+
 
 use Illuminate\Support\Facades\Validator;
 
@@ -29,8 +30,8 @@ class TipoEstablecimientoController extends Controller {
       $this->middleware('mantenedor');#resrtinge a solo usuarios con permiso bajo -> D
       $this->nombre_modelo = "tipo_establecimiento"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "tipos_establecimientos";
-      $this->nombre_detalle = "Tipo Servidores";
-      $this->nombre_detalle_singular = "Tipo Servidor";
+      $this->nombre_detalle = "Tipo Establecimientos";
+      $this->nombre_detalle_singular = "Tipo Establecimiento";
       $this->nombre_controller = "TipoEstablecimientoController";
    }
 
