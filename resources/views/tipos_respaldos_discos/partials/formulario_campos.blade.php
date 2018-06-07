@@ -7,7 +7,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="tipo_respaldo_disco.nom_tipo_respaldo_disco" name="nom_tipo_respaldo_disco"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -32,7 +32,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="tipo_respaldo_disco.cod_tipo_respaldo_disco" name="cod_tipo_respaldo_disco"
-                   v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&]+$/i}" data-vv-delay="500"
+                   v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -56,7 +56,7 @@
 
          <p class="control has-icon has-icon-right">
             <textarea cols="15" rows="1" v-model="tipo_respaldo_disco.det_tipo_respaldo_disco" name="det_tipo_respaldo_disco"
-                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&]+$/i}" data-vv-delay="500"
+                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                       class="form-control"></textarea>
 
             <transition name="bounce">

@@ -6,7 +6,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="role.nom_role" name="nom_role"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -55,7 +55,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <textarea cols="15" rows="2" v-model="role.det_role" name="det_role"
-                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&]+$/i}" data-vv-delay="500"
+                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                       class="form-control"></textarea>
 
             <transition name="bounce">

@@ -10,7 +10,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="menu.url_menu" name="url_menu"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -33,7 +33,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="menu.nom_menu" name="nom_menu"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -57,7 +57,7 @@
 
          <p class="control has-icon has-icon-right">
             <textarea cols="15" rows="1" v-model="menu.det_menu" name="det_menu"
-                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&]+$/i}" data-vv-delay="500"
+                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                       class="form-control"></textarea>
 
             <transition name="bounce">
@@ -81,7 +81,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="menu.cod_menu" name="cod_menu"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -105,7 +105,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="menu.imagen_menu" name="imagen_menu"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ /.]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ /.áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">

@@ -6,7 +6,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="servicio_salud.nom_servicio_salud" name="nom_servicio_salud"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -31,7 +31,7 @@
 
          <p class="control has-icon has-icon-right">
             <textarea cols="15" rows="1" v-model="servicio_salud.det_servicio_salud" name="det_servicio_salud"
-                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&]+$/i}" data-vv-delay="500"
+                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                       class="form-control"></textarea>
 
             <transition name="bounce">
@@ -55,7 +55,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="servicio_salud.orden" name="orden"
-                   v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&]+$/i}" data-vv-delay="500"
+                   v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">

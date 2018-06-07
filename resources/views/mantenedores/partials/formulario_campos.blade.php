@@ -9,7 +9,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="mantenedor.url_mantenedor" name="url_mantenedor"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -32,7 +32,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="mantenedor.nom_mantenedor" name="nom_mantenedor"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -56,7 +56,7 @@
 
          <p class="control has-icon has-icon-right">
             <textarea cols="15" rows="1" v-model="mantenedor.det_mantenedor" name="det_mantenedor"
-                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&]+$/i}" data-vv-delay="500"
+                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                       class="form-control"></textarea>
 
             <transition name="bounce">
@@ -80,7 +80,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="mantenedor.cod_mantenedor" name="cod_mantenedor"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -104,7 +104,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="mantenedor.imagen_mantenedor" name="imagen_mantenedor"
-                   v-validate="{regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -128,7 +128,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="mantenedor.font_icon_mantenedor" name="font_icon_mantenedor"
-                   v-validate="{regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">

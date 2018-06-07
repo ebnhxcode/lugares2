@@ -8,7 +8,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="telefono.cod_area" name="cod_area"
-                   v-validate="{required:true,regex:/^[0-9_ ,.!@#$%*&]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -31,7 +31,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="telefono.num_telefono" name="num_telefono"
-                   v-validate="{required:true,regex:/^[0-9_ -]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[0-9_ -áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -58,7 +58,7 @@
 
          <p class="control has-icon has-icon-right">
             <textarea cols="15" rows="1" v-model="telefono.det_telefono" name="det_telefono"
-                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&-]+$/i}" data-vv-delay="500"
+                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                       class="form-control"></textarea>
 
             <transition name="bounce">

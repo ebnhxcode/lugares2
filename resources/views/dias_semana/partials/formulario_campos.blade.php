@@ -7,7 +7,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="dia_semana.nom_dia_semana" name="nom_dia_semana"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ -]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ -áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -34,7 +34,7 @@
 
          <p class="control has-icon has-icon-right">
             <textarea cols="15" rows="1" v-model="dia_semana.orden" name="orden"
-                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&-]+$/i}" data-vv-delay="500"
+                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                       class="form-control"></textarea>
 
             <transition name="bounce">

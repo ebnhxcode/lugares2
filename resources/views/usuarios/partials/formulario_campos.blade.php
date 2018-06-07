@@ -7,7 +7,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="usuario.nom_usuario" name="nom_usuario"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -31,7 +31,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="usuario.ape_paterno" name="ape_paterno"
-                   v-validate="{regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -53,7 +53,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="usuario.ape_materno" name="ape_materno"
-                   v-validate="{regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
+                   v-validate="{regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
