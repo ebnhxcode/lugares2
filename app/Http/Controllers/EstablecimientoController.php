@@ -7,6 +7,7 @@ use App\Dependencia;
 use App\Organismo;
 use App\Region;
 use App\ServicioSalud;
+use App\TipoOrganismo;
 use Illuminate\Http\Request;
 use App\Establecimiento;
 use App\TipoEstablecimiento;
@@ -27,6 +28,7 @@ class EstablecimientoController extends Controller {
    private $servicios_salud;
    private $dependencias;
    private $organismos;
+   private $tipos_organismos;
    private $regiones;
    private $comunas;
 
@@ -72,6 +74,7 @@ class EstablecimientoController extends Controller {
          $this->servicios_salud = ServicioSalud::all();
          $this->dependencias = Dependencia::all();
          $this->organismos = Organismo::all();
+         $this->tipos_organismos = TipoOrganismo::all();
          $this->regiones = Region::all();
          $this->comunas = Comuna::all();
 
@@ -84,6 +87,7 @@ class EstablecimientoController extends Controller {
             'servicios_salud' => $this->servicios_salud,
             'dependencias' => $this->dependencias,
             'organismos' => $this->organismos,
+            'tipos_organismos' => $this->tipos_organismos,
             'regiones' => $this->regiones,
             'comunas' => $this->comunas,
             'usuario_auth' => $this->usuario_auth,
@@ -135,7 +139,7 @@ class EstablecimientoController extends Controller {
    public function store(Request $request) {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
-         'id_establecimiento' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
+         'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|unique:$this->nombre_tabla|max:255",
          'nom_establecimiento' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'observaciones' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
@@ -205,7 +209,7 @@ class EstablecimientoController extends Controller {
    public function update(Request $request, $id) {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
-         'id_establecimiento' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
+         'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|unique:$this->nombre_tabla|max:255",
          'nom_establecimiento' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'observaciones' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",

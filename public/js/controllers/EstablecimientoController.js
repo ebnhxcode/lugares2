@@ -4632,6 +4632,7 @@ var EstablecimientoController = new Vue({
          'servicios_salud': [],
          'dependencias': [],
          'organismos': [],
+         'tipos_organismos': [],
          'regiones': [],
          'comunas': [],
          'datos_excel': [],
@@ -4842,6 +4843,7 @@ var EstablecimientoController = new Vue({
          this.servicios_salud = response.body.servicios_salud || null;
          this.dependencias = response.body.dependencias || null;
          this.organismos = response.body.organismos || null;
+         this.tipos_organismos = response.body.tipos_organismos || null;
          this.regiones = response.body.regiones || null;
          this.comunas = response.body.comunas || null;
 
