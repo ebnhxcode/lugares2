@@ -10,7 +10,7 @@ class Region extends Model {
    use SoftDeletes;
    protected $dates = ['deleted_at'];
 
-   protected $table="region";
+   protected $table="regiones";
    protected $primaryKey="id_region";
    protected $fillable=[
       'nom_region',
