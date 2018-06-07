@@ -2,20 +2,20 @@
 <div class="row">
    <div class="col-sm-4 col-md-4">
 
-      <dt>Nombre datacentro</dt>
+      <dt>Nombre tipo profesional</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <input type="text" v-model="datacentro.nom_datacentro" name="nom_datacentro"
+            <input type="text" v-model="tipo_profesional.nom_tipo_profesional" name="nom_tipo_profesional"
                    v-validate="{required:true,regex:/^[a-zA-Z0-9_ ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
-               <i v-show="errors.has('nom_datacentro')" class="fa fa-exclamation-circle"></i>
+               <i v-show="errors.has('nom_tipo_profesional')" class="fa fa-exclamation-circle"></i>
             </transition>
 
             <transition name="bounce">
-               <span v-show="errors.has('nom_datacentro')" class="text-danger small">
-                  @{{ errors.first('nom_datacentro') }}
+               <span v-show="errors.has('nom_tipo_profesional')" class="text-danger small">
+                  @{{ errors.first('nom_tipo_profesional') }}
                </span>
             </transition>
          </p>
@@ -26,45 +26,21 @@
 
    <div class="col-sm-4 col-md-4">
 
-      <dt>Codigo datacentro</dt>
+      <dt>Detalle tipo profesional</dt>
       <dd>
 
          <p class="control has-icon has-icon-right">
-            <input type="text" v-model="datacentro.cod_datacentro" name="cod_datacentro"
-                   v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&]+$/i}" data-vv-delay="500"
-                   class="form-control" />
-
-            <transition name="bounce">
-               <i v-show="errors.has('cod_datacentro')" class="fa fa-exclamation-circle"></i>
-            </transition>
-
-            <transition name="bounce">
-               <span v-show="errors.has('cod_datacentro')" class="text-danger small">
-                  @{{ errors.first('cod_datacentro') }}
-               </span>
-            </transition>
-         </p>
-      </dd>
-
-   </div><!-- .col -->
-
-   <div class="col-sm-4 col-md-4">
-
-      <dt>Detalle datacentro</dt>
-      <dd>
-
-         <p class="control has-icon has-icon-right">
-            <textarea cols="15" rows="1" v-model="datacentro.det_datacentro" name="det_datacentro"
+            <textarea cols="15" rows="1" v-model="tipo_profesional.det_tipo_profesional" name="det_tipo_profesional"
                       v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&]+$/i}" data-vv-delay="500"
                       class="form-control"></textarea>
 
             <transition name="bounce">
-               <i v-show="errors.has('det_datacentro')" class="fa fa-exclamation-circle"></i>
+               <i v-show="errors.has('det_tipo_profesional')" class="fa fa-exclamation-circle"></i>
             </transition>
 
             <transition name="bounce">
-               <span v-show="errors.has('det_datacentro')" class="text-danger small">
-                  @{{ errors.first('det_datacentro') }}
+               <span v-show="errors.has('det_tipo_profesional')" class="text-danger small">
+                  @{{ errors.first('det_tipo_profesional') }}
                </span>
             </transition>
          </p>

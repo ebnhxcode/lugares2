@@ -20,19 +20,19 @@ class TipoProfesionalController extends Controller {
    private $nombre_controller;
 
    private $tipos_profesionales;
-   private $tipo_organismo;
-   private $new_tipo_organismo;
+   private $tipo_profesional;
+   private $new_tipo_profesional;
    private $validacion;
    private $per_page;
 
    public function __construct () {
       $this->middleware('auth');
       $this->middleware('mantenedor');#resrtinge a solo usuarios con permiso bajo -> D
-      $this->nombre_modelo = "tipo_organismo"; //nombre tabla o de ruta
+      $this->nombre_modelo = "tipo_profesional"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "tipos_profesionales";
-      $this->nombre_detalle = "Tipo Organismos";
-      $this->nombre_detalle_singular = "Tipo Organismo";
-      $this->nombre_controller = "TipoOrganismoController";
+      $this->nombre_detalle = "Tipos Profesionales";
+      $this->nombre_detalle_singular = "Tipo Profesional";
+      $this->nombre_controller = "TipoProfesionalController";
    }
 
    private function es_vacio ($variable) {
@@ -72,7 +72,7 @@ class TipoProfesionalController extends Controller {
       if ($request->wantsJson() && $request->ajax() && $request->isXmlHttpRequest()) {
          $this->validar_paginacion($request);
 
-         $this->tipos_profesionales = TipoOrganismo::paginate((int)$this->per_page);
+         $this->tipos_profesionales = TipoProfesional::paginate((int)$this->per_page);
          $this->usuario_auth = Auth::user();
          return response()->json([
             'status' => 200,
@@ -103,15 +103,15 @@ class TipoProfesionalController extends Controller {
          ]);
       }
 
-      $this->tipo_organismo = TipoOrganismo::where("id_$this->nombre_modelo",'=',$id)->first();
+      $this->tipo_profesional = TipoProfesional::where("id_$this->nombre_modelo",'=',$id)->first();
 
 
-      if ($this->tipo_organismo) {
+      if ($this->tipo_profesional) {
          return response()->json([
             'status' => 200, //Para los popups con alertas de sweet alert
             'tipo' => 'eliminacion_exitosa', //Para las notificaciones
             'mensajes' => ["new_$this->nombre_modelo" => [0=>"Registro encontrado exitosamente."]],
-            'tipo_organismo' => $this->tipo_organismo,
+            'tipo_profesional' => $this->tipo_profesional,
             //Para mostrar los mensajes que van desde el backend
          ]);
       }else{
@@ -127,8 +127,8 @@ class TipoProfesionalController extends Controller {
    public function store(Request $request) {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
-         'nom_tipo_organismo' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
-         'det_tipo_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'nom_tipo_profesional' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
+         'det_tipo_profesional' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -139,34 +139,34 @@ class TipoProfesionalController extends Controller {
          ]);
       }
       #Como pasó todas las validaciones, se asigna al objeto
-      $this->tipo_organismo = $request->all();
+      $this->tipo_profesional = $request->all();
       #Se crea el nuevo registro
-      $this->new_tipo_organismo = TipoOrganismo::create([
-         'nom_tipo_organismo' => $this->tipo_organismo['nom_tipo_organismo'],
-         'det_tipo_organismo' => $this->tipo_organismo['det_tipo_organismo'],
+      $this->new_tipo_profesional = TipoProfesional::create([
+         'nom_tipo_profesional' => $this->tipo_profesional['nom_tipo_profesional'],
+         'det_tipo_profesional' => $this->tipo_profesional['det_tipo_profesional'],
          'id_usuario_registra' => Auth::user()->id_usuario,
          'id_usuario_modifica' => Auth::user()->id_usuario,
       ]);
 
-      unset($this->tipo_organismo, $this->validacion);
+      unset($this->tipo_profesional, $this->validacion);
 
       return response()->json([
          'status' => 200, //Para los popups con alertas de sweet alert
          'tipo' => 'creacion_exitosa', //Para las notificaciones
          'mensajes' => ["new_$this->nombre_modelo" => [0=>"Registro ($this->nombre_modelo) creado exitosamente."]],
          //Para mostrar los mensajes que van desde el backend
-         'tipo_organismo' => $this->new_tipo_organismo
+         'tipo_profesional' => $this->new_tipo_profesional
       ]);
    }
 
    public function update(Request $request, $id) {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
-         'id_tipo_organismo' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
-         'nom_tipo_organismo' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
-         'det_tipo_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'id_tipo_profesional' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
+         'nom_tipo_profesional' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
+         'det_tipo_profesional' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
       ]);
-      #Valida si la informacion que se envia para editar al tipo_organismo son iguales los ids
+      #Valida si la informacion que se envia para editar al tipo_profesional son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {
          return response()->json([
             'status' => 200, //Para los popups con alertas de sweet alert
@@ -182,22 +182,22 @@ class TipoProfesionalController extends Controller {
             'mensajes' => $this->validacion->messages(), //Para mostrar los mensajes que van desde el backend
          ]);
       }
-      $this->tipo_organismo = TipoOrganismo::find($request["id_$this->nombre_modelo"]);
+      $this->tipo_profesional = TipoProfesional::find($request["id_$this->nombre_modelo"]);
       $request['id_usuario_modifica'] = Auth::user()->id_usuario;
-      $this->tipo_organismo->update($request->all());
+      $this->tipo_profesional->update($request->all());
 
-      #unset($this->new_tipo_organismo_permiso, $this->permiso);
+      #unset($this->new_tipo_profesional_permiso, $this->permiso);
       return response()->json([
          'status' => 200, //Para los popups con alertas de sweet alert
          'tipo' => 'actualizacion_exitosa', //Para las notificaciones
          'mensajes' => ["new_$this->nombre_modelo" => [0=>"Registro actualizado exitosamente."]],
          //Para mostrar los mensajes que van desde el backend
-         'tipo_organismo' => $this->tipo_organismo,
+         'tipo_profesional' => $this->tipo_profesional,
       ]);
    }
 
    public function destroy($id) {
-      #Valida si la informacion que se envia para editar al tipo_organismo son iguales los ids
+      #Valida si la informacion que se envia para editar al tipo_profesional son iguales los ids
       if ($this->es_vacio($id) == true || preg_match("/^[0-9]*$/",$id) == 0) {
          return response()->json([
             'status' => 200, //Para los popups con alertas de sweet alert
@@ -206,11 +206,11 @@ class TipoProfesionalController extends Controller {
          ]);
       }
 
-      $this->tipo_organismo = TipoOrganismo::find($id);
+      $this->tipo_profesional = TipoProfesional::find($id);
 
-      #Valida si tipo_organismo existe y busca si tiene tipo_organismo_permiso
-      if ($this->tipo_organismo) {
-         $this->tipo_organismo->delete();
+      #Valida si tipo_profesional existe y busca si tiene tipo_profesional_permiso
+      if ($this->tipo_profesional) {
+         $this->tipo_profesional->delete();
       }
 
       return response()->json([
