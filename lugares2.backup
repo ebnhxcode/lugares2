@@ -5,7 +5,7 @@
 -- Dumped from database version 10.4
 -- Dumped by pg_dump version 10.3
 
--- Started on 2018-06-05 11:55:38 -04
+-- Started on 2018-06-06 21:16:48 -04
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -6190,6 +6190,8 @@ COPY public.mantenedores (id_mantenedor, url_mantenedor, nom_mantenedor, det_man
 22	vlans	Vlan	Vlan, es un metodo para crear redes logicas independientes dentro de una misma red fisica	vlan001	4	4	2018-04-09 13:24:19	2018-05-28 08:20:01	2018-05-28 08:20:01	0	0
 10	aplicaciones	Aplicaciones	Mantenedor para administrar aplicaciones, ver, crear, editar y eliminar, asociar a un servidor en especifico o realizar una bitacora especifica sobre una aplicacion en un servicio	aplicaciones01	4	4	2018-03-28 20:12:23	2018-05-28 08:20:04	2018-05-28 08:20:04	\N	\N
 21	usuarios_bitacora_servicios	Bitacora Servicios	Bitacoras de servicios que detallan la actividad realizada sobre una aplicacion o servicio especifico	bitacora001	4	4	2018-03-30 19:38:44	2018-05-28 08:20:09	2018-05-28 08:20:09	0	0
+25	establecimientos	Establecimientos	Establecimientos	establecimientos001	9	9	2018-06-06 22:00:21	2018-06-06 22:00:21	\N	0	0
+26	tipos_establecimientos	Tipos Establecimientos	Tipos Establecimientos	tipos_establecimientos001	9	9	2018-06-06 22:00:50	2018-06-06 22:00:50	\N	0	0
 \.
 
 
@@ -6958,6 +6960,8 @@ COPY public.telefonos (id_telefono, id_tipo_telefono, num_telefono, det_telefono
 --
 
 COPY public.tipos_establecimientos (id_tipo_establecimiento, id_establecimiento, id_usuario_registra, id_usuario_modifica, created_at, updated_at, deleted_at, nom_tipo_establecimiento, det_tipo_establecimiento) FROM stdin;
+1	\N	9	9	2018-06-06 22:36:45	2018-06-06 22:36:47	2018-06-06 22:36:47	asd	asd
+2	\N	9	9	2018-06-06 22:39:13	2018-06-06 22:39:53	\N	test de prueba	test prueba
 \.
 
 
@@ -7021,7 +7025,7 @@ COPY public.usuarios (id_usuario, nom_usuario, nom_completo, ape_paterno, ape_ma
 24	Gustavo	Gustavo Osorio	Osorio	null	gosorio	gustavo.osorio@minsal.cl	$2y$10$D8u5ZRC6lTcfYlMNmCBhS.sLEWvwjAWJM3WHfHq9fc6yb3hmWPgcC	\N	\N	\N	2018-03-13 21:05:02	2018-04-23 12:40:15	\N
 30	Pruebas	0	Pruebas	Pruebas	pruebas001	pruebas@minsal.cl	$2y$10$HV71pvrdFhHypg32MCYtCuyk3S7EKJUpMkB4SjuM00Kp6mYlMstIy	x3ZaqrRi9p8Id9bZcPFDdjDMWkDqlH2mEvAK4svJ1RdYFrnqj9bHUZk0gHLe	\N	\N	2018-04-23 20:01:26	2018-04-23 20:01:26	\N
 1	Esteban	\N	Ramos	\N	eramosf	esteban.ramos@minsal.cl	$2y$10$xgxgVXFtlUWmsrNLTrfmQeuo2Baz.BeFOP1vSQyvDVvMwM3NMaa6m	FnsnrNfM5dor7mah9fzH5IqCpJKFTHZq3xpeA7i6bR3cBbmvqukL6eUGkbmK	\N	\N	2018-02-19 18:08:14	2018-04-16 18:31:23	\N
-9	Victoria	Victoria Garrido	Garrido	null	vgarrido	vgarrido@minsal.cl	$2y$10$g4CCua8zly7prBJGHrV3vu7n11X6V1x80CuVqGyjCZ2cPxn5meMbi	VESRVAcOQcTPh80kNpobEWo4nTwVz4QFYnl51fWC30E48mItwKdFVzNnWr6I	\N	\N	2018-03-13 19:13:40	2018-04-23 12:39:53	\N
+9	Victoria	Victoria Garrido	Garrido	null	vgarrido	vgarrido@minsal.cl	$2y$10$g4CCua8zly7prBJGHrV3vu7n11X6V1x80CuVqGyjCZ2cPxn5meMbi	MRavmH3gbfz9lUrJ5EAYTqX4HrnnGI0Sw6gs5xdSbdbI2PdsaTl1JciBrlQ6	\N	\N	2018-03-13 19:13:40	2018-04-23 12:39:53	\N
 \.
 
 
@@ -7348,7 +7352,7 @@ SELECT pg_catalog.setval('public.log_navegacion_id_seq', 1, false);
 -- Name: mantenedores_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.mantenedores_id_seq', 24, true);
+SELECT pg_catalog.setval('public.mantenedores_id_seq', 26, true);
 
 
 --
@@ -7573,7 +7577,7 @@ SELECT pg_catalog.setval('public.tipos_clusters_id_seq', 2, true);
 -- Name: tipos_establecimientos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.tipos_establecimientos_id_seq', 1, false);
+SELECT pg_catalog.setval('public.tipos_establecimientos_id_seq', 2, true);
 
 
 --
@@ -7845,7 +7849,7 @@ ALTER TABLE ONLY public.usuarios_roles
 CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
 
 
--- Completed on 2018-06-05 11:55:38 -04
+-- Completed on 2018-06-06 21:16:49 -04
 
 --
 -- PostgreSQL database dump complete
