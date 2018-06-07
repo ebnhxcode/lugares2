@@ -13,7 +13,7 @@
    <!-- Styles -->
    <!-- Material Design for Bootstrap, fonts, sidebar, custom class and icons -->
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-   <link rel="stylesheet" href="{{url('/css/app.css')}}">
+   <link rel="stylesheet" href="{{url('/css/other_libs/bootstrap-material-design.min.css')}}">
    <link rel="stylesheet" href="{{url('/css/other_libs/font-awesome470.min.css')}}">
    <link href="{{url('/css/simple-sidebar.css')}}" rel="stylesheet">
    <!-- Custom styles for this template -->
