@@ -10,9 +10,10 @@ class Comuna extends Model {
    use SoftDeletes;
    protected $dates = ['deleted_at'];
 
-   protected $table="comuna";
+   protected $table="comunas";
    protected $primaryKey="id_comuna";
    protected $fillable=[
+      'id_comuna',
       'nom_comuna',
       'det_comuna',
       'alias',

@@ -2278,6 +2278,8 @@ var ComunaController = new Vue({
 
          'filtro_head': null,
          'comuna': {
+
+            'id_comuna': null,
             'nom_comuna': null,
             'det_comuna': null,
             'alias': null,
@@ -2292,7 +2294,7 @@ var ComunaController = new Vue({
             'updated_at': null,
             'deleted_at': null
          },
-         'permitido_guardar': ['nom_comuna', 'det_comuna', 'alias', 'orden', 'id_region'],
+         'permitido_guardar': ['id_comuna', 'nom_comuna', 'det_comuna', 'alias', 'orden', 'id_region'],
          'relaciones_clase': [{ 'region': ['id_region', 'nom_region'] }],
          'lom': {},
          'lista_objs_model': [],
@@ -2338,8 +2340,8 @@ var ComunaController = new Vue({
             'id_comuna': 'Id comuna',
             'nom_comuna': 'Nombre comuna',
             'det_comuna': 'Detalle comuna',
-            'alias': 'Codigo comuna',
-            'orden': 'Codigo comuna',
+            'alias': 'Alias comuna',
+            'orden': 'Orden comuna',
 
             'id_region': 'Id Region',
             'nom_region': 'Nombre Region',

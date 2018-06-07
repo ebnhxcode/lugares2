@@ -28,6 +28,8 @@ const ComunaController = new Vue({
 
          'filtro_head':null,
          'comuna':{
+
+            'id_comuna':null,
             'nom_comuna':null,
             'det_comuna':null,
             'alias':null,
@@ -43,6 +45,7 @@ const ComunaController = new Vue({
             'deleted_at':null,
          },
          'permitido_guardar':[
+            'id_comuna',
             'nom_comuna',
             'det_comuna',
             'alias',
@@ -96,8 +99,8 @@ const ComunaController = new Vue({
             'id_comuna':'Id comuna',
             'nom_comuna':'Nombre comuna',
             'det_comuna':'Detalle comuna',
-            'alias':'Codigo comuna',
-            'orden':'Codigo comuna',
+            'alias':'Alias comuna',
+            'orden':'Orden comuna',
 
             'id_region':'Id Region',
             'nom_region':'Nombre Region',
