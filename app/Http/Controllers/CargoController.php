@@ -107,8 +107,8 @@ class CargoController extends Controller {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
          'nom_cargo' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
-         'det_cargo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:255",
-         'cod_cargo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'det_cargo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'cod_cargo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -145,8 +145,8 @@ class CargoController extends Controller {
       $this->validacion = Validator::make($request->all(), [
          'id_cargo' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
          'nom_cargo' => "regex:/(^([a-zA-Z0-9_ ]+)(\d+)?$)/u|required|max:255",
-         'det_cargo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|required|max:255",
-         'cod_cargo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         'det_cargo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'cod_cargo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
       ]);
       #Valida si la informacion que se envia para editar al cargo son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {
