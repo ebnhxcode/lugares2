@@ -112,7 +112,7 @@ class TelefonoController extends Controller {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
          'num_telefono' => "regex:/(^([0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
-         'det_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'det_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'cod_area' => "regex:/(^([0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'id_tipo_telefono' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
       ]);
@@ -152,7 +152,7 @@ class TelefonoController extends Controller {
       $this->validacion = Validator::make($request->all(), [
          'id_telefono' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
          'num_telefono' => "regex:/(^([0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
-         'det_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'det_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'cod_area' => "regex:/(^([0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'id_tipo_telefono' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
       ]);

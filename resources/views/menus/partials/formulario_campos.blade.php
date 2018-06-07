@@ -81,7 +81,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="menu.cod_menu" name="cod_menu"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
+                   v-validate="{regex:/^[a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">
@@ -105,7 +105,7 @@
 
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="menu.imagen_menu" name="imagen_menu"
-                   v-validate="{required:true,regex:/^[a-zA-Z0-9_ /.áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
+                   v-validate="{regex:/^[a-zA-Z0-9_ /.áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control" />
 
             <transition name="bounce">

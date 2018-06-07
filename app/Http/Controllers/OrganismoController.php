@@ -112,7 +112,7 @@ class OrganismoController extends Controller {
       $this->validacion = Validator::make($request->all(), [
          'nom_organismo' => "regex:/(^([a-zA-Z0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'det_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
-         'cod_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'cod_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'id_tipo_organismo' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
@@ -152,7 +152,7 @@ class OrganismoController extends Controller {
          'id_organismo' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
          'nom_organismo' => "regex:/(^([a-zA-Z0-9_ -áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'det_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
-         'cod_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'cod_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'id_tipo_organismo' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
       ]);
       #Valida si la informacion que se envia para editar al organismo son iguales los ids

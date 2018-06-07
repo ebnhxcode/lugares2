@@ -31,7 +31,7 @@
 
          <p class="control has-icon has-icon-right">
             <textarea cols="15" rows="1" v-model="profesional.det_profesional" name="det_profesional"
-                      v-validate="{required:true,regex:/^[a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
+                      v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                       class="form-control"></textarea>
 
             <transition name="bounce">
@@ -58,7 +58,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <select class="form-control" v-model="profesional.id_tipo_profesional" name="id_tipo_profesional"
-                    v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
+                    v-validate="{regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="tp.id_tipo_profesional" v-for="tp in tipos_profesionales">
                   @{{ `${tp.nom_tipo_profesional} -> ${tp.det_tipo_profesional}` }}
                </option>
