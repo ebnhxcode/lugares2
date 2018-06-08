@@ -32,9 +32,11 @@ const EstablecimientoController = new Vue({
             'tipo_establecimiento':null,
             'observaciones':null,
             'nom_direccion':null,
+            'num_calle':null,
             'nom_responsable':null,
             'sitio_web':null,
             'email':null,
+            'cod_area_fax':null,
             'fax':null,
             'vigencia_desde':null,
             'fecha_cierre':null,
@@ -60,14 +62,22 @@ const EstablecimientoController = new Vue({
             'updated_at':null,
             'deleted_at':null,
          },
+         'telefono':{
+            'num_telefono':null,
+            'id_tipo_telefono':null,
+            'cod_area':null,
+         },
+         
          'permitido_guardar':[
             'nom_establecimiento',
             'tipo_establecimiento',
             'observaciones',
             'nom_direccion',
+            'num_calle',
             'nom_responsable',
             'sitio_web',
             'email',
+            'cod_area_fax',
             'fax',
             'vigencia_desde',
             'fecha_cierre',
@@ -92,6 +102,7 @@ const EstablecimientoController = new Vue({
          'lista_objs_model':[],
          'establecimientos':[],
          'tipos_establecimientos':[],
+         'tipos_telefonos':[],
          'servicios_salud':[],
          'dependencias':[],
          'organismos':[],
@@ -125,23 +136,25 @@ const EstablecimientoController = new Vue({
             'nom_establecimiento':true,
             'tipo_establecimiento':false,
             //'observaciones':false,
-            //'nom_direccion':false,
-            //'nom_responsable':false,
+            'nom_direccion':false,
+            'num_calle':false,
+            'nom_responsable':false,
             //'sitio_web':false,
             //'email':false,
+            //'cod_area_fax':false,
             //'fax':false,
             //'vigencia_desde':false,
             //'fecha_cierre':false,
             'id_establecimiento_antiguo':false,
 
             //'id_tipo_establecimiento':false,
-            //'nom_tipo_establecimiento':false,
+            'nom_tipo_establecimiento':false,
             //'id_servicio_salud':false,
-            //'nom_servicio_salud':false,
+            'nom_servicio_salud':false,
             //'id_dependencia':false,
-            //'nom_dependencia':false,
+            'nom_dependencia':false,
             //'id_organismo':false,
-            //'nom_organismo':false,
+            'nom_organismo':false,
             //'id_region':false,
             'nom_region':false,
             //'id_comuna':false,
@@ -159,9 +172,11 @@ const EstablecimientoController = new Vue({
             'tipo_establecimiento':'Tipo establecimiento',
             'observaciones':'Observaciones',
             'nom_direccion':'Nombre direccion',
+            'num_calle':'Numero calle',
             'nom_responsable':'Nombre responsable',
             'sitio_web':'Sitio web',
             'email':'Email',
+            'cod_area_fax':'Codigo area Fax',
             'fax':'Fax',
             'vigencia_desde':'Vigencia desde',
             'fecha_cierre':'Fecha cierre',
@@ -195,8 +210,10 @@ const EstablecimientoController = new Vue({
             'observaciones':'String',
             'nom_direccion':'String',
             'nom_responsable':'String',
+            'num_calle':'String',
             'sitio_web':'String',
             'email':'String',
+            'cod_area_fax':'String',
             'fax':'String',
             'vigencia_desde':'String',
             'fecha_cierre':'String',
@@ -248,8 +265,10 @@ const EstablecimientoController = new Vue({
                'observaciones': establecimiento.observaciones || '-',
                'nom_direccion': establecimiento.nom_direccion || '-',
                'nom_responsable': establecimiento.nom_responsable || '-',
+               'num_calle': establecimiento.num_calle || '-',
                'sitio_web': establecimiento.sitio_web || '-',
                'email': establecimiento.email || '-',
+               'cod_area_fax': establecimiento.cod_area_fax || '-',
                'fax': establecimiento.fax || '-',
                'vigencia_desde': establecimiento.vigencia_desde || '-',
                'fecha_cierre': establecimiento.fecha_cierre || '-',
@@ -299,6 +318,7 @@ const EstablecimientoController = new Vue({
 
          /* Datos de las relaciones con la entidad */
          this.tipos_establecimientos = response.body.tipos_establecimientos || null;
+         this.tipos_telefonos = response.body.tipos_telefonos || null;
          this.servicios_salud = response.body.servicios_salud || null;
          this.dependencias = response.body.dependencias || null;
          this.organismos = response.body.organismos || null;
@@ -308,6 +328,10 @@ const EstablecimientoController = new Vue({
 
          /* Datos de la sesion actual del usuario */
          this.usuario_auth = response.body.usuario_auth || null;
+      },
+
+      guardar_telefono: function () {
+
       },
 
 

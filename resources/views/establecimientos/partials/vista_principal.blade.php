@@ -12,7 +12,7 @@
 
             <dl class="row" v-if="establecimiento">
 
-               <dd class="col-md-12">@{{ establecimiento.nom_establecimiento || '' }}</dd>
+               <dd class="col-md-12">@{{ establecimiento.tipo_establecimiento || '' }}</dd>
 
             </dl>
 

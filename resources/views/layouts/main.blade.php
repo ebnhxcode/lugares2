@@ -175,9 +175,14 @@
                      <option :value="1500">1500</option>
                      <option :value="1750">1750</option>
                      <option :value="2000">2000</option>
+                     <option :value="3000">3000</option>
+                     <option :value="4000">4000</option>
+                     <option :value="5000">5000</option>
                   </select>
 
                </div>
+
+               {{--@if(in_array(Request::path(), ['establecimientos','comunas']))@endif--}}
 
                <!-- Componente paginador -->
                <div class="float-right" style="padding-left: 15px;">

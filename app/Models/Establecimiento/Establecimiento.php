@@ -20,9 +20,11 @@ class Establecimiento extends Model {
       'tipo_establecimiento', #este era un dato anterior, ahora se definio tabla de tipos
       'observaciones',
       'nom_direccion',
+      'num_calle',
       'nom_responsable',
       'sitio_web',
       'email',
+      'cod_area_fax',
       'fax',
       'vigencia_desde',
       'fecha_cierre',

@@ -8,6 +8,7 @@ use App\Organismo;
 use App\Region;
 use App\ServicioSalud;
 use App\TipoOrganismo;
+use App\TipoTelefono;
 use Illuminate\Http\Request;
 use App\Establecimiento;
 use App\TipoEstablecimiento;
@@ -25,6 +26,7 @@ class EstablecimientoController extends Controller {
 
    private $establecimientos;
    private $tipos_establecimientos;
+   private $tipos_telefonos;
    private $servicios_salud;
    private $dependencias;
    private $organismos;
@@ -71,6 +73,7 @@ class EstablecimientoController extends Controller {
          $this->validar_paginacion($request);
          $this->establecimientos = Establecimiento::paginate((int)$this->per_page);
          $this->tipos_establecimientos = TipoEstablecimiento::all();
+         $this->tipos_telefonos = TipoTelefono::all();
          $this->servicios_salud = ServicioSalud::all();
          $this->dependencias = Dependencia::all();
          $this->organismos = Organismo::all();
@@ -84,6 +87,7 @@ class EstablecimientoController extends Controller {
             'status' => 200,
             'establecimientos' => $this->establecimientos,
             'tipos_establecimientos' => $this->tipos_establecimientos,
+            'tipos_telefonos' => $this->tipos_telefonos,
             'servicios_salud' => $this->servicios_salud,
             'dependencias' => $this->dependencias,
             'organismos' => $this->organismos,
@@ -144,9 +148,11 @@ class EstablecimientoController extends Controller {
          'tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'observaciones' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_direccion' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'num_calle' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_responsable' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'sitio_web' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'email' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'cod_area_fax' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'fax' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'vigencia_desde' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'fecha_cierre' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
@@ -176,9 +182,11 @@ class EstablecimientoController extends Controller {
          'tipo_establecimiento' => $this->establecimiento['tipo_establecimiento'],
          'observaciones' => $this->establecimiento['observaciones'],
          'nom_direccion' => $this->establecimiento['nom_direccion'],
+         'num_calle' => $this->establecimiento['num_calle'],
          'nom_responsable' => $this->establecimiento['nom_responsable'],
          'sitio_web' => $this->establecimiento['sitio_web'],
          'email' => $this->establecimiento['email'],
+         'cod_area_fax' => $this->establecimiento['cod_area_fax'],
          'fax' => $this->establecimiento['fax'],
          'vigencia_desde' => $this->establecimiento['vigencia_desde'],
          'fecha_cierre' => $this->establecimiento['fecha_cierre'],
@@ -215,8 +223,10 @@ class EstablecimientoController extends Controller {
          'observaciones' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_direccion' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_responsable' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'num_calle' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'sitio_web' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'email' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'cod_area_fax' => "regex:/(^([0-9]+)(\d+)?$)/u|max:255",
          'fax' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'vigencia_desde' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'fecha_cierre' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
