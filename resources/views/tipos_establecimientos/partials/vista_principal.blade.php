@@ -1,8 +1,5 @@
 <div class="row">
-   <div class="col-sm-10 col-md-10">
-      dsad
-   </div>
-   <div class="col-sm-2 col-md-2">
+   <div class="col-sm-4 col-md-4">
 
       <!-- este bloque será reemplazado dinamicamente -->
       <div class="card pro" style="{{--width: 18rem;--}}">

@@ -71,7 +71,7 @@ class EstablecimientoController extends Controller {
    public function index_ajax (Request $request) {
       if ($request->wantsJson() && $request->ajax() && $request->isXmlHttpRequest()) {
          $this->validar_paginacion($request);
-         $this->establecimientos = Establecimiento::paginate((int)$this->per_page);
+         $this->establecimientos = Establecimiento::with(['tipo_establecimiento'])->paginate((int)$this->per_page);
          $this->tipos_establecimientos = TipoEstablecimiento::all();
          $this->tipos_telefonos = TipoTelefono::all();
          $this->servicios_salud = ServicioSalud::all();
@@ -145,7 +145,6 @@ class EstablecimientoController extends Controller {
       $this->validacion = Validator::make($request->all(), [
          'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|unique:$this->nombre_tabla|max:255",
          'nom_establecimiento' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
-         'tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'observaciones' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_direccion' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'num_calle' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
@@ -179,7 +178,6 @@ class EstablecimientoController extends Controller {
       $this->new_establecimiento = Establecimiento::create([
          'id_establecimiento' => $this->establecimiento['id_establecimiento'],
          'nom_establecimiento' => $this->establecimiento['nom_establecimiento'],
-         'tipo_establecimiento' => $this->establecimiento['tipo_establecimiento'],
          'observaciones' => $this->establecimiento['observaciones'],
          'nom_direccion' => $this->establecimiento['nom_direccion'],
          'num_calle' => $this->establecimiento['num_calle'],
@@ -219,7 +217,6 @@ class EstablecimientoController extends Controller {
       $this->validacion = Validator::make($request->all(), [
          'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|unique:$this->nombre_tabla|max:255",
          'nom_establecimiento' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
-         'tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'observaciones' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_direccion' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_responsable' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",

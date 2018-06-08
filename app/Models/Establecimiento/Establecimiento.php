@@ -17,7 +17,6 @@ class Establecimiento extends Model {
 
       # columns
       'nom_establecimiento',
-      'tipo_establecimiento', #este era un dato anterior, ahora se definio tabla de tipos
       'observaciones',
       'nom_direccion',
       'num_calle',

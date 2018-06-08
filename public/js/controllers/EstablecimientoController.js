@@ -4592,7 +4592,6 @@ var EstablecimientoController = new Vue({
          'filtro_head': null,
          'establecimiento': {
             'nom_establecimiento': null,
-            'tipo_establecimiento': null,
             'observaciones': null,
             'nom_direccion': null,
             'num_calle': null,
@@ -4631,8 +4630,8 @@ var EstablecimientoController = new Vue({
             'cod_area': null
          },
 
-         'permitido_guardar': ['nom_establecimiento', 'tipo_establecimiento', 'observaciones', 'nom_direccion', 'num_calle', 'nom_responsable', 'sitio_web', 'email', 'cod_area_fax', 'fax', 'vigencia_desde', 'fecha_cierre', 'id_establecimiento_antiguo', 'id_tipo_establecimiento', 'id_servicio_salud', 'id_dependencia', 'id_organismo', 'id_region', 'id_comuna'],
-         'relaciones_clase': [{ 'id_tipo_establecimiento': ['id_tipo_establecimiento', 'nom_tipo_establecimiento'] }, { 'id_servicio_salud': ['id_servicio_salud', 'nom_servicio_salud'] }, { 'id_dependencia': ['id_dependencia', 'nom_dependencia'] }, { 'id_organismo': ['id_organismo', 'nom_organismo'] }, { 'id_region': ['id_region', 'nom_region'] }, { 'id_comuna': ['id_comuna', 'nom_comuna'] }],
+         'permitido_guardar': ['nom_establecimiento', 'observaciones', 'nom_direccion', 'num_calle', 'nom_responsable', 'sitio_web', 'email', 'cod_area_fax', 'fax', 'vigencia_desde', 'fecha_cierre', 'id_establecimiento_antiguo', 'id_tipo_establecimiento', 'id_servicio_salud', 'id_dependencia', 'id_organismo', 'id_region', 'id_comuna'],
+         'relaciones_clase': [{ 'tipo_establecimiento': ['id_tipo_establecimiento', 'nom_tipo_establecimiento'] }, { 'servicio_salud': ['id_servicio_salud', 'nom_servicio_salud'] }, { 'dependencia': ['id_dependencia', 'nom_dependencia'] }, { 'organismo': ['id_organismo', 'nom_organismo'] }, { 'region': ['id_region', 'nom_region'] }, { 'comuna': ['id_comuna', 'nom_comuna'] }],
          'lom': {},
          'lista_objs_model': [],
          'establecimientos': [],
@@ -4669,7 +4668,6 @@ var EstablecimientoController = new Vue({
          'tabla_campos': {
             'id_establecimiento': false,
             'nom_establecimiento': true,
-            'tipo_establecimiento': false,
             //'observaciones':false,
             'nom_direccion': false,
             'num_calle': false,
@@ -4682,7 +4680,7 @@ var EstablecimientoController = new Vue({
             //'fecha_cierre':false,
             'id_establecimiento_antiguo': false,
 
-            //'id_tipo_establecimiento':false,
+            'id_tipo_establecimiento': false,
             'nom_tipo_establecimiento': false,
             //'id_servicio_salud':false,
             'nom_servicio_salud': false,
@@ -4704,7 +4702,6 @@ var EstablecimientoController = new Vue({
          'tabla_labels': {
             'id_establecimiento': 'Codigo establecimiento',
             'nom_establecimiento': 'Nombre establecimiento',
-            'tipo_establecimiento': 'Tipo establecimiento',
             'observaciones': 'Observaciones',
             'nom_direccion': 'Nombre direccion',
             'num_calle': 'Numero calle',
@@ -4741,7 +4738,6 @@ var EstablecimientoController = new Vue({
          'excel_json_campos': {
             'id_establecimiento': 'String',
             'nom_establecimiento': 'String',
-            'tipo_establecimiento': 'String',
             'observaciones': 'String',
             'nom_direccion': 'String',
             'nom_responsable': 'String',
@@ -4800,7 +4796,6 @@ var EstablecimientoController = new Vue({
             return self.excel_json_datos.push({
                'id_establecimiento': establecimiento.id_establecimiento || '-',
                'nom_establecimiento': establecimiento.nom_establecimiento || '-',
-               'tipo_establecimiento': establecimiento.tipo_establecimiento || '-',
                'observaciones': establecimiento.observaciones || '-',
                'nom_direccion': establecimiento.nom_direccion || '-',
                'nom_responsable': establecimiento.nom_responsable || '-',

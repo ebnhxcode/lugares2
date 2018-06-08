@@ -29,7 +29,6 @@ const EstablecimientoController = new Vue({
          'filtro_head':null,
          'establecimiento':{
             'nom_establecimiento':null,
-            'tipo_establecimiento':null,
             'observaciones':null,
             'nom_direccion':null,
             'num_calle':null,
@@ -67,10 +66,9 @@ const EstablecimientoController = new Vue({
             'id_tipo_telefono':null,
             'cod_area':null,
          },
-         
+
          'permitido_guardar':[
             'nom_establecimiento',
-            'tipo_establecimiento',
             'observaciones',
             'nom_direccion',
             'num_calle',
@@ -91,12 +89,12 @@ const EstablecimientoController = new Vue({
             'id_comuna',
          ],
          'relaciones_clase':[
-            {'id_tipo_establecimiento':['id_tipo_establecimiento','nom_tipo_establecimiento']},
-            {'id_servicio_salud':['id_servicio_salud','nom_servicio_salud']},
-            {'id_dependencia':['id_dependencia','nom_dependencia']},
-            {'id_organismo':['id_organismo','nom_organismo']},
-            {'id_region':['id_region','nom_region']},
-            {'id_comuna':['id_comuna','nom_comuna']},
+            {'tipo_establecimiento':['id_tipo_establecimiento','nom_tipo_establecimiento']},
+            {'servicio_salud':['id_servicio_salud','nom_servicio_salud']},
+            {'dependencia':['id_dependencia','nom_dependencia']},
+            {'organismo':['id_organismo','nom_organismo']},
+            {'region':['id_region','nom_region']},
+            {'comuna':['id_comuna','nom_comuna']},
          ],
          'lom':{},
          'lista_objs_model':[],
@@ -134,7 +132,6 @@ const EstablecimientoController = new Vue({
          'tabla_campos': {
             'id_establecimiento':false,
             'nom_establecimiento':true,
-            'tipo_establecimiento':false,
             //'observaciones':false,
             'nom_direccion':false,
             'num_calle':false,
@@ -169,7 +166,6 @@ const EstablecimientoController = new Vue({
          'tabla_labels': {
             'id_establecimiento':'Codigo establecimiento',
             'nom_establecimiento':'Nombre establecimiento',
-            'tipo_establecimiento':'Tipo establecimiento',
             'observaciones':'Observaciones',
             'nom_direccion':'Nombre direccion',
             'num_calle':'Numero calle',
@@ -206,7 +202,6 @@ const EstablecimientoController = new Vue({
          'excel_json_campos': {
             'id_establecimiento':'String',
             'nom_establecimiento':'String',
-            'tipo_establecimiento':'String',
             'observaciones':'String',
             'nom_direccion':'String',
             'nom_responsable':'String',
@@ -261,7 +256,6 @@ const EstablecimientoController = new Vue({
             return self.excel_json_datos.push({
                'id_establecimiento': establecimiento.id_establecimiento || '-',
                'nom_establecimiento': establecimiento.nom_establecimiento || '-',
-               'tipo_establecimiento': establecimiento.tipo_establecimiento || '-',
                'observaciones': establecimiento.observaciones || '-',
                'nom_direccion': establecimiento.nom_direccion || '-',
                'nom_responsable': establecimiento.nom_responsable || '-',
