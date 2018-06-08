@@ -149,7 +149,7 @@ class TelefonoController extends Controller {
          'tipo' => 'creacion_exitosa', //Para las notificaciones
          'mensajes' => ["new_$this->nombre_modelo" => [0=>"Registro ($this->nombre_modelo) creado exitosamente."]],
          //Para mostrar los mensajes que van desde el backend
-         'telefono' => $this->new_telefono
+         'telefono' => $this->new_telefono->load('tipo_telefono')
       ]);
    }
 

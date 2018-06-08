@@ -517,9 +517,40 @@
       </div>
    </div>
    <div class="col-md-6">
-      <pre>
-         @{{ establecimiento.telefonos  }}
-      </pre>
+        <div class="table-responsive">
+                <table class="table table-striped table-hover table-sm" v-if="establecimiento.telefonos &&
+                        establecimiento.telefonos.length > 0">
+                   <thead>
+                   <tr>
+                      <th>Cod. Área</th>
+                      <th>Numero</th>
+                      <th>Detalle</th>
+                      <th>Tipo</th>
+                      <th>Acción</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                   <tr v-for="t in establecimiento.telefonos">
+                      <td>@{{ t.cod_area }}</td>
+                      <td>@{{ t.num_telefono }}</td>
+                      <td>@{{ t.det_telefono }}</td>
+                      <td>@{{ t.tipo_telefono.nom_tipo_telefono }}</td>
+                      <td>
+                         <button class="btn btn-danger"
+                                 v-if="en_array(['Administrador','Jefe de Area','Lider Equipo','App Manager'],usuario_auth.usuario_role.role.nom_role)"
+                                 @click.prevent="eliminar_telefono(t.id_telefono)"
+                                 data-placement="top" data-toggle="tooltip" title="Quitar">
+                            <i class="fa fa-close"></i>
+                         </button>
+                      </td>
+                   </tr>
+                   </tbody>
+
+                </table><!-- .table -->
+                <div class="card card-body bg-light" v-else>
+                   Hasta el momento no existen teléfonos registrados.
+                </div><!-- .card -->
+             </div>
    </div>
 
 </div><!-- .row -->

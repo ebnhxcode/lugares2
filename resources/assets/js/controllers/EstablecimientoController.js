@@ -326,6 +326,45 @@ const EstablecimientoController = new Vue({
          this.usuario_auth = response.body.usuario_auth || null;
       },
       
+      eliminar_telefono: function (id) {
+
+        swal({
+           title: "¿Estás seguro/a?",
+           text: "¿Deseas confirmar la eliminación de este registro?",
+           type: "warning",
+           showCancelButton: true,
+           closeOnConfirm: false,
+           closeOnCancel: false,
+           confirmButtonColor: '#DD6B55',
+           confirmButtonClass: "btn-danger",
+           confirmButtonText: 'Si, eliminar!',
+           cancelButtonText: 'No, mantener.'
+        }).then((result) => {
+           if (result.value) {
+              //Se adjunta el token
+              Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+
+              this.$http.delete(`/telefonos/${id}`).then(response => {
+                 if (response.status == 200) {
+                    this.eliminar_de_array_por_modelo_e_id(id, this.establecimiento.telefonos, 'telefono');
+                    //this.auto_alerta_corta("Eliminado!", "Registro eliminado correctamente", "success", 800);
+                 } else {
+                    this.checkear_estado_respuesta_http(response.status);
+                    return false;
+                 }
+
+                 if (this.mostrar_notificaciones(response) == true) {
+                    //Recargar la lista
+                    //this.inicializar();
+                 }
+              }, response => { // error callback
+                 this.checkear_estado_respuesta_http(response.status);
+              })
+           }
+        });
+
+     },
+
       guardar_telefono: function () {
          //Ejecuta validacion sobre los campos con validaciones
          this.$validator.validateAll({

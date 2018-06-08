@@ -4866,8 +4866,48 @@ var EstablecimientoController = new Vue({
          this.usuario_auth = response.body.usuario_auth || null;
       },
 
-      guardar_telefono: function guardar_telefono() {
+      eliminar_telefono: function eliminar_telefono(id) {
          var _this = this;
+
+         __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default()({
+            title: "¿Estás seguro/a?",
+            text: "¿Deseas confirmar la eliminación de este registro?",
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            closeOnCancel: false,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: 'Si, eliminar!',
+            cancelButtonText: 'No, mantener.'
+         }).then(function (result) {
+            if (result.value) {
+               //Se adjunta el token
+               Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+
+               _this.$http.delete('/telefonos/' + id).then(function (response) {
+                  if (response.status == 200) {
+                     _this.eliminar_de_array_por_modelo_e_id(id, _this.establecimiento.telefonos, 'telefono');
+                     //this.auto_alerta_corta("Eliminado!", "Registro eliminado correctamente", "success", 800);
+                  } else {
+                     _this.checkear_estado_respuesta_http(response.status);
+                     return false;
+                  }
+
+                  if (_this.mostrar_notificaciones(response) == true) {
+                     //Recargar la lista
+                     //this.inicializar();
+                  }
+               }, function (response) {
+                  // error callback
+                  _this.checkear_estado_respuesta_http(response.status);
+               });
+            }
+         });
+      },
+
+      guardar_telefono: function guardar_telefono() {
+         var _this2 = this;
 
          //Ejecuta validacion sobre los campos con validaciones
          this.$validator.validateAll({
@@ -4882,36 +4922,36 @@ var EstablecimientoController = new Vue({
                //Instancia nuevo form data
                var formData = new FormData();
                //Conforma objeto paramétrico para solicitud http
-               formData.append('num_telefono', _this.telefono.num_telefono);
-               formData.append('det_telefono', _this.telefono.det_telefono);
-               formData.append('cod_area', _this.telefono.cod_area);
-               formData.append('id_tipo_telefono', _this.telefono.id_tipo_telefono);
-               formData.append('id_establecimiento', _this.establecimiento.id_establecimiento);
+               formData.append('num_telefono', _this2.telefono.num_telefono);
+               formData.append('det_telefono', _this2.telefono.det_telefono);
+               formData.append('cod_area', _this2.telefono.cod_area);
+               formData.append('id_tipo_telefono', _this2.telefono.id_tipo_telefono);
+               formData.append('id_establecimiento', _this2.establecimiento.id_establecimiento);
 
-               _this.$http.post('/telefonos', formData).then(function (response) {
+               _this2.$http.post('/telefonos', formData).then(function (response) {
                   // success callback
 
                   //console.log(response.body);
 
                   if (response.status == 200) {
-                     _this.inicializar();
-                     _this.telefono = {
+                     _this2.inicializar();
+                     _this2.telefono = {
                         'num_telefono': null,
                         'det_telefono': null,
                         'id_tipo_telefono': null,
                         'cod_area': null
                      };
-                     _this.establecimiento.telefonos.push(response.body.telefono);
+                     _this2.establecimiento.telefonos.push(response.body.telefono);
                   } else {
-                     _this.checkear_estado_respuesta_http(response.status);
+                     _this2.checkear_estado_respuesta_http(response.status);
                      return false;
                   }
-                  if (_this.mostrar_notificaciones(response) == true) {
+                  if (_this2.mostrar_notificaciones(response) == true) {
                      return;
                   }
                }, function (response) {
                   // error callback
-                  _this.checkear_estado_respuesta_http(response.status);
+                  _this2.checkear_estado_respuesta_http(response.status);
                });
             }
          });

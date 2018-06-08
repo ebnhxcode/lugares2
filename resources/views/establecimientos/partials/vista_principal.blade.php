@@ -10,8 +10,8 @@
             </h5>
             <p class="card-text">
 
-            <dl class="row" v-if="establecimiento">
-               <dd class="col-md-12">@{{ establecimiento.tipo_establecimiento || '' }}</dd>
+            <dl class="row" v-if="establecimiento && establecimiento.tipo_establecimiento">
+               <dd class="col-md-12">@{{ establecimiento.tipo_establecimiento.nom_tipo_establecimiento || '' }}</dd>
             </dl>
 
             <dl v-else>
