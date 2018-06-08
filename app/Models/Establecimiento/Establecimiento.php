@@ -71,4 +71,8 @@ class Establecimiento extends Model {
       return $this->belongsTo(Comuna::class, 'id_comuna');
    }
 
+   public function telefonos () {
+      return $this->hasMany(Telefono::class, 'id_establecimiento');
+   }
+
 }

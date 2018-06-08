@@ -19,6 +19,7 @@ class Telefono extends Model {
 
       # relaciones -> pks
       'id_tipo_telefono',
+      'id_establecimiento',
 
       # relaciones
       'id_usuario_registra',
@@ -27,5 +28,9 @@ class Telefono extends Model {
 
    public function tipo_telefono () {
       return $this->belongsTo(TipoTelefono::class, 'id_tipo_telefono');
+   }
+
+   public function establecimiento () {
+      return $this->belongsTo(Establecimiento::class, 'id_establecimiento');
    }
 }

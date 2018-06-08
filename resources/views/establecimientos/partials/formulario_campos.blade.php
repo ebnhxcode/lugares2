@@ -416,7 +416,7 @@
 
             <dt>Tipo Telefono</dt>
             <dd>
-               <select class="custom-select" v-model="telefono.id_tipo_telefono" name="id_region"
+               <select class="custom-select" v-model="telefono.id_tipo_telefono" name="id_tipo_telefono"
                        v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                   <option :value="t.id_tipo_telefono" v-for="t in tipos_telefonos">
                      @{{ `${t.nom_tipo_telefono} -> ${t.det_tipo_telefono}` }}
@@ -429,7 +429,7 @@
 
                <transition name="bounce">
                <span v-show="errors.has('id_tipo_telefono')" class="text-danger small">
-                  @{{ errors.first('id_region') }}
+                  @{{ errors.first('id_tipo_telefono') }}
                </span>
                </transition>
             </dd>
@@ -440,18 +440,18 @@
             <dt>Código Área</dt>
             <dd>
                <p class="control has-icon has-icon-right">
-                  <input type="text" v-model="telefono.cod_area" name="fax"
+                  <input type="text" v-model="telefono.cod_area" name="cod_area"
                          v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500"
                          class="form-control" />
 
                   <transition name="bounce">
-                     <i v-show="errors.has('fax')" class="fa fa-exclamation-circle"></i>
+                     <i v-show="errors.has('cod_area')" class="fa fa-exclamation-circle"></i>
                   </transition>
 
                   <transition name="bounce">
-                                 <span v-show="errors.has('fax')" class="text-danger small">
-                                    @{{ errors.first('fax') }}
-                                 </span>
+                     <span v-show="errors.has('cod_area')" class="text-danger small">
+                        @{{ errors.first('cod_area') }}
+                     </span>
                   </transition>
                </p>
             </dd>
@@ -464,7 +464,7 @@
 
                <p class="control has-icon has-icon-right">
                   <input type="text" v-model="telefono.num_telefono" name="num_telefono"
-                         v-validate="{regex:/^[0-9_ +]+$/i}" data-vv-delay="500"
+                         v-validate="{regex:/^[0-9_ ]+$/i}" data-vv-delay="500"
                          class="form-control" />
 
                   <transition name="bounce">
@@ -472,9 +472,9 @@
                   </transition>
 
                   <transition name="bounce">
-               <span v-show="errors.has('num_telefono')" class="text-danger small">
-                  @{{ errors.first('num_telefono') }}
-               </span>
+                     <span v-show="errors.has('num_telefono')" class="text-danger small">
+                        @{{ errors.first('num_telefono') }}
+                     </span>
                   </transition>
                </p>
             </dd>

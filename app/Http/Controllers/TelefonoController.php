@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Telefono;
 use App\TipoTelefono;
+use App\Establecimiento;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -19,6 +20,7 @@ class TelefonoController extends Controller {
    private $nombre_controller;
 
    private $telefonos;
+   private $establecimientos;
    private $tipos_telefonos;
    private $telefono;
    private $new_telefono;
@@ -56,12 +58,14 @@ class TelefonoController extends Controller {
 
          $this->telefonos = Telefono::with(['tipo_telefono'])->paginate((int)$this->per_page);
          $this->tipos_telefonos = TipoTelefono::all();
+         $this->establecimientos = Establecimiento::all();
 
          $this->usuario_auth = Auth::user();
          return response()->json([
             'status' => 200,
             'telefonos' => $this->telefonos,
             'tipos_telefonos' => $this->tipos_telefonos,
+            'establecimientos' => $this->establecimientos,
             'usuario_auth' => $this->usuario_auth,
          ]);
       }

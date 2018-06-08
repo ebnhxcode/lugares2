@@ -4680,7 +4680,7 @@ var EstablecimientoController = new Vue({
             //'fecha_cierre':false,
             'id_establecimiento_antiguo': false,
 
-            'id_tipo_establecimiento': false,
+            //'id_tipo_establecimiento':false,
             'nom_tipo_establecimiento': false,
             //'id_servicio_salud':false,
             'nom_servicio_salud': false,
@@ -4864,7 +4864,54 @@ var EstablecimientoController = new Vue({
          this.usuario_auth = response.body.usuario_auth || null;
       },
 
-      guardar_telefono: function guardar_telefono() {}
+      guardar_telefono: function guardar_telefono() {
+         var _this = this;
+
+         //Ejecuta validacion sobre los campos con validaciones
+         this.$validator.validateAll({
+            num_telefono: this.telefono.num_telefono,
+            cod_area: this.telefono.cod_area,
+            id_tipo_telefono: this.telefono.id_tipo_telefono
+         }).then(function (res) {
+            if (res == true) {
+               //Se adjunta el token
+               Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+               //Instancia nuevo form data
+               var formData = new FormData();
+               //Conforma objeto paramétrico para solicitud http
+               formData.append('num_telefono', _this.telefono.num_telefono);
+               formData.append('cod_area', _this.telefono.cod_area);
+               formData.append('id_tipo_telefono', _this.telefono.id_tipo_telefono);
+
+               _this.$http.post('/telefonos', formData).then(function (response) {
+                  // success callback
+
+                  //console.log(response.body);
+
+                  if (response.status == 200) {
+                     console.log(response);
+
+                     //this.servicio_nueva_bitacora.asunto = null;
+                     //this.servicio_nueva_bitacora.det_bitacora = null;
+                     //this.servicio.usuarios_bitacora_servicios.push(response.body.usuario_bitacora_servicio);
+                     /*
+                     this.inicializar();
+                     */
+                  } else {
+                     _this.checkear_estado_respuesta_http(response.status);
+                     return false;
+                  }
+                  if (_this.mostrar_notificaciones(response) == true) {
+                     return;
+                  }
+               }, function (response) {
+                  // error callback
+                  _this.checkear_estado_respuesta_http(response.status);
+               });
+            }
+         });
+         return;
+      }
 
    }
 });
