@@ -56,7 +56,7 @@ class TelefonoController extends Controller {
       if ($request->wantsJson() && $request->ajax() && $request->isXmlHttpRequest()) {
          $this->validar_paginacion($request);
 
-         $this->telefonos = Telefono::with(['tipo_telefono'])->paginate((int)$this->per_page);
+         $this->telefonos = Telefono::with(['tipo_telefono','establecimiento'])->paginate((int)$this->per_page);
          $this->tipos_telefonos = TipoTelefono::all();
          $this->establecimientos = Establecimiento::all();
 
@@ -91,7 +91,7 @@ class TelefonoController extends Controller {
          ]);
       }
 
-      $this->telefono = Telefono::with(['tipo_telefono'])->where("id_$this->nombre_modelo",'=',$id)->first();
+      $this->telefono = Telefono::with(['tipo_telefono','establecimiento'])->where("id_$this->nombre_modelo",'=',$id)->first();
 
       #Valida si role existe y busca si tiene servidor_permiso
       if ($this->telefono) {
@@ -119,6 +119,7 @@ class TelefonoController extends Controller {
          'det_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'cod_area' => "regex:/(^([0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'id_tipo_telefono' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
+         'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -133,9 +134,10 @@ class TelefonoController extends Controller {
       #Se crea el nuevo registro
       $this->new_telefono = Telefono::create([
          'num_telefono' => $this->telefono['num_telefono'],
-         'det_telefono' => $this->telefono['det_telefono'],
+         'det_telefono' => isset($this->telefono['det_telefono'])?$this->telefono['det_telefono']:'',
          'cod_area' => $this->telefono['cod_area'],
          'id_tipo_telefono' => $this->telefono['id_tipo_telefono'],
+         'id_establecimiento' => $this->telefono['id_establecimiento'],
          'id_usuario_registra' => Auth::user()->id_usuario,
          'id_usuario_modifica' => Auth::user()->id_usuario,
       ]);
@@ -159,6 +161,7 @@ class TelefonoController extends Controller {
          'det_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'cod_area' => "regex:/(^([0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'id_tipo_telefono' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
+         'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
       ]);
       #Valida si la informacion que se envia para editar al telefono son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {

@@ -63,6 +63,7 @@ const EstablecimientoController = new Vue({
          },
          'telefono':{
             'num_telefono':null,
+            'det_telefono':null,
             'id_tipo_telefono':null,
             'cod_area':null,
          },
@@ -107,6 +108,7 @@ const EstablecimientoController = new Vue({
          'tipos_organismos':[],
          'regiones':[],
          'comunas':[],
+         
          'datos_excel':[],
          'usuario_auth':{},
 
@@ -327,9 +329,10 @@ const EstablecimientoController = new Vue({
       guardar_telefono: function () {
          //Ejecuta validacion sobre los campos con validaciones
          this.$validator.validateAll({
-            num_telefono:this.telefono.num_telefono,
             cod_area:this.telefono.cod_area,
             id_tipo_telefono:this.telefono.id_tipo_telefono,
+            num_telefono:this.telefono.num_telefono,
+            det_telefono:this.telefono.det_telefono,
          }).then( res => {
             if (res == true) {
                //Se adjunta el token
@@ -338,22 +341,25 @@ const EstablecimientoController = new Vue({
                var formData = new FormData();
                //Conforma objeto paramétrico para solicitud http
                formData.append(`num_telefono`, this.telefono.num_telefono);
+               formData.append(`det_telefono`, this.telefono.det_telefono);
                formData.append(`cod_area`, this.telefono.cod_area);
                formData.append(`id_tipo_telefono`, this.telefono.id_tipo_telefono);
+               formData.append(`id_establecimiento`, this.establecimiento.id_establecimiento);
 
                this.$http.post(`/telefonos`, formData).then(response => { // success callback
 
                   //console.log(response.body);
 
                   if (response.status == 200) {
-                     console.log(response);
-
-                     //this.servicio_nueva_bitacora.asunto = null;
-                     //this.servicio_nueva_bitacora.det_bitacora = null;
-                     //this.servicio.usuarios_bitacora_servicios.push(response.body.usuario_bitacora_servicio);
-                     /*
                      this.inicializar();
-                     */
+                     this.telefono = {
+                        'num_telefono':null,
+                        'det_telefono':null,
+                        'id_tipo_telefono':null,
+                        'cod_area':null,
+                     };
+                     this.establecimiento.telefonos.push(response.body.telefono);
+
                   } else {
                      this.checkear_estado_respuesta_http(response.status);
                      return false;

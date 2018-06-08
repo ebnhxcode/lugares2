@@ -4626,6 +4626,7 @@ var EstablecimientoController = new Vue({
          },
          'telefono': {
             'num_telefono': null,
+            'det_telefono': null,
             'id_tipo_telefono': null,
             'cod_area': null
          },
@@ -4643,6 +4644,7 @@ var EstablecimientoController = new Vue({
          'tipos_organismos': [],
          'regiones': [],
          'comunas': [],
+
          'datos_excel': [],
          'usuario_auth': {},
 
@@ -4869,9 +4871,10 @@ var EstablecimientoController = new Vue({
 
          //Ejecuta validacion sobre los campos con validaciones
          this.$validator.validateAll({
-            num_telefono: this.telefono.num_telefono,
             cod_area: this.telefono.cod_area,
-            id_tipo_telefono: this.telefono.id_tipo_telefono
+            id_tipo_telefono: this.telefono.id_tipo_telefono,
+            num_telefono: this.telefono.num_telefono,
+            det_telefono: this.telefono.det_telefono
          }).then(function (res) {
             if (res == true) {
                //Se adjunta el token
@@ -4880,8 +4883,10 @@ var EstablecimientoController = new Vue({
                var formData = new FormData();
                //Conforma objeto paramétrico para solicitud http
                formData.append('num_telefono', _this.telefono.num_telefono);
+               formData.append('det_telefono', _this.telefono.det_telefono);
                formData.append('cod_area', _this.telefono.cod_area);
                formData.append('id_tipo_telefono', _this.telefono.id_tipo_telefono);
+               formData.append('id_establecimiento', _this.establecimiento.id_establecimiento);
 
                _this.$http.post('/telefonos', formData).then(function (response) {
                   // success callback
@@ -4889,14 +4894,14 @@ var EstablecimientoController = new Vue({
                   //console.log(response.body);
 
                   if (response.status == 200) {
-                     console.log(response);
-
-                     //this.servicio_nueva_bitacora.asunto = null;
-                     //this.servicio_nueva_bitacora.det_bitacora = null;
-                     //this.servicio.usuarios_bitacora_servicios.push(response.body.usuario_bitacora_servicio);
-                     /*
-                     this.inicializar();
-                     */
+                     _this.inicializar();
+                     _this.telefono = {
+                        'num_telefono': null,
+                        'det_telefono': null,
+                        'id_tipo_telefono': null,
+                        'cod_area': null
+                     };
+                     _this.establecimiento.telefonos.push(response.body.telefono);
                   } else {
                      _this.checkear_estado_respuesta_http(response.status);
                      return false;

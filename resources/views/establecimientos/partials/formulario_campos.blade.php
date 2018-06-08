@@ -405,14 +405,14 @@
 </div><!-- .row -->
 
 
-<h5>Otros Telefonos</h5>
+<h5 v-if="modal_actualizar_activo==true">Otros Telefonos</h5>
 
-<div class="row">
+<div class="row" v-if="modal_actualizar_activo==true">
 
    <div class="col-md-6">
       <div class="row">
 
-         <div class="col-sm-12 col-md-12">
+         <div class="col-sm-6 col-md-6">
 
             <dt>Tipo Telefono</dt>
             <dd>
@@ -435,6 +435,30 @@
             </dd>
 
          </div><!-- .col -->
+
+         <div class="col-sm-6 col-md-6">
+
+                <dt>Detalle telefono</dt>
+                <dd>
+          
+                   <p class="control has-icon has-icon-right">
+                      <textarea cols="15" rows="1" v-model="telefono.det_telefono" name="det_telefono"
+                                v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
+                                class="form-control"></textarea>
+          
+                      <transition name="bounce">
+                         <i v-show="errors.has('det_telefono')" class="fa fa-exclamation-circle"></i>
+                      </transition>
+          
+                      <transition name="bounce">
+                         <span v-show="errors.has('det_telefono')" class="text-danger small">
+                            @{{ errors.first('det_telefono') }}
+                         </span>
+                      </transition>
+                   </p>
+                </dd>
+          
+             </div><!-- .col -->
 
          <div class="col-sm-3 col-md-3">
             <dt>Código Área</dt>
@@ -464,7 +488,7 @@
 
                <p class="control has-icon has-icon-right">
                   <input type="text" v-model="telefono.num_telefono" name="num_telefono"
-                         v-validate="{regex:/^[0-9_ ]+$/i}" data-vv-delay="500"
+                         v-validate="{required:true,regex:/^[0-9_ ]+$/i}" data-vv-delay="500"
                          class="form-control" />
 
                   <transition name="bounce">
@@ -493,7 +517,9 @@
       </div>
    </div>
    <div class="col-md-6">
-
+      <pre>
+         @{{ establecimiento.telefonos  }}
+      </pre>
    </div>
 
 </div><!-- .row -->

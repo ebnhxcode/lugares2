@@ -78,6 +78,7 @@ class EstablecimientoController extends Controller {
             'organismo',
             'region',
             'comuna',
+            'telefonos',
          ])->paginate((int)$this->per_page);
          $this->tipos_establecimientos = TipoEstablecimiento::all();
          $this->tipos_telefonos = TipoTelefono::all();
@@ -126,7 +127,15 @@ class EstablecimientoController extends Controller {
          ]);
       }
 
-      $this->establecimiento = Establecimiento::where("id_$this->nombre_modelo",'=',$id)->first();
+      $this->establecimiento = Establecimiento::with([
+         'tipo_establecimiento',
+         'servicio_salud',
+         'dependencia',
+         'organismo',
+         'region',
+         'comuna',
+         'telefonos',
+      ])->where("id_$this->nombre_modelo",'=',$id)->first();
 
       #Valida si role existe y busca si tiene servidor_permiso
       if ($this->establecimiento) {
