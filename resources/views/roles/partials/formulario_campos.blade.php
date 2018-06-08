@@ -27,7 +27,7 @@
       <dt>Permiso</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="role.id_permiso" name="id_permiso"
+            <select class="custom-select" v-model="role.id_permiso" name="id_permiso"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="p.id_permiso" v-for="p in permisos">
                   @{{ `${p.nom_permiso} -> ${p.det_permiso}` }}

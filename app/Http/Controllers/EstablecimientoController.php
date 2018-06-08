@@ -71,7 +71,14 @@ class EstablecimientoController extends Controller {
    public function index_ajax (Request $request) {
       if ($request->wantsJson() && $request->ajax() && $request->isXmlHttpRequest()) {
          $this->validar_paginacion($request);
-         $this->establecimientos = Establecimiento::with(['tipo_establecimiento'])->paginate((int)$this->per_page);
+         $this->establecimientos = Establecimiento::with([
+            'tipo_establecimiento',
+            'servicio_salud',
+            'dependencia',
+            'organismo',
+            'region',
+            'comuna',
+         ])->paginate((int)$this->per_page);
          $this->tipos_establecimientos = TipoEstablecimiento::all();
          $this->tipos_telefonos = TipoTelefono::all();
          $this->servicios_salud = ServicioSalud::all();

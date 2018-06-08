@@ -191,7 +191,7 @@
       <dt>Role</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="usuario.id_role" name="id_role"
+            <select class="custom-select" v-model="usuario.id_role" name="id_role"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="r.id_role" v-for="r in roles">
                   @{{ `${r.nom_role} -> ${r.det_role}` }}
@@ -218,7 +218,7 @@
       <dt>Estado</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="usuario.id_estado" name="id_estado"
+            <select class="custom-select" v-model="usuario.id_estado" name="id_estado"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="e.id_estado" v-for="e in estados">
                   @{{ `${e.nom_estado} -> ${e.det_estado}` }}
@@ -245,7 +245,7 @@
       <dt>Cargo</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="usuario.id_cargo" name="id_cargo"
+            <select class="custom-select" v-model="usuario.id_cargo" name="id_cargo"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="c.id_cargo" v-for="c in cargos">
                   @{{ `${c.nom_cargo} -> ${c.det_cargo}` }}

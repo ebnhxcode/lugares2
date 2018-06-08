@@ -80,7 +80,7 @@
       <dt>Region</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="servicio_salud.id_region" name="id_region"
+            <select class="custom-select" v-model="servicio_salud.id_region" name="id_region"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="r.id_region" v-for="r in regiones">
                   @{{ `${r.nom_region} -> ${r.det_region}` }}

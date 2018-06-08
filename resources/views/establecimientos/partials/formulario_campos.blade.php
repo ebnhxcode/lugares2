@@ -54,7 +54,7 @@
       <dt>Tipo establecimiento</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="establecimiento.id_tipo_establecimiento" name="id_tipo_establecimiento"
+            <select class="custom-select" v-model="establecimiento.id_tipo_establecimiento" name="id_tipo_establecimiento"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="t.id_tipo_establecimiento" v-for="t in tipos_establecimientos">
                   @{{ `${t.nom_tipo_establecimiento} -> ${t.det_tipo_establecimiento}` }}
@@ -133,7 +133,7 @@
       <dt>Dependencia</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="establecimiento.id_dependencia" name="id_dependencia"
+            <select class="custom-select" v-model="establecimiento.id_dependencia" name="id_dependencia"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="t.id_dependencia" v-for="t in dependencias">
                   @{{ `${t.nom_dependencia} -> ${t.det_dependencia}` }}
@@ -160,7 +160,7 @@
       <dt>Tipo organismo</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="establecimiento.id_tipo_organismo" name="id_tipo_organismo"
+            <select class="custom-select" v-model="establecimiento.id_tipo_organismo" name="id_tipo_organismo"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="to.id_tipo_organismo" v-for="to in tipos_organismos">
                   @{{ `${to.nom_tipo_organismo} -> ${to.det_tipo_organismo}` }}
@@ -187,7 +187,7 @@
       <dt>Organismo</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="establecimiento.id_organismo" name="id_organismo"
+            <select class="custom-select" v-model="establecimiento.id_organismo" name="id_organismo"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="to.id_organismo" v-for="to in organismos" v-if="establecimiento.id_tipo_organismo==to.id_tipo_organismo">
                   @{{ `${to.nom_organismo} -> ${to.det_organismo}` }}
@@ -217,7 +217,7 @@
       <dt>Region</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="establecimiento.id_region" name="id_region"
+            <select class="custom-select" v-model="establecimiento.id_region" name="id_region"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="r.id_region" v-for="r in regiones">
                   @{{ `${r.nom_region} -> ${r.det_region}` }}
@@ -244,7 +244,7 @@
       <dt>Comuna</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="establecimiento.id_comuna" name="id_comuna"
+            <select class="custom-select" v-model="establecimiento.id_comuna" name="id_comuna"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="c.id_comuna" v-for="c in comunas" v-if="establecimiento.id_region==c.id_region">
                   @{{ `${c.nom_comuna} -> ${c.det_comuna}` }}
@@ -409,84 +409,93 @@
 
 <div class="row">
 
-   {{----}}
-   <div class="col-sm-2 col-md-2">
-      <dt>Código Área</dt>
-      <dd>
-         <p class="control has-icon has-icon-right">
-            <input type="text" v-model="telefono.cod_area" name="fax"
-                   v-validate="{required:true,regex:/^[0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
-                   class="form-control" />
+   <div class="col-md-6">
+      <div class="row">
 
-            <transition name="bounce">
-               <i v-show="errors.has('fax')" class="fa fa-exclamation-circle"></i>
-            </transition>
+         <div class="col-sm-12 col-md-12">
 
-            <transition name="bounce">
-                     <span v-show="errors.has('fax')" class="text-danger small">
-                        @{{ errors.first('fax') }}
-                     </span>
-            </transition>
-         </p>
-      </dd>
-   </div><!-- .col -->
+            <dt>Tipo Telefono</dt>
+            <dd>
+               <select class="custom-select" v-model="telefono.id_tipo_telefono" name="id_region"
+                       v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
+                  <option :value="t.id_tipo_telefono" v-for="t in tipos_telefonos">
+                     @{{ `${t.nom_tipo_telefono} -> ${t.det_tipo_telefono}` }}
+                  </option>
+               </select>
 
-   <div class="col-sm-4 col-md-4">
+               <transition name="bounce">
+                  <i v-show="errors.has('id_tipo_telefono')" class="fa fa-exclamation-circle"></i>
+               </transition>
 
-      <dt>Tipo Telefono</dt>
-      <dd>
-         <select class="form-control" v-model="telefono.id_tipo_telefono" name="id_region"
-                 v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
-            <option :value="t.id_tipo_telefono" v-for="t in tipos_telefonos">
-               @{{ `${t.nom_tipo_telefono} -> ${t.det_tipo_telefono}` }}
-            </option>
-         </select>
+               <transition name="bounce">
+               <span v-show="errors.has('id_tipo_telefono')" class="text-danger small">
+                  @{{ errors.first('id_region') }}
+               </span>
+               </transition>
+            </dd>
 
-         <transition name="bounce">
-            <i v-show="errors.has('id_tipo_telefono')" class="fa fa-exclamation-circle"></i>
-         </transition>
+         </div><!-- .col -->
 
-         <transition name="bounce">
-         <span v-show="errors.has('id_tipo_telefono')" class="text-danger small">
-            @{{ errors.first('id_region') }}
-         </span>
-         </transition>
-      </dd>
+         <div class="col-sm-3 col-md-3">
+            <dt>Código Área</dt>
+            <dd>
+               <p class="control has-icon has-icon-right">
+                  <input type="text" v-model="telefono.cod_area" name="fax"
+                         v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500"
+                         class="form-control" />
 
-   </div><!-- .col -->
+                  <transition name="bounce">
+                     <i v-show="errors.has('fax')" class="fa fa-exclamation-circle"></i>
+                  </transition>
 
-   <div class="col-sm-4 col-md-4">
+                  <transition name="bounce">
+                                 <span v-show="errors.has('fax')" class="text-danger small">
+                                    @{{ errors.first('fax') }}
+                                 </span>
+                  </transition>
+               </p>
+            </dd>
+         </div><!-- .col -->
 
-      <dt>Número teléfono</dt>
-      <dd>
+         <div class="col-sm-7 col-md-7">
 
-         <p class="control has-icon has-icon-right">
-            <input type="text" v-model="telefono.num_telefono" name="num_telefono"
-                   v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
-                   class="form-control" />
+            <dt>Número teléfono</dt>
+            <dd>
 
-            <transition name="bounce">
-               <i v-show="errors.has('num_telefono')" class="fa fa-exclamation-circle"></i>
-            </transition>
+               <p class="control has-icon has-icon-right">
+                  <input type="text" v-model="telefono.num_telefono" name="num_telefono"
+                         v-validate="{regex:/^[0-9_ +]+$/i}" data-vv-delay="500"
+                         class="form-control" />
 
-            <transition name="bounce">
-         <span v-show="errors.has('num_telefono')" class="text-danger small">
-            @{{ errors.first('num_telefono') }}
-         </span>
-            </transition>
-         </p>
-      </dd>
+                  <transition name="bounce">
+                     <i v-show="errors.has('num_telefono')" class="fa fa-exclamation-circle"></i>
+                  </transition>
 
-   </div><!-- .col -->
+                  <transition name="bounce">
+               <span v-show="errors.has('num_telefono')" class="text-danger small">
+                  @{{ errors.first('num_telefono') }}
+               </span>
+                  </transition>
+               </p>
+            </dd>
 
-   <div class="col-sm-2 col-md-2">
-      <button class="btn btn-success" @click.prevent="guardar_telefono">
-         Guardar
-      </button>
+         </div><!-- .col -->
+
+         <div class="col-sm-2 col-md-2">
+            <dt>Guardar</dt>
+            <dd>
+               <button class="btn btn-success" @click.prevent="guardar_telefono">
+                  Guardar
+               </button>
+            </dd>
+         </div>
+
+      </div>
+   </div>
+   <div class="col-md-6">
+
    </div>
 
-
-   {{----}}
 </div><!-- .row -->
 
 

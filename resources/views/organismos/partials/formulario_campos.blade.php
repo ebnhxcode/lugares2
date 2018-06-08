@@ -86,7 +86,7 @@
       <dt>Tipo organismo</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="organismo.id_tipo_organismo" name="id_tipo_organismo"
+            <select class="custom-select" v-model="organismo.id_tipo_organismo" name="id_tipo_organismo"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="to.id_tipo_organismo" v-for="to in tipos_organismos">
                   @{{ `${to.nom_tipo_organismo} -> ${to.det_tipo_organismo}` }}

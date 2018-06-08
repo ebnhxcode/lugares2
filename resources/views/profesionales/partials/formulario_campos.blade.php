@@ -57,7 +57,7 @@
       <dt>Tipo profesional</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="profesional.id_tipo_profesional" name="id_tipo_profesional"
+            <select class="custom-select" v-model="profesional.id_tipo_profesional" name="id_tipo_profesional"
                     v-validate="{regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="tp.id_tipo_profesional" v-for="tp in tipos_profesionales">
                   @{{ `${tp.nom_tipo_profesional} -> ${tp.det_tipo_profesional}` }}
@@ -85,7 +85,7 @@
       <dt>Cargo</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="profesional.id_cargo" name="id_cargo"
+            <select class="custom-select" v-model="profesional.id_cargo" name="id_cargo"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="c.id_cargo" v-for="c in cargos">
                   @{{ `${c.nom_cargo} -> ${c.det_cargo}` }}
@@ -112,7 +112,7 @@
       <dt>Estado</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="profesional.id_estado" name="id_estado"
+            <select class="custom-select" v-model="profesional.id_estado" name="id_estado"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="e.id_estado" v-for="e in estados">
                   @{{ `${e.nom_estado} -> ${e.det_estado}` }}

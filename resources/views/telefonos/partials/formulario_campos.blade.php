@@ -84,7 +84,7 @@
       <dt>Tipo telefono</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="form-control" v-model="telefono.id_tipo_telefono" name="id_tipo_telefono"
+            <select class="custom-select" v-model="telefono.id_tipo_telefono" name="id_tipo_telefono"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="tt.id_tipo_telefono" v-for="tt in tipos_telefonos">
                   @{{ `${tt.nom_tipo_telefono} -> ${tt.det_tipo_telefono}` }}
