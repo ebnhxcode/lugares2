@@ -365,6 +365,11 @@ const EstablecimientoController = new Vue({
 
      },
 
+      filtrar_grid: function (key,value) {
+         console.log(value);
+
+      },
+
       guardar_telefono: function () {
          //Ejecuta validacion sobre los campos con validaciones
          this.$validator.validateAll({
