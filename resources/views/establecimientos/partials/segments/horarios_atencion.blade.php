@@ -1,39 +1,29 @@
 <h5>HORARIO DE ANTENCIÓN</h5>
 <div class="row">
 
-   <div class="col-sm-4 col-md-4">
+   <div class="col-sm-3 col-md-3">
 
-      <dt>Extensión Horaria</dt>
+      <dt>Horario de Atención</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-
-            <div class="btn-group" data-toggle="buttons">
-
-               <label :class="establecimiento.ext_horaria=='si'?'btn btn-primary active':'btn btn-primary'">
-                  <input type="radio" v-model="establecimiento.ext_horaria" name="ext_horaria"
-                         v-validate="{regex:/^(?:si)+$/i}" data-vv-delay="500"
-                         value="si" class="form-control"/>
-                  SI
-               </label>
-               <label :class="establecimiento.ext_horaria=='no'?'btn btn-primary active':'btn btn-primary'">
-                  <input type="radio" v-model="establecimiento.ext_horaria" name="ext_horaria"
-                         v-validate="{regex:/^(?:no)+$/i}" data-vv-delay="500"
-                         value="no" class="form-control"/>
-                  NO
-               </label>
-
-            </div>
+            <select class="custom-select" v-model="horario_atencion_establecimiento.id_dia" name="id_dia"
+                    v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
+               <option :value="d.id_dia" v-for="d in dias_semana">
+                  @{{ `${d.nom_dia_semana}` }}
+               </option>
+            </select>
 
             <transition name="bounce">
-               <i v-show="errors.has('ext_horaria')" class="fa fa-exclamation-circle"></i>
+               <i v-show="errors.has('id_dia')" class="fa fa-exclamation-circle"></i>
             </transition>
 
             <transition name="bounce">
-               <span v-show="errors.has('ext_horaria')" class="text-danger small">
-                  @{{ errors.first('ext_horaria') }}
+               <span v-show="errors.has('id_dia')" class="text-danger small">
+                  @{{ errors.first('id_dia') }}
                </span>
             </transition>
          </p>
+
       </dd>
 
 

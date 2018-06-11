@@ -4657,6 +4657,18 @@ var EstablecimientoController = new Vue({
             'id_tipo_telefono': null,
             'cod_area': null
          },
+         'horario_atencion_establecimiento': {
+            'id_establecimiento': null,
+            'id_dia': null,
+            'hora_inicio': null,
+            'hora_termino': null
+         },
+         'horario_visita_establecimiento': {
+            'id_establecimiento': null,
+            'id_dia': null,
+            'hora_inicio': null,
+            'hora_termino': null
+         },
 
          'permitido_guardar': ['id_establecimiento', 'nom_establecimiento', 'observaciones', 'nom_direccion', 'num_calle', 'nom_responsable', 'sitio_web', 'email', 'cod_area_fax', 'fax', 'ext_horaria', 'vigencia_desde', 'fecha_cierre', 'id_establecimiento_antiguo', 'id_tipo_establecimiento', 'id_servicio_salud', 'id_dependencia', 'id_organismo', 'id_region', 'id_comuna'],
          'relaciones_clase': [{ 'tipo_establecimiento': ['id_tipo_establecimiento', 'nom_tipo_establecimiento'] }, { 'servicio_salud': ['id_servicio_salud', 'nom_servicio_salud'] }, { 'dependencia': ['id_dependencia', 'nom_dependencia'] }, { 'organismo': ['id_organismo', 'nom_organismo'] }, { 'region': ['id_region', 'nom_region'] }, { 'comuna': ['id_comuna', 'nom_comuna'] }],

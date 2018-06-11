@@ -68,6 +68,18 @@ const EstablecimientoController = new Vue({
             'id_tipo_telefono':null,
             'cod_area':null,
          },
+         'horario_atencion_establecimiento':{
+            'id_establecimiento':null,
+            'id_dia':null,
+            'hora_inicio':null,
+            'hora_termino':null,
+         },
+         'horario_visita_establecimiento':{
+            'id_establecimiento':null,
+            'id_dia':null,
+            'hora_inicio':null,
+            'hora_termino':null,
+         },
 
          'permitido_guardar':[
             'id_establecimiento',
