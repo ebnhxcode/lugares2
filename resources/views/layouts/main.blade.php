@@ -67,7 +67,7 @@
          <div class="card-body pro">
          <h5>TABLERO</h5>
          <div class="pro btn-group btn-group-sm btn-group-toggle" v-for="v,c,i in tabla_campos" style="z-index: 0 !important;">
-            <label :class="v==true?'btn btn-success active':'btn btn-secondary'" @click.prevent="cambiar_visibilidad(c)"
+            <label :class="v.visibility==true?'btn btn-success active':'btn btn-secondary'" @click.prevent="cambiar_visibilidad(c)"
                    data-placement="top" data-toggle="tooltip" title="Clic para mostrar u ocultar">
                   <span style="font-size: 85%;">
                      <i class="fa fa-check" v-if="v==true"></i>
@@ -83,18 +83,21 @@
       <div class="card">
 
          <div class="card-body pro">
+
+            <i class="fa fa-refresh btn btn-warning float-right" @click.prevent="inicializar" aria-hidden="true"
+               data-placement="top" data-toggle="tooltip" title="Clic para actualizar  "></i>
+
             <h5>SECCION DE FILTROS</h5>
-               <div class="row">
-                  <div class="col-md-2" v-for="c,key,i in tabla_campos" v-if="c == true">
-                     @{{ tabla_labels[key] }}
-                     <input type="text" class="form-control input-sm"
-                            data-placement="top" data-toggle="tooltip" title="FILTRAR"
-                            @change.prevent="filtrar_grid(key,this.value)" :id="`filtro_${k}`">
+            <br>
+            <div class="row">
+               <div class="col-md-3 col-lg-3" v-for="c,key,i in tabla_campos" v-if="c.visibility == true">
+                  @{{ tabla_labels[key] }}
+                  <input type="text" class="form-control input-sm"
+                         data-placement="top" data-toggle="tooltip" title="FILTRAR"
+                         @change.prevent="filtrar_grid(key)" v-model="tabla_campos[key].value" id="">
 
-                     {{-- filterBy($data[nombre_ruta], k) --}}
-
-                  </div>
                </div>
+            </div>
             {{--@if(in_array(Request::path(), ['establecimientos']))@endif--}}
          </div>
       </div>
@@ -137,7 +140,6 @@
                   <option :value="500">500</option>
                   <option :value="750">750</option>
                   <option :value="1000">1000</option>
-                  {{--
                   <option :value="1250">1250</option>
                   <option :value="1500">1500</option>
                   <option :value="1750">1750</option>
@@ -145,7 +147,6 @@
                   <option :value="3000">3000</option>
                   <option :value="4000">4000</option>
                   <option :value="5000">5000</option>
-                  --}}
                </select>
 
             </div>

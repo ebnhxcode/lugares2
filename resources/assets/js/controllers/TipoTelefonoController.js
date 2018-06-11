@@ -67,12 +67,12 @@ const TipoTelefonoController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_tipo_telefono': false,
-            'nom_tipo_telefono': true,
-            'det_tipo_telefono': true,
-            'created_at': false,
-            'updated_at': false,
-            'deleted_at': false,
+            'id_tipo_telefono': {'visibility':false,'value':null},
+            'nom_tipo_telefono': {'visibility':true,'value':null},
+            'det_tipo_telefono': {'visibility':false,'value':null},
+            'created_at': {'visibility':false,'value':null},
+            'updated_at': {'visibility':false,'value':null},
+            'deleted_at': {'visibility':false,'value':null},
          },
 
          /* Etiquetas */

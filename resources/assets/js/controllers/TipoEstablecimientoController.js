@@ -68,13 +68,13 @@ const TipoEstablecimientoController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_tipo_establecimiento': false,
-            'nom_tipo_establecimiento': true,
-            'det_tipo_establecimiento': true,
+            'id_tipo_establecimiento': {'visibility':false,'value':null},
+            'nom_tipo_establecimiento': {'visibility':true,'value':null},
+            'det_tipo_establecimiento': {'visibility':false,'value':null},
 
-            'created_at': false,
-            'updated_at': false,
-            'deleted_at': false,
+            'created_at': {'visibility':false,'value':null},
+            'updated_at': {'visibility':false,'value':null},
+            'deleted_at': {'visibility':false,'value':null},
          },
 
          /* Etiquetas */

@@ -72,14 +72,14 @@ const RegionController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_region':false,
-            'nom_region':true,
-            'alias':true,
-            'orden':true,
+            'id_region':{'visibility':false,'value':null},
+            'nom_region':{'visibility':true,'value':null},
+            'alias':{'visibility':false,'value':null},
+            'orden':{'visibility':false,'value':null},
 
-            'created_at':false,
-            'updated_at':false,
-            'deleted_at':false,
+            'created_at':{'visibility':false,'value':null},
+            'updated_at':{'visibility':false,'value':null},
+            'deleted_at':{'visibility':false,'value':null},
          },
 
          /* Etiquetas */

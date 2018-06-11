@@ -69,13 +69,13 @@ const TipoProfesionalController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_tipo_profesional': false,
-            'nom_tipo_profesional': true,
-            'det_tipo_profesional': true,
+            'id_tipo_profesional': {'visibility':false,'value':null},
+            'nom_tipo_profesional': {'visibility':true,'value':null},
+            'det_tipo_profesional': {'visibility':false,'value':null},
 
-            'created_at': false,
-            'updated_at': false,
-            'deleted_at': false,
+            'created_at': {'visibility':false,'value':null},
+            'updated_at': {'visibility':false,'value':null},
+            'deleted_at': {'visibility':false,'value':null},
          },
 
          /* Etiquetas */

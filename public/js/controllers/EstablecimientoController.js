@@ -2589,7 +2589,7 @@ var inyeccion_funciones_compartidas = {
        *
        * */
       cambiar_visibilidad: function cambiar_visibilidad(campo) {
-         return this.tabla_campos[campo] = !this.tabla_campos[campo];
+         return this.tabla_campos[campo].visibility = !this.tabla_campos[campo].visibility;
       },
 
       /*
@@ -2884,6 +2884,10 @@ var inyeccion_funciones_compartidas = {
          });
       },
 
+      filtrar_grid: function filtrar_grid(key) {
+         this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model = this.filterBy(this.lista_objs_model, this.tabla_campos[key].value, key);
+      },
+
       /*
        *
        *
@@ -3023,6 +3027,12 @@ var inyeccion_funciones_compartidas = {
       limpiar_objeto_clase_local: function limpiar_objeto_clase_local() {
          for (var k in this.$data['' + this.nombre_model]) {
             this.$data['' + this.nombre_model][k] = null;
+         }
+      },
+
+      limpiar_tabla_campos: function limpiar_tabla_campos() {
+         for (var k in this.tabla_campos) {
+            this.tabla_campos[k].value = null;
          }
       },
 
@@ -3174,7 +3184,7 @@ var inyeccion_funciones_compartidas = {
        * */
       // function to order lists
       ordenar_lista: function ordenar_lista(columna) {
-         this.lista_objs_model = _.orderBy(this.lista_objs_model, columna, this.orden_lista);
+         this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model = _.orderBy(this.lista_objs_model, columna, this.orden_lista);
       },
 
       /*
@@ -3193,6 +3203,7 @@ var inyeccion_funciones_compartidas = {
             if (response.status == 200) {
                _this10.configurar_relaciones(response.body[_this10.nombre_ruta].data, _this10.relaciones_clase);
                _this10.asignar_recursos(response);
+               _this10.limpiar_tabla_campos();
             } else {
                _this10.checkear_estado_respuesta_http(response.status);
             }
@@ -4645,6 +4656,8 @@ var EstablecimientoController = new Vue({
          'regiones': [],
          'comunas': [],
 
+         'filtros': [],
+
          'datos_excel': [],
          'usuario_auth': {},
 
@@ -4668,36 +4681,36 @@ var EstablecimientoController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_establecimiento': false,
-            'nom_establecimiento': true,
-            //'observaciones':false,
-            'nom_direccion': false,
-            'num_calle': false,
-            'nom_responsable': false,
-            //'sitio_web':false,
-            //'email':false,
-            //'cod_area_fax':false,
-            //'fax':false,
-            //'vigencia_desde':false,
-            //'fecha_cierre':false,
-            'id_establecimiento_antiguo': false,
+            'id_establecimiento': { 'visibility': false, 'value': null },
+            'nom_establecimiento': { 'visibility': true, 'value': null },
+            //'observaciones':{'visibility':true,'value':null},
+            'nom_direccion': { 'visibility': false, 'value': null },
+            'num_calle': { 'visibility': false, 'value': null },
+            'nom_responsable': { 'visibility': false, 'value': null },
+            //'sitio_web':{'visibility':true,'value':null},
+            //'email':{'visibility':true,'value':null},
+            //'cod_area_fax':{'visibility':true,'value':null},
+            //'fax':{'visibility':true,'value':null},
+            //'vigencia_desde':{'visibility':true,'value':null},
+            //'fecha_cierre':{'visibility':true,'value':null},
+            'id_establecimiento_antiguo': { 'visibility': false, 'value': null },
 
-            //'id_tipo_establecimiento':false,
-            'nom_tipo_establecimiento': false,
-            //'id_servicio_salud':false,
-            'nom_servicio_salud': false,
-            //'id_dependencia':false,
-            'nom_dependencia': false,
-            //'id_organismo':false,
-            'nom_organismo': false,
-            //'id_region':false,
-            'nom_region': false,
-            //'id_comuna':false,
-            'nom_comuna': false,
+            //'id_tipo_establecimiento':{'visibility':true,'value':null},
+            'nom_tipo_establecimiento': { 'visibility': false, 'value': null },
+            //'id_servicio_salud':{'visibility':true,'value':null},
+            'nom_servicio_salud': { 'visibility': false, 'value': null },
+            //'id_dependencia':{'visibility':true,'value':null},
+            'nom_dependencia': { 'visibility': false, 'value': null },
+            //'id_organismo':{'visibility':true,'value':null},
+            'nom_organismo': { 'visibility': false, 'value': null },
+            //'id_region':{'visibility':true,'value':null},
+            'nom_region': { 'visibility': false, 'value': null },
+            //'id_comuna':{'visibility':true,'value':null},
+            'nom_comuna': { 'visibility': false, 'value': null },
 
-            'created_at': false,
-            'updated_at': false,
-            'deleted_at': false
+            'created_at': { 'visibility': false, 'value': null },
+            'updated_at': { 'visibility': false, 'value': null }
+            //'deleted_at':{'visibility':false,'value':null},
          },
 
          /* Etiquetas */
@@ -4934,7 +4947,7 @@ var EstablecimientoController = new Vue({
                   //console.log(response.body);
 
                   if (response.status == 200) {
-                     _this2.inicializar();
+                     //this.inicializar();
                      _this2.telefono = {
                         'num_telefono': null,
                         'det_telefono': null,

@@ -2589,7 +2589,7 @@ var inyeccion_funciones_compartidas = {
        *
        * */
       cambiar_visibilidad: function cambiar_visibilidad(campo) {
-         return this.tabla_campos[campo] = !this.tabla_campos[campo];
+         return this.tabla_campos[campo].visibility = !this.tabla_campos[campo].visibility;
       },
 
       /*
@@ -2884,6 +2884,10 @@ var inyeccion_funciones_compartidas = {
          });
       },
 
+      filtrar_grid: function filtrar_grid(key) {
+         this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model = this.filterBy(this.lista_objs_model, this.tabla_campos[key].value, key);
+      },
+
       /*
        *
        *
@@ -3023,6 +3027,12 @@ var inyeccion_funciones_compartidas = {
       limpiar_objeto_clase_local: function limpiar_objeto_clase_local() {
          for (var k in this.$data['' + this.nombre_model]) {
             this.$data['' + this.nombre_model][k] = null;
+         }
+      },
+
+      limpiar_tabla_campos: function limpiar_tabla_campos() {
+         for (var k in this.tabla_campos) {
+            this.tabla_campos[k].value = null;
          }
       },
 
@@ -3174,7 +3184,7 @@ var inyeccion_funciones_compartidas = {
        * */
       // function to order lists
       ordenar_lista: function ordenar_lista(columna) {
-         this.lista_objs_model = _.orderBy(this.lista_objs_model, columna, this.orden_lista);
+         this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model = _.orderBy(this.lista_objs_model, columna, this.orden_lista);
       },
 
       /*
@@ -3193,6 +3203,7 @@ var inyeccion_funciones_compartidas = {
             if (response.status == 200) {
                _this10.configurar_relaciones(response.body[_this10.nombre_ruta].data, _this10.relaciones_clase);
                _this10.asignar_recursos(response);
+               _this10.limpiar_tabla_campos();
             } else {
                _this10.checkear_estado_respuesta_http(response.status);
             }
@@ -4862,16 +4873,16 @@ var OrganismoController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_organismo': false,
-            'nom_organismo': true,
-            'det_organismo': true,
-            'cod_organismo': true,
+            'id_organismo': { 'visibility': false, 'value': null },
+            'nom_organismo': { 'visibility': true, 'value': null },
+            'det_organismo': { 'visibility': false, 'value': null },
+            'cod_organismo': { 'visibility': false, 'value': null },
 
-            'nom_tipo_organismo': true,
+            'nom_tipo_organismo': { 'visibility': false, 'value': null },
 
-            'created_at': false,
-            'updated_at': false,
-            'deleted_at': false
+            'created_at': { 'visibility': false, 'value': null },
+            'updated_at': { 'visibility': false, 'value': null },
+            'deleted_at': { 'visibility': false, 'value': null }
          },
 
          /* Etiquetas */

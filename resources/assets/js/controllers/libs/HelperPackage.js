@@ -116,7 +116,9 @@ export const inyeccion_funciones_compartidas = {
        *
        *
        * */
-      cambiar_visibilidad: function (campo) { return this.tabla_campos[campo] = !this.tabla_campos[campo]; },
+      cambiar_visibilidad: function (campo) {
+         return this.tabla_campos[campo].visibility = !this.tabla_campos[campo].visibility;
+      },
 
       /*
        *
@@ -406,6 +408,11 @@ export const inyeccion_funciones_compartidas = {
          });
       },
 
+      filtrar_grid: function (key) {
+         this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model =
+            this.filterBy(this.lista_objs_model, this.tabla_campos[key].value, key);
+      },
+
       /*
        *
        *
@@ -533,6 +540,10 @@ export const inyeccion_funciones_compartidas = {
        * */
       limpiar_objeto_clase_local: function () {
          for (var k in this.$data[`${this.nombre_model}`]) { this.$data[`${this.nombre_model}`][k] = null; }
+      },
+
+      limpiar_tabla_campos: function () {
+         for (var k in this.tabla_campos) { this.tabla_campos[k].value = null; }
       },
 
       /*
@@ -686,7 +697,7 @@ export const inyeccion_funciones_compartidas = {
        *
        * */
       // function to order lists
-      ordenar_lista: function (columna) { this.lista_objs_model = _.orderBy(this.lista_objs_model, columna, this.orden_lista); },
+      ordenar_lista: function (columna) { this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model = _.orderBy(this.lista_objs_model, columna, this.orden_lista); },
 
       /*
        *
@@ -701,6 +712,7 @@ export const inyeccion_funciones_compartidas = {
             if (response.status == 200) {
                this.configurar_relaciones(response.body[this.nombre_ruta].data, this.relaciones_clase);
                this.asignar_recursos(response);
+               this.limpiar_tabla_campos();
             } else { this.checkear_estado_respuesta_http(response.status); }
          }, response => { this.checkear_estado_respuesta_http(response.status); }); // error callback
       },

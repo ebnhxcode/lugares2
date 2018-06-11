@@ -69,13 +69,13 @@ const DiaSemanaController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_dia_semana':false,
-            'nom_dia_semana':true,
-            'orden':true,
+            'id_dia_semana':{'visibility':false,'value':null},
+            'nom_dia_semana':{'visibility':true,'value':null},
+            'orden':{'visibility':false,'value':null},
 
-            'created_at':false,
-            'updated_at':false,
-            'deleted_at':false,
+            'created_at':{'visibility':false,'value':null},
+            'updated_at':{'visibility':false,'value':null},
+            'deleted_at':{'visibility':false,'value':null},
          },
 
          /* Etiquetas */

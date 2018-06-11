@@ -67,14 +67,14 @@ const DependenciaController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_dependencia':false,
-            'nom_dependencia':true,
-            'det_dependencia':true,
-            //'id_usuario_registra':false,
-            //'id_usuario_modifica':false,
-            'created_at':false,
-            'updated_at':false,
-            'deleted_at':false,
+            'id_dependencia':{'visibility':false,'value':null},
+            'nom_dependencia':{'visibility':true,'value':null},
+            'det_dependencia':{'visibility':false,'value':null},
+            //'id_usuario_registra':{'visibility':false,'value':null},
+            //'id_usuario_modifica':{'visibility':false,'value':null},
+            'created_at':{'visibility':false,'value':null},
+            'updated_at':{'visibility':false,'value':null},
+            'deleted_at':{'visibility':false,'value':null},
          },
 
          /* Etiquetas */

@@ -79,17 +79,17 @@ const TelefonoController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_telefono':false,
-            'num_telefono':true,
-            'det_telefono':true,
-            'cod_area':true,
-            //'id_tipo_telefono':false,
-            'nom_tipo_telefono':false,
-            //'id_establecimiento':false,
-            'nom_establecimiento':false,
-            'created_at':false,
-            'updated_at':false,
-            'deleted_at':false,
+            'id_telefono':{'visibility':false,'value':null},
+            'num_telefono':{'visibility':true,'value':null},
+            'det_telefono':{'visibility':false,'value':null},
+            'cod_area':{'visibility':false,'value':null},
+            //'id_tipo_telefono':{'visibility':false,'value':null},
+            'nom_tipo_telefono':{'visibility':false,'value':null},
+            //'id_establecimiento':{'visibility':false,'value':null},
+            'nom_establecimiento':{'visibility':false,'value':null},
+            'created_at':{'visibility':false,'value':null},
+            'updated_at':{'visibility':false,'value':null},
+            'deleted_at':{'visibility':false,'value':null},
          },
 
          /* Etiquetas */

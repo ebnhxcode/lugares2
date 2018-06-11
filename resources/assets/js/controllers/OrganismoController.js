@@ -77,16 +77,16 @@ const OrganismoController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_organismo':false,
-            'nom_organismo':true,
-            'det_organismo':true,
-            'cod_organismo':true,
+            'id_organismo':{'visibility':false,'value':null},
+            'nom_organismo':{'visibility':true,'value':null},
+            'det_organismo':{'visibility':false,'value':null},
+            'cod_organismo':{'visibility':false,'value':null},
 
-            'nom_tipo_organismo':true,
+            'nom_tipo_organismo':{'visibility':false,'value':null},
 
-            'created_at':false,
-            'updated_at':false,
-            'deleted_at':false,
+            'created_at':{'visibility':false,'value':null},
+            'updated_at':{'visibility':false,'value':null},
+            'deleted_at':{'visibility':false,'value':null},
          },
 
          /* Etiquetas */

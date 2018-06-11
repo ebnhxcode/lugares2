@@ -82,16 +82,16 @@ const ComunaController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_comuna':false,
-            'nom_comuna':true,
-            'det_comuna':true,
-            'alias':true,
-            'orden':true,
-            'nom_region':false,
+            'id_comuna':{'visibility':false,'value':null},
+            'nom_comuna':{'visibility':true,'value':null},
+            'det_comuna':{'visibility':false,'value':null},
+            'alias':{'visibility':false,'value':null},
+            'orden':{'visibility':false,'value':null},
+            'nom_region':{'visibility':false,'value':null},
 
-            'created_at':false,
-            'updated_at':false,
-            'deleted_at':false,
+            'created_at':{'visibility':false,'value':null},
+            'updated_at':{'visibility':false,'value':null},
+            'deleted_at':{'visibility':false,'value':null},
          },
 
          /* Etiquetas */

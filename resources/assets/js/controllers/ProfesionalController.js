@@ -85,15 +85,15 @@ const ProfesionalController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_profesional':false,
-            'nom_profesional':true,
-            'det_profesional':true,
-            'nom_tipo_profesional':false,
-            'nom_cargo':false,
-            'nom_estado':false,
-            'created_at':false,
-            'updated_at':false,
-            'deleted_at':false,
+            'id_profesional':{'visibility':false,'value':null},
+            'nom_profesional':{'visibility':true,'value':null},
+            'det_profesional':{'visibility':false,'value':null},
+            'nom_tipo_profesional':{'visibility':false,'value':null},
+            'nom_cargo':{'visibility':false,'value':null},
+            'nom_estado':{'visibility':false,'value':null},
+            'created_at':{'visibility':false,'value':null},
+            'updated_at':{'visibility':false,'value':null},
+            'deleted_at':{'visibility':false,'value':null},
          },
 
          /* Etiquetas */

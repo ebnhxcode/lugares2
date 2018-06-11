@@ -2589,7 +2589,7 @@ var inyeccion_funciones_compartidas = {
        *
        * */
       cambiar_visibilidad: function cambiar_visibilidad(campo) {
-         return this.tabla_campos[campo] = !this.tabla_campos[campo];
+         return this.tabla_campos[campo].visibility = !this.tabla_campos[campo].visibility;
       },
 
       /*
@@ -2884,6 +2884,10 @@ var inyeccion_funciones_compartidas = {
          });
       },
 
+      filtrar_grid: function filtrar_grid(key) {
+         this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model = this.filterBy(this.lista_objs_model, this.tabla_campos[key].value, key);
+      },
+
       /*
        *
        *
@@ -3023,6 +3027,12 @@ var inyeccion_funciones_compartidas = {
       limpiar_objeto_clase_local: function limpiar_objeto_clase_local() {
          for (var k in this.$data['' + this.nombre_model]) {
             this.$data['' + this.nombre_model][k] = null;
+         }
+      },
+
+      limpiar_tabla_campos: function limpiar_tabla_campos() {
+         for (var k in this.tabla_campos) {
+            this.tabla_campos[k].value = null;
          }
       },
 
@@ -3174,7 +3184,7 @@ var inyeccion_funciones_compartidas = {
        * */
       // function to order lists
       ordenar_lista: function ordenar_lista(columna) {
-         this.lista_objs_model = _.orderBy(this.lista_objs_model, columna, this.orden_lista);
+         this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model = _.orderBy(this.lista_objs_model, columna, this.orden_lista);
       },
 
       /*
@@ -3193,6 +3203,7 @@ var inyeccion_funciones_compartidas = {
             if (response.status == 200) {
                _this10.configurar_relaciones(response.body[_this10.nombre_ruta].data, _this10.relaciones_clase);
                _this10.asignar_recursos(response);
+               _this10.limpiar_tabla_campos();
             } else {
                _this10.checkear_estado_respuesta_http(response.status);
             }
@@ -4626,26 +4637,26 @@ var UsuarioController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            //'id_usuario': false,
-            'nom_usuario': true,
-            'nom_completo': false,
-            'ape_paterno': true,
-            'ape_materno': false,
-            'username': true,
-            'email': true,
-            //'password': false,
-            //'remember_token': false,
-            //'id_usuario_registra': false,
-            //'id_usuario_modifica': false,
-            //'id_role': false,
-            'nom_role': false,
-            //'id_estado': false,
-            'nom_estado': false,
-            //'id_cargo': false,
-            'nom_cargo': false,
-            'created_at': false,
-            'updated_at': false
-            //'deleted_at': false,
+            //'id_usuario': {'visibility':false,'value':null},
+            'nom_usuario': { 'visibility': true, 'value': null },
+            'nom_completo': { 'visibility': false, 'value': null },
+            'ape_paterno': { 'visibility': false, 'value': null },
+            'ape_materno': { 'visibility': false, 'value': null },
+            'username': { 'visibility': false, 'value': null },
+            'email': { 'visibility': false, 'value': null },
+            //'password': {'visibility':false,'value':null},
+            //'remember_token': {'visibility':false,'value':null},
+            //'id_usuario_registra': {'visibility':false,'value':null},
+            //'id_usuario_modifica': {'visibility':false,'value':null},
+            //'id_role': {'visibility':false,'value':null},
+            'nom_role': { 'visibility': false, 'value': null },
+            //'id_estado': {'visibility':false,'value':null},
+            'nom_estado': { 'visibility': false, 'value': null },
+            //'id_cargo': {'visibility':false,'value':null},
+            'nom_cargo': { 'visibility': false, 'value': null },
+            'created_at': { 'visibility': false, 'value': null },
+            'updated_at': { 'visibility': false, 'value': null }
+            //'deleted_at': {'visibility':false,'value':null},
          },
 
          /* Etiquetas */

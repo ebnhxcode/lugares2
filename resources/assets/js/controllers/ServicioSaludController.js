@@ -79,16 +79,16 @@ const ServicioSaludController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_servicio_salud':false,
-            'nom_servicio_salud':true,
-            'det_servicio_salud':true,
-            'orden':true,
+            'id_servicio_salud':{'visibility':false,'value':null},
+            'nom_servicio_salud':{'visibility':true,'value':null},
+            'det_servicio_salud':{'visibility':false,'value':null},
+            'orden':{'visibility':false,'value':null},
 
-            'nom_region':true,
+            'nom_region':{'visibility':false,'value':null},
 
-            'created_at':false,
-            'updated_at':false,
-            'deleted_at':false,
+            'created_at':{'visibility':false,'value':null},
+            'updated_at':{'visibility':false,'value':null},
+            'deleted_at':{'visibility':false,'value':null},
          },
 
          /* Etiquetas */

@@ -1,14 +1,14 @@
-<table class="table table-striped table-hover table-sm">
+<table class="table table-sm">
    <thead>
    <tr class="text-center">
-      <th v-for="c,i in tabla_campos" v-if="c">
-         <a href="#!" class="btn btn-primary" @click.prevent="cambiar_orden_lista(i)">
+      <th v-for="c,i in tabla_campos" v-if="c.visibility!=false">
+         <a href="#!" class="btn btn-primary" style="width: 100%;height: 100%;" @click.prevent="cambiar_orden_lista(i)">
             <i class="fa fa-sort" aria-hidden="true"></i>&nbsp;
             @{{ tabla_labels[i] }}
          </a>
       </th>
       <th>
-         <a href="#!" class="btn btn-primary" @click.prevent="cambiar_orden_lista(`id_${nombre_model}`)">
+         <a href="#!" class="btn btn-primary" style="width: 100%;height: 100%;" @click.prevent="cambiar_orden_lista(`id_${nombre_model}`)">
             <i class="fa fa-sort" aria-hidden="true"></i>&nbsp;
             Acción
          </a>
@@ -19,7 +19,7 @@
    <tr class="text-center" v-for="lom in filterBy(lista_objs_model, filtro_head)"
        {{--@dblclick.prevent="editar(lom[`id_${nombre_model}`])"--}}>
       <template v-if="id_en_edicion != lom[`id_${nombre_model}`] || modal_actualizar_activo == true">
-         <td v-for="c,i in tabla_campos" v-show="c" class="text-left">
+         <td v-for="c,i in tabla_campos" v-show="c.visibility!=false" class="text-left">
             {{-- se corre por detras la completitud de relaciones. --}}
             @{{ lom[i] }}
          </td>
@@ -42,6 +42,7 @@
       <!-- Botonera de acciones -->
       <td>
          <div class="btn-group btn-group-sm" style="margin:0;" role="group" aria-label="Basic example">
+            {{--
             <button class="btn btn-primary"
                     v-show="id_en_edicion != lom[`id_${nombre_model}`] &&
                         id_en_edicion == null &&
@@ -51,6 +52,7 @@
                     @click.prevent="editar(lom[`id_${nombre_model}`])">
                <i class="fa fa-edit"></i>
             </button>
+            --}}
             <button class="btn btn-success" v-show="id_en_edicion == lom[`id_${nombre_model}`] && modal_actualizar_activo == false"
                     data-placement="top" data-toggle="tooltip" title="Guardar"
                     @click.prevent="guardar_editado">

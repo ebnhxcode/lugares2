@@ -108,6 +108,10 @@ const EstablecimientoController = new Vue({
          'tipos_organismos':[],
          'regiones':[],
          'comunas':[],
+
+
+         'filtros':[],
+
          
          'datos_excel':[],
          'usuario_auth':{},
@@ -132,36 +136,36 @@ const EstablecimientoController = new Vue({
 
          /* Campos que se ven en el tablero */
          'tabla_campos': {
-            'id_establecimiento':false,
-            'nom_establecimiento':true,
-            //'observaciones':false,
-            'nom_direccion':false,
-            'num_calle':false,
-            'nom_responsable':false,
-            //'sitio_web':false,
-            //'email':false,
-            //'cod_area_fax':false,
-            //'fax':false,
-            //'vigencia_desde':false,
-            //'fecha_cierre':false,
-            'id_establecimiento_antiguo':false,
+            'id_establecimiento':{'visibility':false,'value':null},
+            'nom_establecimiento':{'visibility':true,'value':null},
+            //'observaciones':{'visibility':true,'value':null},
+            'nom_direccion':{'visibility':false,'value':null},
+            'num_calle':{'visibility':false,'value':null},
+            'nom_responsable':{'visibility':false,'value':null},
+            //'sitio_web':{'visibility':true,'value':null},
+            //'email':{'visibility':true,'value':null},
+            //'cod_area_fax':{'visibility':true,'value':null},
+            //'fax':{'visibility':true,'value':null},
+            //'vigencia_desde':{'visibility':true,'value':null},
+            //'fecha_cierre':{'visibility':true,'value':null},
+            'id_establecimiento_antiguo':{'visibility':false,'value':null},
 
-            //'id_tipo_establecimiento':false,
-            'nom_tipo_establecimiento':false,
-            //'id_servicio_salud':false,
-            'nom_servicio_salud':false,
-            //'id_dependencia':false,
-            'nom_dependencia':false,
-            //'id_organismo':false,
-            'nom_organismo':false,
-            //'id_region':false,
-            'nom_region':false,
-            //'id_comuna':false,
-            'nom_comuna':false,
+            //'id_tipo_establecimiento':{'visibility':true,'value':null},
+            'nom_tipo_establecimiento':{'visibility':false,'value':null},
+            //'id_servicio_salud':{'visibility':true,'value':null},
+            'nom_servicio_salud':{'visibility':false,'value':null},
+            //'id_dependencia':{'visibility':true,'value':null},
+            'nom_dependencia':{'visibility':false,'value':null},
+            //'id_organismo':{'visibility':true,'value':null},
+            'nom_organismo':{'visibility':false,'value':null},
+            //'id_region':{'visibility':true,'value':null},
+            'nom_region':{'visibility':false,'value':null},
+            //'id_comuna':{'visibility':true,'value':null},
+            'nom_comuna':{'visibility':false,'value':null},
 
-            'created_at':false,
-            'updated_at':false,
-            'deleted_at':false,
+            'created_at':{'visibility':false,'value':null},
+            'updated_at':{'visibility':false,'value':null},
+            //'deleted_at':{'visibility':false,'value':null},
          },
 
          /* Etiquetas */
@@ -365,10 +369,7 @@ const EstablecimientoController = new Vue({
 
      },
 
-      filtrar_grid: function (key,value) {
-         console.log(value);
 
-      },
 
       guardar_telefono: function () {
          //Ejecuta validacion sobre los campos con validaciones
@@ -395,7 +396,7 @@ const EstablecimientoController = new Vue({
                   //console.log(response.body);
 
                   if (response.status == 200) {
-                     this.inicializar();
+                     //this.inicializar();
                      this.telefono = {
                         'num_telefono':null,
                         'det_telefono':null,
