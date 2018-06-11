@@ -2,7 +2,7 @@
 <modal style="padding-top: 20px;" name="{{$nom_modal}}"
        @before-close="before_close"
        :reset="true"
-       width="85%"
+       width="90%"
        :min-width="320"
        :height="'auto'"
        :min-height="600"

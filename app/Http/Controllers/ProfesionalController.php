@@ -57,7 +57,9 @@ class ProfesionalController extends Controller {
       if ($request->wantsJson() && $request->ajax() && $request->isXmlHttpRequest()) {
          $this->validar_paginacion($request);
 
-         $this->profesionales = Profesional::with(['tipo_profesional'])->paginate((int)$this->per_page);
+         $this->profesionales = Profesional::with([
+            'tipo_profesional','cargo','estado'
+         ])->paginate((int)$this->per_page);
          $this->tipos_profesionales = TipoProfesional::all();
          $this->cargos = Cargo::all();
          $this->estados = Estado::all();
@@ -94,7 +96,9 @@ class ProfesionalController extends Controller {
          ]);
       }
 
-      $this->profesional = Profesional::with(['tipo_profesional'])->where("id_$this->nombre_modelo",'=',$id)->first();
+      $this->profesional = Profesional::with([
+         'tipo_profesional','cargo','estado'
+      ])->where("id_$this->nombre_modelo",'=',$id)->first();
 
       #Valida si role existe y busca si tiene servidor_permiso
       if ($this->profesional) {

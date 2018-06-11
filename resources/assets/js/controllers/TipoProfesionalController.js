@@ -80,9 +80,9 @@ const TipoProfesionalController = new Vue({
 
          /* Etiquetas */
          'tabla_labels': {
-            'id_tipo_profesional': 'Id tipo aplicacion',
-            'nom_tipo_profesional': 'Nombre tipo aplicacion',
-            'det_tipo_profesional': 'Detalle tipo aplicacion',
+            'id_tipo_profesional': 'Id tipo profesional',
+            'nom_tipo_profesional': 'Nombre tipo profesional',
+            'det_tipo_profesional': 'Detalle tipo profesional',
 
             'id_usuario_registra': 'Usuario registra',
             'id_usuario_modifica': 'Usuario modifica',

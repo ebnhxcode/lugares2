@@ -39,6 +39,7 @@
       @include('establecimientos.partials.segments.extension_horaria')
    </div>
 </div>
+<br>
 
 
 
