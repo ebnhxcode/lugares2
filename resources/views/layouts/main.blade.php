@@ -84,7 +84,7 @@
 
          <div class="card-body pro">
 
-            <i class="fa fa-refresh btn btn-warning float-right" @click.prevent="inicializar" aria-hidden="true"
+            <i class="fa fa-refresh btn btn-warning float-right" @click.prevent="recargar_filtros_tablero" aria-hidden="true"
                data-placement="top" data-toggle="tooltip" title="Clic para actualizar  "></i>
 
             <h5>SECCION DE FILTROS</h5>

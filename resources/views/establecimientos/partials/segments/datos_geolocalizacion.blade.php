@@ -1,4 +1,4 @@
-<h5>Datos de geolocalización</h5>
+<h5>DATOS DE GEOLOCALIZACIÓN</h5>
 <div class="row">
    <div class="col-sm-4 col-md-4">
 

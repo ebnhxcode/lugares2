@@ -3086,7 +3086,8 @@ var inyeccion_funciones_compartidas = {
       },
 
       filtrar_grid: function filtrar_grid(key) {
-         this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model = this.filterBy(this.lista_objs_model, this.tabla_campos[key].value, key);
+         //this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model =
+         this.datos_excel = this.lista_objs_model = this.filterBy(this.lista_objs_model, this.tabla_campos[key].value, key);
       },
 
       /*
@@ -3386,6 +3387,11 @@ var inyeccion_funciones_compartidas = {
       // function to order lists
       ordenar_lista: function ordenar_lista(columna) {
          this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model = _.orderBy(this.lista_objs_model, columna, this.orden_lista);
+      },
+
+      recargar_filtros_tablero: function recargar_filtros_tablero() {
+         this.lista_objs_model = this.$data[this.nombre_ruta];
+         this.limpiar_tabla_campos();
       },
 
       /*

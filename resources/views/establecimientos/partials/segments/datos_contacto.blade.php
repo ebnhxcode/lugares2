@@ -1,5 +1,4 @@
-
-<h5>Datos de Contacto</h5>
+<h5>DATOS DE CONTACTO</h5>
 <div class="row">
 
    <div class="col-sm-2 col-md-2">
