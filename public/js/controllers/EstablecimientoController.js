@@ -3193,6 +3193,15 @@ var inyeccion_funciones_compartidas = {
          this.limpiar_tabla_campos();
       },
 
+      recargar_filtros_tablero_sin_limpiar_filtros: function recargar_filtros_tablero_sin_limpiar_filtros() {
+         this.lista_objs_model = this.$data[this.nombre_ruta];
+         for (var obj in this.tabla_campos) {
+            if (this.tabla_campos[obj].value != null) {
+               this.filtrar_grid(obj);
+            }
+         }
+      },
+
       /*
        *
        *
@@ -4864,6 +4873,9 @@ var EstablecimientoController = new Vue({
 
       asignar_recursos: function asignar_recursos(response) {
          /* Datos intrinsecos de la entidad */
+         this.lista_objs_model = {};
+         this.establecimientos = {};
+         this.datos_excel = {};
          this.lista_objs_model = response.body.establecimientos.data || null;
          this.establecimientos = response.body.establecimientos.data || null;
          this.datos_excel = response.body.establecimientos.data || null;

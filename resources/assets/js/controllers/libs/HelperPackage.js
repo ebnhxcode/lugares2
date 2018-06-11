@@ -704,6 +704,15 @@ export const inyeccion_funciones_compartidas = {
          this.limpiar_tabla_campos();
       },
 
+      recargar_filtros_tablero_sin_limpiar_filtros: function () {
+         this.lista_objs_model=this.$data[this.nombre_ruta];
+         for (var obj in this.tabla_campos) {
+            if (this.tabla_campos[obj].value != null) {
+               this.filtrar_grid(obj);
+            }
+         }
+      },
+
       /*
        *
        *

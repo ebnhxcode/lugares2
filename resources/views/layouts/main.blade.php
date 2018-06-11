@@ -84,8 +84,21 @@
 
          <div class="card-body pro">
 
-            <i class="fa fa-refresh btn btn-warning float-right" @click.prevent="recargar_filtros_tablero" aria-hidden="true"
-               data-placement="top" data-toggle="tooltip" title="Clic para actualizar  "></i>
+            <span class="btn btn-warning float-right" @click.prevent="recargar_filtros_tablero">
+               <i class="fa fa-refresh" aria-hidden="true"
+                  data-placement="top" data-toggle="tooltip" title="Recarga datos y elimina los filtros"></i>
+               Re-Carga Completa
+            </span>
+
+            <span class="btn btn-success float-right" @click.prevent="recargar_filtros_tablero_sin_limpiar_filtros">
+               <i class="fa fa-refresh" aria-hidden="true"
+                  data-placement="top" data-toggle="tooltip" title="Mantiene contenido de los filtros"></i>
+               Re-Carga Blanda
+            </span>
+
+
+
+
 
             <h5>SECCION DE FILTROS</h5>
             <br>

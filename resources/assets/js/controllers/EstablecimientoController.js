@@ -309,6 +309,9 @@ const EstablecimientoController = new Vue({
 
       asignar_recursos: function (response) {
          /* Datos intrinsecos de la entidad */
+         this.lista_objs_model = {};
+         this.establecimientos = {};
+         this.datos_excel = {};
          this.lista_objs_model = response.body.establecimientos.data || null;
          this.establecimientos = response.body.establecimientos.data || null;
          this.datos_excel = response.body.establecimientos.data || null;
