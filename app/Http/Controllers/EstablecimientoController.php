@@ -59,7 +59,7 @@ class EstablecimientoController extends Controller {
 
    private function validar_paginacion ($request) {
       if (!$request->per_page) {
-         $this->per_page = 50;
+         $this->per_page = 25;
       } else {
          $this->per_page = $request->per_page;
       }
