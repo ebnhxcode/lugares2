@@ -4626,6 +4626,7 @@ var EstablecimientoController = new Vue({
             'email': null,
             'cod_area_fax': null,
             'fax': null,
+            'ext_horaria': null,
             'vigencia_desde': null,
             'fecha_cierre': null,
 
@@ -4657,7 +4658,7 @@ var EstablecimientoController = new Vue({
             'cod_area': null
          },
 
-         'permitido_guardar': ['nom_establecimiento', 'observaciones', 'nom_direccion', 'num_calle', 'nom_responsable', 'sitio_web', 'email', 'cod_area_fax', 'fax', 'vigencia_desde', 'fecha_cierre', 'id_establecimiento_antiguo', 'id_tipo_establecimiento', 'id_servicio_salud', 'id_dependencia', 'id_organismo', 'id_region', 'id_comuna'],
+         'permitido_guardar': ['id_establecimiento', 'nom_establecimiento', 'observaciones', 'nom_direccion', 'num_calle', 'nom_responsable', 'sitio_web', 'email', 'cod_area_fax', 'fax', 'ext_horaria', 'vigencia_desde', 'fecha_cierre', 'id_establecimiento_antiguo', 'id_tipo_establecimiento', 'id_servicio_salud', 'id_dependencia', 'id_organismo', 'id_region', 'id_comuna'],
          'relaciones_clase': [{ 'tipo_establecimiento': ['id_tipo_establecimiento', 'nom_tipo_establecimiento'] }, { 'servicio_salud': ['id_servicio_salud', 'nom_servicio_salud'] }, { 'dependencia': ['id_dependencia', 'nom_dependencia'] }, { 'organismo': ['id_organismo', 'nom_organismo'] }, { 'region': ['id_region', 'nom_region'] }, { 'comuna': ['id_comuna', 'nom_comuna'] }],
          'lom': {},
          'lista_objs_model': [],
@@ -4670,8 +4671,7 @@ var EstablecimientoController = new Vue({
          'tipos_organismos': [],
          'regiones': [],
          'comunas': [],
-
-         'filtros': [],
+         'dias_semana': [],
 
          'datos_excel': [],
          'usuario_auth': {},
@@ -4706,6 +4706,7 @@ var EstablecimientoController = new Vue({
             //'email':{'visibility':true,'value':null},
             //'cod_area_fax':{'visibility':true,'value':null},
             //'fax':{'visibility':true,'value':null},
+            'ext_horaria': { 'visibility': false, 'value': null },
             //'vigencia_desde':{'visibility':true,'value':null},
             //'fecha_cierre':{'visibility':true,'value':null},
             'id_establecimiento_antiguo': { 'visibility': false, 'value': null },
@@ -4740,6 +4741,7 @@ var EstablecimientoController = new Vue({
             'email': 'Email',
             'cod_area_fax': 'Codigo area Fax',
             'fax': 'Fax',
+            'ext_horaria': 'Extension Horaria',
             'vigencia_desde': 'Vigencia desde',
             'fecha_cierre': 'Fecha cierre',
             'id_establecimiento_antiguo': 'Id establecimiento antiguo',
@@ -4776,6 +4778,7 @@ var EstablecimientoController = new Vue({
             'email': 'String',
             'cod_area_fax': 'String',
             'fax': 'String',
+            'ext_horaria': 'String',
             'vigencia_desde': 'String',
             'fecha_cierre': 'String',
             'id_establecimiento_antiguo': 'String',
@@ -4834,6 +4837,7 @@ var EstablecimientoController = new Vue({
                'email': establecimiento.email || '-',
                'cod_area_fax': establecimiento.cod_area_fax || '-',
                'fax': establecimiento.fax || '-',
+               'ext_horaria': establecimiento.ext_horaria || '-',
                'vigencia_desde': establecimiento.vigencia_desde || '-',
                'fecha_cierre': establecimiento.fecha_cierre || '-',
                'id_establecimiento_antiguo': establecimiento.id_establecimiento_antiguo || '-',
@@ -4892,6 +4896,7 @@ var EstablecimientoController = new Vue({
          this.tipos_organismos = response.body.tipos_organismos || null;
          this.regiones = response.body.regiones || null;
          this.comunas = response.body.comunas || null;
+         this.dias_semana = response.body.dias_semana || null;
 
          /* Datos de la sesion actual del usuario */
          this.usuario_auth = response.body.usuario_auth || null;

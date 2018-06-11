@@ -25,6 +25,7 @@ class Establecimiento extends Model {
       'email',
       'cod_area_fax',
       'fax',
+      'ext_horaria',
       'vigencia_desde',
       'fecha_cierre',
 

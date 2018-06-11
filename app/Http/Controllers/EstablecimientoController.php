@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comuna;
 use App\Dependencia;
+use App\DiaSemana;
 use App\Organismo;
 use App\Region;
 use App\ServicioSalud;
@@ -33,6 +34,7 @@ class EstablecimientoController extends Controller {
    private $tipos_organismos;
    private $regiones;
    private $comunas;
+   private $dias_semana;
 
 
    private $establecimiento;
@@ -88,6 +90,7 @@ class EstablecimientoController extends Controller {
          $this->tipos_organismos = TipoOrganismo::all();
          $this->regiones = Region::all();
          $this->comunas = Comuna::all();
+         $this->dias_semana = DiaSemana::all();
 
 
          $this->usuario_auth = Auth::user();
@@ -102,6 +105,7 @@ class EstablecimientoController extends Controller {
             'tipos_organismos' => $this->tipos_organismos,
             'regiones' => $this->regiones,
             'comunas' => $this->comunas,
+            'dias_semana' => $this->dias_semana,
             'usuario_auth' => $this->usuario_auth,
          ]);
       }
@@ -169,6 +173,7 @@ class EstablecimientoController extends Controller {
          'email' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'cod_area_fax' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'fax' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'ext_horaria' => "regex:/(^([a-z]+)(\d+)?$)/u|max:255",
          'vigencia_desde' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'fecha_cierre' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'id_establecimiento_antiguo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
@@ -241,6 +246,7 @@ class EstablecimientoController extends Controller {
          'email' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'cod_area_fax' => "regex:/(^([0-9]+)(\d+)?$)/u|max:255",
          'fax' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'ext_horaria' => "regex:/(^([a-z]+)(\d+)?$)/u|max:255",
          'vigencia_desde' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'fecha_cierre' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'id_establecimiento_antiguo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",

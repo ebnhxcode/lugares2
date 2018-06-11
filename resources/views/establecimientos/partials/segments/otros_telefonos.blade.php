@@ -1,4 +1,4 @@
-<h5 v-if="modal_actualizar_activo==true">OTROS TELÉFONOS</h5>
+<h5>OTROS TELÉFONOS</h5>
 <div class="row" v-if="modal_actualizar_activo==true">
 
    <div class="col-md-6">
