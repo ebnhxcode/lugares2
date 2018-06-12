@@ -14,13 +14,13 @@ class HorarioAtencionProfesional extends Model {
    protected $primaryKey = 'id_horario_atencion';
    protected $fillable = [
       # columns
-      'hora_inicio',
-      'hora_termino',
+      'hora_inicio_profesional',
+      'hora_termino_profesional',
 
       # relaciones -> pks
       'id_establecimiento',
       'id_profesional',
-      'id_dia',
+      'id_dia_profesional',
 
       # relaciones
       'id_usuario_registra',
@@ -36,7 +36,7 @@ class HorarioAtencionProfesional extends Model {
    }
 
    public function dia () {
-      return $this->belongsTo(DiaSemana::class, 'id_dia');
+      return $this->belongsTo(DiaSemana::class, 'id_dia_profesional');
    }
 
 

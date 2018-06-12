@@ -52,19 +52,7 @@ class HorarioAtencionEstablecimientoController extends Controller {
    }
 
    public function index_ajax (Request $request) {
-      if ($request->wantsJson() && $request->ajax() && $request->isXmlHttpRequest()) {
-         $this->validar_paginacion($request);
-         $this->horarios_atencion_establecimientos = HorarioAtencionEstablecimiento::paginate((int)$this->per_page);
-         $this->dias_semana = DiaSemana::all();
-         $this->establecimientos = Establecimiento::all();
-
-         $this->usuario_auth = Auth::user();
-         return response()->json([
-            'status' => 200,
-            'horarios_atencion_establecimientos' => $this->horarios_atencion_establecimientos,
-            'usuario_auth' => $this->usuario_auth,
-         ]);
-      }
+      return null;
    }
 
    public function index() {

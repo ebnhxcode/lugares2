@@ -52,60 +52,15 @@ class HorarioVisitaEstablecimientoController extends Controller {
    }
 
    public function index_ajax (Request $request) {
-      if ($request->wantsJson() && $request->ajax() && $request->isXmlHttpRequest()) {
-         $this->validar_paginacion($request);
-         $this->horarios_visita_establecimientos = HorarioVisitaEstablecimiento::paginate((int)$this->per_page);
-         $this->dias_semana = DiaSemana::all();
-         $this->establecimientos = Establecimiento::all();
-
-         $this->usuario_auth = Auth::user();
-         return response()->json([
-            'status' => 200,
-            'horarios_visita_establecimientos' => $this->horarios_visita_establecimientos,
-            'usuario_auth' => $this->usuario_auth,
-         ]);
-      }
+      return null;
    }
 
    public function index() {
-      return view("layouts.main", [
-         'nombre_modelo' => $this->nombre_modelo,
-         'nombre_tabla' => $this->nombre_tabla,
-         'nombre_ruta' => $this->nombre_ruta,
-         'nombre_detalle' => $this->nombre_detalle,
-         'nombre_controller' => $this->nombre_controller,
-      ]);
+      return null;
    }
 
    public function show (Request $request, $id) {
-      $result = preg_match('/(^([0-9]+)(\d+)?$)/u', $id);
-      if ($this->es_vacio($id) == true || $result == 0) {
-         return response()->json([
-            'status' => 200, //Para los popups con alertas de sweet alert
-            'tipo' => 'error_datos_invalidos', //Para las notificaciones
-            'mensajes' => ["new_$this->nombre_modelo" => [0=>"Lo buscado, no se encontró."]],
-         ]);
-      }
-
-      $this->horario_visita_establecimiento = HorarioVisitaEstablecimiento::where("id_$this->nombre_modelo",'=',$id)->first();
-
-      #Valida si role existe y busca si tiene servidor_permiso
-      if ($this->horario_visita_establecimiento) {
-         return response()->json([
-            'status' => 200, //Para los popups con alertas de sweet alert
-            'tipo' => 'eliminacion_exitosa', //Para las notificaciones
-            'mensajes' => ["new_$this->nombre_modelo" => [0=>"Registro encontrado exitosamente."]],
-            'horario_visita_establecimiento' => $this->horario_visita_establecimiento,
-            //Para mostrar los mensajes que van desde el backend
-         ]);
-      }else{
-         return response()->json([
-            'status' => 200, //Para los popups con alertas de sweet alert
-            'tipo' => 'error_datos_invalidos', //Para las notificaciones
-            'mensajes' => ["new_$this->nombre_modelo" => [0=>"Lo buscado, no se encontró."]],
-         ]);
-      }
-
+      return null;
    }
 
    public function store(Request $request) {
