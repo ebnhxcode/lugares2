@@ -4696,6 +4696,7 @@ var EstablecimientoController = new Vue({
          'filtros': {
             'id_comuna': null,
             'id_region': null,
+            'id_tipo_establecimiento': null,
             'updated_at': null
          },
 

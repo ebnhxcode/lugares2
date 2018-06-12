@@ -1,4 +1,4 @@
-<h5>HORARIO DE ANTENCIÓN</h5>
+<h5>HORARIO DE ATENCIÓN</h5>
 <div class="row">
 
    <div class="col-sm-6 col-md-6">

@@ -42,6 +42,34 @@
    <div class="col-sm-6 col-md-6">
       <div class="row">
 
+         <div class="col-sm-12 col-md-12">
+
+            <dt>Profesional</dt>
+            <dd>
+               <p class="control has-icon has-icon-right">
+                  <select class="custom-select" v-model="horario_atencion_profesional.id_profesional" name="id_profesional"
+                          v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
+                     <option :value="p.id_profesional" v-for="p in profesionales">
+                        @{{ `${p.nom_profesional}` }}
+                     </option>
+                  </select>
+
+                  <transition name="bounce">
+                     <i v-show="errors.has('id_profesional')" class="fa fa-exclamation-circle"></i>
+                  </transition>
+
+                  <transition name="bounce">
+               <span v-show="errors.has('id_profesional')" class="text-danger small">
+                  @{{ errors.first('id_profesional') }}
+               </span>
+                  </transition>
+               </p>
+
+            </dd>
+
+
+         </div><!-- .col -->
+
          <div class="col-sm-4 col-md-4">
 
             <dt>Horario de Atención</dt>
@@ -111,38 +139,6 @@
                   <transition name="bounce">
                <span v-show="errors.has('hora_termino_profesional')" class="text-danger small">
                   @{{ errors.first('hora_termino_profesional') }}
-               </span>
-                  </transition>
-               </p>
-
-            </dd>
-
-
-         </div><!-- .col -->
-
-         <div class="col-sm-2 col-md-2">
-
-         </div>
-
-         <div class="col-sm-10 col-md-10">
-
-            <dt>Profesional</dt>
-            <dd>
-               <p class="control has-icon has-icon-right">
-                  <select class="custom-select" v-model="horario_atencion_profesional.id_profesional" name="id_profesional"
-                          v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
-                     <option :value="p.id_profesional" v-for="p in profesionales">
-                        @{{ `${p.nom_profesional}` }}
-                     </option>
-                  </select>
-
-                  <transition name="bounce">
-                     <i v-show="errors.has('id_profesional')" class="fa fa-exclamation-circle"></i>
-                  </transition>
-
-                  <transition name="bounce">
-               <span v-show="errors.has('id_profesional')" class="text-danger small">
-                  @{{ errors.first('id_profesional') }}
                </span>
                   </transition>
                </p>

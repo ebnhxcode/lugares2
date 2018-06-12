@@ -87,13 +87,13 @@
             <span class="btn btn-warning float-right" @click.prevent="recargar_filtros_tablero">
                <i class="fa fa-refresh" aria-hidden="true"
                   data-placement="top" data-toggle="tooltip" title="Recarga datos y elimina los filtros"></i>
-               Re-Carga Completa
+               Re-Carga Borrando Filtro
             </span>
 
             <span class="btn btn-success float-right" @click.prevent="recargar_filtros_tablero_sin_limpiar_filtros">
                <i class="fa fa-refresh" aria-hidden="true"
                   data-placement="top" data-toggle="tooltip" title="Mantiene contenido de los filtros"></i>
-               Re-Carga Blanda
+               Re-Carga Sin Borrar Filtros
             </span>
 
             <h5>FILTROS POR REFERENCIA</h5>
@@ -139,6 +139,17 @@
                         <option value=""></option>
                         <option :value="c.id_comuna" v-for="c in comunas" v-if="filtros.id_region==c.id_region">
                            @{{ `${c.nom_comuna}` }}
+                        </option>
+                     </select>
+                  </div>
+                  <div class="col-md-3 col-lg-3">
+                     Filtro por Tipo de Establecimiento
+                     <select class="custom-select" v-model="filtros.id_tipo_establecimiento" name="id_tipo_establecimiento"
+                             @change.prevent="filtrar_adicional('id_tipo_establecimiento')"
+                             v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
+                        <option value=""></option>
+                        <option :value="t.id_tipo_establecimiento" v-for="t in tipos_establecimientos">
+                           @{{ `${t.nom_tipo_establecimiento}` }}
                         </option>
                      </select>
                   </div>
