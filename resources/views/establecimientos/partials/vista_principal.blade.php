@@ -32,14 +32,13 @@
             <h5 class="card-title">
                Region ➜ @{{ establecimiento.region.nom_region || 'No hay información sobre la region' }}
             </h5>
-            <p class="card-text">
+            <p class="card-title">
 
-               <dl class="row">
+               <dl>
                   <dt>Detalle</dt>
-                  <dd class="col-md-12">@{{ establecimiento.region.det_region || 'Sin información de detalle' }}</dd>
-                  <br>
+                  <dd>@{{ establecimiento.region.det_region || 'Sin información de detalle' }}</dd>
                   <dt>Alias</dt>
-                  <dd class="col-md-12">@{{ establecimiento.region.alias || 'Sin información de alias' }}</dd>
+                  <dd>@{{ establecimiento.region.alias || 'Sin información de alias' }}</dd>
                </dl>
 
             </p>
@@ -57,15 +56,14 @@
             <h5 class="card-title">
                Comuna ➜ @{{ establecimiento.comuna.nom_comuna || 'No hay información sobre la comuna' }}
             </h5>
-            <p class="card-text">
+            <p class="card-title">
 
-            <dl class="row">
-               <dt>Detalle</dt>
-               <dd class="col-md-12">@{{ establecimiento.comuna.det_comuna || 'Sin información de detalle' }}</dd>
-               <br>
-               <dt>Alias</dt>
-               <dd class="col-md-12">@{{ establecimiento.comuna.alias || 'Sin información de alias' }}</dd>
-            </dl>
+               <dl>
+                  <dt>Detalle</dt>
+                  <dd>@{{ establecimiento.comuna.det_comuna || 'Sin información de detalle' }}</dd>
+                  <dt>Alias</dt>
+                  <dd>@{{ establecimiento.comuna.alias || 'Sin información de alias' }}</dd>
+               </dl>
 
 
 
@@ -76,6 +74,21 @@
       <div v-else>
          No hay información de la comuna.
       </div>
+
+      <br>
+
+      <!-- este bloque será reemplazado dinamicamente -->
+      <div class="card pro" style="{{--width: 18rem;--}}">
+         <img class="card-img-top" src="https://www.jqueryscript.net/images/Show-Nearby-Places-jQuery-Google-Maps-WhatsNearby.jpg" alt="Card image cap">
+         <div class="card-body">
+            <h5 class="card-title">
+               Geolocalización
+            </h5>
+            <p class="card-text">
+            </p>
+            {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
+         </div><!-- .card-body -->
+      </div><!-- .card -->
 
    </div><!-- .col -->
 

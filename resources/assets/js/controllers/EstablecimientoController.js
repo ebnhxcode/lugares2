@@ -132,6 +132,12 @@ const EstablecimientoController = new Vue({
          'regiones':[],
          'comunas':[],
          'dias_semana':[],
+
+         'filtros':{
+            'id_comuna':null,
+            'id_region':null,
+            'updated_at':null,
+         },
          
          'datos_excel':[],
          'usuario_auth':{},
