@@ -364,6 +364,10 @@ const EstablecimientoController = new Vue({
          /* Datos de la sesion actual del usuario */
          this.usuario_auth = response.body.usuario_auth || null;
       },
+
+      filtrar_adicional: function (key) {
+         this.datos_excel = this.lista_objs_model = this.filterBy(this.lista_objs_model, this.filtros[key], key);
+      },
       
       eliminar_telefono: function (id) {
 
@@ -403,7 +407,6 @@ const EstablecimientoController = new Vue({
         });
 
       },
-
 
       guardar_telefono: function () {
          //Ejecuta validacion sobre los campos con validaciones

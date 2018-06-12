@@ -4693,6 +4693,12 @@ var EstablecimientoController = new Vue({
          'comunas': [],
          'dias_semana': [],
 
+         'filtros': {
+            'id_comuna': null,
+            'id_region': null,
+            'updated_at': null
+         },
+
          'datos_excel': [],
          'usuario_auth': {},
 
@@ -4921,6 +4927,10 @@ var EstablecimientoController = new Vue({
 
          /* Datos de la sesion actual del usuario */
          this.usuario_auth = response.body.usuario_auth || null;
+      },
+
+      filtrar_adicional: function filtrar_adicional(key) {
+         this.datos_excel = this.lista_objs_model = this.filterBy(this.lista_objs_model, this.filtros[key], key);
       },
 
       eliminar_telefono: function eliminar_telefono(id) {

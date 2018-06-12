@@ -121,18 +121,24 @@
                <br>
                <div class="row">
                   <div class="col-md-3 col-lg-3">
-                     <select class="custom-select" v-model="establecimiento.id_region" name="id_region"
+                     Filtro por Región
+                     <select class="custom-select" v-model="filtros.id_region" name="id_region"
+                             @change.prevent="filtrar_adicional('id_region')"
                              v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
+                        <option value=""></option>
                         <option :value="r.id_region" v-for="r in regiones">
-                           @{{ `${r.nom_region} -> ${r.det_region}` }}
+                           @{{ `${r.nom_region}` }}
                         </option>
                      </select>
                   </div>
                   <div class="col-md-3 col-lg-3">
-                     <select class="custom-select" v-model="establecimiento.id_comuna" name="id_comuna"
+                     Filtro por Comuna
+                     <select class="custom-select" v-model="filtros.id_comuna" name="id_comuna"
+                             @change.prevent="filtrar_adicional('id_comuna')"
                              v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
-                        <option :value="c.id_comuna" v-for="c in comunas" v-if="establecimiento.id_region==c.id_region">
-                           @{{ `${c.nom_comuna} -> ${c.det_comuna}` }}
+                        <option value=""></option>
+                        <option :value="c.id_comuna" v-for="c in comunas" v-if="filtros.id_region==c.id_region">
+                           @{{ `${c.nom_comuna}` }}
                         </option>
                      </select>
                   </div>
