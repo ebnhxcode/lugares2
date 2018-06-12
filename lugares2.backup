@@ -5,7 +5,7 @@
 -- Dumped from database version 10.4
 -- Dumped by pg_dump version 10.3
 
--- Started on 2018-06-12 11:10:48 -04
+-- Started on 2018-06-12 11:48:14 -04
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -489,8 +489,8 @@ CREATE TABLE public.horarios_atencion_establecimientos (
     created_at timestamp(0) without time zone,
     updated_at timestamp(0) without time zone,
     deleted_at timestamp without time zone,
-    hora_inicio text,
-    hora_termino text
+    hora_inicio_atencion text,
+    hora_termino_atencion text
 );
 
 
@@ -562,8 +562,8 @@ CREATE TABLE public.horarios_visita_establecimientos (
     created_at timestamp(0) without time zone,
     updated_at timestamp(0) without time zone,
     deleted_at timestamp without time zone,
-    hora_inicio text,
-    hora_termino text
+    hora_inicio_visita text,
+    hora_termino_visita text
 );
 
 
@@ -6147,7 +6147,7 @@ COPY public.estados (id_estado, nom_estado, cod_estado, id_usuario_registra, id_
 -- Data for Name: horarios_atencion_establecimientos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.horarios_atencion_establecimientos (id_horario_atencion_establecimiento, id_establecimiento, id_dia_atencion, id_usuario_registra, id_usuario_modifica, created_at, updated_at, deleted_at, hora_inicio, hora_termino) FROM stdin;
+COPY public.horarios_atencion_establecimientos (id_horario_atencion_establecimiento, id_establecimiento, id_dia_atencion, id_usuario_registra, id_usuario_modifica, created_at, updated_at, deleted_at, hora_inicio_atencion, hora_termino_atencion) FROM stdin;
 19	124531	7	9	9	2018-06-12 14:12:13	2018-06-12 14:25:04	2018-06-12 14:25:04	08:00	19:00
 20	124531	2	9	9	2018-06-12 14:13:09	2018-06-12 14:25:08	2018-06-12 14:25:08	08:00	19:00
 21	124531	1	9	9	2018-06-12 14:13:17	2018-06-12 14:25:10	2018-06-12 14:25:10	10:00	10:00
@@ -6171,7 +6171,7 @@ COPY public.horarios_atencion_profesionales (id_horario_atencion, id_establecimi
 -- Data for Name: horarios_visita_establecimientos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.horarios_visita_establecimientos (id_horario_visita_establecimiento, id_establecimiento, id_dia_visita, id_usuario_registra, id_usuario_modifica, created_at, updated_at, deleted_at, hora_inicio, hora_termino) FROM stdin;
+COPY public.horarios_visita_establecimientos (id_horario_visita_establecimiento, id_establecimiento, id_dia_visita, id_usuario_registra, id_usuario_modifica, created_at, updated_at, deleted_at, hora_inicio_visita, hora_termino_visita) FROM stdin;
 1	124531	3	9	9	2018-06-12 14:48:48	2018-06-12 14:48:48	\N	10:10	10:10
 \.
 
@@ -8035,7 +8035,7 @@ ALTER TABLE ONLY public.usuarios_roles
 CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
 
 
--- Completed on 2018-06-12 11:10:49 -04
+-- Completed on 2018-06-12 11:48:15 -04
 
 --
 -- PostgreSQL database dump complete
