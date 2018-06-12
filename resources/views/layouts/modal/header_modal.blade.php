@@ -1,11 +1,11 @@
 <!-- BEGIN HEADER -->
-<modal style="{{--padding-top: 20px;--}}" name="{{$nom_modal}}"
+<modal style="padding-top: 20px;" name="{{$nom_modal}}"
        @before-close="before_close"
        :reset="true"
-       width="95%"
-       :min-width="320"
+       width="96%"
        :height="'auto'"
-       :min-height="600"
+       {{--:min-width="320"--}}
+       {{--:min-height="600"--}}
        :adaptive="true"
        :resizable="true"
        :scrollable="true"
