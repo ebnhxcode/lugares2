@@ -4660,14 +4660,14 @@ var EstablecimientoController = new Vue({
          'horario_atencion_establecimiento': {
             'id_establecimiento': null,
             'id_dia_atencion': null,
-            'hora_inicio': null,
-            'hora_termino': null
+            'hora_inicio_atencion': null,
+            'hora_termino_atencion': null
          },
          'horario_visita_establecimiento': {
             'id_establecimiento': null,
             'id_dia_visita': null,
-            'hora_inicio': null,
-            'hora_termino': null
+            'hora_inicio_visita': null,
+            'hora_termino_visita': null
          },
 
          'permitido_guardar': ['id_establecimiento', 'nom_establecimiento', 'observaciones', 'nom_direccion', 'num_calle', 'nom_responsable', 'sitio_web', 'email', 'cod_area_fax', 'fax', 'ext_horaria', 'vigencia_desde', 'fecha_cierre', 'id_establecimiento_antiguo', 'id_tipo_establecimiento', 'id_servicio_salud', 'id_dependencia', 'id_organismo', 'id_region', 'id_comuna'],
@@ -5012,8 +5012,8 @@ var EstablecimientoController = new Vue({
          //Ejecuta validacion sobre los campos con validaciones
          this.$validator.validateAll({
             id_dia_atencion: this.horario_atencion_establecimiento.id_dia_atencion,
-            hora_inicio: this.horario_atencion_establecimiento.hora_inicio,
-            hora_termino: this.horario_atencion_establecimiento.hora_termino
+            hora_inicio_atencion: this.horario_atencion_establecimiento.hora_inicio_atencion,
+            hora_termino_atencion: this.horario_atencion_establecimiento.hora_termino_atencion
          }).then(function (res) {
             if (res == true) {
                //Se adjunta el token
@@ -5022,8 +5022,8 @@ var EstablecimientoController = new Vue({
                var formData = new FormData();
                //Conforma objeto paramétrico para solicitud http
                formData.append('id_dia_atencion', _this3.horario_atencion_establecimiento.id_dia_atencion);
-               formData.append('hora_inicio', _this3.horario_atencion_establecimiento.hora_inicio);
-               formData.append('hora_termino', _this3.horario_atencion_establecimiento.hora_termino);
+               formData.append('hora_inicio_atencion', _this3.horario_atencion_establecimiento.hora_inicio_atencion);
+               formData.append('hora_termino_atencion', _this3.horario_atencion_establecimiento.hora_termino_atencion);
                formData.append('id_establecimiento', _this3.establecimiento.id_establecimiento);
 
                _this3.$http.post('/horarios_atencion_establecimientos', formData).then(function (response) {
@@ -5037,13 +5037,13 @@ var EstablecimientoController = new Vue({
                      _this3.horario_atencion_establecimiento = {
                         'id_establecimiento': null,
                         'id_dia_atencion': null,
-                        'hora_inicio': null,
-                        'hora_termino': null
+                        'hora_inicio_atencion': null,
+                        'hora_termino_atencion': null
                      };
 
                      _this3.establecimiento.horarios_atencion_establecimientos.push(response.body.horario_atencion_establecimiento);
 
-                     _this3.establecimiento.horarios_atencion_establecimientos = _.orderBy(_this3.establecimiento.horarios_atencion_establecimientos, ['id_dia_atencion', 'hora_inicio'], 'asc');
+                     _this3.establecimiento.horarios_atencion_establecimientos = _.orderBy(_this3.establecimiento.horarios_atencion_establecimientos, ['id_dia_atencion', 'hora_inicio_atencion'], 'asc');
                   } else {
                      _this3.checkear_estado_respuesta_http(response.status);
                      return false;
@@ -5106,8 +5106,8 @@ var EstablecimientoController = new Vue({
          //Ejecuta validacion sobre los campos con validaciones
          this.$validator.validateAll({
             id_dia_visita: this.horario_visita_establecimiento.id_dia_visita,
-            hora_inicio: this.horario_visita_establecimiento.hora_inicio,
-            hora_termino: this.horario_visita_establecimiento.hora_termino
+            hora_inicio_visita: this.horario_visita_establecimiento.hora_inicio_visita,
+            hora_termino_visita: this.horario_visita_establecimiento.hora_termino_visita
          }).then(function (res) {
             if (res == true) {
                //Se adjunta el token
@@ -5116,8 +5116,8 @@ var EstablecimientoController = new Vue({
                var formData = new FormData();
                //Conforma objeto paramétrico para solicitud http
                formData.append('id_dia_visita', _this5.horario_visita_establecimiento.id_dia_visita);
-               formData.append('hora_inicio', _this5.horario_visita_establecimiento.hora_inicio);
-               formData.append('hora_termino', _this5.horario_visita_establecimiento.hora_termino);
+               formData.append('hora_inicio_visita', _this5.horario_visita_establecimiento.hora_inicio_visita);
+               formData.append('hora_termino_visita', _this5.horario_visita_establecimiento.hora_termino_visita);
                formData.append('id_establecimiento', _this5.establecimiento.id_establecimiento);
 
                _this5.$http.post('/horarios_visita_establecimientos', formData).then(function (response) {
@@ -5131,13 +5131,13 @@ var EstablecimientoController = new Vue({
                      _this5.horario_visita_establecimiento = {
                         'id_establecimiento': null,
                         'id_dia_visita': null,
-                        'hora_inicio': null,
-                        'hora_termino': null
+                        'hora_inicio_visita': null,
+                        'hora_termino_visita': null
                      };
 
                      _this5.establecimiento.horarios_visita_establecimientos.push(response.body.horario_visita_establecimiento);
 
-                     _this5.establecimiento.horarios_visita_establecimientos = _.orderBy(_this5.establecimiento.horarios_visita_establecimientos, ['id_dia_visita', 'hora_inicio'], 'asc');
+                     _this5.establecimiento.horarios_visita_establecimientos = _.orderBy(_this5.establecimiento.horarios_visita_establecimientos, ['id_dia_visita', 'hora_inicio_visita'], 'asc');
                   } else {
                      _this5.checkear_estado_respuesta_http(response.status);
                      return false;

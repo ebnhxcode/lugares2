@@ -71,14 +71,14 @@ const EstablecimientoController = new Vue({
          'horario_atencion_establecimiento':{
             'id_establecimiento':null,
             'id_dia_atencion':null,
-            'hora_inicio':null,
-            'hora_termino':null,
+            'hora_inicio_atencion':null,
+            'hora_termino_atencion':null,
          },
          'horario_visita_establecimiento':{
             'id_establecimiento':null,
             'id_dia_visita':null,
-            'hora_inicio':null,
-            'hora_termino':null,
+            'hora_inicio_visita':null,
+            'hora_termino_visita':null,
          },
 
          'permitido_guardar':[
@@ -443,8 +443,8 @@ const EstablecimientoController = new Vue({
          //Ejecuta validacion sobre los campos con validaciones
          this.$validator.validateAll({
             id_dia_atencion:this.horario_atencion_establecimiento.id_dia_atencion,
-            hora_inicio:this.horario_atencion_establecimiento.hora_inicio,
-            hora_termino:this.horario_atencion_establecimiento.hora_termino,
+            hora_inicio_atencion:this.horario_atencion_establecimiento.hora_inicio_atencion,
+            hora_termino_atencion:this.horario_atencion_establecimiento.hora_termino_atencion,
          }).then( res => {
             if (res == true) {
                //Se adjunta el token
@@ -453,8 +453,8 @@ const EstablecimientoController = new Vue({
                var formData = new FormData();
                //Conforma objeto paramétrico para solicitud http
                formData.append(`id_dia_atencion`, this.horario_atencion_establecimiento.id_dia_atencion);
-               formData.append(`hora_inicio`, this.horario_atencion_establecimiento.hora_inicio);
-               formData.append(`hora_termino`, this.horario_atencion_establecimiento.hora_termino);
+               formData.append(`hora_inicio_atencion`, this.horario_atencion_establecimiento.hora_inicio_atencion);
+               formData.append(`hora_termino_atencion`, this.horario_atencion_establecimiento.hora_termino_atencion);
                formData.append(`id_establecimiento`, this.establecimiento.id_establecimiento);
 
                this.$http.post(`/horarios_atencion_establecimientos`, formData).then(response => { // success callback
@@ -467,15 +467,15 @@ const EstablecimientoController = new Vue({
                      this.horario_atencion_establecimiento = {
                         'id_establecimiento':null,
                         'id_dia_atencion':null,
-                        'hora_inicio':null,
-                        'hora_termino':null,
+                        'hora_inicio_atencion':null,
+                        'hora_termino_atencion':null,
                      };
 
                      this.establecimiento.horarios_atencion_establecimientos.push(response.body.horario_atencion_establecimiento);
 
                      this.establecimiento.horarios_atencion_establecimientos = _.orderBy(
                         this.establecimiento.horarios_atencion_establecimientos,
-                        ['id_dia_atencion','hora_inicio'],
+                        ['id_dia_atencion','hora_inicio_atencion'],
                         'asc'
                      );
 
@@ -537,8 +537,8 @@ const EstablecimientoController = new Vue({
          //Ejecuta validacion sobre los campos con validaciones
          this.$validator.validateAll({
             id_dia_visita:this.horario_visita_establecimiento.id_dia_visita,
-            hora_inicio:this.horario_visita_establecimiento.hora_inicio,
-            hora_termino:this.horario_visita_establecimiento.hora_termino,
+            hora_inicio_visita:this.horario_visita_establecimiento.hora_inicio_visita,
+            hora_termino_visita:this.horario_visita_establecimiento.hora_termino_visita,
          }).then( res => {
             if (res == true) {
                //Se adjunta el token
@@ -547,8 +547,8 @@ const EstablecimientoController = new Vue({
                var formData = new FormData();
                //Conforma objeto paramétrico para solicitud http
                formData.append(`id_dia_visita`, this.horario_visita_establecimiento.id_dia_visita);
-               formData.append(`hora_inicio`, this.horario_visita_establecimiento.hora_inicio);
-               formData.append(`hora_termino`, this.horario_visita_establecimiento.hora_termino);
+               formData.append(`hora_inicio_visita`, this.horario_visita_establecimiento.hora_inicio_visita);
+               formData.append(`hora_termino_visita`, this.horario_visita_establecimiento.hora_termino_visita);
                formData.append(`id_establecimiento`, this.establecimiento.id_establecimiento);
 
                this.$http.post(`/horarios_visita_establecimientos`, formData).then(response => { // success callback
@@ -561,15 +561,15 @@ const EstablecimientoController = new Vue({
                      this.horario_visita_establecimiento = {
                         'id_establecimiento':null,
                         'id_dia_visita':null,
-                        'hora_inicio':null,
-                        'hora_termino':null,
+                        'hora_inicio_visita':null,
+                        'hora_termino_visita':null,
                      };
 
                      this.establecimiento.horarios_visita_establecimientos.push(response.body.horario_visita_establecimiento);
 
                      this.establecimiento.horarios_visita_establecimientos = _.orderBy(
                         this.establecimiento.horarios_visita_establecimientos,
-                        ['id_dia_visita','hora_inicio'],
+                        ['id_dia_visita','hora_inicio_visita'],
                         'asc'
                      );
 

@@ -38,20 +38,15 @@
             <dd>
                <p class="control has-icon has-icon-right">
                   <input type="time" v-model="horario_atencion_establecimiento.hora_inicio_atencion" name="hora_inicio_atencion"
-                  <input type="time" v-model="horario_atencion_establecimiento.hora_inicio_atencion" name="hora_inicio_atencion"
-                  <input type="time" v-model="horario_atencion_establecimiento.hora_inicio_atencion" name="hora_inicio_atencion"
                          v-validate="{required:true,regex:/^[0-9_ :]+$/i}" data-vv-delay="500"
                          class="form-control"/>
 
                   <transition name="bounce">
                      <i v-show="errors.has('hora_inicio_atencion')" class="fa fa-exclamation-circle"></i>
-                     <i v-show="errors.has('hora_inicio_atencion')" class="fa fa-exclamation-circle"></i>
                   </transition>
 
                   <transition name="bounce">
                <span v-show="errors.has('hora_inicio_atencion')" class="text-danger small">
-               <span v-show="errors.has('hora_inicio_atencion')" class="text-danger small">
-                  @{{ errors.first('hora_inicio_atencion') }}
                   @{{ errors.first('hora_inicio_atencion') }}
                </span>
                   </transition>
@@ -120,7 +115,6 @@
             <tr v-for="h in establecimiento.horarios_atencion_establecimientos">
                <td>@{{ h.establecimiento.nom_establecimiento }}</td>
                <td>@{{ h.dia.nom_dia_semana }}</td>
-               <td>@{{ h.hora_inicio_atencion || 'Sin definir' }}</td>
                <td>@{{ h.hora_inicio_atencion || 'Sin definir' }}</td>
                <td>@{{ h.hora_termino_atencion || 'Sin definir' }}</td>
                <td>

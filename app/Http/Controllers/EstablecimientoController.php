@@ -83,7 +83,8 @@ class EstablecimientoController extends Controller {
             'telefonos.tipo_telefono',
             'horarios_atencion_establecimientos.dia',
             'horarios_atencion_establecimientos.establecimiento',
-            'horarios_visita_establecimientos'
+            'horarios_visita_establecimientos.dia',
+            'horarios_visita_establecimientos.establecimiento'
          ])->paginate((int)$this->per_page);
          $this->tipos_establecimientos = TipoEstablecimiento::all();
          $this->tipos_telefonos = TipoTelefono::all();
@@ -144,7 +145,8 @@ class EstablecimientoController extends Controller {
          'telefonos.tipo_telefono',
          'horarios_atencion_establecimientos.dia',
          'horarios_atencion_establecimientos.establecimiento',
-         'horarios_visita_establecimientos'
+         'horarios_visita_establecimientos.dia',
+         'horarios_visita_establecimientos.establecimiento'
       ])->where("id_$this->nombre_modelo",'=',$id)->first();
 
       #Valida si role existe y busca si tiene servidor_permiso
