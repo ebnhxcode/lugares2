@@ -10,8 +10,8 @@ class HorarioVisitaEstablecimiento extends Model {
    use SoftDeletes;
    protected $dates = ['deleted_at'];
 
-   protected $table = 'horarios_visita_establecimiento';
-   protected $primaryKey = 'id_horario_visita';
+   protected $table = 'horarios_visita_establecimientos';
+   protected $primaryKey = 'id_horario_visita_establecimiento';
    protected $fillable = [
       # columns
       'hora_inicio',
@@ -19,7 +19,7 @@ class HorarioVisitaEstablecimiento extends Model {
 
       # relaciones -> pks
       'id_establecimiento',
-      'id_dia',
+      'id_dia_visita',
 
       # relaciones
       'id_usuario_registra',

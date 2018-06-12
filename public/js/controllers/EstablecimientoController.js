@@ -4659,13 +4659,13 @@ var EstablecimientoController = new Vue({
          },
          'horario_atencion_establecimiento': {
             'id_establecimiento': null,
-            'id_dia': null,
+            'id_dia_atencion': null,
             'hora_inicio': null,
             'hora_termino': null
          },
          'horario_visita_establecimiento': {
             'id_establecimiento': null,
-            'id_dia': null,
+            'id_dia_visita': null,
             'hora_inicio': null,
             'hora_termino': null
          },
@@ -5004,8 +5004,110 @@ var EstablecimientoController = new Vue({
             }
          });
          return;
-      }
+      },
 
+      guardar_horario_atencion: function guardar_horario_atencion() {
+         var _this3 = this;
+
+         //Ejecuta validacion sobre los campos con validaciones
+         this.$validator.validateAll({
+            id_dia_atencion: this.horario_atencion_establecimiento.id_dia_atencion,
+            hora_inicio: this.horario_atencion_establecimiento.hora_inicio,
+            hora_termino: this.horario_atencion_establecimiento.hora_termino
+         }).then(function (res) {
+            if (res == true) {
+               //Se adjunta el token
+               Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+               //Instancia nuevo form data
+               var formData = new FormData();
+               //Conforma objeto paramétrico para solicitud http
+               formData.append('id_dia_atencion', _this3.horario_atencion_establecimiento.id_dia_atencion);
+               formData.append('hora_inicio', _this3.horario_atencion_establecimiento.hora_inicio);
+               formData.append('hora_termino', _this3.horario_atencion_establecimiento.hora_termino);
+               formData.append('id_establecimiento', _this3.establecimiento.id_establecimiento);
+
+               _this3.$http.post('/horarios_atencion_establecimientos', formData).then(function (response) {
+                  // success callback
+
+                  //console.log(response.body);
+
+                  if (response.status == 200) {
+                     //this.inicializar();
+
+                     _this3.horario_atencion_establecimiento = {
+                        'id_establecimiento': null,
+                        'id_dia_atencion': null,
+                        'hora_inicio': null,
+                        'hora_termino': null
+                     };
+
+                     //this.establecimiento.telefonos.push(response.body.telefono);
+                  } else {
+                     _this3.checkear_estado_respuesta_http(response.status);
+                     return false;
+                  }
+                  if (_this3.mostrar_notificaciones(response) == true) {
+                     return;
+                  }
+               }, function (response) {
+                  // error callback
+                  _this3.checkear_estado_respuesta_http(response.status);
+               });
+            }
+         });
+         return;
+      },
+      guardar_visita_atencion: function guardar_visita_atencion() {
+         var _this4 = this;
+
+         //Ejecuta validacion sobre los campos con validaciones
+         this.$validator.validateAll({
+            id_dia_visita: this.horario_visita_establecimiento.id_dia_visita,
+            hora_inicio: this.horario_visita_establecimiento.hora_inicio,
+            hora_termino: this.horario_visita_establecimiento.hora_termino
+         }).then(function (res) {
+            if (res == true) {
+               //Se adjunta el token
+               Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+               //Instancia nuevo form data
+               var formData = new FormData();
+               //Conforma objeto paramétrico para solicitud http
+               formData.append('id_dia_visita', _this4.horario_visita_establecimiento.id_dia_visita);
+               formData.append('hora_inicio', _this4.horario_visita_establecimiento.hora_inicio);
+               formData.append('hora_termino', _this4.horario_visita_establecimiento.hora_termino);
+               formData.append('id_establecimiento', _this4.establecimiento.id_establecimiento);
+
+               _this4.$http.post('/horario_visita_establecimiento', formData).then(function (response) {
+                  // success callback
+
+                  //console.log(response.body);
+
+                  if (response.status == 200) {
+                     //this.inicializar();
+
+                     _this4.horario_visita_establecimiento = {
+                        'id_establecimiento': null,
+                        'id_dia_visita': null,
+                        'hora_inicio': null,
+                        'hora_termino': null
+                     };
+
+                     //this.establecimiento.telefonos.push(response.body.telefono);
+                  } else {
+                     _this4.checkear_estado_respuesta_http(response.status);
+                     return false;
+                  }
+                  if (_this4.mostrar_notificaciones(response) == true) {
+                     return;
+                  }
+               }, function (response) {
+                  // error callback
+                  _this4.checkear_estado_respuesta_http(response.status);
+               });
+            }
+         });
+         return;
+      }
    }
 });
 

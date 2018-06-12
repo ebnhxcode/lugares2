@@ -2380,42 +2380,41 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_3_v_clipboard___default.a);
 Vue.component('download-excel', __webpack_require__(2));
 Vue.component('paginators', __webpack_require__(6));
 
-var UsuarioBitacoraServicioController = new Vue({
-   el: '#UsuarioBitacoraServicioController',
+var HorarioAtencionEstablecimientoController = new Vue({
+   el: '#HorarioAtencionEstablecimientoController',
    data: function data() {
       return {
          '$': window.jQuery,
-         'pk_tabla': 'id_usuario_bitacora_servicio',
-         'nombre_tabla': 'usuarios_bitacora_servicios', //nombre tabla o de ruta
-         'nombre_ruta': 'usuarios_bitacora_servicios', //nombre tabla o de ruta
-         'nombre_model': 'usuario_bitacora_servicio',
-         'nombre_model_limpio': 'usuario_bitacora_servicio_limpio',
+         'pk_tabla': 'id_horario_atencion_establecimiento',
+         'nombre_tabla': 'horarios_atencion_establecimientos', //nombre tabla o de ruta
+         'nombre_ruta': 'horarios_atencion_establecimientos', //nombre tabla o de ruta
+         'nombre_model': 'horario_atencion_establecimiento',
+         'nombre_model_limpio': 'horario_atencion_establecimiento_limpio',
          'nombre_detalle': 'Usuarios Bitacora Servicios',
-         'nombre_controller': 'UsuarioBitacoraServicioController',
+         'nombre_controller': 'HorarioAtencionEstablecimientoController',
 
          'filtro_head': null,
-         'usuario_bitacora_servicio': {
-            'asunto': null,
-            'det_bitacora': null,
-            'id_actividad': null,
-            'nom_actividad': null,
-            'id_servicio': null,
-            'nom_servicio': null,
-            'id_usuario': null,
-            'nom _usuario': null,
+         'horario_atencion_establecimiento': {
+            'id_horario_atencion_establecimiento': null,
+            'id_establecimiento': null,
+            'nom_establecimiento': null,
+            'id_dia': null,
+            'nom_dia': null,
+            'hora_inicio': null,
+            'hora_termino': null,
+
             'id_usuario_registra': null,
             'id_usuario_modifica': null,
             'created_at': null,
             'updated_at': null,
             'deleted_at': null
          },
-         'permitido_guardar': ['asunto', 'det_bitacora', 'id_actividad', 'id_servicio'],
-         'relaciones_clase': [{ 'usuario': ['id_usuario', 'nom_usuario'] }, { 'servicio': ['id_servicio', 'nom_servicio'] }, { 'actividad': ['id_actividad', 'nom_actividad'] }],
+         'permitido_guardar': ['id_establecimiento', 'id_dia', 'hora_inicio', 'hora_termino'],
+         'relaciones_clase': [{ 'establecimiento': ['id_establecimiento', 'nom_establecimiento'] }, { 'dia': ['id_dia', 'nom_dia'] }],
          'lom': {},
          'lista_objs_model': [],
-         'usuarios_bitacora_servicios': [],
-         'actividades': [],
-         'servicios': [],
+         'horarios_atencion_establecimientos': [],
+
          'datos_excel': [],
          'usuario_auth': [],
 
@@ -2438,13 +2437,14 @@ var UsuarioBitacoraServicioController = new Vue({
          'orden_lista': 'asc',
 
          'tabla_campos': {
-            'id_usuario_bitacora_servicio': { 'visibility': false, 'value': null },
-            'asunto': { 'visibility': true, 'value': null },
-            'det_bitacora': { 'visibility': false, 'value': null },
-            //'id_actividad':{'visibility':false,'value':null},
-            'nom_actividad': { 'visibility': false, 'value': null },
-            //'id_servicio':{'visibility':false,'value':null},
-            'nom_servicio': { 'visibility': false, 'value': null },
+            //'id_horario_atencion_establecimiento':{'visibility':false,'value':null},
+            'id_establecimiento': { 'visibility': false, 'value': null },
+            'nom_establecimiento': { 'visibility': false, 'value': null },
+            'id_dia': { 'visibility': false, 'value': null },
+            'nom_dia': { 'visibility': false, 'value': null },
+            'hora_inicio': { 'visibility': false, 'value': null },
+            'hora_termino': { 'visibility': false, 'value': null },
+
             //'id_usuario_registra':{'visibility':false,'value':null},
             //'id_usuario_modifica':{'visibility':false,'value':null},
             'created_at': { 'visibility': false, 'value': null },
@@ -2454,13 +2454,14 @@ var UsuarioBitacoraServicioController = new Vue({
 
          /* Etiquetas */
          'tabla_labels': {
-            'id_usuario_bitacora_servicio': 'Id actividad',
-            'asunto': 'Asunto',
-            'det_bitacora': 'Detalle bitácora',
-            'id_actividad': 'Id Actividad',
-            'nom_actividad': 'nombre Actividad',
-            'id_servicio': 'Id Servicio',
-            'nom_servicio': 'Nombre Servicio',
+            'id_horario_atencion_establecimiento': 'Id horario atencion',
+            'id_establecimiento': 'Id establecimiento',
+            'nom_establecimiento': 'Nombre establecimiento',
+            'id_dia': 'Id dia',
+            'nom_dia': 'Nombre dia',
+            'hora_inicio': 'Hora Inicio',
+            'hora_termino': 'Hora Termino',
+
             'id_usuario_registra': 'Usuario registra',
             'id_usuario_modifica': 'Usuario modifica',
             'created_at': 'Creado en',
@@ -2470,13 +2471,14 @@ var UsuarioBitacoraServicioController = new Vue({
 
          /* Campos del modelo en el excel */
          'excel_json_campos': {
-            'id_usuario_bitacora_servicio': 'String',
-            'asunto': 'String',
-            'det_bitacora': 'String',
-            'id_actividad': 'String',
-            'nom_actividad': 'String',
-            'id_servicio': 'String',
-            'nom_servicio': 'String',
+            'id_horario_atencion_establecimiento': 'String',
+            'id_establecimiento': 'String',
+            'nom_establecimiento': 'String',
+            'id_dia': 'String',
+            'nom_dia': 'String',
+            'hora_inicio': 'String',
+            'hora_termino': 'String',
+
             //'id_usuario_registra': 'String',
             //'id_usuario_modifica': 'String',
             'created_at': 'String',
@@ -2494,7 +2496,7 @@ var UsuarioBitacoraServicioController = new Vue({
 
    computed: {},
    watch: {
-      //Lo que hace este watcher o funcion de seguimiento es que cuando id en edicion es null se blanquea el usuario_bitacora_servicio
+      //Lo que hace este watcher o funcion de seguimiento es que cuando id en edicion es null se blanquea el horario_atencion_establecimiento
       // o el objeto al que se le está haciendo seguimiento y permite que no choque con el que se está creando
       id_en_edicion: function id_en_edicion(_id_en_edicion) {
          if (_id_en_edicion == null) {
@@ -2503,24 +2505,25 @@ var UsuarioBitacoraServicioController = new Vue({
             this.buscar_objeto_clase_config_relaciones(_id_en_edicion, this.relaciones_clase);
          }
       },
-      //usuarios_bitacora_servicios se mantiene en el watcher para actualizar la lista de lo que se esta trabajando y/o filtrando en grid
-      usuarios_bitacora_servicios: function usuarios_bitacora_servicios(_usuarios_bitacora_servicios) {
+      //horarios_atencion_establecimientos se mantiene en el watcher para actualizar la lista de lo que se esta trabajando y/o filtrando en grid
+      horarios_atencion_establecimientos: function horarios_atencion_establecimientos(_horarios_atencion_establecimientos) {
          var self = this;
          this.excel_json_datos = [];
-         return _usuarios_bitacora_servicios.map(function (usuario_bitacora_servicio, index) {
+         return _horarios_atencion_establecimientos.map(function (horario_atencion_establecimiento, index) {
             return self.excel_json_datos.push({
-               'id_usuario_bitacora_servicio': usuario_bitacora_servicio.id_usuario_bitacora_servicio || '-',
-               'asunto': usuario_bitacora_servicio.asunto || '-',
-               'det_bitacora': usuario_bitacora_servicio.det_bitacora || '-',
-               'id_servicio': usuario_bitacora_servicio.id_servicio || '-',
-               'nom_servicio': usuario_bitacora_servicio.nom_servicio || '-',
-               'id_actividad': usuario_bitacora_servicio.id_actividad || '-',
-               'nom_actividad': usuario_bitacora_servicio.nom_actividad || '-',
-               //'id_usuario_registra': usuario_bitacora_servicio.id_usuario_registra || '-',
-               //'id_usuario_modifica': usuario_bitacora_servicio.id_usuario_modifica || '-',
-               'created_at': usuario_bitacora_servicio.created_at || '-',
-               'updated_at': usuario_bitacora_servicio.updated_at || '-',
-               'deleted_at': usuario_bitacora_servicio.deleted_at || '-'
+               'id_horario_atencion_establecimiento': horario_atencion_establecimiento.id_horario_atencion_establecimiento || '-',
+               'id_establecimiento': horario_atencion_establecimiento.id_establecimiento || '-',
+               'nom_establecimiento': horario_atencion_establecimiento.nom_establecimiento || '-',
+               'id_dia': horario_atencion_establecimiento.id_dia || '-',
+               'nom_dia': horario_atencion_establecimiento.nom_dia || '-',
+               'hora_inicio': horario_atencion_establecimiento.hora_inicio || '-',
+               'hora_termino': horario_atencion_establecimiento.hora_termino || '-',
+
+               //'id_usuario_registra': horario_atencion_establecimiento.id_usuario_registra || '-',
+               //'id_usuario_modifica': horario_atencion_establecimiento.id_usuario_modifica || '-',
+               'created_at': horario_atencion_establecimiento.created_at || '-',
+               'updated_at': horario_atencion_establecimiento.updated_at || '-',
+               'deleted_at': horario_atencion_establecimiento.deleted_at || '-'
             });
          });
       }
@@ -2540,16 +2543,16 @@ var UsuarioBitacoraServicioController = new Vue({
       asignar_recursos: function asignar_recursos(response) {
 
          /* Datos intrinsecos de la entidad */
-         this.lista_objs_model = response.body.usuarios_bitacora_servicios.data || null;
-         this.usuarios_bitacora_servicios = response.body.usuarios_bitacora_servicios.data || null;
-         this.datos_excel = response.body.usuarios_bitacora_servicios.data || null;
+         this.lista_objs_model = response.body.horarios_atencion_establecimientos.data || null;
+         this.horarios_atencion_establecimientos = response.body.horarios_atencion_establecimientos.data || null;
+         this.datos_excel = response.body.horarios_atencion_establecimientos.data || null;
 
          /* Datos de la entidad hacia el paginador */
-         this.pagination = response.body.usuarios_bitacora_servicios || null;
+         this.pagination = response.body.horarios_atencion_establecimientos || null;
 
          /* Relaciones con la entidad */
-         this.actividades = response.body.actividades || null;
-         this.servicios = response.body.servicios || null;
+         this.dias_semana = response.body.dias_semana || null;
+         this.establecimientos = response.body.establecimientos || null;
 
          /* Datos de la sesion actual del usuario */
          this.usuario_auth = response.body.usuario_auth || null;

@@ -76,4 +76,12 @@ class Establecimiento extends Model {
       return $this->hasMany(Telefono::class, 'id_establecimiento');
    }
 
+   public function horarios_atencion_establecimientos () {
+      return $this->hasMany(HorarioAtencionEstablecimiento::class, 'id_establecimiento');
+   }
+
+   public function horarios_visita_establecimientos () {
+      return $this->hasMany(HorarioVisitaEstablecimiento::class, 'id_establecimiento');
+   }
+
 }
