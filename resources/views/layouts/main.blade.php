@@ -107,7 +107,7 @@
                   @{{ tabla_labels[key] }}
                   <input type="text" class="form-control input-sm"
                          data-placement="top" data-toggle="tooltip" title="FILTRAR"
-                         @change.prevent="filtrar_grid(key)" v-model="tabla_campos[key].value" id="">
+                         @change.prevent="recargar_filtros_tablero_sin_limpiar_filtros" v-model="tabla_campos[key].value" id="">
 
                </div>
             </div>

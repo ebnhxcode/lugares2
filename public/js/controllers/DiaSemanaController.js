@@ -3075,7 +3075,6 @@ var inyeccion_funciones_compartidas = {
       filtrar_grid: function filtrar_grid(key) {
          //this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model =
          this.datos_excel = this.lista_objs_model = this.filterBy(this.lista_objs_model, this.tabla_campos[key].value, key);
-         this.recargar_filtros_tablero_sin_limpiar_filtros();
       },
 
       /*
