@@ -5,7 +5,7 @@
 -- Dumped from database version 10.4
 -- Dumped by pg_dump version 10.3
 
--- Started on 2018-06-12 16:10:22 -04
+-- Started on 2018-06-12 16:33:20 -04
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -6094,7 +6094,6 @@ COPY public.establecimientos (id_establecimiento, id_establecimiento_antiguo, id
 124520	24-520	24	10	10401	Posta de Salud Rural Talcán	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 124521	24-521	24	10	10401	Posta de Salud Rural Nayahue - Auteni	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 124530	24-530	24	10	10401	Posta de Salud Rural Chumeldén	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-124531	24-531	24	10	10401	Posta de Salud Rural Ayacara	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 124532	24-532	24	10	10401	Posta de Salud Rural El Frío o Santa Lucía	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 124533	24-533	24	10	10401	Posta de Salud Rural Chana	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 124534	24-534	24	10	10404	Posta de Salud Rural Puerto Ramírez	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
@@ -6116,6 +6115,7 @@ COPY public.establecimientos (id_establecimiento, id_establecimiento_antiguo, id
 124554	24-554	24	10	10102	Posta de Salud Rural Huayún	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 124555	24-555	24	10	10103	Posta de Salud Rural Llaguepe	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
 124715	24-715	24	10	10101	Centro Comunitario de Salud Familiar Chamiza	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
+124531	24-531	24	10	10401	Posta de Salud Rural Ayacara	39814	\N	2017-10-31 11:06:00	2018-06-12 20:30:17	\N	\N	9	4	1	1	Test	Ejemplo	http://www.www.www	123	abc@mail.cl	OBS	1234	123	si
 \.
 
 
@@ -8059,7 +8059,7 @@ ALTER TABLE ONLY public.usuarios_roles
 CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
 
 
--- Completed on 2018-06-12 16:10:23 -04
+-- Completed on 2018-06-12 16:33:21 -04
 
 --
 -- PostgreSQL database dump complete
