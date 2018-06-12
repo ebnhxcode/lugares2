@@ -69,7 +69,7 @@ class UsuarioController extends Controller {
       if ($request->wantsJson() && $request->ajax() && $request->isXmlHttpRequest()) {
          $this->validar_paginacion($request);
 
-         $this->usuarios = User::with(['usuario_estado.estado','usuario_role.role','usuario_cargo.cargo','usuario_bitacora_servicios'])->paginate((int)$this->per_page);
+         $this->usuarios = User::with(['usuario_estado.estado','usuario_role.role','usuario_cargo.cargo'])->paginate((int)$this->per_page);
          $this->roles = Role::all();
          $this->estados = Estado::all();
          $this->cargos = Cargo::all();
@@ -107,7 +107,7 @@ class UsuarioController extends Controller {
       }
 
       $this->usuario = User::where("id_$this->nombre_modelo",'=',$id)->with([
-         'usuario_estado.estado','usuario_role.role','usuario_cargo.cargo','usuario_bitacora_servicios'
+         'usuario_estado.estado','usuario_role.role','usuario_cargo.cargo'
       ])->first();
 
       #Valida si usuario existe y busca si tiene servidor_permiso
