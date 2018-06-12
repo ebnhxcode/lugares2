@@ -2835,8 +2835,8 @@ var inyeccion_funciones_compartidas = {
             case 500:
 
                __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default()({
-                  title: "Atencion",
-                  text: "Ocurrio un error al guardar, por favor actualice la página.",
+                  title: "Atención",
+                  text: "Se recomienda estar al día, por favor actualice la página.",
                   type: "warning",
                   confirmButtonClass: "btn-danger",
                   closeOnConfirm: true

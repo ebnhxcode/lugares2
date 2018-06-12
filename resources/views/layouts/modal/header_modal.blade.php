@@ -1,8 +1,8 @@
 <!-- BEGIN HEADER -->
-<modal style="padding-top: 20px;" name="{{$nom_modal}}"
+<modal style="{{--padding-top: 20px;--}}" name="{{$nom_modal}}"
        @before-close="before_close"
        :reset="true"
-       width="90%"
+       width="100%"
        :min-width="320"
        :height="'auto'"
        :min-height="600"

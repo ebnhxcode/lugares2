@@ -31,6 +31,6 @@ class HorarioAtencionEstablecimiento extends Model {
    }
 
    public function dia () {
-      return $this->belongsTo(DiaSemana::class, 'id_dia');
+      return $this->belongsTo(DiaSemana::class, 'id_dia_atencion');
    }
 }

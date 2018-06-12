@@ -113,8 +113,8 @@ class HorarioVisitaEstablecimientoController extends Controller {
       $this->validacion = Validator::make($request->all(), [
          'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'id_dia_visita' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
-         'hora_inicio' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
-         'hora_termino' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'hora_inicio' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
+         'hora_termino' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -143,7 +143,7 @@ class HorarioVisitaEstablecimientoController extends Controller {
          'tipo' => 'creacion_exitosa', //Para las notificaciones
          'mensajes' => ["new_$this->nombre_modelo" => [0=>"Registro ($this->nombre_modelo) creado exitosamente."]],
          //Para mostrar los mensajes que van desde el backend
-         'horario_visita_establecimiento' => $this->new_horario_visita_establecimiento
+         'horario_visita_establecimiento' => $this->new_horario_visita_establecimiento->load('establecimiento','dia')
       ]);
    }
 
@@ -153,8 +153,8 @@ class HorarioVisitaEstablecimientoController extends Controller {
          'id_horario_visita_establecimiento' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
          'id_establecimiento' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
          'id_dia_visita' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
-         'hora_inicio' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
-         'hora_termino' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'hora_inicio' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
+         'hora_termino' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
       ]);
       #Valida si la informacion que se envia para editar al horario_visita_establecimiento son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {

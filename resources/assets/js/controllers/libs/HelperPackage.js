@@ -145,8 +145,8 @@ export const inyeccion_funciones_compartidas = {
             case 500:
 
                swal({
-                  title: "Atencion",
-                  text: "Ocurrio un error al guardar, por favor actualice la página.",
+                  title: "Atención",
+                  text: "Se recomienda estar al día, por favor actualice la página.",
                   type: "warning",
                   confirmButtonClass: "btn-danger",
                   closeOnConfirm: true,

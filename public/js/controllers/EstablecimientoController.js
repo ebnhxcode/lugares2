@@ -2617,8 +2617,8 @@ var inyeccion_funciones_compartidas = {
             case 500:
 
                __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default()({
-                  title: "Atencion",
-                  text: "Ocurrio un error al guardar, por favor actualice la página.",
+                  title: "Atención",
+                  text: "Se recomienda estar al día, por favor actualice la página.",
                   type: "warning",
                   confirmButtonClass: "btn-danger",
                   closeOnConfirm: true
@@ -5041,7 +5041,9 @@ var EstablecimientoController = new Vue({
                         'hora_termino': null
                      };
 
-                     //this.establecimiento.telefonos.push(response.body.telefono);
+                     _this3.establecimiento.horarios_atencion_establecimientos.push(response.body.horario_atencion_establecimiento);
+
+                     _this3.establecimiento.horarios_atencion_establecimientos = _.orderBy(_this3.establecimiento.horarios_atencion_establecimientos, ['id_dia_atencion', 'hora_inicio'], 'asc');
                   } else {
                      _this3.checkear_estado_respuesta_http(response.status);
                      return false;
@@ -5057,8 +5059,49 @@ var EstablecimientoController = new Vue({
          });
          return;
       },
-      guardar_visita_atencion: function guardar_visita_atencion() {
+
+      eliminar_horario_atencion: function eliminar_horario_atencion(id) {
          var _this4 = this;
+
+         __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default()({
+            title: "¿Estás seguro/a?",
+            text: "¿Deseas confirmar la eliminación de este registro?",
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            closeOnCancel: false,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: 'Si, eliminar!',
+            cancelButtonText: 'No, mantener.'
+         }).then(function (result) {
+            if (result.value) {
+               //Se adjunta el token
+               Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+
+               _this4.$http.delete('/horarios_atencion_establecimientos/' + id).then(function (response) {
+                  if (response.status == 200) {
+                     _this4.eliminar_de_array_por_modelo_e_id(id, _this4.establecimiento.horarios_atencion_establecimientos, 'horario_atencion_establecimiento');
+                     //this.auto_alerta_corta("Eliminado!", "Registro eliminado correctamente", "success", 800);
+                  } else {
+                     _this4.checkear_estado_respuesta_http(response.status);
+                     return false;
+                  }
+
+                  if (_this4.mostrar_notificaciones(response) == true) {
+                     //Recargar la lista
+                     //this.inicializar();
+                  }
+               }, function (response) {
+                  // error callback
+                  _this4.checkear_estado_respuesta_http(response.status);
+               });
+            }
+         });
+      },
+
+      guardar_horario_visita: function guardar_horario_visita() {
+         var _this5 = this;
 
          //Ejecuta validacion sobre los campos con validaciones
          this.$validator.validateAll({
@@ -5072,12 +5115,12 @@ var EstablecimientoController = new Vue({
                //Instancia nuevo form data
                var formData = new FormData();
                //Conforma objeto paramétrico para solicitud http
-               formData.append('id_dia_visita', _this4.horario_visita_establecimiento.id_dia_visita);
-               formData.append('hora_inicio', _this4.horario_visita_establecimiento.hora_inicio);
-               formData.append('hora_termino', _this4.horario_visita_establecimiento.hora_termino);
-               formData.append('id_establecimiento', _this4.establecimiento.id_establecimiento);
+               formData.append('id_dia_visita', _this5.horario_visita_establecimiento.id_dia_visita);
+               formData.append('hora_inicio', _this5.horario_visita_establecimiento.hora_inicio);
+               formData.append('hora_termino', _this5.horario_visita_establecimiento.hora_termino);
+               formData.append('id_establecimiento', _this5.establecimiento.id_establecimiento);
 
-               _this4.$http.post('/horario_visita_establecimiento', formData).then(function (response) {
+               _this5.$http.post('/horarios_visita_establecimientos', formData).then(function (response) {
                   // success callback
 
                   //console.log(response.body);
@@ -5085,29 +5128,72 @@ var EstablecimientoController = new Vue({
                   if (response.status == 200) {
                      //this.inicializar();
 
-                     _this4.horario_visita_establecimiento = {
+                     _this5.horario_visita_establecimiento = {
                         'id_establecimiento': null,
                         'id_dia_visita': null,
                         'hora_inicio': null,
                         'hora_termino': null
                      };
 
-                     //this.establecimiento.telefonos.push(response.body.telefono);
+                     _this5.establecimiento.horarios_visita_establecimientos.push(response.body.horario_visita_establecimiento);
+
+                     _this5.establecimiento.horarios_visita_establecimientos = _.orderBy(_this5.establecimiento.horarios_visita_establecimientos, ['id_dia_visita', 'hora_inicio'], 'asc');
                   } else {
-                     _this4.checkear_estado_respuesta_http(response.status);
+                     _this5.checkear_estado_respuesta_http(response.status);
                      return false;
                   }
-                  if (_this4.mostrar_notificaciones(response) == true) {
+                  if (_this5.mostrar_notificaciones(response) == true) {
                      return;
                   }
                }, function (response) {
                   // error callback
-                  _this4.checkear_estado_respuesta_http(response.status);
+                  _this5.checkear_estado_respuesta_http(response.status);
                });
             }
          });
          return;
+      },
+
+      eliminar_horario_visita: function eliminar_horario_visita(id) {
+         var _this6 = this;
+
+         __WEBPACK_IMPORTED_MODULE_0_sweetalert2___default()({
+            title: "¿Estás seguro/a?",
+            text: "¿Deseas confirmar la eliminación de este registro?",
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            closeOnCancel: false,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: 'Si, eliminar!',
+            cancelButtonText: 'No, mantener.'
+         }).then(function (result) {
+            if (result.value) {
+               //Se adjunta el token
+               Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+
+               _this6.$http.delete('/horarios_visita_establecimientos/' + id).then(function (response) {
+                  if (response.status == 200) {
+                     _this6.eliminar_de_array_por_modelo_e_id(id, _this6.establecimiento.horarios_visita_establecimientos, 'horario_visita_establecimiento');
+                     //this.auto_alerta_corta("Eliminado!", "Registro eliminado correctamente", "success", 800);
+                  } else {
+                     _this6.checkear_estado_respuesta_http(response.status);
+                     return false;
+                  }
+
+                  if (_this6.mostrar_notificaciones(response) == true) {
+                     //Recargar la lista
+                     //this.inicializar();
+                  }
+               }, function (response) {
+                  // error callback
+                  _this6.checkear_estado_respuesta_http(response.status);
+               });
+            }
+         });
       }
+
    }
 });
 
