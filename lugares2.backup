@@ -5,7 +5,7 @@
 -- Dumped from database version 10.4
 -- Dumped by pg_dump version 10.3
 
--- Started on 2018-06-12 15:16:48 -04
+-- Started on 2018-06-12 16:10:22 -04
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -6157,6 +6157,8 @@ COPY public.horarios_atencion_establecimientos (id_horario_atencion_establecimie
 25	124531	4	9	9	2018-06-12 16:36:29	2018-06-12 16:36:33	2018-06-12 16:36:33	10:10	10:10
 26	124531	1	9	9	2018-06-12 19:03:44	2018-06-12 19:03:44	\N	08:00	20:00
 27	124531	3	9	9	2018-06-12 19:03:50	2018-06-12 19:03:50	\N	10:00	21:00
+28	124531	5	9	9	2018-06-12 19:36:36	2018-06-12 19:36:36	\N	07:00	19:00
+29	124531	6	9	9	2018-06-12 19:36:45	2018-06-12 19:36:45	\N	09:00	21:00
 \.
 
 
@@ -6172,6 +6174,9 @@ COPY public.horarios_atencion_profesionales (id_horario_atencion_profesional, id
 4	124531	6	9	9	2018-06-12 18:55:48	2018-06-12 18:55:52	2018-06-12 18:55:52	3	10:10	10:10
 3	124531	2	9	9	2018-06-12 18:55:31	2018-06-12 18:55:54	2018-06-12 18:55:54	1	10:10	10:10
 5	124531	7	9	9	2018-06-12 19:04:30	2018-06-12 19:04:30	\N	2	10:00	00:00
+6	124531	3	9	9	2018-06-12 19:37:17	2018-06-12 19:37:17	\N	1	10:00	22:00
+7	124531	5	9	9	2018-06-12 19:37:28	2018-06-12 19:37:28	\N	6	09:00	21:00
+8	124531	6	9	9	2018-06-12 19:37:39	2018-06-12 19:37:39	\N	2	10:00	21:00
 \.
 
 
@@ -6186,6 +6191,8 @@ COPY public.horarios_visita_establecimientos (id_horario_visita_establecimiento,
 2	124531	6	9	9	2018-06-12 16:23:42	2018-06-12 16:23:56	2018-06-12 16:23:56	10:10	20:00
 3	124531	1	9	9	2018-06-12 19:03:55	2018-06-12 19:03:55	\N	10:00	20:00
 4	124531	3	9	9	2018-06-12 19:04:03	2018-06-12 19:04:03	\N	10:00	20:00
+5	124531	2	9	9	2018-06-12 19:36:55	2018-06-12 19:36:55	\N	10:00	18:00
+6	124531	7	9	9	2018-06-12 19:37:03	2018-06-12 19:37:03	\N	10:00	22:00
 \.
 
 
@@ -7116,6 +7123,8 @@ COPY public.telefonos (id_telefono, id_tipo_telefono, num_telefono, det_telefono
 60	1	323	null	23	9	9	2018-06-12 02:05:14	2018-06-12 02:05:28	2018-06-12 02:05:28	124531
 61	1	123456	Test	123	9	9	2018-06-12 19:03:30	2018-06-12 19:03:30	\N	124531
 62	2	123456	Test	123	9	9	2018-06-12 19:03:37	2018-06-12 19:03:37	\N	124531
+63	4	123456	Test	123	9	9	2018-06-12 19:36:14	2018-06-12 19:36:14	\N	124531
+64	3	123456	Test	123	9	9	2018-06-12 19:36:27	2018-06-12 19:36:27	\N	124531
 \.
 
 
@@ -7508,7 +7517,7 @@ SELECT pg_catalog.setval('public.fuentes_aplicaciones_id_seq', 1, false);
 -- Name: horarios_atencion_establecimientos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.horarios_atencion_establecimientos_id_seq', 27, true);
+SELECT pg_catalog.setval('public.horarios_atencion_establecimientos_id_seq', 29, true);
 
 
 --
@@ -7517,7 +7526,7 @@ SELECT pg_catalog.setval('public.horarios_atencion_establecimientos_id_seq', 27,
 -- Name: horarios_atencion_profesionales_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.horarios_atencion_profesionales_id_seq', 5, true);
+SELECT pg_catalog.setval('public.horarios_atencion_profesionales_id_seq', 8, true);
 
 
 --
@@ -7526,7 +7535,7 @@ SELECT pg_catalog.setval('public.horarios_atencion_profesionales_id_seq', 5, tru
 -- Name: horarios_visitas_establecimientos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.horarios_visitas_establecimientos_id_seq', 4, true);
+SELECT pg_catalog.setval('public.horarios_visitas_establecimientos_id_seq', 6, true);
 
 
 --
@@ -7751,7 +7760,7 @@ SELECT pg_catalog.setval('public.tecnologia_desarrollo_id_seq', 1, false);
 -- Name: telefonos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.telefonos_id_seq', 62, true);
+SELECT pg_catalog.setval('public.telefonos_id_seq', 64, true);
 
 
 --
@@ -8050,7 +8059,7 @@ ALTER TABLE ONLY public.usuarios_roles
 CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
 
 
--- Completed on 2018-06-12 15:16:48 -04
+-- Completed on 2018-06-12 16:10:23 -04
 
 --
 -- PostgreSQL database dump complete
