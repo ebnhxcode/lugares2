@@ -6,6 +6,7 @@ use App\Comuna;
 use App\Dependencia;
 use App\DiaSemana;
 use App\Organismo;
+use App\Profesional;
 use App\Region;
 use App\ServicioSalud;
 use App\TipoOrganismo;
@@ -26,6 +27,7 @@ class EstablecimientoController extends Controller {
    private $nombre_controller;
 
    private $establecimientos;
+   private $profesionales;
    private $tipos_establecimientos;
    private $tipos_telefonos;
    private $servicios_salud;
@@ -84,8 +86,12 @@ class EstablecimientoController extends Controller {
             'horarios_atencion_establecimientos.dia',
             'horarios_atencion_establecimientos.establecimiento',
             'horarios_visita_establecimientos.dia',
-            'horarios_visita_establecimientos.establecimiento'
+            'horarios_visita_establecimientos.establecimiento',
+            'horarios_atencion_profesionales.dia',
+            'horarios_atencion_profesionales.establecimiento',
+            'horarios_atencion_profesionales.profesional',
          ])->paginate((int)$this->per_page);
+         $this->profesionales = Profesional::all();
          $this->tipos_establecimientos = TipoEstablecimiento::all();
          $this->tipos_telefonos = TipoTelefono::all();
          $this->servicios_salud = ServicioSalud::all();
@@ -101,6 +107,7 @@ class EstablecimientoController extends Controller {
          return response()->json([
             'status' => 200,
             'establecimientos' => $this->establecimientos,
+            'profesionales' => $this->profesionales,
             'tipos_establecimientos' => $this->tipos_establecimientos,
             'tipos_telefonos' => $this->tipos_telefonos,
             'servicios_salud' => $this->servicios_salud,
@@ -146,7 +153,10 @@ class EstablecimientoController extends Controller {
          'horarios_atencion_establecimientos.dia',
          'horarios_atencion_establecimientos.establecimiento',
          'horarios_visita_establecimientos.dia',
-         'horarios_visita_establecimientos.establecimiento'
+         'horarios_visita_establecimientos.establecimiento',
+         'horarios_atencion_profesionales.dia',
+         'horarios_atencion_profesionales.establecimiento',
+         'horarios_atencion_profesionales.profesional',
       ])->where("id_$this->nombre_modelo",'=',$id)->first();
 
       #Valida si role existe y busca si tiene servidor_permiso

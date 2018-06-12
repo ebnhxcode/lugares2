@@ -28,4 +28,100 @@
    </div><!-- .col -->
 
 
+   <div class="col-sm-8 col-md-8">
+      <h5>HORARIOS DE ATENCIÓN DISPONIBLES</h5>
+      <div class="table-responsive">
+
+         <table class="table table-striped table-hover table-sm"
+                v-if="establecimiento.horarios_atencion_establecimientos && establecimiento.horarios_atencion_establecimientos.length > 0">
+            <thead>
+            <tr>
+               <th>Nombre Establecimiento</th>
+               <th>Día</th>
+               <th>Hora Inicio</th>
+               <th>Hora Término</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="h in establecimiento.horarios_atencion_establecimientos">
+               <td>@{{ h.establecimiento.nom_establecimiento }}</td>
+               <td>@{{ h.dia.nom_dia_semana }}</td>
+               <td>@{{ h.hora_inicio_atencion || 'Sin definir' }}</td>
+               <td>@{{ h.hora_termino_atencion || 'Sin definir' }}</td>
+            </tr>
+            </tbody>
+
+         </table><!-- .table -->
+         <div class="card card-body bg-light" v-else>
+            Hasta el momento no existen horarios registrados.
+         </div><!-- .card -->
+      </div>
+
+      <br>
+
+      <h5>HORARIOS DE VISITA DISPONIBLES</h5>
+      <div class="table-responsive">
+
+         <table class="table table-striped table-hover table-sm"
+                v-if="establecimiento.horarios_visita_establecimientos && establecimiento.horarios_visita_establecimientos.length > 0">
+            <thead>
+            <tr>
+               <th>Nombre Establecimiento</th>
+               <th>Día</th>
+               <th>Hora Inicio</th>
+               <th>Hora Término</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="h in establecimiento.horarios_visita_establecimientos">
+               <td>@{{ h.establecimiento.nom_establecimiento }}</td>
+               <td>@{{ h.dia.nom_dia_semana }}</td>
+               <td>@{{ h.hora_inicio_visita || 'Sin definir' }}</td>
+               <td>@{{ h.hora_termino_visita || 'Sin definir' }}</td>
+            </tr>
+            </tbody>
+
+         </table><!-- .table -->
+         <div class="card card-body bg-light" v-else>
+            Hasta el momento no existen horarios registrados.
+         </div><!-- .card -->
+      </div>
+
+      <br>
+
+      <h5>HORARIOS DE ATENCIÓN DISPONIBLES</h5>
+      <div class="table-responsive">
+
+         <table class="table table-striped table-hover table-sm"
+                v-if="establecimiento.horarios_atencion_profesionales && establecimiento.horarios_atencion_profesionales.length > 0">
+            <thead>
+            <tr>
+               <th>Nombre Establecimiento</th>
+               <th>Profesional</th>
+               <th>Día</th>
+               <th>Hora Inicio</th>
+               <th>Hora Término</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="h in establecimiento.horarios_atencion_profesionales">
+               <td>@{{ h.establecimiento.nom_establecimiento }}</td>
+               <td>@{{ h.profesional.nom_profesional }}</td>
+               <td>@{{ h.dia.nom_dia_semana }}</td>
+               <td>@{{ h.hora_inicio_profesional || 'Sin definir' }}</td>
+               <td>@{{ h.hora_termino_profesional || 'Sin definir' }}</td>
+            </tr>
+            </tbody>
+
+         </table><!-- .table -->
+         <div class="card card-body bg-light" v-else>
+            Hasta el momento no existen horarios registrados.
+         </div><!-- .card -->
+      </div>
+
+   </div>
+
+
+
+
 </div><!-- .row -->

@@ -84,4 +84,9 @@ class Establecimiento extends Model {
       return $this->hasMany(HorarioVisitaEstablecimiento::class, 'id_establecimiento');
    }
 
+   public function horarios_atencion_profesionales () {
+      return $this->hasMany(HorarioAtencionProfesional::class, 'id_establecimiento');
+   }
+
+
 }

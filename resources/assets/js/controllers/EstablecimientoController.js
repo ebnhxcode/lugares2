@@ -80,6 +80,13 @@ const EstablecimientoController = new Vue({
             'hora_inicio_visita':null,
             'hora_termino_visita':null,
          },
+         'horario_atencion_profesional':{
+            'id_establecimiento':null,
+            'id_profesional':null,
+            'id_dia_profesional':null,
+            'hora_inicio_profesional':null,
+            'hora_termino_profesional':null,
+         },
 
          'permitido_guardar':[
             'id_establecimiento',
@@ -115,6 +122,7 @@ const EstablecimientoController = new Vue({
          'lom':{},
          'lista_objs_model':[],
          'establecimientos':[],
+         'profesionales':[],
          'tipos_establecimientos':[],
          'tipos_telefonos':[],
          'servicios_salud':[],
@@ -336,6 +344,7 @@ const EstablecimientoController = new Vue({
          this.pagination = response.body.establecimientos || null;
 
          /* Datos de las relaciones con la entidad */
+         this.profesionales = response.body.profesionales || null;
          this.tipos_establecimientos = response.body.tipos_establecimientos || null;
          this.tipos_telefonos = response.body.tipos_telefonos || null;
          this.servicios_salud = response.body.servicios_salud || null;
@@ -609,6 +618,103 @@ const EstablecimientoController = new Vue({
                this.$http.delete(`/horarios_visita_establecimientos/${id}`).then(response => {
                   if (response.status == 200) {
                      this.eliminar_de_array_por_modelo_e_id(id, this.establecimiento.horarios_visita_establecimientos, 'horario_visita_establecimiento');
+                     //this.auto_alerta_corta("Eliminado!", "Registro eliminado correctamente", "success", 800);
+                  } else {
+                     this.checkear_estado_respuesta_http(response.status);
+                     return false;
+                  }
+
+                  if (this.mostrar_notificaciones(response) == true) {
+                     //Recargar la lista
+                     //this.inicializar();
+                  }
+               }, response => { // error callback
+                  this.checkear_estado_respuesta_http(response.status);
+               })
+            }
+         });
+
+      },
+
+      guardar_horario_profesional: function () {
+         //Ejecuta validacion sobre los campos con validaciones
+         this.$validator.validateAll({
+            id_dia_profesional:this.horario_atencion_profesional.id_dia_profesional,
+            id_profesional:this.horario_atencion_profesional.id_profesional,
+            hora_inicio_profesional:this.horario_atencion_profesional.hora_inicio_profesional,
+            hora_termino_profesional:this.horario_atencion_profesional.hora_termino_profesional,
+         }).then( res => {
+            if (res == true) {
+               //Se adjunta el token
+               Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+               //Instancia nuevo form data
+               var formData = new FormData();
+               //Conforma objeto paramétrico para solicitud http
+               formData.append(`id_dia_profesional`, this.horario_atencion_profesional.id_dia_profesional);
+               formData.append(`id_profesional`, this.horario_atencion_profesional.id_profesional);
+               formData.append(`hora_inicio_profesional`, this.horario_atencion_profesional.hora_inicio_profesional);
+               formData.append(`hora_termino_profesional`, this.horario_atencion_profesional.hora_termino_profesional);
+               formData.append(`id_establecimiento`, this.establecimiento.id_establecimiento);
+
+               this.$http.post(`/horarios_atencion_profesionales`, formData).then(response => { // success callback
+
+                  //console.log(response.body);
+
+                  if (response.status == 200) {
+                     //this.inicializar();
+
+                     this.horario_atencion_profesional = {
+                        'id_establecimiento':null,
+                        'id_profesional':null,
+                        'id_dia_profesional':null,
+                        'hora_inicio_profesional':null,
+                        'hora_termino_profesional':null,
+                     };
+
+                     this.establecimiento.horarios_atencion_profesionales.push(response.body.horario_atencion_profesional);
+
+                     this.establecimiento.horarios_atencion_profesionales = _.orderBy(
+                        this.establecimiento.horarios_atencion_profesionales,
+                        ['id_dia_atencion','hora_inicio_profesional'],
+                        'asc'
+                     );
+
+                  } else {
+                     this.checkear_estado_respuesta_http(response.status);
+                     return false;
+                  }
+                  if (this.mostrar_notificaciones(response) == true) {
+                     return;
+                  }
+               }, response => { // error callback
+                  this.checkear_estado_respuesta_http(response.status);
+               });
+            }
+         });
+         return;
+      },
+
+      eliminar_horario_profesional: function (id) {
+
+         swal({
+            title: "¿Estás seguro/a?",
+            text: "¿Deseas confirmar la eliminación de este registro?",
+            type: "warning",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            closeOnCancel: false,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: 'Si, eliminar!',
+            cancelButtonText: 'No, mantener.'
+         }).then((result) => {
+            if (result.value) {
+               //Se adjunta el token
+               Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+
+               this.$http.delete(`/horarios_atencion_profesionales/${id}`).then(response => {
+                  if (response.status == 200) {
+                     this.eliminar_de_array_por_modelo_e_id(id, this.establecimiento.horarios_atencion_profesionales, 'horario_atencion_profesional');
                      //this.auto_alerta_corta("Eliminado!", "Registro eliminado correctamente", "success", 800);
                   } else {
                      this.checkear_estado_respuesta_http(response.status);

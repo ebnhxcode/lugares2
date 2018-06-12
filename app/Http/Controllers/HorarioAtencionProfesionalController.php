@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\HorarioAtencionProfesional;
 use Illuminate\Http\Request;
 
+use Auth;
+use Illuminate\Support\Facades\Validator;
+
 class HorarioAtencionProfesionalController extends Controller {
    private $usuario_auth;
 
@@ -63,6 +66,7 @@ class HorarioAtencionProfesionalController extends Controller {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
          'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
+         'id_profesional' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'id_dia_profesional' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'hora_inicio_profesional' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
          'hora_termino_profesional' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
@@ -80,6 +84,7 @@ class HorarioAtencionProfesionalController extends Controller {
       #Se crea el nuevo registro
       $this->new_horario_atencion_profesional = HorarioAtencionProfesional::create([
          'id_establecimiento' => $this->horario_atencion_profesional['id_establecimiento'],
+         'id_profesional' => $this->horario_atencion_profesional['id_profesional'],
          'id_dia_profesional' => $this->horario_atencion_profesional['id_dia_profesional'],
          'hora_inicio_profesional' => $this->horario_atencion_profesional['hora_inicio_profesional'],
          'hora_termino_profesional' => $this->horario_atencion_profesional['hora_termino_profesional'],
@@ -94,7 +99,7 @@ class HorarioAtencionProfesionalController extends Controller {
          'tipo' => 'creacion_exitosa', //Para las notificaciones
          'mensajes' => ["new_$this->nombre_modelo" => [0=>"Registro ($this->nombre_modelo) creado exitosamente."]],
          //Para mostrar los mensajes que van desde el backend
-         'horario_atencion_profesional' => $this->new_horario_atencion_profesional->load('establecimiento','dia')
+         'horario_atencion_profesional' => $this->new_horario_atencion_profesional->load('establecimiento','dia','profesional')
       ]);
    }
 
@@ -102,6 +107,7 @@ class HorarioAtencionProfesionalController extends Controller {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
          'id_horario_atencion_profesional' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
+         'id_profesional' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
          'id_establecimiento' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
          'id_dia_profesional' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'hora_inicio_profesional' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",

@@ -11,7 +11,7 @@ class HorarioAtencionProfesional extends Model {
    protected $dates = ['deleted_at'];
 
    protected $table = 'horarios_atencion_profesionales';
-   protected $primaryKey = 'id_horario_atencion';
+   protected $primaryKey = 'id_horario_atencion_profesional';
    protected $fillable = [
       # columns
       'hora_inicio_profesional',
@@ -38,6 +38,5 @@ class HorarioAtencionProfesional extends Model {
    public function dia () {
       return $this->belongsTo(DiaSemana::class, 'id_dia_profesional');
    }
-
-
+   
 }
