@@ -87,7 +87,7 @@
             <span class="btn btn-warning float-right" @click.prevent="recargar_filtros_tablero">
                <i class="fa fa-refresh" aria-hidden="true"
                   data-placement="top" data-toggle="tooltip" title="Recarga datos y elimina los filtros"></i>
-               Re-Carga Borrando Filtro
+               Re-Carga Borrando Filtros
             </span>
 
             <span class="btn btn-success float-right" @click.prevent="recargar_filtros_tablero_sin_limpiar_filtros">
