@@ -4,7 +4,7 @@
    <div class="col-md-6">
       <div class="row">
 
-         <div class="col-sm-6 col-md-6">
+         <div class="col-sm-4 col-md-4">
 
             <dt>Tipo Telefono</dt>
             <dd>
@@ -24,30 +24,6 @@
                   @{{ errors.first('id_tipo_telefono') }}
                </span>
                </transition>
-            </dd>
-
-         </div><!-- .col -->
-
-         <div class="col-sm-6 col-md-6">
-
-            <dt>Detalle telefono</dt>
-            <dd>
-
-               <p class="control has-icon has-icon-right">
-                      <textarea cols="15" rows="1" v-model="telefono.det_telefono" name="det_telefono"
-                                v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
-                                class="form-control"></textarea>
-
-                  <transition name="bounce">
-                     <i v-show="errors.has('det_telefono')" class="fa fa-exclamation-circle"></i>
-                  </transition>
-
-                  <transition name="bounce">
-                         <span v-show="errors.has('det_telefono')" class="text-danger small">
-                            @{{ errors.first('det_telefono') }}
-                         </span>
-                  </transition>
-               </p>
             </dd>
 
          </div><!-- .col -->
@@ -73,7 +49,7 @@
             </dd>
          </div><!-- .col -->
 
-         <div class="col-sm-7 col-md-7">
+         <div class="col-sm-5 col-md-5">
 
             <dt>Número teléfono</dt>
             <dd>
@@ -97,6 +73,30 @@
 
          </div><!-- .col -->
 
+         <div class="col-sm-10 col-md-10">
+
+            <dt>Detalle adicional (opcional)</dt>
+            <dd>
+
+               <p class="control has-icon has-icon-right">
+                      <textarea cols="15" rows="1" v-model="telefono.det_telefono" name="det_telefono"
+                                v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
+                                class="form-control"></textarea>
+
+                  <transition name="bounce">
+                     <i v-show="errors.has('det_telefono')" class="fa fa-exclamation-circle"></i>
+                  </transition>
+
+                  <transition name="bounce">
+                         <span v-show="errors.has('det_telefono')" class="text-danger small">
+                            @{{ errors.first('det_telefono') }}
+                         </span>
+                  </transition>
+               </p>
+            </dd>
+
+         </div><!-- .col -->
+
          <div class="col-sm-2 col-md-2">
             <dt>Guardar</dt>
             <dd>
@@ -108,7 +108,9 @@
 
       </div>
    </div>
+
    <div class="col-sm-6 col-md-6">
+      <h5>LISTA DE TELÉFONOS</h5>
       <div class="table-responsive">
          <table class="table table-striped table-hover table-sm" v-if="establecimiento.telefonos && establecimiento.telefonos.length > 0">
             <thead>
