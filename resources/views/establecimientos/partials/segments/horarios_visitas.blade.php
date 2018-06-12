@@ -37,17 +37,17 @@
             <dt>Hora de Inicio</dt>
             <dd>
                <p class="control has-icon has-icon-right">
-                  <input type="time" v-model="horario_visita_establecimiento.hora_inicio" name="hora_inicio"
+                  <input type="time" v-model="horario_visita_establecimiento.hora_inicio_visita" name="hora_inicio_visita"
                          v-validate="{required:true,regex:/^[0-9_ :]+$/i}" data-vv-delay="500"
                          class="form-control"/>
 
                   <transition name="bounce">
-                     <i v-show="errors.has('hora_inicio')" class="fa fa-exclamation-circle"></i>
+                     <i v-show="errors.has('hora_inicio_visita')" class="fa fa-exclamation-circle"></i>
                   </transition>
 
                   <transition name="bounce">
-               <span v-show="errors.has('hora_inicio')" class="text-danger small">
-                  @{{ errors.first('hora_inicio') }}
+               <span v-show="errors.has('hora_inicio_visita')" class="text-danger small">
+                  @{{ errors.first('hora_inicio_visita') }}
                </span>
                   </transition>
                </p>
@@ -62,17 +62,17 @@
             <dt>Hora de Término</dt>
             <dd>
                <p class="control has-icon has-icon-right">
-                  <input type="time" v-model="horario_visita_establecimiento.hora_termino" name="hora_termino"
+                  <input type="time" v-model="horario_visita_establecimiento.hora_termino_visita" name="hora_termino_visita"
                          v-validate="{required:true,regex:/^[0-9_ :]+$/i}" data-vv-delay="500"
                          class="form-control"/>
 
                   <transition name="bounce">
-                     <i v-show="errors.has('hora_termino')" class="fa fa-exclamation-circle"></i>
+                     <i v-show="errors.has('hora_termino_visita')" class="fa fa-exclamation-circle"></i>
                   </transition>
 
                   <transition name="bounce">
-               <span v-show="errors.has('hora_termino')" class="text-danger small">
-                  @{{ errors.first('hora_termino') }}
+               <span v-show="errors.has('hora_termino_visita')" class="text-danger small">
+                  @{{ errors.first('hora_termino_visita') }}
                </span>
                   </transition>
                </p>
@@ -115,8 +115,8 @@
             <tr v-for="h in establecimiento.horarios_visita_establecimientos">
                <td>@{{ h.establecimiento.nom_establecimiento }}</td>
                <td>@{{ h.dia.nom_dia_semana }}</td>
-               <td>@{{ h.hora_inicio || 'Sin definir' }}</td>
-               <td>@{{ h.hora_termino || 'Sin definir' }}</td>
+               <td>@{{ h.hora_inicio_visita || 'Sin definir' }}</td>
+               <td>@{{ h.hora_termino_visita || 'Sin definir' }}</td>
                <td>
                   <button class="btn btn-danger"
                           v-if="en_array(['Administrador','Jefe de Area','Lider Equipo','App Manager'],usuario_auth.usuario_role.role.nom_role)"

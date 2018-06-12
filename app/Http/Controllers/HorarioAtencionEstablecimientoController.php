@@ -80,8 +80,8 @@ class HorarioAtencionEstablecimientoController extends Controller {
       $this->validacion = Validator::make($request->all(), [
          'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'id_dia_atencion' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
-         'hora_inicio' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
-         'hora_termino' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
+         'hora_inicio_atencion' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
+         'hora_termino_atencion' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -97,8 +97,8 @@ class HorarioAtencionEstablecimientoController extends Controller {
       $this->new_horario_atencion_establecimiento = HorarioAtencionEstablecimiento::create([
          'id_establecimiento' => $this->horario_atencion_establecimiento['id_establecimiento'],
          'id_dia_atencion' => $this->horario_atencion_establecimiento['id_dia_atencion'],
-         'hora_inicio' => $this->horario_atencion_establecimiento['hora_inicio'],
-         'hora_termino' => $this->horario_atencion_establecimiento['hora_termino'],
+         'hora_inicio_atencion' => $this->horario_atencion_establecimiento['hora_inicio_atencion'],
+         'hora_termino_atencion' => $this->horario_atencion_establecimiento['hora_termino_atencion'],
          'id_usuario_registra' => Auth::user()->id_usuario,
          'id_usuario_modifica' => Auth::user()->id_usuario,
       ]);
@@ -120,8 +120,8 @@ class HorarioAtencionEstablecimientoController extends Controller {
          'id_horario_atencion_establecimiento' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
          'id_establecimiento' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
          'id_dia_atencion' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
-         'hora_inicio' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
-         'hora_termino' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
+         'hora_inicio_atencion' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
+         'hora_termino_atencion' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
       ]);
       #Valida si la informacion que se envia para editar al horario_atencion_establecimiento son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {

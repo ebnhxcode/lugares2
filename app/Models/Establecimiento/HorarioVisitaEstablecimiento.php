@@ -14,8 +14,8 @@ class HorarioVisitaEstablecimiento extends Model {
    protected $primaryKey = 'id_horario_visita_establecimiento';
    protected $fillable = [
       # columns
-      'hora_inicio',
-      'hora_termino',
+      'hora_inicio_visita',
+      'hora_termino_visita',
 
       # relaciones -> pks
       'id_establecimiento',

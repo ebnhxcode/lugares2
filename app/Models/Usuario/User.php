@@ -31,10 +31,6 @@ class User extends Authenticatable
       'remember_token',
    ];
 
-   public function usuario_bitacora_servicios () {
-      return $this->hasMany(UsuarioBitacoraServicio::class, 'id_usuario');
-   }
-
    public function usuario_estado () {
       return $this->hasOne(UsuarioEstado::class, 'id_usuario');
    }
@@ -45,14 +41,6 @@ class User extends Authenticatable
 
    public function usuario_cargo () {
       return $this->hasOne(UsuarioCargo::class, 'id_usuario');
-   }
-
-   public function usuarios_servicios () {
-      return $this->hasMany(UsuarioServicio::class, 'id_usuario');
-   }
-
-   public function servicios () {
-      return $this->hasMany(Servicio::class, 'id_usuario');
    }
 
    public function usuario_registra() {
