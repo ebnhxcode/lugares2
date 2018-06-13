@@ -93,6 +93,7 @@ class EstablecimientoController extends Controller {
          ])->select([
             'id_establecimiento',
             'nom_establecimiento',
+            'estado_actualizacion',
             'id_tipo_establecimiento',
             'id_region',
             'id_comuna',
@@ -236,6 +237,7 @@ class EstablecimientoController extends Controller {
          'fax' => $this->establecimiento['fax'],
          'vigencia_desde' => $this->establecimiento['vigencia_desde'],
          'fecha_cierre' => $this->establecimiento['fecha_cierre'],
+         'estado_actualizacion' => 'nuevo',
          'id_establecimiento_antiguo' => $this->establecimiento['id_establecimiento_antiguo'],
 
          'id_tipo_establecimiento' => $this->establecimiento['id_tipo_establecimiento'],
@@ -303,6 +305,7 @@ class EstablecimientoController extends Controller {
       }
       $this->establecimiento = Establecimiento::find($request["id_$this->nombre_modelo"]);
       $request['id_usuario_modifica'] = Auth::user()->id_usuario;
+      $request['estado_actualizacion'] = 'al_dia';
       $this->establecimiento->update($request->all());
 
       return response()->json([

@@ -40,6 +40,7 @@ const EstablecimientoController = new Vue({
             'ext_horaria':null,
             'vigencia_desde':null,
             'fecha_cierre':null,
+            'estado_actualizacion':null,
 
             'id_establecimiento_antiguo':null,
 
@@ -137,7 +138,7 @@ const EstablecimientoController = new Vue({
             'id_comuna':null,
             'id_region':null,
             'id_tipo_establecimiento':null,
-            'updated_at':null,
+            'estado_actualizacion':null,
          },
          
          'datos_excel':[],
@@ -180,6 +181,7 @@ const EstablecimientoController = new Vue({
 
             //'id_tipo_establecimiento':{'visibility':true,'value':null},
             'nom_tipo_establecimiento':{'visibility':false,'value':null},
+            'estado_actualizacion':{'visibility':true,'value':null},
             //'id_servicio_salud':{'visibility':true,'value':null},
             //'nom_servicio_salud':{'visibility':false,'value':null},
             //'id_dependencia':{'visibility':true,'value':null},
@@ -211,6 +213,7 @@ const EstablecimientoController = new Vue({
             'ext_horaria':'Extension Horaria',
             'vigencia_desde':'Vigencia desde',
             'fecha_cierre':'Fecha cierre',
+            'estado_actualizacion':'Estado del registro',
             'id_establecimiento_antiguo':'Id establecimiento antiguo',
 
             'id_tipo_establecimiento':'Id Tipo Establecimiento',
@@ -237,26 +240,27 @@ const EstablecimientoController = new Vue({
          'excel_json_campos': {
             'id_establecimiento':'String',
             'nom_establecimiento':'String',
-            'observaciones':'String',
-            'nom_direccion':'String',
-            'nom_responsable':'String',
-            'num_calle':'String',
-            'sitio_web':'String',
-            'email':'String',
-            'cod_area_fax':'String',
-            'fax':'String',
-            'ext_horaria':'String',
-            'vigencia_desde':'String',
-            'fecha_cierre':'String',
-            'id_establecimiento_antiguo':'String',
+            //'observaciones':'String',
+            //'nom_direccion':'String',
+            //'nom_responsable':'String',
+            //'num_calle':'String',
+            //'sitio_web':'String',
+            //'email':'String',
+            //'cod_area_fax':'String',
+            //'fax':'String',
+            //'ext_horaria':'String',
+            //'vigencia_desde':'String',
+            //'fecha_cierre':'String',
+            'estado_actualizacion':'String',
+            //'id_establecimiento_antiguo':'String',
             'id_tipo_establecimiento':'String',
             'nom_tipo_establecimiento':'String',
-            'id_servicio_salud':'String',
-            'nom_servicio_salud':'String',
-            'id_dependencia':'String',
-            'nom_dependencia':'String',
-            'id_organismo':'String',
-            'nom_organismo':'String',
+            //'id_servicio_salud':'String',
+            //'nom_servicio_salud':'String',
+            //'id_dependencia':'String',
+            //'nom_dependencia':'String',
+            //'id_organismo':'String',
+            //'nom_organismo':'String',
             'id_region':'String',
             'nom_region':'String',
             'id_comuna':'String',
@@ -292,26 +296,27 @@ const EstablecimientoController = new Vue({
             return self.excel_json_datos.push({
                'id_establecimiento': establecimiento.id_establecimiento || '-',
                'nom_establecimiento': establecimiento.nom_establecimiento || '-',
-               'observaciones': establecimiento.observaciones || '-',
-               'nom_direccion': establecimiento.nom_direccion || '-',
-               'nom_responsable': establecimiento.nom_responsable || '-',
-               'num_calle': establecimiento.num_calle || '-',
-               'sitio_web': establecimiento.sitio_web || '-',
-               'email': establecimiento.email || '-',
-               'cod_area_fax': establecimiento.cod_area_fax || '-',
-               'fax': establecimiento.fax || '-',
-               'ext_horaria': establecimiento.ext_horaria || '-',
-               'vigencia_desde': establecimiento.vigencia_desde || '-',
-               'fecha_cierre': establecimiento.fecha_cierre || '-',
-               'id_establecimiento_antiguo': establecimiento.id_establecimiento_antiguo || '-',
+               //'observaciones': establecimiento.observaciones || '-',
+               //'nom_direccion': establecimiento.nom_direccion || '-',
+               //'nom_responsable': establecimiento.nom_responsable || '-',
+               //'num_calle': establecimiento.num_calle || '-',
+               //'sitio_web': establecimiento.sitio_web || '-',
+               //'email': establecimiento.email || '-',
+               //'cod_area_fax': establecimiento.cod_area_fax || '-',
+               //'fax': establecimiento.fax || '-',
+               //'ext_horaria': establecimiento.ext_horaria || '-',
+               //'vigencia_desde': establecimiento.vigencia_desde || '-',
+               //'fecha_cierre': establecimiento.fecha_cierre || '-',
+               'estado_actualizacion': establecimiento.fecha_cierre || '-',
+               //'id_establecimiento_antiguo': establecimiento.id_establecimiento_antiguo || '-',
                'id_tipo_establecimiento': establecimiento.id_tipo_establecimiento || '-',
                'nom_tipo_establecimiento': establecimiento.nom_tipo_establecimiento || '-',
-               'id_servicio_salud': establecimiento.id_servicio_salud || '-',
-               'nom_servicio_salud': establecimiento.nom_servicio_salud || '-',
-               'id_dependencia': establecimiento.id_dependencia || '-',
-               'nom_dependencia': establecimiento.nom_dependencia || '-',
-               'id_organismo': establecimiento.id_organismo || '-',
-               'nom_organismo': establecimiento.nom_organismo || '-',
+               //'id_servicio_salud': establecimiento.id_servicio_salud || '-',
+               //'nom_servicio_salud': establecimiento.nom_servicio_salud || '-',
+               //'id_dependencia': establecimiento.id_dependencia || '-',
+               //'nom_dependencia': establecimiento.nom_dependencia || '-',
+               //'id_organismo': establecimiento.id_organismo || '-',
+               //'nom_organismo': establecimiento.nom_organismo || '-',
                'id_region': establecimiento.id_region || '-',
                'nom_region': establecimiento.nom_region || '-',
                'id_comuna': establecimiento.id_comuna || '-',
@@ -366,8 +371,20 @@ const EstablecimientoController = new Vue({
          this.usuario_auth = response.body.usuario_auth || null;
       },
 
-      autocompletar_tipo_telefono: () => {
-
+      autocompletar_tipo_telefono: function (id_tipo_telefono) {
+         var tipo_telefono = null;
+         tipo_telefono = this.buscar_en_array_por_modelo_e_id(id_tipo_telefono,this.tipos_telefonos, 'tipo_telefono');
+         switch (tipo_telefono.sub_tipo_telefono) {
+            case 'fijo':
+               this.telefono.cod_area = this.establecimiento.region.cod_area;
+               break;
+            case 'movil':
+               this.telefono.cod_area = 9;
+               break;
+            case 'linea800':
+               this.telefono.cod_area = 9;
+               break;
+         }
       },
 
       borrar_filtros: function () {
@@ -376,6 +393,7 @@ const EstablecimientoController = new Vue({
             'id_region':null,
             'id_tipo_establecimiento':null,
             'updated_at':null,
+            'estado_actualizacion':null,
          };
       },
 

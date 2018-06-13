@@ -206,12 +206,13 @@
                      </select>
                   </div>
                   <div class="col-md-3 col-lg-3">
-                     Actualizados
-                     <select class="custom-select" v-model="filtros.updated_at" name="updated_at"
-                             @change.prevent="filtrar_adicional('updated_at')"
-                             v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
-                        <option value=""></option>
-                        <option value="">Actualizados</option>
+                     Estado
+                     <select class="custom-select" v-model="filtros.estado_actualizacion" name="estado_actualizacion"
+                             @change.prevent="filtrar_adicional('estado_actualizacion')"
+                             v-validate="{required:true,regex:/^[a-zA-Z0-9]+$/i}" data-vv-delay="500">
+                        <option value="nuevo">Nuevos</option>
+                        <option value="desactualizado">No Actualizados</option>
+                        <option value="al_dia">Actualizados</option>
                         
                      </select>
                   </div>

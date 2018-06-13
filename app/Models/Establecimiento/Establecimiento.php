@@ -28,6 +28,7 @@ class Establecimiento extends Model {
       'ext_horaria',
       'vigencia_desde',
       'fecha_cierre',
+      'estado_actualizacion',
 
       # relaciones -> pks
 
