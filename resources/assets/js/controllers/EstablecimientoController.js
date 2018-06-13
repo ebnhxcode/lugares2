@@ -694,7 +694,7 @@ const EstablecimientoController = new Vue({
 
                      this.establecimiento.horarios_atencion_profesionales = _.orderBy(
                         this.establecimiento.horarios_atencion_profesionales,
-                        ['id_dia_atencion','hora_inicio_profesional'],
+                        ['id_dia_profesional','hora_inicio_profesional'],
                         'asc'
                      );
 
