@@ -41,7 +41,7 @@
 
       <!-- Botonera de acciones -->
       <td>
-         <div class="btn-group btn-group-sm" style="margin:0;" role="group" aria-label="Basic example">
+         <div class="btn-group btn-group-sm" style="margin:0;padding:0;" role="group" aria-label="Basic example">
             {{--
             <button class="btn btn-primary"
                     v-show="id_en_edicion != lom[`id_${nombre_model}`] &&
@@ -52,19 +52,19 @@
                     @click.prevent="editar(lom[`id_${nombre_model}`])">
                <i class="fa fa-edit"></i>
             </button>
-            --}}
             <button class="btn btn-success" v-show="id_en_edicion == lom[`id_${nombre_model}`] && modal_actualizar_activo == false"
                     data-placement="top" data-toggle="tooltip" title="Guardar"
                     @click.prevent="guardar_editado">
                <i class="fa fa-save"></i>
             </button>
-            <button class="btn btn-secondary"
+            --}}
+            <button class="btn"
                     data-placement="top" data-toggle="tooltip" title="Actualizar desde modal"
                     @click.prevent="mostrar_modal_actualizar(lom[`id_${nombre_model}`])"
                     v-show="id_en_edicion == null">
                <i class="fa fa-rocket" ></i>
             </button>
-            <button class="btn btn-secondary"
+            <button class="btn"
                     data-placement="top" data-toggle="tooltip" title="Dejar de editar"
                     @click.prevent="dejar_de_editar()"
                     v-if="id_en_edicion === lom[`id_${nombre_model}`]">

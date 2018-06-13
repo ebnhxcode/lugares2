@@ -3407,6 +3407,11 @@ var inyeccion_funciones_compartidas = {
       },
 
       recargar_filtros_tablero: function recargar_filtros_tablero() {
+         if (typeof this.filtros != "undefined") {
+            for (var f in this.filtros) {
+               this.filtros[f] = null;
+            }
+         }
          this.lista_objs_model = this.$data[this.nombre_ruta];
          this.limpiar_tabla_campos();
       },
@@ -3462,6 +3467,11 @@ var inyeccion_funciones_compartidas = {
       navigateCustom: function navigateCustom() {
          var _this12 = this;
 
+         if (typeof this.filtros != "undefined") {
+            for (var f in this.filtros) {
+               this.filtros[f] = null;
+            }
+         }
          this.$http.get('/ajax/' + this.nombre_ruta + '?page=' + 1 + '&per_page=' + this.pagination.per_page).then(function (response) {
             console.log(response);
             if (response.status == 200) {

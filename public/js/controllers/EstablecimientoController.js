@@ -3189,6 +3189,11 @@ var inyeccion_funciones_compartidas = {
       },
 
       recargar_filtros_tablero: function recargar_filtros_tablero() {
+         if (typeof this.filtros != "undefined") {
+            for (var f in this.filtros) {
+               this.filtros[f] = null;
+            }
+         }
          this.lista_objs_model = this.$data[this.nombre_ruta];
          this.limpiar_tabla_campos();
       },
@@ -3244,6 +3249,11 @@ var inyeccion_funciones_compartidas = {
       navigateCustom: function navigateCustom() {
          var _this12 = this;
 
+         if (typeof this.filtros != "undefined") {
+            for (var f in this.filtros) {
+               this.filtros[f] = null;
+            }
+         }
          this.$http.get('/ajax/' + this.nombre_ruta + '?page=' + 1 + '&per_page=' + this.pagination.per_page).then(function (response) {
             console.log(response);
             if (response.status == 200) {
@@ -4726,30 +4736,30 @@ var EstablecimientoController = new Vue({
             'id_establecimiento': { 'visibility': false, 'value': null },
             'nom_establecimiento': { 'visibility': true, 'value': null },
             //'observaciones':{'visibility':true,'value':null},
-            'nom_direccion': { 'visibility': false, 'value': null },
-            'num_calle': { 'visibility': false, 'value': null },
-            'nom_responsable': { 'visibility': false, 'value': null },
+            //'nom_direccion':{'visibility':false,'value':null},
+            //'num_calle':{'visibility':false,'value':null},
+            //'nom_responsable':{'visibility':false,'value':null},
             //'sitio_web':{'visibility':true,'value':null},
             //'email':{'visibility':true,'value':null},
             //'cod_area_fax':{'visibility':true,'value':null},
             //'fax':{'visibility':true,'value':null},
-            'ext_horaria': { 'visibility': false, 'value': null },
+            //'ext_horaria':{'visibility':false,'value':null},
             //'vigencia_desde':{'visibility':true,'value':null},
             //'fecha_cierre':{'visibility':true,'value':null},
-            'id_establecimiento_antiguo': { 'visibility': false, 'value': null },
+            //'id_establecimiento_antiguo':{'visibility':false,'value':null},
 
             //'id_tipo_establecimiento':{'visibility':true,'value':null},
             'nom_tipo_establecimiento': { 'visibility': false, 'value': null },
             //'id_servicio_salud':{'visibility':true,'value':null},
-            'nom_servicio_salud': { 'visibility': false, 'value': null },
+            //'nom_servicio_salud':{'visibility':false,'value':null},
             //'id_dependencia':{'visibility':true,'value':null},
-            'nom_dependencia': { 'visibility': false, 'value': null },
+            //'nom_dependencia':{'visibility':false,'value':null},
             //'id_organismo':{'visibility':true,'value':null},
-            'nom_organismo': { 'visibility': false, 'value': null },
+            //'nom_organismo':{'visibility':false,'value':null},
             //'id_region':{'visibility':true,'value':null},
-            'nom_region': { 'visibility': false, 'value': null },
+            'nom_region': { 'visibility': true, 'value': null },
             //'id_comuna':{'visibility':true,'value':null},
-            'nom_comuna': { 'visibility': false, 'value': null },
+            'nom_comuna': { 'visibility': true, 'value': null },
 
             'created_at': { 'visibility': false, 'value': null },
             'updated_at': { 'visibility': false, 'value': null }
@@ -4928,6 +4938,15 @@ var EstablecimientoController = new Vue({
 
          /* Datos de la sesion actual del usuario */
          this.usuario_auth = response.body.usuario_auth || null;
+      },
+
+      borrar_filtros: function borrar_filtros() {
+         this.filtros = {
+            'id_comuna': null,
+            'id_region': null,
+            'id_tipo_establecimiento': null,
+            'updated_at': null
+         };
       },
 
       filtrar_adicional: function filtrar_adicional(key) {

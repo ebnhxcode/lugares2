@@ -2,7 +2,7 @@
    <div class="col-sm-4 col-md-4">
 
       <!-- este bloque será reemplazado dinamicamente -->
-      <div class="card pro" style="{{--width: 18rem;--}}">
+      <div class="card pro" style="{{--width: 18rem;--}}" v-if="establecimiento && establecimiento.tipo_establecimiento">
          <img class="card-img-top" src="{{ url('/img/datacentro.png') }}" alt="Card image cap">
          <div class="card-body">
             <h5 class="card-title">
@@ -10,21 +10,19 @@
             </h5>
             <p class="card-text">
 
-            <dl class="row" v-if="establecimiento && establecimiento.tipo_establecimiento">
+            <dl class="row">
                <dd class="col-md-12">@{{ establecimiento.tipo_establecimiento.nom_tipo_establecimiento || '' }}</dd>
-            </dl>
-
-            <dl v-else>
-               No hay información del establecimiento.
             </dl>
 
             </p>
             {{--<a href="#" class="btn btn-primary">Go somewhere</a>--}}
          </div><!-- .card-body -->
       </div><!-- .card -->
+      <div v-else>
+         No hay información del establecimiento.
+      </div>
 
       <br>
-
 
       <!-- este bloque será reemplazado dinamicamente -->
       <div class="card pro" style="{{--width: 18rem;--}}" v-if="establecimiento && establecimiento.region">
@@ -48,6 +46,7 @@
       <div v-else>
          No hay información de la región.
       </div>
+
       <br>
 
       <!-- este bloque será reemplazado dinamicamente -->
@@ -94,7 +93,7 @@
 
 
    <div class="col-sm-8 col-md-8">
-      <h5>HORARIOS DE ATENCIÓN DISPONIBLES</h5>
+      <h5>HORARIOS DE ATENCIÓN DE ESTABLECIMIENTOS</h5>
       <div class="table-responsive">
 
          <table class="table table-striped table-hover table-sm"
@@ -124,7 +123,7 @@
 
       <br>
 
-      <h5>HORARIOS DE VISITA DISPONIBLES</h5>
+      <h5>HORARIOS DE VISITA DE ESTABLECIMIENTOS</h5>
       <div class="table-responsive">
 
          <table class="table table-striped table-hover table-sm"
@@ -154,7 +153,7 @@
 
       <br>
 
-      <h5>HORARIOS DE ATENCIÓN DISPONIBLES</h5>
+      <h5>HORARIOS DE ATENCIÓN DE PROFESIONALES</h5>
       <div class="table-responsive">
 
          <table class="table table-striped table-hover table-sm"

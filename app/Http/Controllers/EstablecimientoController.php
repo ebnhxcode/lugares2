@@ -90,7 +90,16 @@ class EstablecimientoController extends Controller {
             'horarios_atencion_profesionales.dia',
             'horarios_atencion_profesionales.establecimiento',
             'horarios_atencion_profesionales.profesional',
+         ])->select([
+            'id_establecimiento',
+            'nom_establecimiento',
+            'id_tipo_establecimiento',
+            'id_region',
+            'id_comuna',
+            'created_at',
+            'updated_at',
          ])->paginate((int)$this->per_page);
+
          $this->profesionales = Profesional::all();
          $this->tipos_establecimientos = TipoEstablecimiento::all();
          $this->tipos_telefonos = TipoTelefono::all();

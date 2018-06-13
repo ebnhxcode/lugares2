@@ -700,6 +700,11 @@ export const inyeccion_funciones_compartidas = {
       ordenar_lista: function (columna) { this.datos_excel = this.$data[this.nombre_ruta] = this.lista_objs_model = _.orderBy(this.lista_objs_model, columna, this.orden_lista); },
 
       recargar_filtros_tablero: function () {
+         if (typeof this.filtros != "undefined") {
+            for (var f in this.filtros) {
+               this.filtros[f] = null;
+            }
+         }
          this.lista_objs_model=this.$data[this.nombre_ruta];
          this.limpiar_tabla_campos();
       },
@@ -741,6 +746,11 @@ export const inyeccion_funciones_compartidas = {
       },
 
       navigateCustom () {
+         if (typeof this.filtros != "undefined") {
+            for (var f in this.filtros) {
+               this.filtros[f] = null;
+            }
+         }
          this.$http.get(`/ajax/${this.nombre_ruta}?page=` + 1 + '&per_page=' + this.pagination.per_page).then(response => {
             console.log(response);
             if (response.status == 200) {

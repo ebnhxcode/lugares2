@@ -79,7 +79,7 @@
       </div>
 
       <br>
-
+      {{--
       <div class="card">
 
          <div class="card-body pro">
@@ -96,6 +96,7 @@
                Re-Carga Sin Borrar Filtros
             </span>
 
+
             <h5>FILTROS POR REFERENCIA</h5>
             <br>
             <div class="row">
@@ -107,17 +108,68 @@
 
                </div>
             </div>
-            {{--@if(in_array(Request::path(), ['establecimientos']))@endif--}}
+
+
+
          </div>
       </div>
 
       <br>
-
+      --}}
+      {{--@if(in_array(Request::path(), ['establecimientos']))@endif--}}
       @if(in_array(Request::path(), ['establecimientos']))
          <div class="card">
             <div class="card-body pro">
 
-               <h5>FILTROS ADICIONALES</h5>
+
+
+               {{--
+               <span class="btn btn-warning float-right" @click.prevent="recargar_filtros_tablero">
+                  <i class="fa fa-refresh" aria-hidden="true"
+                     data-placement="top" data-toggle="tooltip" title="Recarga datos y elimina los filtros"></i>
+                  Re-Carga Borrando Filtros
+               </span>
+               --}}
+               {{--recargar_filtros_tablero_sin_limpiar_filtros--}}
+               <span class="btn btn-success float-right" @click.prevent="recargar_filtros_tablero">
+                  <i class="fa fa-refresh" aria-hidden="true"
+                     data-placement="top" data-toggle="tooltip" title="Mantiene contenido de los filtros"></i>
+                  {{--Re-Carga Sin Borrar Filtros--}}
+               </span>
+
+
+               <!-- Cantidad a paginar -->
+               <div class="float-right" style="padding-left: 15px;">
+                  <select v-model="pagination.per_page" @change="navigateCustom"
+                          class="custom-select custom-select-sm btn btn-outline-success">
+                     <option selected disabled>@{{ pagination.per_page }}</option>
+                     <option :value="5">5</option>
+                     <option :value="10">10</option>
+                     <option :value="15">15</option>
+                     <option :value="20">20</option>
+                     <option :value="25">25</option>
+                     <option :value="30">30</option>
+                     <option :value="35">35</option>
+                     <option :value="40">40</option>
+                     <option :value="45">45</option>
+                     <option :value="50">50</option>
+                     <option :value="100">100</option>
+                     <option :value="250">250</option>
+                     <option :value="500">500</option>
+                     <option :value="750">750</option>
+                     <option :value="1000">1000</option>
+                     <option :value="1250">1250</option>
+                     <option :value="1500">1500</option>
+                     <option :value="1750">1750</option>
+                     <option :value="2000">2000</option>
+                     <option :value="3000">3000</option>
+                     <option :value="4000">4000</option>
+                     <option :value="5000">5000</option>
+                  </select>
+
+               </div>
+
+               <h5>FILTROS {{--ADICIONALES--}}</h5>
                <br>
                <div class="row">
                   <div class="col-md-3 col-lg-3">
@@ -238,6 +290,7 @@
             </div>
 
 
+            {{--
             <!-- Paginador footer tabla opcional segun cantidad -->
             <div v-if="pagination.per_page>=50">
                <!-- Detalle de lo filtrado -->
@@ -251,13 +304,12 @@
                      </small>
                   </div>
                </div>
-
                <!-- Componente paginador -->
                <div class="float-right" style="padding-left: 15px;">
                   <paginators :pagination="pagination" @navigate="navigate"></paginators>
                </div>
-
             </div>
+            --}}
 
          </div>
       </div>
@@ -267,7 +319,6 @@
          <!-- dir ./partials -->
          @include("layouts.modal.modal_crear")
          @include("layouts.modal.modal_actualizar")
-
       </div>
 
       {{--<notifications group="top_center" position="top center" />--}}
