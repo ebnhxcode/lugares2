@@ -4940,6 +4940,8 @@ var EstablecimientoController = new Vue({
          this.usuario_auth = response.body.usuario_auth || null;
       },
 
+      autocompletar_tipo_telefono: function autocompletar_tipo_telefono() {},
+
       borrar_filtros: function borrar_filtros() {
          this.filtros = {
             'id_comuna': null,
@@ -5082,7 +5084,7 @@ var EstablecimientoController = new Vue({
 
                      _this3.establecimiento.horarios_atencion_establecimientos.push(response.body.horario_atencion_establecimiento);
 
-                     _this3.establecimiento.horarios_atencion_establecimientos = _.orderBy(_this3.establecimiento.horarios_atencion_establecimientos, ['id_dia_atencion', 'hora_inicio_atencion'], 'asc');
+                     _this3.establecimiento.horarios_atencion_establecimientos = _.orderBy(_this3.establecimiento.horarios_atencion_establecimientos, 'id_dia_atencion', 'asc');
                   } else {
                      _this3.checkear_estado_respuesta_http(response.status);
                      return false;
@@ -5176,7 +5178,7 @@ var EstablecimientoController = new Vue({
 
                      _this5.establecimiento.horarios_visita_establecimientos.push(response.body.horario_visita_establecimiento);
 
-                     _this5.establecimiento.horarios_visita_establecimientos = _.orderBy(_this5.establecimiento.horarios_visita_establecimientos, ['id_dia_visita', 'hora_inicio_visita'], 'asc');
+                     _this5.establecimiento.horarios_visita_establecimientos = _.orderBy(_this5.establecimiento.horarios_visita_establecimientos, 'id_dia_visita', 'asc');
                   } else {
                      _this5.checkear_estado_respuesta_http(response.status);
                      return false;
@@ -5273,7 +5275,7 @@ var EstablecimientoController = new Vue({
 
                      _this7.establecimiento.horarios_atencion_profesionales.push(response.body.horario_atencion_profesional);
 
-                     _this7.establecimiento.horarios_atencion_profesionales = _.orderBy(_this7.establecimiento.horarios_atencion_profesionales, ['id_dia_atencion', 'hora_inicio_profesional'], 'asc');
+                     _this7.establecimiento.horarios_atencion_profesionales = _.orderBy(_this7.establecimiento.horarios_atencion_profesionales, 'id_dia_profesional', 'asc');
                   } else {
                      _this7.checkear_estado_respuesta_http(response.status);
                      return false;

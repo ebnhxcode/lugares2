@@ -81,11 +81,11 @@ class Establecimiento extends Model {
    }
 
    public function horarios_visita_establecimientos () {
-      return $this->hasMany(HorarioVisitaEstablecimiento::class, 'id_establecimiento');
+      return $this->hasMany(HorarioVisitaEstablecimiento::class, 'id_establecimiento')->orderBy('id_dia_visita', 'asc');
    }
 
    public function horarios_atencion_profesionales () {
-      return $this->hasMany(HorarioAtencionProfesional::class, 'id_establecimiento');
+      return $this->hasMany(HorarioAtencionProfesional::class, 'id_establecimiento')->orderBy('id_dia_profesional', 'asc');
    }
 
 

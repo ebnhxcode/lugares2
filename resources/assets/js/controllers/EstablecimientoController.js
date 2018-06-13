@@ -366,6 +366,10 @@ const EstablecimientoController = new Vue({
          this.usuario_auth = response.body.usuario_auth || null;
       },
 
+      autocompletar_tipo_telefono: () => {
+
+      },
+
       borrar_filtros: function () {
          this.filtros = {
             'id_comuna':null,
@@ -503,7 +507,7 @@ const EstablecimientoController = new Vue({
 
                      this.establecimiento.horarios_atencion_establecimientos = _.orderBy(
                         this.establecimiento.horarios_atencion_establecimientos,
-                        ['id_dia_atencion','hora_inicio_atencion'],
+                        'id_dia_atencion',
                         'asc'
                      );
 
@@ -597,7 +601,7 @@ const EstablecimientoController = new Vue({
 
                      this.establecimiento.horarios_visita_establecimientos = _.orderBy(
                         this.establecimiento.horarios_visita_establecimientos,
-                        ['id_dia_visita','hora_inicio_visita'],
+                        'id_dia_visita',
                         'asc'
                      );
 
@@ -694,7 +698,7 @@ const EstablecimientoController = new Vue({
 
                      this.establecimiento.horarios_atencion_profesionales = _.orderBy(
                         this.establecimiento.horarios_atencion_profesionales,
-                        ['id_dia_profesional','hora_inicio_profesional'],
+                        'id_dia_profesional',
                         'asc'
                      );
 

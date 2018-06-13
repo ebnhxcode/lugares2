@@ -30,6 +30,7 @@ const TipoTelefonoController = new Vue({
          'tipo_telefono': {
             'nom_tipo_telefono': null,
             'det_tipo_telefono': null,
+            'sub_tipo_telefono': null,
             'id_usuario_registra': null,
             'id_usuario_modifica': null,
             'created_at': null,
@@ -39,6 +40,7 @@ const TipoTelefonoController = new Vue({
          'permitido_guardar':[
             'nom_tipo_telefono',
             'det_tipo_telefono',
+            'sub_tipo_telefono',
          ],
          'relaciones_clase':[],
          'lom':{},
@@ -70,6 +72,7 @@ const TipoTelefonoController = new Vue({
             'id_tipo_telefono': {'visibility':false,'value':null},
             'nom_tipo_telefono': {'visibility':true,'value':null},
             'det_tipo_telefono': {'visibility':false,'value':null},
+            'sub_tipo_telefono': {'visibility':false,'value':null},
             'created_at': {'visibility':false,'value':null},
             'updated_at': {'visibility':false,'value':null},
             'deleted_at': {'visibility':false,'value':null},
@@ -77,9 +80,10 @@ const TipoTelefonoController = new Vue({
 
          /* Etiquetas */
          'tabla_labels': {
-            'id_tipo_telefono': 'Id tipo aplicacion',
-            'nom_tipo_telefono': 'Nombre tipo aplicacion',
-            'det_tipo_telefono': 'Detalle tipo aplicacion',
+            'id_tipo_telefono': 'Id tipo telefono',
+            'nom_tipo_telefono': 'Nombre tipo telefono',
+            'det_tipo_telefono': 'Detalle tipo telefono',
+            'sub_tipo_telefono': 'Sub tipo telefono',
             'created_at': 'Creado en',
             'updated_at': 'Actualizado en',
             'deleted_at': 'Eliminado en'
@@ -90,6 +94,7 @@ const TipoTelefonoController = new Vue({
             'id_tipo_telefono': 'String',
             'nom_tipo_telefono': 'String',
             'det_tipo_telefono': 'String',
+            'sub_tipo_telefono': 'String',
             'created_at': 'String',
             'updated_at': 'String',
             'deleted_at': 'String'
@@ -119,6 +124,7 @@ const TipoTelefonoController = new Vue({
                'id_tipo_telefono': tipo_telefono.id_tipo_telefono || '-',
                'nom_tipo_telefono': tipo_telefono.nom_tipo_telefono || '-',
                'det_tipo_telefono': tipo_telefono.det_tipo_telefono || '-',
+               'sub_tipo_telefono': tipo_telefono.sub_tipo_telefono || '-',
                'created_at': tipo_telefono.created_at || '-',
                'updated_at': tipo_telefono.updated_at || '-',
                'deleted_at': tipo_telefono.deleted_at || '-'

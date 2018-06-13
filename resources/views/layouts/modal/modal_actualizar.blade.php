@@ -35,14 +35,14 @@ Relacionados a ➜ <span class="text-info">@{{ $data[`${nombre_model}`][`nom_${n
 
    <!-- La vista principal que se incluye en el modal de actualizar o gestionar el registro unico -->
    @if(view()->exists("$nombre_tabla.partials.vista_principal"))
-      <div class="tab-pane fade show active" id="vista_principal_tab" role="tabpanel" aria-labelledby="vista_principal_tab">
+      <div class="tab-pane fade show" id="vista_principal_tab" role="tabpanel" aria-labelledby="vista_principal_tab">
          <br>
          @include("$nombre_tabla.partials.vista_principal")
       </div><!-- .tab-pane .active #vista_principal_tab -->
    @endif
 
    <!-- La subvista que se encarga de importar los campos del formulario -->
-   <div class="tab-pane fade show" id="vista_actualizar_tab" role="tabpanel" aria-labelledby="vista_actualizar_tab"
+   <div class="tab-pane fade show active" id="vista_actualizar_tab" role="tabpanel" aria-labelledby="vista_actualizar_tab"
       v-if="en_array(['Administrador','Jefe de Area','Lider Equipo','App Manager'],usuario_auth.usuario_role.role.nom_role)">
 
       <br>

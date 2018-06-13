@@ -32,6 +32,7 @@ const RegionController = new Vue({
             'det_region':null,
             'alias':null,
             'orden':null,
+            'cod_area':null,
 
             'id_usuario_registra':null,
             'id_usuario_modifica':null,
@@ -44,6 +45,7 @@ const RegionController = new Vue({
             'det_region',
             'alias',
             'orden',
+            'cod_area',
          ],
          'relaciones_clase':[],
          'lom':{},
@@ -76,6 +78,7 @@ const RegionController = new Vue({
             'nom_region':{'visibility':true,'value':null},
             'alias':{'visibility':false,'value':null},
             'orden':{'visibility':false,'value':null},
+            'cod_area':{'visibility':false,'value':null},
 
             'created_at':{'visibility':false,'value':null},
             'updated_at':{'visibility':false,'value':null},
@@ -88,6 +91,7 @@ const RegionController = new Vue({
             'nom_region':'Nombre region',
             'alias':'Alias',
             'orden':'Orden',
+            'cod_area':'Codigo Area',
 
             'id_usuario_registra':'Usuario registra',
             'id_usuario_modifica':'Usuario modifica',
@@ -102,6 +106,7 @@ const RegionController = new Vue({
             'nom_region': 'String',
             'alias': 'String',
             'orden': 'String',
+            'cod_area': 'String',
 
             'created_at': 'String',
             'updated_at': 'String',
@@ -133,6 +138,7 @@ const RegionController = new Vue({
                'nom_region': region.nom_region || '-',
                'alias': region.alias || '-',
                'orden': region.orden || '-',
+               'cod_area': region.cod_area || '-',
 
                'created_at': region.created_at || '-',
                'updated_at': region.updated_at || '-',

@@ -96,5 +96,28 @@
 
    </div><!-- .col -->
 
+   <div class="col-sm-4 col-md-4">
+
+      <dt>Código de Área</dt>
+      <dd>
+
+         <p class="control has-icon has-icon-right">
+            <input type="number" v-model="region.cod_area" name="cod_area"
+                   v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500"
+                   class="form-control" />
+
+            <transition name="bounce">
+               <i v-show="errors.has('cod_area')" class="fa fa-exclamation-circle"></i>
+            </transition>
+
+            <transition name="bounce">
+               <span v-show="errors.has('cod_area')" class="text-danger small">
+                  @{{ errors.first('cod_area') }}
+               </span>
+            </transition>
+         </p>
+      </dd>
+
+   </div><!-- .col -->
 
 </div><!-- .row -->

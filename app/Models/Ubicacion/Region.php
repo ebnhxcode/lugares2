@@ -17,6 +17,7 @@ class Region extends Model {
       'det_region',
       'alias',
       'orden',
+      'cod_area',
 
       # relaciones
       'id_usuario_registra',

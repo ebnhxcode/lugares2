@@ -129,6 +129,7 @@ class TipoTelefonoController extends Controller {
       $this->validacion = Validator::make($request->all(), [
          'nom_tipo_telefono' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'det_tipo_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'sub_tipo_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -144,6 +145,7 @@ class TipoTelefonoController extends Controller {
       $this->new_tipo_telefono = TipoTelefono::create([
          'nom_tipo_telefono' => $this->tipo_telefono['nom_tipo_telefono'],
          'det_tipo_telefono' => $this->tipo_telefono['det_tipo_telefono'],
+         'sub_tipo_telefono' => $this->tipo_telefono['sub_tipo_telefono'],
          'id_usuario_registra' => Auth::user()->id_usuario,
          'id_usuario_modifica' => Auth::user()->id_usuario,
       ]);
@@ -165,6 +167,7 @@ class TipoTelefonoController extends Controller {
          'id_tipo_telefono' => 'regex:/(^([0-9]+)(\d+)?$)/u|required|max:255',
          'nom_tipo_telefono' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
          'det_tipo_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'sub_tipo_telefono' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
       ]);
       #Valida si la informacion que se envia para editar al tipo_telefono son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {

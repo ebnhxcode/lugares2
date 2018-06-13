@@ -16,6 +16,7 @@ class TipoTelefono extends Model {
       # columns
       'nom_tipo_telefono',
       'det_tipo_telefono',
+      'sub_tipo_telefono',
 
       # relaciones
       'id_usuario_registra',

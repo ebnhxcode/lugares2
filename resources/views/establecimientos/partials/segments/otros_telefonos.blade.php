@@ -9,6 +9,7 @@
             <dt>Tipo Telefono</dt>
             <dd>
                <select class="custom-select" v-model="telefono.id_tipo_telefono" name="id_tipo_telefono"
+                       @change.prevent="autocompletar_tipo_telefono"
                        v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                   <option :value="t.id_tipo_telefono" v-for="t in tipos_telefonos">
                      @{{ `${t.nom_tipo_telefono} -> ${t.det_tipo_telefono}` }}
