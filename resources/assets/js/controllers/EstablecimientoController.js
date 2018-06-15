@@ -377,13 +377,13 @@ const EstablecimientoController = new Vue({
          tipo_telefono = this.buscar_en_array_por_modelo_e_id(id_tipo_telefono,this.tipos_telefonos, 'tipo_telefono');
          switch (tipo_telefono.sub_tipo_telefono) {
             case 'fijo':
-               this.telefono.cod_area = this.establecimiento.region.cod_area;
+               this.telefono.cod_area = this.establecimiento.comuna.cod_area;
                break;
             case 'movil':
-               this.telefono.cod_area = 9;
+               this.telefono.cod_area = 569;
                break;
             case 'linea800':
-               this.telefono.cod_area = 9;
+               this.telefono.cod_area = 0;
                break;
          }
       },
