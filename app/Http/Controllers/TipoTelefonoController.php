@@ -27,7 +27,7 @@ class TipoTelefonoController extends Controller {
 
    public function __construct () {
       $this->middleware('auth');
-      $this->middleware('mantenedor');#resrtinge a solo usuarios con permiso bajo -> D
+      $this->middleware('d');
       $this->nombre_modelo = "tipo_telefono"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "tipos_telefonos";
       $this->nombre_detalle = "Tipo Telefonos";

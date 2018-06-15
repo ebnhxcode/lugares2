@@ -27,7 +27,7 @@ class TipoEstablecimientoController extends Controller {
 
    public function __construct () {
       $this->middleware('auth');
-      $this->middleware('mantenedor');#resrtinge a solo usuarios con permiso bajo -> D
+      $this->middleware('d');
       $this->nombre_modelo = "tipo_establecimiento"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "tipos_establecimientos";
       $this->nombre_detalle = "Tipo Establecimientos";

@@ -28,7 +28,7 @@ class MenuController extends Controller {
 
    public function __construct () {
       $this->middleware('auth');
-      $this->middleware('mantenedor', ['except' => ['index','show']]);#resrtinge a solo usuarios con permiso bajo -> D
+      $this->middleware('d', ['except' => ['index', 'index_ajax']]);
       $this->nombre_modelo = "menu"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "menus";
       $this->nombre_detalle = "Menus Generales";

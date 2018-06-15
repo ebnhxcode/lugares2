@@ -24,7 +24,7 @@ class DiaSemanaController extends Controller {
 
    public function __construct () {
       $this->middleware('auth');
-      $this->middleware('mantenedor');
+      $this->middleware('d');
       $this->nombre_modelo = "dia_semana"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "dias_semana";
       $this->nombre_detalle = "Dias Semana";

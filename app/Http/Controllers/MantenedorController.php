@@ -23,7 +23,7 @@ class MantenedorController extends Controller {
 
    public function __construct () {
       $this->middleware('auth');
-      $this->middleware('mantenedor', ['except' => ['index','show']]);
+      $this->middleware('d', ['except' => ['index', 'index_ajax']]);
       $this->nombre_modelo = "mantenedor"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "mantenedores";
       $this->nombre_detalle = "Menus de Mantenedores";

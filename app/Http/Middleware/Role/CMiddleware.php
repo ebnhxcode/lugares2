@@ -18,9 +18,8 @@ class CMiddleware {
                     case 'Administrador':
                     case 'Jefe de Area':
                     case 'Lider Equipo':
-                    case 'App Manager':
-                    case 'Jefe Proyecto':
-                        #case 'Desarrollador Proyecto':
+                    case 'Modificador':
+                    case 'Creador':
                         #case 'Visitante':
                         return $next($request);
                         break;

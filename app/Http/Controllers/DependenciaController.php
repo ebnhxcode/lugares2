@@ -24,7 +24,7 @@ class DependenciaController extends Controller {
 
    public function __construct () {
       $this->middleware('auth');
-      $this->middleware('mantenedor');
+      $this->middleware('d');
       $this->nombre_modelo = "dependencia"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "dependencias";
       $this->nombre_detalle = "Dependencias";

@@ -30,7 +30,7 @@ class ProfesionalController extends Controller {
 
    public function __construct () {
       $this->middleware('auth');
-      $this->middleware('mantenedor');
+      $this->middleware('d');
       $this->nombre_modelo = "profesional"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "profesionales";
       $this->nombre_detalle = "Profesionales";

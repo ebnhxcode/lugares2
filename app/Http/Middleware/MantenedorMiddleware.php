@@ -16,9 +16,8 @@ class MantenedorMiddleware
          $this->role = $this->usuario_role->role;
          switch ($this->role->nom_role) {
             case 'Administrador':
-            case 'Jefe de Area':
             case 'Lider Equipo':
-            case 'App Manager':
+            case 'Jefe de Area':
                return $next($request);
                break;
 

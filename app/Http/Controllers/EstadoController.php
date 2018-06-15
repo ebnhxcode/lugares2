@@ -25,7 +25,7 @@ class EstadoController extends Controller {
 
    public function __construct () {
       $this->middleware('auth');
-      $this->middleware('mantenedor');#resrtinge a solo usuarios con permiso bajo -> D
+      $this->middleware('d');
       $this->nombre_modelo = "estado"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "estados";
       $this->nombre_detalle = "Estados";

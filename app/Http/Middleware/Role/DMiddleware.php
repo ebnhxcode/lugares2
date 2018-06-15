@@ -19,10 +19,6 @@ class DMiddleware {
                     case 'Administrador':
                     case 'Jefe de Area':
                     case 'Lider Equipo':
-                        #case 'App Manager':
-                        #case 'Jefe Proyecto':
-                        #case 'Desarrollador Proyecto':
-                        #case 'Visitante':
                         return $next($request);
                         break;
                 }

@@ -18,6 +18,7 @@ class HomeController extends Controller {
 
     public function __construct() {
         $this->middleware('auth');
+        $this->middleware('r', ['except' => ['index']]);
         $this->nombre_modelo = "home"; //nombre tabla o de ruta
         $this->nombre_tabla = $this->nombre_ruta = "home";
         $this->nombre_detalle = "Home";

@@ -17,9 +17,9 @@ class MesaServiciosMiddleware {
             case 'Administrador':
             case 'Jefe de Area':
             case 'Lider Equipo':
-            case 'App Manager':
-            case 'Jefe Proyecto':
-            case 'Desarrollador Proyecto':
+            case 'Modificador':
+            case 'Creador':
+            case 'Desarrollador':
             case 'Visitante':
                return $next($request);
                break;

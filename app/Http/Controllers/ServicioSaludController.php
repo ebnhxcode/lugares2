@@ -26,7 +26,7 @@ class ServicioSaludController extends Controller {
 
    public function __construct () {
       $this->middleware('auth');
-      $this->middleware('mantenedor');
+      $this->middleware('d');
       $this->nombre_modelo = "servicio_salud"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "servicios_salud";
       $this->nombre_detalle = "ServicioSalud";

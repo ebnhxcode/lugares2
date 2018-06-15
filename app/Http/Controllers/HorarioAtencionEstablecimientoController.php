@@ -28,7 +28,7 @@ class HorarioAtencionEstablecimientoController extends Controller {
 
    public function __construct () {
       $this->middleware('auth');
-      $this->middleware('mantenedor');#resrtinge a solo usuarios con permiso bajo -> D
+      $this->middleware('c');
       $this->nombre_modelo = "horario_atencion_establecimiento"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "horarios_atencion_establecimientos";
       $this->nombre_detalle = "HorarioAtencionEstablecimientos";
