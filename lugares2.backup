@@ -5,7 +5,7 @@
 -- Dumped from database version 10.4
 -- Dumped by pg_dump version 10.3
 
--- Started on 2018-06-13 10:45:53 -04
+-- Started on 2018-06-15 12:53:51 -04
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -254,7 +254,8 @@ CREATE TABLE public.comunas (
     created_at timestamp(0) without time zone,
     updated_at timestamp(0) without time zone,
     deleted_at timestamp without time zone,
-    id_region integer
+    id_region integer,
+    cod_area text
 );
 
 
@@ -1741,699 +1742,699 @@ COPY public.cargos (id_cargo, nom_cargo, det_cargo, id_usuario_registra, id_usua
 -- Data for Name: comunas; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.comunas (id_comuna, nom_comuna, det_comuna, alias, orden, id_usuario_registra, id_usuario_modifica, created_at, updated_at, deleted_at, id_region) FROM stdin;
-1101	Iquique	\N	\N	\N	\N	\N	\N	\N	\N	1
-1107	Alto Hospicio	\N	\N	\N	\N	\N	\N	\N	\N	1
-1401	Pozo Almonte	\N	\N	\N	\N	\N	\N	\N	\N	1
-1402	Camiña	\N	\N	\N	\N	\N	\N	\N	\N	1
-1403	Colchane	\N	\N	\N	\N	\N	\N	\N	\N	1
-1404	Huara	\N	\N	\N	\N	\N	\N	\N	\N	1
-1405	Pica	\N	\N	\N	\N	\N	\N	\N	\N	1
-2101	Antofagasta	\N	\N	\N	\N	\N	\N	\N	\N	2
-2102	Mejillones	\N	\N	\N	\N	\N	\N	\N	\N	2
-2103	Sierra Gorda	\N	\N	\N	\N	\N	\N	\N	\N	2
-2104	Taltal	\N	\N	\N	\N	\N	\N	\N	\N	2
-2201	Calama	\N	\N	\N	\N	\N	\N	\N	\N	2
-2202	Ollagüe	\N	\N	\N	\N	\N	\N	\N	\N	2
-2203	San Pedro de Atacama	\N	\N	\N	\N	\N	\N	\N	\N	2
-2301	Tocopilla	\N	\N	\N	\N	\N	\N	\N	\N	2
-2302	Maria Elena	\N	\N	\N	\N	\N	\N	\N	\N	2
-3101	Copiapo	\N	\N	\N	\N	\N	\N	\N	\N	3
-3102	Caldera	\N	\N	\N	\N	\N	\N	\N	\N	3
-3103	Tierra Amarilla	\N	\N	\N	\N	\N	\N	\N	\N	3
-3201	Chañaral	\N	\N	\N	\N	\N	\N	\N	\N	3
-3202	Diego de Almagro	\N	\N	\N	\N	\N	\N	\N	\N	3
-3301	Vallenar	\N	\N	\N	\N	\N	\N	\N	\N	3
-3302	Alto del Carmen	\N	\N	\N	\N	\N	\N	\N	\N	3
-3303	Freirina	\N	\N	\N	\N	\N	\N	\N	\N	3
-3304	Huasco	\N	\N	\N	\N	\N	\N	\N	\N	3
-4101	La Serena	\N	\N	\N	\N	\N	\N	\N	\N	4
-4102	Coquimbo	\N	\N	\N	\N	\N	\N	\N	\N	4
-4103	Andacollo	\N	\N	\N	\N	\N	\N	\N	\N	4
-4104	La Higuera	\N	\N	\N	\N	\N	\N	\N	\N	4
-4105	Paiguano	\N	\N	\N	\N	\N	\N	\N	\N	4
-4106	Vicuña	\N	\N	\N	\N	\N	\N	\N	\N	4
-4201	Illapel	\N	\N	\N	\N	\N	\N	\N	\N	4
-4202	Canela	\N	\N	\N	\N	\N	\N	\N	\N	4
-4203	Los Vilos	\N	\N	\N	\N	\N	\N	\N	\N	4
-4204	Salamanca	\N	\N	\N	\N	\N	\N	\N	\N	4
-4301	Ovalle	\N	\N	\N	\N	\N	\N	\N	\N	4
-4302	Combarbalá	\N	\N	\N	\N	\N	\N	\N	\N	4
-4303	Monte Patria	\N	\N	\N	\N	\N	\N	\N	\N	4
-4304	Punitaqui	\N	\N	\N	\N	\N	\N	\N	\N	4
-4305	Río Hurtado	\N	\N	\N	\N	\N	\N	\N	\N	4
-5101	Valparaiso	\N	\N	\N	\N	\N	\N	\N	\N	5
-5102	Casablanca	\N	\N	\N	\N	\N	\N	\N	\N	5
-5103	Con Con	\N	\N	\N	\N	\N	\N	\N	\N	5
-5104	Juan Fernández	\N	\N	\N	\N	\N	\N	\N	\N	5
-5105	Puchuncaví	\N	\N	\N	\N	\N	\N	\N	\N	5
-5107	Quintero	\N	\N	\N	\N	\N	\N	\N	\N	5
-5109	Viña del Mar	\N	\N	\N	\N	\N	\N	\N	\N	5
-5201	Isla de Pascua	\N	\N	\N	\N	\N	\N	\N	\N	5
-5301	Los Andes	\N	\N	\N	\N	\N	\N	\N	\N	5
-5302	Calle Larga	\N	\N	\N	\N	\N	\N	\N	\N	5
-5303	Rinconada	\N	\N	\N	\N	\N	\N	\N	\N	5
-5304	San Esteban	\N	\N	\N	\N	\N	\N	\N	\N	5
-5401	La Ligua	\N	\N	\N	\N	\N	\N	\N	\N	5
-5402	Cabildo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5403	Papudo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5404	Petorca	\N	\N	\N	\N	\N	\N	\N	\N	5
-5405	Zapallar	\N	\N	\N	\N	\N	\N	\N	\N	5
-5501	Quillota	\N	\N	\N	\N	\N	\N	\N	\N	5
-5502	Calera	\N	\N	\N	\N	\N	\N	\N	\N	5
-5503	Hijuelas	\N	\N	\N	\N	\N	\N	\N	\N	5
-5504	La Cruz	\N	\N	\N	\N	\N	\N	\N	\N	5
-5506	Nogales	\N	\N	\N	\N	\N	\N	\N	\N	5
-5601	San Antonio	\N	\N	\N	\N	\N	\N	\N	\N	5
-5602	Algarrobo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5603	Cartagena	\N	\N	\N	\N	\N	\N	\N	\N	5
-5604	El Quisco	\N	\N	\N	\N	\N	\N	\N	\N	5
-5605	El Tabo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5606	Santo Domingo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5701	San Felipe	\N	\N	\N	\N	\N	\N	\N	\N	5
-5702	Catemu	\N	\N	\N	\N	\N	\N	\N	\N	5
-5703	Llaillay	\N	\N	\N	\N	\N	\N	\N	\N	5
-5704	Panquehue	\N	\N	\N	\N	\N	\N	\N	\N	5
-5705	Putaendo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5706	Santa Maria	\N	\N	\N	\N	\N	\N	\N	\N	5
-5801	Quilpue	\N	\N	\N	\N	\N	\N	\N	\N	5
-5802	Limache	\N	\N	\N	\N	\N	\N	\N	\N	5
-5803	Olmué	\N	\N	\N	\N	\N	\N	\N	\N	5
-5804	Villa Alemana	\N	\N	\N	\N	\N	\N	\N	\N	5
-6101	Rancagua	\N	\N	\N	\N	\N	\N	\N	\N	6
-6102	Codegua	\N	\N	\N	\N	\N	\N	\N	\N	6
-6103	Coinco	\N	\N	\N	\N	\N	\N	\N	\N	6
-6104	Coltauco	\N	\N	\N	\N	\N	\N	\N	\N	6
-6105	Doñihue	\N	\N	\N	\N	\N	\N	\N	\N	6
-6106	Graneros	\N	\N	\N	\N	\N	\N	\N	\N	6
-6107	Las Cabras	\N	\N	\N	\N	\N	\N	\N	\N	6
-6108	Machalí	\N	\N	\N	\N	\N	\N	\N	\N	6
-6109	Malloa	\N	\N	\N	\N	\N	\N	\N	\N	6
-6110	Mostazal	\N	\N	\N	\N	\N	\N	\N	\N	6
-6111	Olivar	\N	\N	\N	\N	\N	\N	\N	\N	6
-6112	Peumo	\N	\N	\N	\N	\N	\N	\N	\N	6
-6113	Pichidegua	\N	\N	\N	\N	\N	\N	\N	\N	6
-6114	Quinta de Tilcoco	\N	\N	\N	\N	\N	\N	\N	\N	6
-6115	Rengo	\N	\N	\N	\N	\N	\N	\N	\N	6
-6116	Requínoa	\N	\N	\N	\N	\N	\N	\N	\N	6
-6117	San Vicente	\N	\N	\N	\N	\N	\N	\N	\N	6
-6201	Pichilemu	\N	\N	\N	\N	\N	\N	\N	\N	6
-6202	La Estrella	\N	\N	\N	\N	\N	\N	\N	\N	6
-6203	Litueche	\N	\N	\N	\N	\N	\N	\N	\N	6
-6204	Marchihue	\N	\N	\N	\N	\N	\N	\N	\N	6
-6205	Navidad	\N	\N	\N	\N	\N	\N	\N	\N	6
-6206	Paredones	\N	\N	\N	\N	\N	\N	\N	\N	6
-6301	San Fernando	\N	\N	\N	\N	\N	\N	\N	\N	6
-6302	Chepica	\N	\N	\N	\N	\N	\N	\N	\N	6
-6303	Chimbarongo	\N	\N	\N	\N	\N	\N	\N	\N	6
-6304	Lolol	\N	\N	\N	\N	\N	\N	\N	\N	6
-6305	Nancagua	\N	\N	\N	\N	\N	\N	\N	\N	6
-6306	Palmilla	\N	\N	\N	\N	\N	\N	\N	\N	6
-6307	Peralillo	\N	\N	\N	\N	\N	\N	\N	\N	6
-6308	Placilla	\N	\N	\N	\N	\N	\N	\N	\N	6
-6309	Pumanque	\N	\N	\N	\N	\N	\N	\N	\N	6
-6310	Santa Cruz	\N	\N	\N	\N	\N	\N	\N	\N	6
-7101	Talca	\N	\N	\N	\N	\N	\N	\N	\N	7
-7102	Constitución	\N	\N	\N	\N	\N	\N	\N	\N	7
-7103	Curepto	\N	\N	\N	\N	\N	\N	\N	\N	7
-7104	Empedrado	\N	\N	\N	\N	\N	\N	\N	\N	7
-7105	Maule	\N	\N	\N	\N	\N	\N	\N	\N	7
-7106	Pelarco	\N	\N	\N	\N	\N	\N	\N	\N	7
-7107	Pencahue	\N	\N	\N	\N	\N	\N	\N	\N	7
-7108	Río Claro	\N	\N	\N	\N	\N	\N	\N	\N	7
-7109	San Clemente	\N	\N	\N	\N	\N	\N	\N	\N	7
-7110	San Rafael	\N	\N	\N	\N	\N	\N	\N	\N	7
-7201	Cauquenes	\N	\N	\N	\N	\N	\N	\N	\N	7
-7202	Chanco	\N	\N	\N	\N	\N	\N	\N	\N	7
-7203	Pelluhue	\N	\N	\N	\N	\N	\N	\N	\N	7
-7301	Curicó	\N	\N	\N	\N	\N	\N	\N	\N	7
-7302	Hualañé	\N	\N	\N	\N	\N	\N	\N	\N	7
-7303	Licantén	\N	\N	\N	\N	\N	\N	\N	\N	7
-7304	Molina	\N	\N	\N	\N	\N	\N	\N	\N	7
-7305	Rauco	\N	\N	\N	\N	\N	\N	\N	\N	7
-7306	Romeral	\N	\N	\N	\N	\N	\N	\N	\N	7
-7307	Sagrada Familia	\N	\N	\N	\N	\N	\N	\N	\N	7
-7308	Teno	\N	\N	\N	\N	\N	\N	\N	\N	7
-7309	Vichuquén	\N	\N	\N	\N	\N	\N	\N	\N	7
-7401	Linares	\N	\N	\N	\N	\N	\N	\N	\N	7
-7402	Colbún	\N	\N	\N	\N	\N	\N	\N	\N	7
-7403	Longaví	\N	\N	\N	\N	\N	\N	\N	\N	7
-7404	Parral	\N	\N	\N	\N	\N	\N	\N	\N	7
-7405	Retiro	\N	\N	\N	\N	\N	\N	\N	\N	7
-7406	San Javier	\N	\N	\N	\N	\N	\N	\N	\N	7
-7407	Villa Alegre	\N	\N	\N	\N	\N	\N	\N	\N	7
-7408	Yerbas Buenas	\N	\N	\N	\N	\N	\N	\N	\N	7
-8101	Concepción	\N	\N	\N	\N	\N	\N	\N	\N	8
-8102	Coronel	\N	\N	\N	\N	\N	\N	\N	\N	8
-8103	Chiguayante	\N	\N	\N	\N	\N	\N	\N	\N	8
-8104	Florida	\N	\N	\N	\N	\N	\N	\N	\N	8
-8105	Hualqui	\N	\N	\N	\N	\N	\N	\N	\N	8
-8106	Lota	\N	\N	\N	\N	\N	\N	\N	\N	8
-8107	Penco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8108	San Pedro de la Paz	\N	\N	\N	\N	\N	\N	\N	\N	8
-8109	Santa Juana	\N	\N	\N	\N	\N	\N	\N	\N	8
-8110	Talcahuano	\N	\N	\N	\N	\N	\N	\N	\N	8
-8111	Tome	\N	\N	\N	\N	\N	\N	\N	\N	8
-8112	Hualpén	\N	\N	\N	\N	\N	\N	\N	\N	8
-8201	Lebu	\N	\N	\N	\N	\N	\N	\N	\N	8
-8202	Arauco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8203	Cañete	\N	\N	\N	\N	\N	\N	\N	\N	8
-8204	Contulmo	\N	\N	\N	\N	\N	\N	\N	\N	8
-8205	Curanilahue	\N	\N	\N	\N	\N	\N	\N	\N	8
-8206	Los Álamos	\N	\N	\N	\N	\N	\N	\N	\N	8
-8207	Tirúa	\N	\N	\N	\N	\N	\N	\N	\N	8
-8301	Los Ángeles	\N	\N	\N	\N	\N	\N	\N	\N	8
-8302	Antuco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8303	Cabrero	\N	\N	\N	\N	\N	\N	\N	\N	8
-8304	Laja	\N	\N	\N	\N	\N	\N	\N	\N	8
-8305	Mulchén	\N	\N	\N	\N	\N	\N	\N	\N	8
-8306	Nacimiento	\N	\N	\N	\N	\N	\N	\N	\N	8
-8307	Negrete	\N	\N	\N	\N	\N	\N	\N	\N	8
-8308	Quilaco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8309	Quilleco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8310	San Rosendo	\N	\N	\N	\N	\N	\N	\N	\N	8
-8311	Santa Bárbara	\N	\N	\N	\N	\N	\N	\N	\N	8
-8312	Tucapel	\N	\N	\N	\N	\N	\N	\N	\N	8
-8313	Yumbel	\N	\N	\N	\N	\N	\N	\N	\N	8
-8314	Alto Biobío	\N	\N	\N	\N	\N	\N	\N	\N	8
-8401	Chillán 	\N	\N	\N	\N	\N	\N	\N	\N	8
-8402	Bulnes	\N	\N	\N	\N	\N	\N	\N	\N	8
-8403	Cobquecura	\N	\N	\N	\N	\N	\N	\N	\N	8
-8404	Coelemu	\N	\N	\N	\N	\N	\N	\N	\N	8
-8405	Coihueco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8406	Chillán Viejo	\N	\N	\N	\N	\N	\N	\N	\N	8
-8407	El Carmen	\N	\N	\N	\N	\N	\N	\N	\N	8
-8408	Ninhue	\N	\N	\N	\N	\N	\N	\N	\N	8
-8409	Ñiquén	\N	\N	\N	\N	\N	\N	\N	\N	8
-8410	Pemuco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8411	Pinto	\N	\N	\N	\N	\N	\N	\N	\N	8
-8412	Portezuelo	\N	\N	\N	\N	\N	\N	\N	\N	8
-8413	Quillón	\N	\N	\N	\N	\N	\N	\N	\N	8
-8414	Quirihue	\N	\N	\N	\N	\N	\N	\N	\N	8
-8415	Ránquil	\N	\N	\N	\N	\N	\N	\N	\N	8
-8416	San Carlos	\N	\N	\N	\N	\N	\N	\N	\N	8
-8417	San Fabián	\N	\N	\N	\N	\N	\N	\N	\N	8
-8418	San Ignacio	\N	\N	\N	\N	\N	\N	\N	\N	8
-8419	San Nicolás	\N	\N	\N	\N	\N	\N	\N	\N	8
-8420	Treguaco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8421	Yungay	\N	\N	\N	\N	\N	\N	\N	\N	8
-9101	Temuco	\N	\N	\N	\N	\N	\N	\N	\N	9
-9102	Carahue	\N	\N	\N	\N	\N	\N	\N	\N	9
-9103	Cunco	\N	\N	\N	\N	\N	\N	\N	\N	9
-9104	Curarrehue	\N	\N	\N	\N	\N	\N	\N	\N	9
-9105	Freire	\N	\N	\N	\N	\N	\N	\N	\N	9
-9106	Galvarino	\N	\N	\N	\N	\N	\N	\N	\N	9
-9107	Gorbea	\N	\N	\N	\N	\N	\N	\N	\N	9
-9108	Lautaro	\N	\N	\N	\N	\N	\N	\N	\N	9
-9109	Loncoche	\N	\N	\N	\N	\N	\N	\N	\N	9
-9110	Melipeuco	\N	\N	\N	\N	\N	\N	\N	\N	9
-9111	Nueva Imperial	\N	\N	\N	\N	\N	\N	\N	\N	9
-9112	Padre Las Casas	\N	\N	\N	\N	\N	\N	\N	\N	9
-9113	Perquenco	\N	\N	\N	\N	\N	\N	\N	\N	9
-9114	Pitrufquén	\N	\N	\N	\N	\N	\N	\N	\N	9
-9115	Pucón	\N	\N	\N	\N	\N	\N	\N	\N	9
-9116	Saavedra	\N	\N	\N	\N	\N	\N	\N	\N	9
-9117	Teodoro Schmidt	\N	\N	\N	\N	\N	\N	\N	\N	9
-9118	Toltén	\N	\N	\N	\N	\N	\N	\N	\N	9
-9119	Vilcún	\N	\N	\N	\N	\N	\N	\N	\N	9
-9120	Villarrica	\N	\N	\N	\N	\N	\N	\N	\N	9
-9121	Cholchol	\N	\N	\N	\N	\N	\N	\N	\N	9
-9201	Angol	\N	\N	\N	\N	\N	\N	\N	\N	9
-9202	Collipulli	\N	\N	\N	\N	\N	\N	\N	\N	9
-9203	Curacautín	\N	\N	\N	\N	\N	\N	\N	\N	9
-9204	Ercilla	\N	\N	\N	\N	\N	\N	\N	\N	9
-9205	Lonquimay	\N	\N	\N	\N	\N	\N	\N	\N	9
-9206	Los Sauces	\N	\N	\N	\N	\N	\N	\N	\N	9
-9207	Lumaco	\N	\N	\N	\N	\N	\N	\N	\N	9
-9208	Purén	\N	\N	\N	\N	\N	\N	\N	\N	9
-9209	Renaico	\N	\N	\N	\N	\N	\N	\N	\N	9
-9210	Traiguén	\N	\N	\N	\N	\N	\N	\N	\N	9
-9211	Victoria	\N	\N	\N	\N	\N	\N	\N	\N	9
-10101	Puerto Montt	\N	\N	\N	\N	\N	\N	\N	\N	10
-10102	Calbuco	\N	\N	\N	\N	\N	\N	\N	\N	10
-10103	Cochamó	\N	\N	\N	\N	\N	\N	\N	\N	10
-10104	Fresia	\N	\N	\N	\N	\N	\N	\N	\N	10
-10105	Frutillar	\N	\N	\N	\N	\N	\N	\N	\N	10
-10106	Los Muermos	\N	\N	\N	\N	\N	\N	\N	\N	10
-10107	Llanquihue	\N	\N	\N	\N	\N	\N	\N	\N	10
-10108	Maullín	\N	\N	\N	\N	\N	\N	\N	\N	10
-10109	Puerto Varas	\N	\N	\N	\N	\N	\N	\N	\N	10
-10201	Castro	\N	\N	\N	\N	\N	\N	\N	\N	10
-10202	Ancud	\N	\N	\N	\N	\N	\N	\N	\N	10
-10203	Chonchi	\N	\N	\N	\N	\N	\N	\N	\N	10
-10204	Curaco de Vélez	\N	\N	\N	\N	\N	\N	\N	\N	10
-10205	Dalcahue	\N	\N	\N	\N	\N	\N	\N	\N	10
-10206	Puqueldón	\N	\N	\N	\N	\N	\N	\N	\N	10
-10207	Queilén	\N	\N	\N	\N	\N	\N	\N	\N	10
-10208	Quellón	\N	\N	\N	\N	\N	\N	\N	\N	10
-10209	Quemchi	\N	\N	\N	\N	\N	\N	\N	\N	10
-10210	Quinchao	\N	\N	\N	\N	\N	\N	\N	\N	10
-10301	Osorno	\N	\N	\N	\N	\N	\N	\N	\N	10
-10302	Puerto Octay	\N	\N	\N	\N	\N	\N	\N	\N	10
-10303	Purranque	\N	\N	\N	\N	\N	\N	\N	\N	10
-10304	Puyehue	\N	\N	\N	\N	\N	\N	\N	\N	10
-10305	Río Negro	\N	\N	\N	\N	\N	\N	\N	\N	10
-10306	San Juan de la Costa	\N	\N	\N	\N	\N	\N	\N	\N	10
-10307	San Pablo	\N	\N	\N	\N	\N	\N	\N	\N	10
-10401	Chaitén	\N	\N	\N	\N	\N	\N	\N	\N	10
-10402	Futaleufú	\N	\N	\N	\N	\N	\N	\N	\N	10
-10403	Hualaihué	\N	\N	\N	\N	\N	\N	\N	\N	10
-10404	Palena	\N	\N	\N	\N	\N	\N	\N	\N	10
-11101	Coihaique	\N	\N	\N	\N	\N	\N	\N	\N	11
-11102	Lago Verde	\N	\N	\N	\N	\N	\N	\N	\N	11
-11201	Aisén	\N	\N	\N	\N	\N	\N	\N	\N	11
-11202	Cisnes	\N	\N	\N	\N	\N	\N	\N	\N	11
-11203	Guaitecas	\N	\N	\N	\N	\N	\N	\N	\N	11
-11301	Cochrane	\N	\N	\N	\N	\N	\N	\N	\N	11
-11302	O Higgins	\N	\N	\N	\N	\N	\N	\N	\N	11
-11303	Tortel	\N	\N	\N	\N	\N	\N	\N	\N	11
-11401	Chile Chico	\N	\N	\N	\N	\N	\N	\N	\N	11
-11402	Río Ibáñez	\N	\N	\N	\N	\N	\N	\N	\N	11
-12101	Punta Arenas	\N	\N	\N	\N	\N	\N	\N	\N	12
-12102	Laguna Blanca	\N	\N	\N	\N	\N	\N	\N	\N	12
-12103	Río Verde	\N	\N	\N	\N	\N	\N	\N	\N	12
-12104	San Gregorio	\N	\N	\N	\N	\N	\N	\N	\N	12
-12201	Cabo de Hornos	\N	\N	\N	\N	\N	\N	\N	\N	12
-12202	Antártica	\N	\N	\N	\N	\N	\N	\N	\N	12
-12301	Porvenir	\N	\N	\N	\N	\N	\N	\N	\N	12
-12302	Primavera	\N	\N	\N	\N	\N	\N	\N	\N	12
-12303	Timaukel	\N	\N	\N	\N	\N	\N	\N	\N	12
-12401	Natales	\N	\N	\N	\N	\N	\N	\N	\N	12
-12402	Torres del Paine	\N	\N	\N	\N	\N	\N	\N	\N	12
-13101	Santiago	\N	\N	\N	\N	\N	\N	\N	\N	13
-13102	Cerrillos	\N	\N	\N	\N	\N	\N	\N	\N	13
-13103	Cerro Navia	\N	\N	\N	\N	\N	\N	\N	\N	13
-13104	Conchalí	\N	\N	\N	\N	\N	\N	\N	\N	13
-13105	El Bosque	\N	\N	\N	\N	\N	\N	\N	\N	13
-13106	Estación Central	\N	\N	\N	\N	\N	\N	\N	\N	13
-13107	Huechuraba	\N	\N	\N	\N	\N	\N	\N	\N	13
-13108	Independencia	\N	\N	\N	\N	\N	\N	\N	\N	13
-13109	La Cisterna	\N	\N	\N	\N	\N	\N	\N	\N	13
-13110	La Florida	\N	\N	\N	\N	\N	\N	\N	\N	13
-13111	La Granja	\N	\N	\N	\N	\N	\N	\N	\N	13
-13112	La Pintana	\N	\N	\N	\N	\N	\N	\N	\N	13
-13113	La Reina	\N	\N	\N	\N	\N	\N	\N	\N	13
-13114	Las Condes	\N	\N	\N	\N	\N	\N	\N	\N	13
-13115	Lo Barnechea	\N	\N	\N	\N	\N	\N	\N	\N	13
-13116	Lo Espejo	\N	\N	\N	\N	\N	\N	\N	\N	13
-13117	Lo Prado	\N	\N	\N	\N	\N	\N	\N	\N	13
-13118	Macul	\N	\N	\N	\N	\N	\N	\N	\N	13
-13119	Maipu	\N	\N	\N	\N	\N	\N	\N	\N	13
-13120	Ñuñoa	\N	\N	\N	\N	\N	\N	\N	\N	13
-13121	Pedro Aguirre Cerda	\N	\N	\N	\N	\N	\N	\N	\N	13
-13122	Peñalolén	\N	\N	\N	\N	\N	\N	\N	\N	13
-13123	Providencia	\N	\N	\N	\N	\N	\N	\N	\N	13
-13124	Pudahuel	\N	\N	\N	\N	\N	\N	\N	\N	13
-13125	Quilicura	\N	\N	\N	\N	\N	\N	\N	\N	13
-13126	Quinta Normal	\N	\N	\N	\N	\N	\N	\N	\N	13
-13127	Recoleta	\N	\N	\N	\N	\N	\N	\N	\N	13
-13128	Renca	\N	\N	\N	\N	\N	\N	\N	\N	13
-13129	San Joaquín	\N	\N	\N	\N	\N	\N	\N	\N	13
-13130	San Miguel	\N	\N	\N	\N	\N	\N	\N	\N	13
-13131	San Ramón	\N	\N	\N	\N	\N	\N	\N	\N	13
-13132	Vitacura	\N	\N	\N	\N	\N	\N	\N	\N	13
-13201	Puente Alto	\N	\N	\N	\N	\N	\N	\N	\N	13
-13202	Pirque	\N	\N	\N	\N	\N	\N	\N	\N	13
-13203	San José de Maipo	\N	\N	\N	\N	\N	\N	\N	\N	13
-13301	Colina	\N	\N	\N	\N	\N	\N	\N	\N	13
-13302	Lampa	\N	\N	\N	\N	\N	\N	\N	\N	13
-13303	Tiltil	\N	\N	\N	\N	\N	\N	\N	\N	13
-13401	San Bernardo	\N	\N	\N	\N	\N	\N	\N	\N	13
-13402	Buin	\N	\N	\N	\N	\N	\N	\N	\N	13
-13403	Calera de Tango	\N	\N	\N	\N	\N	\N	\N	\N	13
-13404	Paine	\N	\N	\N	\N	\N	\N	\N	\N	13
-13501	Melipilla	\N	\N	\N	\N	\N	\N	\N	\N	13
-13502	Alhué	\N	\N	\N	\N	\N	\N	\N	\N	13
-13503	Curacaví	\N	\N	\N	\N	\N	\N	\N	\N	13
-13504	Maria Pinto	\N	\N	\N	\N	\N	\N	\N	\N	13
-13505	San Pedro	\N	\N	\N	\N	\N	\N	\N	\N	13
-13601	Talagante	\N	\N	\N	\N	\N	\N	\N	\N	13
-13602	El Monte	\N	\N	\N	\N	\N	\N	\N	\N	13
-13603	Isla de Maipo	\N	\N	\N	\N	\N	\N	\N	\N	13
-13604	Padre Hurtado	\N	\N	\N	\N	\N	\N	\N	\N	13
-13605	Peñaflor	\N	\N	\N	\N	\N	\N	\N	\N	13
-14101	Valdivia	\N	\N	\N	\N	\N	\N	\N	\N	14
-14102	Corral	\N	\N	\N	\N	\N	\N	\N	\N	14
-14103	Lanco	\N	\N	\N	\N	\N	\N	\N	\N	14
-14104	Los Lagos	\N	\N	\N	\N	\N	\N	\N	\N	14
-14105	Máfil	\N	\N	\N	\N	\N	\N	\N	\N	14
-14106	Mariquina	\N	\N	\N	\N	\N	\N	\N	\N	14
-14107	Paillaco	\N	\N	\N	\N	\N	\N	\N	\N	14
-14108	Panguipulli	\N	\N	\N	\N	\N	\N	\N	\N	14
-14201	La Unión	\N	\N	\N	\N	\N	\N	\N	\N	14
-14202	Futrono	\N	\N	\N	\N	\N	\N	\N	\N	14
-14203	Lago Ranco	\N	\N	\N	\N	\N	\N	\N	\N	14
-14204	Río Bueno	\N	\N	\N	\N	\N	\N	\N	\N	14
-15101	Arica	\N	\N	\N	\N	\N	\N	\N	\N	15
-15102	Camarones	\N	\N	\N	\N	\N	\N	\N	\N	15
-15201	Putre	\N	\N	\N	\N	\N	\N	\N	\N	15
-15202	General Lagos	\N	\N	\N	\N	\N	\N	\N	\N	15
-1101	Iquique	\N	\N	\N	\N	\N	\N	\N	\N	1
-1107	Alto Hospicio	\N	\N	\N	\N	\N	\N	\N	\N	1
-1401	Pozo Almonte	\N	\N	\N	\N	\N	\N	\N	\N	1
-1402	Camiña	\N	\N	\N	\N	\N	\N	\N	\N	1
-1403	Colchane	\N	\N	\N	\N	\N	\N	\N	\N	1
-1404	Huara	\N	\N	\N	\N	\N	\N	\N	\N	1
-1405	Pica	\N	\N	\N	\N	\N	\N	\N	\N	1
-2101	Antofagasta	\N	\N	\N	\N	\N	\N	\N	\N	2
-2102	Mejillones	\N	\N	\N	\N	\N	\N	\N	\N	2
-2103	Sierra Gorda	\N	\N	\N	\N	\N	\N	\N	\N	2
-2104	Taltal	\N	\N	\N	\N	\N	\N	\N	\N	2
-2201	Calama	\N	\N	\N	\N	\N	\N	\N	\N	2
-2202	Ollagüe	\N	\N	\N	\N	\N	\N	\N	\N	2
-2203	San Pedro de Atacama	\N	\N	\N	\N	\N	\N	\N	\N	2
-2301	Tocopilla	\N	\N	\N	\N	\N	\N	\N	\N	2
-2302	Maria Elena	\N	\N	\N	\N	\N	\N	\N	\N	2
-3101	Copiapo	\N	\N	\N	\N	\N	\N	\N	\N	3
-3102	Caldera	\N	\N	\N	\N	\N	\N	\N	\N	3
-3103	Tierra Amarilla	\N	\N	\N	\N	\N	\N	\N	\N	3
-3201	Chañaral	\N	\N	\N	\N	\N	\N	\N	\N	3
-3202	Diego de Almagro	\N	\N	\N	\N	\N	\N	\N	\N	3
-3301	Vallenar	\N	\N	\N	\N	\N	\N	\N	\N	3
-3302	Alto del Carmen	\N	\N	\N	\N	\N	\N	\N	\N	3
-3303	Freirina	\N	\N	\N	\N	\N	\N	\N	\N	3
-3304	Huasco	\N	\N	\N	\N	\N	\N	\N	\N	3
-4101	La Serena	\N	\N	\N	\N	\N	\N	\N	\N	4
-4102	Coquimbo	\N	\N	\N	\N	\N	\N	\N	\N	4
-4103	Andacollo	\N	\N	\N	\N	\N	\N	\N	\N	4
-4104	La Higuera	\N	\N	\N	\N	\N	\N	\N	\N	4
-4105	Paiguano	\N	\N	\N	\N	\N	\N	\N	\N	4
-4106	Vicuña	\N	\N	\N	\N	\N	\N	\N	\N	4
-4201	Illapel	\N	\N	\N	\N	\N	\N	\N	\N	4
-4202	Canela	\N	\N	\N	\N	\N	\N	\N	\N	4
-4203	Los Vilos	\N	\N	\N	\N	\N	\N	\N	\N	4
-4204	Salamanca	\N	\N	\N	\N	\N	\N	\N	\N	4
-4301	Ovalle	\N	\N	\N	\N	\N	\N	\N	\N	4
-4302	Combarbalá	\N	\N	\N	\N	\N	\N	\N	\N	4
-4303	Monte Patria	\N	\N	\N	\N	\N	\N	\N	\N	4
-4304	Punitaqui	\N	\N	\N	\N	\N	\N	\N	\N	4
-4305	Río Hurtado	\N	\N	\N	\N	\N	\N	\N	\N	4
-5101	Valparaiso	\N	\N	\N	\N	\N	\N	\N	\N	5
-5102	Casablanca	\N	\N	\N	\N	\N	\N	\N	\N	5
-5103	Con Con	\N	\N	\N	\N	\N	\N	\N	\N	5
-5104	Juan Fernández	\N	\N	\N	\N	\N	\N	\N	\N	5
-5105	Puchuncaví	\N	\N	\N	\N	\N	\N	\N	\N	5
-5107	Quintero	\N	\N	\N	\N	\N	\N	\N	\N	5
-5109	Viña del Mar	\N	\N	\N	\N	\N	\N	\N	\N	5
-5201	Isla de Pascua	\N	\N	\N	\N	\N	\N	\N	\N	5
-5301	Los Andes	\N	\N	\N	\N	\N	\N	\N	\N	5
-5302	Calle Larga	\N	\N	\N	\N	\N	\N	\N	\N	5
-5303	Rinconada	\N	\N	\N	\N	\N	\N	\N	\N	5
-5304	San Esteban	\N	\N	\N	\N	\N	\N	\N	\N	5
-5401	La Ligua	\N	\N	\N	\N	\N	\N	\N	\N	5
-5402	Cabildo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5403	Papudo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5404	Petorca	\N	\N	\N	\N	\N	\N	\N	\N	5
-5405	Zapallar	\N	\N	\N	\N	\N	\N	\N	\N	5
-5501	Quillota	\N	\N	\N	\N	\N	\N	\N	\N	5
-5502	Calera	\N	\N	\N	\N	\N	\N	\N	\N	5
-5503	Hijuelas	\N	\N	\N	\N	\N	\N	\N	\N	5
-5504	La Cruz	\N	\N	\N	\N	\N	\N	\N	\N	5
-5506	Nogales	\N	\N	\N	\N	\N	\N	\N	\N	5
-5601	San Antonio	\N	\N	\N	\N	\N	\N	\N	\N	5
-5602	Algarrobo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5603	Cartagena	\N	\N	\N	\N	\N	\N	\N	\N	5
-5604	El Quisco	\N	\N	\N	\N	\N	\N	\N	\N	5
-5605	El Tabo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5606	Santo Domingo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5701	San Felipe	\N	\N	\N	\N	\N	\N	\N	\N	5
-5702	Catemu	\N	\N	\N	\N	\N	\N	\N	\N	5
-5703	Llaillay	\N	\N	\N	\N	\N	\N	\N	\N	5
-5704	Panquehue	\N	\N	\N	\N	\N	\N	\N	\N	5
-5705	Putaendo	\N	\N	\N	\N	\N	\N	\N	\N	5
-5706	Santa Maria	\N	\N	\N	\N	\N	\N	\N	\N	5
-5801	Quilpue	\N	\N	\N	\N	\N	\N	\N	\N	5
-5802	Limache	\N	\N	\N	\N	\N	\N	\N	\N	5
-5803	Olmué	\N	\N	\N	\N	\N	\N	\N	\N	5
-5804	Villa Alemana	\N	\N	\N	\N	\N	\N	\N	\N	5
-6101	Rancagua	\N	\N	\N	\N	\N	\N	\N	\N	6
-6102	Codegua	\N	\N	\N	\N	\N	\N	\N	\N	6
-6103	Coinco	\N	\N	\N	\N	\N	\N	\N	\N	6
-6104	Coltauco	\N	\N	\N	\N	\N	\N	\N	\N	6
-6105	Doñihue	\N	\N	\N	\N	\N	\N	\N	\N	6
-6106	Graneros	\N	\N	\N	\N	\N	\N	\N	\N	6
-6107	Las Cabras	\N	\N	\N	\N	\N	\N	\N	\N	6
-6108	Machalí	\N	\N	\N	\N	\N	\N	\N	\N	6
-6109	Malloa	\N	\N	\N	\N	\N	\N	\N	\N	6
-6110	Mostazal	\N	\N	\N	\N	\N	\N	\N	\N	6
-6111	Olivar	\N	\N	\N	\N	\N	\N	\N	\N	6
-6112	Peumo	\N	\N	\N	\N	\N	\N	\N	\N	6
-6113	Pichidegua	\N	\N	\N	\N	\N	\N	\N	\N	6
-6114	Quinta de Tilcoco	\N	\N	\N	\N	\N	\N	\N	\N	6
-6115	Rengo	\N	\N	\N	\N	\N	\N	\N	\N	6
-6116	Requínoa	\N	\N	\N	\N	\N	\N	\N	\N	6
-6117	San Vicente	\N	\N	\N	\N	\N	\N	\N	\N	6
-6201	Pichilemu	\N	\N	\N	\N	\N	\N	\N	\N	6
-6202	La Estrella	\N	\N	\N	\N	\N	\N	\N	\N	6
-6203	Litueche	\N	\N	\N	\N	\N	\N	\N	\N	6
-6204	Marchihue	\N	\N	\N	\N	\N	\N	\N	\N	6
-6205	Navidad	\N	\N	\N	\N	\N	\N	\N	\N	6
-6206	Paredones	\N	\N	\N	\N	\N	\N	\N	\N	6
-6301	San Fernando	\N	\N	\N	\N	\N	\N	\N	\N	6
-6302	Chepica	\N	\N	\N	\N	\N	\N	\N	\N	6
-6303	Chimbarongo	\N	\N	\N	\N	\N	\N	\N	\N	6
-6304	Lolol	\N	\N	\N	\N	\N	\N	\N	\N	6
-6305	Nancagua	\N	\N	\N	\N	\N	\N	\N	\N	6
-6306	Palmilla	\N	\N	\N	\N	\N	\N	\N	\N	6
-6307	Peralillo	\N	\N	\N	\N	\N	\N	\N	\N	6
-6308	Placilla	\N	\N	\N	\N	\N	\N	\N	\N	6
-6309	Pumanque	\N	\N	\N	\N	\N	\N	\N	\N	6
-6310	Santa Cruz	\N	\N	\N	\N	\N	\N	\N	\N	6
-7101	Talca	\N	\N	\N	\N	\N	\N	\N	\N	7
-7102	Constitución	\N	\N	\N	\N	\N	\N	\N	\N	7
-7103	Curepto	\N	\N	\N	\N	\N	\N	\N	\N	7
-7104	Empedrado	\N	\N	\N	\N	\N	\N	\N	\N	7
-7105	Maule	\N	\N	\N	\N	\N	\N	\N	\N	7
-7106	Pelarco	\N	\N	\N	\N	\N	\N	\N	\N	7
-7107	Pencahue	\N	\N	\N	\N	\N	\N	\N	\N	7
-7108	Río Claro	\N	\N	\N	\N	\N	\N	\N	\N	7
-7109	San Clemente	\N	\N	\N	\N	\N	\N	\N	\N	7
-7110	San Rafael	\N	\N	\N	\N	\N	\N	\N	\N	7
-7201	Cauquenes	\N	\N	\N	\N	\N	\N	\N	\N	7
-7202	Chanco	\N	\N	\N	\N	\N	\N	\N	\N	7
-7203	Pelluhue	\N	\N	\N	\N	\N	\N	\N	\N	7
-7301	Curicó	\N	\N	\N	\N	\N	\N	\N	\N	7
-7302	Hualañé	\N	\N	\N	\N	\N	\N	\N	\N	7
-7303	Licantén	\N	\N	\N	\N	\N	\N	\N	\N	7
-7304	Molina	\N	\N	\N	\N	\N	\N	\N	\N	7
-7305	Rauco	\N	\N	\N	\N	\N	\N	\N	\N	7
-7306	Romeral	\N	\N	\N	\N	\N	\N	\N	\N	7
-7307	Sagrada Familia	\N	\N	\N	\N	\N	\N	\N	\N	7
-7308	Teno	\N	\N	\N	\N	\N	\N	\N	\N	7
-7309	Vichuquén	\N	\N	\N	\N	\N	\N	\N	\N	7
-7401	Linares	\N	\N	\N	\N	\N	\N	\N	\N	7
-7402	Colbún	\N	\N	\N	\N	\N	\N	\N	\N	7
-7403	Longaví	\N	\N	\N	\N	\N	\N	\N	\N	7
-7404	Parral	\N	\N	\N	\N	\N	\N	\N	\N	7
-7405	Retiro	\N	\N	\N	\N	\N	\N	\N	\N	7
-7406	San Javier	\N	\N	\N	\N	\N	\N	\N	\N	7
-7407	Villa Alegre	\N	\N	\N	\N	\N	\N	\N	\N	7
-7408	Yerbas Buenas	\N	\N	\N	\N	\N	\N	\N	\N	7
-8101	Concepción	\N	\N	\N	\N	\N	\N	\N	\N	8
-8102	Coronel	\N	\N	\N	\N	\N	\N	\N	\N	8
-8103	Chiguayante	\N	\N	\N	\N	\N	\N	\N	\N	8
-8104	Florida	\N	\N	\N	\N	\N	\N	\N	\N	8
-8105	Hualqui	\N	\N	\N	\N	\N	\N	\N	\N	8
-8106	Lota	\N	\N	\N	\N	\N	\N	\N	\N	8
-8107	Penco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8108	San Pedro de la Paz	\N	\N	\N	\N	\N	\N	\N	\N	8
-8109	Santa Juana	\N	\N	\N	\N	\N	\N	\N	\N	8
-8110	Talcahuano	\N	\N	\N	\N	\N	\N	\N	\N	8
-8111	Tome	\N	\N	\N	\N	\N	\N	\N	\N	8
-8112	Hualpén	\N	\N	\N	\N	\N	\N	\N	\N	8
-8201	Lebu	\N	\N	\N	\N	\N	\N	\N	\N	8
-8202	Arauco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8203	Cañete	\N	\N	\N	\N	\N	\N	\N	\N	8
-8204	Contulmo	\N	\N	\N	\N	\N	\N	\N	\N	8
-8205	Curanilahue	\N	\N	\N	\N	\N	\N	\N	\N	8
-8206	Los Álamos	\N	\N	\N	\N	\N	\N	\N	\N	8
-8207	Tirúa	\N	\N	\N	\N	\N	\N	\N	\N	8
-8301	Los Ángeles	\N	\N	\N	\N	\N	\N	\N	\N	8
-8302	Antuco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8303	Cabrero	\N	\N	\N	\N	\N	\N	\N	\N	8
-8304	Laja	\N	\N	\N	\N	\N	\N	\N	\N	8
-8305	Mulchén	\N	\N	\N	\N	\N	\N	\N	\N	8
-8306	Nacimiento	\N	\N	\N	\N	\N	\N	\N	\N	8
-8307	Negrete	\N	\N	\N	\N	\N	\N	\N	\N	8
-8308	Quilaco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8309	Quilleco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8310	San Rosendo	\N	\N	\N	\N	\N	\N	\N	\N	8
-8311	Santa Bárbara	\N	\N	\N	\N	\N	\N	\N	\N	8
-8312	Tucapel	\N	\N	\N	\N	\N	\N	\N	\N	8
-8313	Yumbel	\N	\N	\N	\N	\N	\N	\N	\N	8
-8314	Alto Biobío	\N	\N	\N	\N	\N	\N	\N	\N	8
-8401	Chillán 	\N	\N	\N	\N	\N	\N	\N	\N	8
-8402	Bulnes	\N	\N	\N	\N	\N	\N	\N	\N	8
-8403	Cobquecura	\N	\N	\N	\N	\N	\N	\N	\N	8
-8404	Coelemu	\N	\N	\N	\N	\N	\N	\N	\N	8
-8405	Coihueco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8406	Chillán Viejo	\N	\N	\N	\N	\N	\N	\N	\N	8
-8407	El Carmen	\N	\N	\N	\N	\N	\N	\N	\N	8
-8408	Ninhue	\N	\N	\N	\N	\N	\N	\N	\N	8
-8409	Ñiquén	\N	\N	\N	\N	\N	\N	\N	\N	8
-8410	Pemuco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8411	Pinto	\N	\N	\N	\N	\N	\N	\N	\N	8
-8412	Portezuelo	\N	\N	\N	\N	\N	\N	\N	\N	8
-8413	Quillón	\N	\N	\N	\N	\N	\N	\N	\N	8
-8414	Quirihue	\N	\N	\N	\N	\N	\N	\N	\N	8
-8415	Ránquil	\N	\N	\N	\N	\N	\N	\N	\N	8
-8416	San Carlos	\N	\N	\N	\N	\N	\N	\N	\N	8
-8417	San Fabián	\N	\N	\N	\N	\N	\N	\N	\N	8
-8418	San Ignacio	\N	\N	\N	\N	\N	\N	\N	\N	8
-8419	San Nicolás	\N	\N	\N	\N	\N	\N	\N	\N	8
-8420	Treguaco	\N	\N	\N	\N	\N	\N	\N	\N	8
-8421	Yungay	\N	\N	\N	\N	\N	\N	\N	\N	8
-9101	Temuco	\N	\N	\N	\N	\N	\N	\N	\N	9
-9102	Carahue	\N	\N	\N	\N	\N	\N	\N	\N	9
-9103	Cunco	\N	\N	\N	\N	\N	\N	\N	\N	9
-9104	Curarrehue	\N	\N	\N	\N	\N	\N	\N	\N	9
-9105	Freire	\N	\N	\N	\N	\N	\N	\N	\N	9
-9106	Galvarino	\N	\N	\N	\N	\N	\N	\N	\N	9
-9107	Gorbea	\N	\N	\N	\N	\N	\N	\N	\N	9
-9108	Lautaro	\N	\N	\N	\N	\N	\N	\N	\N	9
-9109	Loncoche	\N	\N	\N	\N	\N	\N	\N	\N	9
-9110	Melipeuco	\N	\N	\N	\N	\N	\N	\N	\N	9
-9111	Nueva Imperial	\N	\N	\N	\N	\N	\N	\N	\N	9
-9112	Padre Las Casas	\N	\N	\N	\N	\N	\N	\N	\N	9
-9113	Perquenco	\N	\N	\N	\N	\N	\N	\N	\N	9
-9114	Pitrufquén	\N	\N	\N	\N	\N	\N	\N	\N	9
-9115	Pucón	\N	\N	\N	\N	\N	\N	\N	\N	9
-9116	Saavedra	\N	\N	\N	\N	\N	\N	\N	\N	9
-9117	Teodoro Schmidt	\N	\N	\N	\N	\N	\N	\N	\N	9
-9118	Toltén	\N	\N	\N	\N	\N	\N	\N	\N	9
-9119	Vilcún	\N	\N	\N	\N	\N	\N	\N	\N	9
-9120	Villarrica	\N	\N	\N	\N	\N	\N	\N	\N	9
-9121	Cholchol	\N	\N	\N	\N	\N	\N	\N	\N	9
-9201	Angol	\N	\N	\N	\N	\N	\N	\N	\N	9
-9202	Collipulli	\N	\N	\N	\N	\N	\N	\N	\N	9
-9203	Curacautín	\N	\N	\N	\N	\N	\N	\N	\N	9
-9204	Ercilla	\N	\N	\N	\N	\N	\N	\N	\N	9
-9205	Lonquimay	\N	\N	\N	\N	\N	\N	\N	\N	9
-9206	Los Sauces	\N	\N	\N	\N	\N	\N	\N	\N	9
-9207	Lumaco	\N	\N	\N	\N	\N	\N	\N	\N	9
-9208	Purén	\N	\N	\N	\N	\N	\N	\N	\N	9
-9209	Renaico	\N	\N	\N	\N	\N	\N	\N	\N	9
-9210	Traiguén	\N	\N	\N	\N	\N	\N	\N	\N	9
-9211	Victoria	\N	\N	\N	\N	\N	\N	\N	\N	9
-10101	Puerto Montt	\N	\N	\N	\N	\N	\N	\N	\N	10
-10102	Calbuco	\N	\N	\N	\N	\N	\N	\N	\N	10
-10103	Cochamó	\N	\N	\N	\N	\N	\N	\N	\N	10
-10104	Fresia	\N	\N	\N	\N	\N	\N	\N	\N	10
-10105	Frutillar	\N	\N	\N	\N	\N	\N	\N	\N	10
-10106	Los Muermos	\N	\N	\N	\N	\N	\N	\N	\N	10
-10107	Llanquihue	\N	\N	\N	\N	\N	\N	\N	\N	10
-10108	Maullín	\N	\N	\N	\N	\N	\N	\N	\N	10
-10109	Puerto Varas	\N	\N	\N	\N	\N	\N	\N	\N	10
-10201	Castro	\N	\N	\N	\N	\N	\N	\N	\N	10
-10202	Ancud	\N	\N	\N	\N	\N	\N	\N	\N	10
-10203	Chonchi	\N	\N	\N	\N	\N	\N	\N	\N	10
-10204	Curaco de Vélez	\N	\N	\N	\N	\N	\N	\N	\N	10
-10205	Dalcahue	\N	\N	\N	\N	\N	\N	\N	\N	10
-10206	Puqueldón	\N	\N	\N	\N	\N	\N	\N	\N	10
-10207	Queilén	\N	\N	\N	\N	\N	\N	\N	\N	10
-10208	Quellón	\N	\N	\N	\N	\N	\N	\N	\N	10
-10209	Quemchi	\N	\N	\N	\N	\N	\N	\N	\N	10
-10210	Quinchao	\N	\N	\N	\N	\N	\N	\N	\N	10
-10301	Osorno	\N	\N	\N	\N	\N	\N	\N	\N	10
-10302	Puerto Octay	\N	\N	\N	\N	\N	\N	\N	\N	10
-10303	Purranque	\N	\N	\N	\N	\N	\N	\N	\N	10
-10304	Puyehue	\N	\N	\N	\N	\N	\N	\N	\N	10
-10305	Río Negro	\N	\N	\N	\N	\N	\N	\N	\N	10
-10306	San Juan de la Costa	\N	\N	\N	\N	\N	\N	\N	\N	10
-10307	San Pablo	\N	\N	\N	\N	\N	\N	\N	\N	10
-10401	Chaitén	\N	\N	\N	\N	\N	\N	\N	\N	10
-10402	Futaleufú	\N	\N	\N	\N	\N	\N	\N	\N	10
-10403	Hualaihué	\N	\N	\N	\N	\N	\N	\N	\N	10
-10404	Palena	\N	\N	\N	\N	\N	\N	\N	\N	10
-11101	Coihaique	\N	\N	\N	\N	\N	\N	\N	\N	11
-11102	Lago Verde	\N	\N	\N	\N	\N	\N	\N	\N	11
-11201	Aisén	\N	\N	\N	\N	\N	\N	\N	\N	11
-11202	Cisnes	\N	\N	\N	\N	\N	\N	\N	\N	11
-11203	Guaitecas	\N	\N	\N	\N	\N	\N	\N	\N	11
-11301	Cochrane	\N	\N	\N	\N	\N	\N	\N	\N	11
-11302	O Higgins	\N	\N	\N	\N	\N	\N	\N	\N	11
-11303	Tortel	\N	\N	\N	\N	\N	\N	\N	\N	11
-11401	Chile Chico	\N	\N	\N	\N	\N	\N	\N	\N	11
-11402	Río Ibáñez	\N	\N	\N	\N	\N	\N	\N	\N	11
-12101	Punta Arenas	\N	\N	\N	\N	\N	\N	\N	\N	12
-12102	Laguna Blanca	\N	\N	\N	\N	\N	\N	\N	\N	12
-12103	Río Verde	\N	\N	\N	\N	\N	\N	\N	\N	12
-12104	San Gregorio	\N	\N	\N	\N	\N	\N	\N	\N	12
-12201	Cabo de Hornos	\N	\N	\N	\N	\N	\N	\N	\N	12
-12202	Antártica	\N	\N	\N	\N	\N	\N	\N	\N	12
-12301	Porvenir	\N	\N	\N	\N	\N	\N	\N	\N	12
-12302	Primavera	\N	\N	\N	\N	\N	\N	\N	\N	12
-12303	Timaukel	\N	\N	\N	\N	\N	\N	\N	\N	12
-12401	Natales	\N	\N	\N	\N	\N	\N	\N	\N	12
-12402	Torres del Paine	\N	\N	\N	\N	\N	\N	\N	\N	12
-13101	Santiago	\N	\N	\N	\N	\N	\N	\N	\N	13
-13102	Cerrillos	\N	\N	\N	\N	\N	\N	\N	\N	13
-13103	Cerro Navia	\N	\N	\N	\N	\N	\N	\N	\N	13
-13104	Conchalí	\N	\N	\N	\N	\N	\N	\N	\N	13
-13105	El Bosque	\N	\N	\N	\N	\N	\N	\N	\N	13
-13106	Estación Central	\N	\N	\N	\N	\N	\N	\N	\N	13
-13107	Huechuraba	\N	\N	\N	\N	\N	\N	\N	\N	13
-13108	Independencia	\N	\N	\N	\N	\N	\N	\N	\N	13
-13109	La Cisterna	\N	\N	\N	\N	\N	\N	\N	\N	13
-13110	La Florida	\N	\N	\N	\N	\N	\N	\N	\N	13
-13111	La Granja	\N	\N	\N	\N	\N	\N	\N	\N	13
-13112	La Pintana	\N	\N	\N	\N	\N	\N	\N	\N	13
-13113	La Reina	\N	\N	\N	\N	\N	\N	\N	\N	13
-13114	Las Condes	\N	\N	\N	\N	\N	\N	\N	\N	13
-13115	Lo Barnechea	\N	\N	\N	\N	\N	\N	\N	\N	13
-13116	Lo Espejo	\N	\N	\N	\N	\N	\N	\N	\N	13
-13117	Lo Prado	\N	\N	\N	\N	\N	\N	\N	\N	13
-13118	Macul	\N	\N	\N	\N	\N	\N	\N	\N	13
-13119	Maipu	\N	\N	\N	\N	\N	\N	\N	\N	13
-13120	Ñuñoa	\N	\N	\N	\N	\N	\N	\N	\N	13
-13121	Pedro Aguirre Cerda	\N	\N	\N	\N	\N	\N	\N	\N	13
-13122	Peñalolén	\N	\N	\N	\N	\N	\N	\N	\N	13
-13123	Providencia	\N	\N	\N	\N	\N	\N	\N	\N	13
-13124	Pudahuel	\N	\N	\N	\N	\N	\N	\N	\N	13
-13125	Quilicura	\N	\N	\N	\N	\N	\N	\N	\N	13
-13126	Quinta Normal	\N	\N	\N	\N	\N	\N	\N	\N	13
-13127	Recoleta	\N	\N	\N	\N	\N	\N	\N	\N	13
-13128	Renca	\N	\N	\N	\N	\N	\N	\N	\N	13
-13129	San Joaquín	\N	\N	\N	\N	\N	\N	\N	\N	13
-13130	San Miguel	\N	\N	\N	\N	\N	\N	\N	\N	13
-13131	San Ramón	\N	\N	\N	\N	\N	\N	\N	\N	13
-13132	Vitacura	\N	\N	\N	\N	\N	\N	\N	\N	13
-13201	Puente Alto	\N	\N	\N	\N	\N	\N	\N	\N	13
-13202	Pirque	\N	\N	\N	\N	\N	\N	\N	\N	13
-13203	San José de Maipo	\N	\N	\N	\N	\N	\N	\N	\N	13
-13301	Colina	\N	\N	\N	\N	\N	\N	\N	\N	13
-13302	Lampa	\N	\N	\N	\N	\N	\N	\N	\N	13
-13303	Tiltil	\N	\N	\N	\N	\N	\N	\N	\N	13
-13401	San Bernardo	\N	\N	\N	\N	\N	\N	\N	\N	13
-13402	Buin	\N	\N	\N	\N	\N	\N	\N	\N	13
-13403	Calera de Tango	\N	\N	\N	\N	\N	\N	\N	\N	13
-13404	Paine	\N	\N	\N	\N	\N	\N	\N	\N	13
-13501	Melipilla	\N	\N	\N	\N	\N	\N	\N	\N	13
-13502	Alhué	\N	\N	\N	\N	\N	\N	\N	\N	13
-13503	Curacaví	\N	\N	\N	\N	\N	\N	\N	\N	13
-13504	Maria Pinto	\N	\N	\N	\N	\N	\N	\N	\N	13
-13505	San Pedro	\N	\N	\N	\N	\N	\N	\N	\N	13
-13601	Talagante	\N	\N	\N	\N	\N	\N	\N	\N	13
-13602	El Monte	\N	\N	\N	\N	\N	\N	\N	\N	13
-13603	Isla de Maipo	\N	\N	\N	\N	\N	\N	\N	\N	13
-13604	Padre Hurtado	\N	\N	\N	\N	\N	\N	\N	\N	13
-13605	Peñaflor	\N	\N	\N	\N	\N	\N	\N	\N	13
-14101	Valdivia	\N	\N	\N	\N	\N	\N	\N	\N	14
-14102	Corral	\N	\N	\N	\N	\N	\N	\N	\N	14
-14103	Lanco	\N	\N	\N	\N	\N	\N	\N	\N	14
-14104	Los Lagos	\N	\N	\N	\N	\N	\N	\N	\N	14
-14105	Máfil	\N	\N	\N	\N	\N	\N	\N	\N	14
-14106	Mariquina	\N	\N	\N	\N	\N	\N	\N	\N	14
-14107	Paillaco	\N	\N	\N	\N	\N	\N	\N	\N	14
-14108	Panguipulli	\N	\N	\N	\N	\N	\N	\N	\N	14
-14201	La Unión	\N	\N	\N	\N	\N	\N	\N	\N	14
-14202	Futrono	\N	\N	\N	\N	\N	\N	\N	\N	14
-14203	Lago Ranco	\N	\N	\N	\N	\N	\N	\N	\N	14
-14204	Río Bueno	\N	\N	\N	\N	\N	\N	\N	\N	14
-15101	Arica	\N	\N	\N	\N	\N	\N	\N	\N	15
-15102	Camarones	\N	\N	\N	\N	\N	\N	\N	\N	15
-15201	Putre	\N	\N	\N	\N	\N	\N	\N	\N	15
-15202	General Lagos	\N	\N	\N	\N	\N	\N	\N	\N	15
+COPY public.comunas (id_comuna, nom_comuna, det_comuna, alias, orden, id_usuario_registra, id_usuario_modifica, created_at, updated_at, deleted_at, id_region, cod_area) FROM stdin;
+1101	Iquique	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1107	Alto Hospicio	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1401	Pozo Almonte	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1402	Camiña	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1403	Colchane	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1404	Huara	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1405	Pica	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+2101	Antofagasta	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2102	Mejillones	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2103	Sierra Gorda	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2104	Taltal	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2201	Calama	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2202	Ollagüe	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2203	San Pedro de Atacama	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2301	Tocopilla	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2302	Maria Elena	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+3101	Copiapo	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3102	Caldera	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3103	Tierra Amarilla	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3201	Chañaral	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3202	Diego de Almagro	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3301	Vallenar	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3302	Alto del Carmen	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3303	Freirina	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3304	Huasco	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+4101	La Serena	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4102	Coquimbo	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4103	Andacollo	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4104	La Higuera	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4105	Paiguano	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4106	Vicuña	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4201	Illapel	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4202	Canela	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4203	Los Vilos	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4204	Salamanca	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4301	Ovalle	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4302	Combarbalá	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4303	Monte Patria	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4304	Punitaqui	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4305	Río Hurtado	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+5101	Valparaiso	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5102	Casablanca	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5103	Con Con	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5104	Juan Fernández	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5105	Puchuncaví	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5107	Quintero	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5109	Viña del Mar	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5201	Isla de Pascua	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5301	Los Andes	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5302	Calle Larga	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5303	Rinconada	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5304	San Esteban	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5401	La Ligua	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5402	Cabildo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5403	Papudo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5404	Petorca	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5405	Zapallar	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5501	Quillota	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5502	Calera	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5503	Hijuelas	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5504	La Cruz	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5506	Nogales	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5601	San Antonio	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5602	Algarrobo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5603	Cartagena	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5604	El Quisco	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5605	El Tabo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5606	Santo Domingo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5701	San Felipe	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5702	Catemu	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5703	Llaillay	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5704	Panquehue	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5705	Putaendo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5706	Santa Maria	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5801	Quilpue	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5802	Limache	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5803	Olmué	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5804	Villa Alemana	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+6101	Rancagua	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6102	Codegua	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6103	Coinco	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6104	Coltauco	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6105	Doñihue	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6106	Graneros	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6107	Las Cabras	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6108	Machalí	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6109	Malloa	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6110	Mostazal	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6111	Olivar	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6112	Peumo	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6113	Pichidegua	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6114	Quinta de Tilcoco	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6115	Rengo	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6116	Requínoa	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6117	San Vicente	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6201	Pichilemu	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6202	La Estrella	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6203	Litueche	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6204	Marchihue	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6205	Navidad	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6206	Paredones	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6301	San Fernando	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6302	Chepica	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6303	Chimbarongo	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6304	Lolol	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6305	Nancagua	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6306	Palmilla	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6307	Peralillo	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6308	Placilla	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6309	Pumanque	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6310	Santa Cruz	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+7101	Talca	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7102	Constitución	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7103	Curepto	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7104	Empedrado	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7105	Maule	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7106	Pelarco	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7107	Pencahue	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7108	Río Claro	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7109	San Clemente	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7110	San Rafael	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7201	Cauquenes	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7202	Chanco	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7203	Pelluhue	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7301	Curicó	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7302	Hualañé	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7303	Licantén	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7304	Molina	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7305	Rauco	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7306	Romeral	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7307	Sagrada Familia	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7308	Teno	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7309	Vichuquén	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7401	Linares	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7402	Colbún	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7403	Longaví	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7404	Parral	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7405	Retiro	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7406	San Javier	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7407	Villa Alegre	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7408	Yerbas Buenas	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+8101	Concepción	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8102	Coronel	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8103	Chiguayante	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8104	Florida	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8105	Hualqui	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8106	Lota	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8107	Penco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8108	San Pedro de la Paz	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8109	Santa Juana	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8110	Talcahuano	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8111	Tome	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8112	Hualpén	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8201	Lebu	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8202	Arauco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8203	Cañete	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8204	Contulmo	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8205	Curanilahue	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8206	Los Álamos	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8207	Tirúa	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8301	Los Ángeles	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8302	Antuco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8303	Cabrero	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8304	Laja	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8305	Mulchén	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8306	Nacimiento	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8307	Negrete	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8308	Quilaco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8309	Quilleco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8310	San Rosendo	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8311	Santa Bárbara	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8312	Tucapel	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8313	Yumbel	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8314	Alto Biobío	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8401	Chillán 	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8402	Bulnes	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8403	Cobquecura	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8404	Coelemu	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8405	Coihueco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8406	Chillán Viejo	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8407	El Carmen	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8408	Ninhue	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8409	Ñiquén	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8410	Pemuco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8411	Pinto	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8412	Portezuelo	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8413	Quillón	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8414	Quirihue	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8415	Ránquil	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8416	San Carlos	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8417	San Fabián	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8418	San Ignacio	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8419	San Nicolás	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8420	Treguaco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8421	Yungay	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+9101	Temuco	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9102	Carahue	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9103	Cunco	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9104	Curarrehue	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9105	Freire	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9106	Galvarino	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9107	Gorbea	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9108	Lautaro	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9109	Loncoche	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9110	Melipeuco	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9111	Nueva Imperial	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9112	Padre Las Casas	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9113	Perquenco	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9114	Pitrufquén	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9115	Pucón	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9116	Saavedra	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9117	Teodoro Schmidt	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9118	Toltén	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9119	Vilcún	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9120	Villarrica	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9121	Cholchol	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9201	Angol	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9202	Collipulli	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9203	Curacautín	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9204	Ercilla	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9205	Lonquimay	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9206	Los Sauces	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9207	Lumaco	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9208	Purén	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9209	Renaico	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9210	Traiguén	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9211	Victoria	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+10101	Puerto Montt	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10102	Calbuco	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10103	Cochamó	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10104	Fresia	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10105	Frutillar	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10106	Los Muermos	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10107	Llanquihue	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10108	Maullín	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10109	Puerto Varas	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10201	Castro	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10202	Ancud	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10203	Chonchi	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10204	Curaco de Vélez	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10205	Dalcahue	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10206	Puqueldón	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10207	Queilén	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10208	Quellón	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10209	Quemchi	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10210	Quinchao	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10301	Osorno	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10302	Puerto Octay	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10303	Purranque	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10304	Puyehue	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10305	Río Negro	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10306	San Juan de la Costa	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10307	San Pablo	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10401	Chaitén	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10402	Futaleufú	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10403	Hualaihué	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10404	Palena	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+11101	Coihaique	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11102	Lago Verde	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11201	Aisén	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11202	Cisnes	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11203	Guaitecas	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11301	Cochrane	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11302	O Higgins	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11303	Tortel	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11401	Chile Chico	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11402	Río Ibáñez	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+12101	Punta Arenas	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12102	Laguna Blanca	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12103	Río Verde	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12104	San Gregorio	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12201	Cabo de Hornos	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12202	Antártica	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12301	Porvenir	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12302	Primavera	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12303	Timaukel	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12401	Natales	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12402	Torres del Paine	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+13101	Santiago	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13102	Cerrillos	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13103	Cerro Navia	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13104	Conchalí	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13105	El Bosque	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13106	Estación Central	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13107	Huechuraba	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13108	Independencia	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13109	La Cisterna	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13110	La Florida	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13111	La Granja	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13112	La Pintana	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13113	La Reina	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13114	Las Condes	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13115	Lo Barnechea	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13116	Lo Espejo	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13117	Lo Prado	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13118	Macul	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13119	Maipu	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13120	Ñuñoa	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13121	Pedro Aguirre Cerda	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13122	Peñalolén	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13123	Providencia	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13124	Pudahuel	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13125	Quilicura	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13126	Quinta Normal	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13127	Recoleta	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13128	Renca	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13129	San Joaquín	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13130	San Miguel	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13131	San Ramón	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13132	Vitacura	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13201	Puente Alto	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13202	Pirque	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13203	San José de Maipo	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13301	Colina	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13302	Lampa	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13303	Tiltil	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13401	San Bernardo	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13402	Buin	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13403	Calera de Tango	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13404	Paine	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13501	Melipilla	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13502	Alhué	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13503	Curacaví	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13504	Maria Pinto	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13505	San Pedro	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13601	Talagante	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13602	El Monte	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13603	Isla de Maipo	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13604	Padre Hurtado	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13605	Peñaflor	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+14101	Valdivia	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14102	Corral	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14103	Lanco	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14104	Los Lagos	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14105	Máfil	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14106	Mariquina	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14107	Paillaco	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14108	Panguipulli	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14201	La Unión	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14202	Futrono	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14203	Lago Ranco	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14204	Río Bueno	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+15101	Arica	\N	\N	\N	\N	\N	\N	\N	\N	15	\N
+15102	Camarones	\N	\N	\N	\N	\N	\N	\N	\N	15	\N
+15201	Putre	\N	\N	\N	\N	\N	\N	\N	\N	15	\N
+15202	General Lagos	\N	\N	\N	\N	\N	\N	\N	\N	15	\N
+1101	Iquique	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1107	Alto Hospicio	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1401	Pozo Almonte	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1402	Camiña	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1403	Colchane	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1404	Huara	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+1405	Pica	\N	\N	\N	\N	\N	\N	\N	\N	1	\N
+2101	Antofagasta	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2102	Mejillones	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2103	Sierra Gorda	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2104	Taltal	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2201	Calama	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2202	Ollagüe	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2203	San Pedro de Atacama	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2301	Tocopilla	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+2302	Maria Elena	\N	\N	\N	\N	\N	\N	\N	\N	2	\N
+3101	Copiapo	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3102	Caldera	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3103	Tierra Amarilla	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3201	Chañaral	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3202	Diego de Almagro	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3301	Vallenar	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3302	Alto del Carmen	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3303	Freirina	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+3304	Huasco	\N	\N	\N	\N	\N	\N	\N	\N	3	\N
+4101	La Serena	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4102	Coquimbo	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4103	Andacollo	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4104	La Higuera	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4105	Paiguano	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4106	Vicuña	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4201	Illapel	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4202	Canela	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4203	Los Vilos	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4204	Salamanca	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4301	Ovalle	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4302	Combarbalá	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4303	Monte Patria	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4304	Punitaqui	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+4305	Río Hurtado	\N	\N	\N	\N	\N	\N	\N	\N	4	\N
+5101	Valparaiso	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5102	Casablanca	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5103	Con Con	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5104	Juan Fernández	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5105	Puchuncaví	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5107	Quintero	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5109	Viña del Mar	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5201	Isla de Pascua	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5301	Los Andes	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5302	Calle Larga	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5303	Rinconada	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5304	San Esteban	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5401	La Ligua	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5402	Cabildo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5403	Papudo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5404	Petorca	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5405	Zapallar	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5501	Quillota	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5502	Calera	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5503	Hijuelas	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5504	La Cruz	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5506	Nogales	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5601	San Antonio	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5602	Algarrobo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5603	Cartagena	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5604	El Quisco	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5605	El Tabo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5606	Santo Domingo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5701	San Felipe	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5702	Catemu	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5703	Llaillay	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5704	Panquehue	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5705	Putaendo	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5706	Santa Maria	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5801	Quilpue	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5802	Limache	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5803	Olmué	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+5804	Villa Alemana	\N	\N	\N	\N	\N	\N	\N	\N	5	\N
+6101	Rancagua	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6102	Codegua	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6103	Coinco	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6104	Coltauco	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6105	Doñihue	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6106	Graneros	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6107	Las Cabras	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6108	Machalí	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6109	Malloa	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6110	Mostazal	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6111	Olivar	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6112	Peumo	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6113	Pichidegua	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6114	Quinta de Tilcoco	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6115	Rengo	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6116	Requínoa	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6117	San Vicente	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6201	Pichilemu	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6202	La Estrella	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6203	Litueche	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6204	Marchihue	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6205	Navidad	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6206	Paredones	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6301	San Fernando	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6302	Chepica	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6303	Chimbarongo	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6304	Lolol	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6305	Nancagua	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6306	Palmilla	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6307	Peralillo	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6308	Placilla	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6309	Pumanque	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+6310	Santa Cruz	\N	\N	\N	\N	\N	\N	\N	\N	6	\N
+7101	Talca	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7102	Constitución	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7103	Curepto	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7104	Empedrado	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7105	Maule	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7106	Pelarco	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7107	Pencahue	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7108	Río Claro	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7109	San Clemente	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7110	San Rafael	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7201	Cauquenes	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7202	Chanco	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7203	Pelluhue	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7301	Curicó	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7302	Hualañé	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7303	Licantén	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7304	Molina	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7305	Rauco	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7306	Romeral	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7307	Sagrada Familia	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7308	Teno	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7309	Vichuquén	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7401	Linares	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7402	Colbún	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7403	Longaví	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7404	Parral	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7405	Retiro	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7406	San Javier	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7407	Villa Alegre	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+7408	Yerbas Buenas	\N	\N	\N	\N	\N	\N	\N	\N	7	\N
+8101	Concepción	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8102	Coronel	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8103	Chiguayante	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8104	Florida	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8105	Hualqui	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8106	Lota	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8107	Penco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8108	San Pedro de la Paz	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8109	Santa Juana	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8110	Talcahuano	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8111	Tome	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8112	Hualpén	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8201	Lebu	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8202	Arauco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8203	Cañete	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8204	Contulmo	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8205	Curanilahue	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8206	Los Álamos	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8207	Tirúa	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8301	Los Ángeles	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8302	Antuco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8303	Cabrero	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8304	Laja	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8305	Mulchén	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8306	Nacimiento	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8307	Negrete	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8308	Quilaco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8309	Quilleco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8310	San Rosendo	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8311	Santa Bárbara	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8312	Tucapel	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8313	Yumbel	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8314	Alto Biobío	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8401	Chillán 	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8402	Bulnes	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8403	Cobquecura	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8404	Coelemu	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8405	Coihueco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8406	Chillán Viejo	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8407	El Carmen	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8408	Ninhue	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8409	Ñiquén	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8410	Pemuco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8411	Pinto	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8412	Portezuelo	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8413	Quillón	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8414	Quirihue	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8415	Ránquil	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8416	San Carlos	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8417	San Fabián	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8418	San Ignacio	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8419	San Nicolás	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8420	Treguaco	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+8421	Yungay	\N	\N	\N	\N	\N	\N	\N	\N	8	\N
+9101	Temuco	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9102	Carahue	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9103	Cunco	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9104	Curarrehue	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9105	Freire	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9106	Galvarino	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9107	Gorbea	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9108	Lautaro	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9109	Loncoche	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9110	Melipeuco	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9111	Nueva Imperial	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9112	Padre Las Casas	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9113	Perquenco	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9114	Pitrufquén	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9115	Pucón	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9116	Saavedra	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9117	Teodoro Schmidt	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9118	Toltén	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9119	Vilcún	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9120	Villarrica	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9121	Cholchol	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9201	Angol	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9202	Collipulli	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9203	Curacautín	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9204	Ercilla	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9205	Lonquimay	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9206	Los Sauces	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9207	Lumaco	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9208	Purén	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9209	Renaico	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9210	Traiguén	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+9211	Victoria	\N	\N	\N	\N	\N	\N	\N	\N	9	\N
+10101	Puerto Montt	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10102	Calbuco	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10103	Cochamó	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10104	Fresia	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10105	Frutillar	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10106	Los Muermos	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10107	Llanquihue	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10108	Maullín	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10109	Puerto Varas	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10201	Castro	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10202	Ancud	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10203	Chonchi	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10204	Curaco de Vélez	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10205	Dalcahue	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10206	Puqueldón	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10207	Queilén	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10208	Quellón	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10209	Quemchi	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10210	Quinchao	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10301	Osorno	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10302	Puerto Octay	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10303	Purranque	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10304	Puyehue	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10305	Río Negro	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10306	San Juan de la Costa	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10307	San Pablo	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10401	Chaitén	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10402	Futaleufú	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10403	Hualaihué	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+10404	Palena	\N	\N	\N	\N	\N	\N	\N	\N	10	\N
+11101	Coihaique	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11102	Lago Verde	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11201	Aisén	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11202	Cisnes	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11203	Guaitecas	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11301	Cochrane	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11302	O Higgins	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11303	Tortel	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11401	Chile Chico	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+11402	Río Ibáñez	\N	\N	\N	\N	\N	\N	\N	\N	11	\N
+12101	Punta Arenas	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12102	Laguna Blanca	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12103	Río Verde	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12104	San Gregorio	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12201	Cabo de Hornos	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12202	Antártica	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12301	Porvenir	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12302	Primavera	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12303	Timaukel	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12401	Natales	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+12402	Torres del Paine	\N	\N	\N	\N	\N	\N	\N	\N	12	\N
+13101	Santiago	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13102	Cerrillos	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13103	Cerro Navia	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13104	Conchalí	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13105	El Bosque	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13106	Estación Central	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13107	Huechuraba	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13108	Independencia	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13109	La Cisterna	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13110	La Florida	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13111	La Granja	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13112	La Pintana	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13113	La Reina	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13114	Las Condes	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13115	Lo Barnechea	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13116	Lo Espejo	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13117	Lo Prado	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13118	Macul	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13119	Maipu	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13120	Ñuñoa	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13121	Pedro Aguirre Cerda	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13122	Peñalolén	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13123	Providencia	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13124	Pudahuel	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13125	Quilicura	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13126	Quinta Normal	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13127	Recoleta	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13128	Renca	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13129	San Joaquín	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13130	San Miguel	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13131	San Ramón	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13132	Vitacura	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13201	Puente Alto	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13202	Pirque	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13203	San José de Maipo	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13301	Colina	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13302	Lampa	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13303	Tiltil	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13401	San Bernardo	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13402	Buin	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13403	Calera de Tango	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13404	Paine	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13501	Melipilla	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13502	Alhué	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13503	Curacaví	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13504	Maria Pinto	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13505	San Pedro	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13601	Talagante	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13602	El Monte	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13603	Isla de Maipo	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13604	Padre Hurtado	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+13605	Peñaflor	\N	\N	\N	\N	\N	\N	\N	\N	13	\N
+14101	Valdivia	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14102	Corral	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14103	Lanco	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14104	Los Lagos	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14105	Máfil	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14106	Mariquina	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14107	Paillaco	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14108	Panguipulli	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14201	La Unión	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14202	Futrono	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14203	Lago Ranco	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+14204	Río Bueno	\N	\N	\N	\N	\N	\N	\N	\N	14	\N
+15101	Arica	\N	\N	\N	\N	\N	\N	\N	\N	15	\N
+15102	Camarones	\N	\N	\N	\N	\N	\N	\N	\N	15	\N
+15201	Putre	\N	\N	\N	\N	\N	\N	\N	\N	15	\N
+15202	General Lagos	\N	\N	\N	\N	\N	\N	\N	\N	15	\N
 \.
 
 
@@ -6162,6 +6163,8 @@ COPY public.horarios_atencion_establecimientos (id_horario_atencion_establecimie
 27	124531	3	9	9	2018-06-12 19:03:50	2018-06-12 19:03:50	\N	10:00	21:00
 28	124531	5	9	9	2018-06-12 19:36:36	2018-06-12 19:36:36	\N	07:00	19:00
 29	124531	6	9	9	2018-06-12 19:36:45	2018-06-12 19:36:45	\N	09:00	21:00
+30	124531	4	9	9	2018-06-14 17:47:59	2018-06-14 17:47:59	\N	10:00	20:00
+31	124531	1	9	9	2018-06-14 17:48:16	2018-06-14 17:50:15	2018-06-14 17:50:15	20:30	00:00
 \.
 
 
@@ -6181,6 +6184,7 @@ COPY public.horarios_atencion_profesionales (id_horario_atencion_profesional, id
 7	124531	5	9	9	2018-06-12 19:37:28	2018-06-12 19:37:28	\N	6	09:00	21:00
 8	124531	6	9	9	2018-06-12 19:37:39	2018-06-12 19:37:39	\N	2	10:00	21:00
 9	124531	3	9	9	2018-06-13 05:59:52	2018-06-13 05:59:52	\N	2	10:10	20:00
+10	124531	4	9	9	2018-06-14 17:48:34	2018-06-14 17:48:34	\N	5	10:00	20:00
 \.
 
 
@@ -7129,6 +7133,7 @@ COPY public.telefonos (id_telefono, id_tipo_telefono, num_telefono, det_telefono
 62	2	123456	Test	123	9	9	2018-06-12 19:03:37	2018-06-12 19:03:37	\N	124531
 63	4	123456	Test	123	9	9	2018-06-12 19:36:14	2018-06-12 19:36:14	\N	124531
 64	3	123456	Test	123	9	9	2018-06-12 19:36:27	2018-06-12 19:36:27	\N	124531
+65	1	353445	trewtwet	9	9	9	2018-06-14 17:47:46	2018-06-14 17:47:46	\N	124531
 \.
 
 
@@ -7521,7 +7526,7 @@ SELECT pg_catalog.setval('public.fuentes_aplicaciones_id_seq', 1, false);
 -- Name: horarios_atencion_establecimientos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.horarios_atencion_establecimientos_id_seq', 29, true);
+SELECT pg_catalog.setval('public.horarios_atencion_establecimientos_id_seq', 31, true);
 
 
 --
@@ -7530,7 +7535,7 @@ SELECT pg_catalog.setval('public.horarios_atencion_establecimientos_id_seq', 29,
 -- Name: horarios_atencion_profesionales_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.horarios_atencion_profesionales_id_seq', 9, true);
+SELECT pg_catalog.setval('public.horarios_atencion_profesionales_id_seq', 10, true);
 
 
 --
@@ -7764,7 +7769,7 @@ SELECT pg_catalog.setval('public.tecnologia_desarrollo_id_seq', 1, false);
 -- Name: telefonos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.telefonos_id_seq', 64, true);
+SELECT pg_catalog.setval('public.telefonos_id_seq', 65, true);
 
 
 --
@@ -8063,7 +8068,7 @@ ALTER TABLE ONLY public.usuarios_roles
 CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
 
 
--- Completed on 2018-06-13 10:45:53 -04
+-- Completed on 2018-06-15 12:53:51 -04
 
 --
 -- PostgreSQL database dump complete
