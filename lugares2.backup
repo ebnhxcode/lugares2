@@ -5,7 +5,7 @@
 -- Dumped from database version 10.4
 -- Dumped by pg_dump version 10.3
 
--- Started on 2018-06-15 17:00:00 -04
+-- Started on 2018-06-15 17:28:41 -04
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -5951,8 +5951,8 @@ COPY public.menus (id_menu, url_menu, nom_menu, det_menu, cod_menu, id_usuario_r
 3	home	Home	Home es el menu central	home01	4	1	2018-03-28 19:04:04	2018-04-17 14:08:35	\N	/img/mosaico.jpg	\N
 4	servicios	Servicios	Los servicios contienen informacion de servidores, aplicaciones y credenciales, aplicable para casos como herramienta de base informativa ante contingencias, buscando credenciales, puertos de acceso, ubicacion de un servidor, ips, bitacoras, ultima version de algun proyecto en especifico, asignacion y busqueda de informacion mantenida por el area de TI	servicios01	4	4	2018-03-28 19:05:04	2018-05-28 08:21:31	2018-05-28 08:21:31	/img/servicio.jpg	\N
 8	servicios	Catalogo	El catalogo agrupa los servicios segun la usabilidad de sistema o aplicacion, esta funcion  estara disponible a medida que se use el sistema	catalogos01	4	1	2018-03-28 19:08:21	2018-05-28 08:21:35	2018-05-28 08:21:35	/img/catalogo.png	\N
-10	usuarios	Usuarios	Usuarios	usuarios01	1	1	2018-05-28 08:44:07	2018-05-28 08:44:07	\N	/img/mosaico.jpg	0
 11	establecimientos	Establecimiento	Establecimiento	establecimiento001	9	9	2018-06-11 03:56:38	2018-06-11 03:56:38	\N	0	0
+10	usuarios	Usuarios	Usuarios	usuarios01	1	1	2018-05-28 08:44:07	2018-06-15 21:27:37	2018-06-15 21:27:37	/img/mosaico.jpg	0
 \.
 
 
@@ -6587,13 +6587,13 @@ COPY public.roles (id_role, nom_role, det_role, id_usuario_registra, id_usuario_
 63	Jefe de Area	El Role Jefe de Area es igual al role administrador, tiene todos los permisos.	\N	4	2018-02-26 20:22:57	2018-03-19 15:05:22	\N
 62	Administrador	El Role administrador del sistema tiene permisos completos.	\N	4	2018-02-26 20:22:50	2018-03-19 15:05:30	\N
 64	Lider Equipo	El Role Lider Equipo es igual al role administrador, tiene todos los permisos,	\N	4	2018-02-26 20:23:13	2018-03-19 15:06:06	\N
-66	App Manager	El Role App Manager, tiene permisos de lectura, escritura y modificacion de datos.	\N	4	2018-02-28 23:44:07	2018-03-19 15:07:38	\N
-69	Jefe Proyecto	El Role Jefe Proyecto, tiene permisos de lectura y escritura.	4	4	2018-03-19 15:08:12	2018-03-19 15:08:12	\N
 71	Visitante	El Role Visitante, tiene permisos de lectura.	4	4	2018-03-19 15:11:21	2018-03-19 15:11:21	\N
 72	role test	role test	4	4	2018-03-21 19:01:30	2018-03-21 19:01:37	2018-03-21 19:01:37
 70	Desarrollador	El Role Desarrollador, tiene permisos de lectura.	4	1	2018-03-19 15:10:26	2018-04-20 17:23:23	\N
 73	Modificador	Modificador tiene permisos de lectura, escritura y modificación.	9	9	2018-06-15 20:59:17	2018-06-15 20:59:17	\N
 74	Creador	El role Creador tiene permisos de lectura y escritura.	9	9	2018-06-15 20:59:44	2018-06-15 20:59:44	\N
+66	App Manager	El Role App Manager, tiene permisos de lectura, escritura y modificacion de datos.	\N	4	2018-02-28 23:44:07	2018-06-15 21:00:56	2018-06-15 21:00:56
+69	Jefe Proyecto	El Role Jefe Proyecto, tiene permisos de lectura y escritura.	4	4	2018-03-19 15:08:12	2018-06-15 21:00:59	2018-06-15 21:00:59
 \.
 
 
@@ -6661,13 +6661,13 @@ COPY public.roles_permisos (id_role_permiso, id_role, id_permiso, id_usuario_reg
 60	62	17	\N	4	2018-02-26 20:22:50	2018-03-19 14:57:16	\N
 61	63	17	\N	4	2018-02-26 20:22:57	2018-03-19 15:04:31	\N
 62	64	17	\N	4	2018-02-26 20:23:13	2018-03-19 15:06:06	\N
-64	66	16	\N	4	2018-02-28 23:44:07	2018-03-19 15:07:38	\N
-67	69	14	4	4	2018-03-19 15:08:12	2018-03-19 15:08:12	\N
 68	70	15	4	4	2018-03-19 15:10:26	2018-03-19 15:10:26	\N
 69	71	15	4	4	2018-03-19 15:11:21	2018-03-19 15:11:21	\N
 70	72	15	4	4	2018-03-21 19:01:30	2018-03-21 19:01:37	2018-03-21 19:01:37
 71	73	16	9	9	2018-06-15 20:59:17	2018-06-15 20:59:17	\N
 72	74	14	9	9	2018-06-15 20:59:44	2018-06-15 20:59:44	\N
+64	66	16	\N	4	2018-02-28 23:44:07	2018-06-15 21:00:56	2018-06-15 21:00:56
+67	69	14	4	4	2018-03-19 15:08:12	2018-06-15 21:00:59	2018-06-15 21:00:59
 \.
 
 
@@ -6882,30 +6882,8 @@ COPY public.tipos_telefonos (id_tipo_telefono, nom_tipo_telefono, det_tipo_telef
 --
 
 COPY public.usuarios (id_usuario, nom_usuario, nom_completo, ape_paterno, ape_materno, username, email, password, remember_token, id_usuario_registra, id_usuario_modifica, created_at, updated_at, deleted_at) FROM stdin;
-3	qweqwe	null	null	null	qwe	esteban.ramos@minsawqel.cl	$2y$10$/wzbajETfyaumw8bTd8GHu3Ml50hxxbjb2HYduh4Cm5SDnpM5aYWW	\N	\N	\N	2018-02-27 19:30:51	2018-02-27 19:32:25	2018-02-27 19:32:25
-2	edsaf	null	null	null	aasdasd	esteban.ramos@minsaasdl.cl	$2y$10$EMV5tnLbwP5gAhTXjmVVu.rsn8bkQ9dIt9iay1e6Vj7AenetPnqsy	\N	\N	\N	2018-02-27 13:25:49	2018-02-27 19:32:28	2018-02-27 19:32:28
-14	rwer	werwer	werwe	null	werwer	fafas@asf.cl	$2y$10$YPp6V3Do1xSgWspgA/OBVu0xVdd8daBixxJM7M0KJ0gt4l.JpA71W	\N	\N	\N	2018-03-13 20:11:49	2018-03-13 20:12:05	2018-03-13 20:12:05
-13	fdsf	sdfsdf	dsfs	null	dsfsd	dsfdsf@sadfa.asd	$2y$10$EyVZgBiQjmmRcjx34s9Nx.ugwHd8lu3Nlp2fVAAgM2s.fqLIp78L6	\N	\N	\N	2018-03-13 20:09:46	2018-03-13 20:12:11	2018-03-13 20:12:11
-5	asds	null	asd	asd	asd	estasddeban.ramos.f@gmail.com	$2y$10$efcUhxc91net4pQsHaEOuucB682MsKzYciRQyqtGahn7lZ4/fJp/S	\N	\N	\N	2018-03-06 06:10:38	2018-03-06 06:24:26	2018-03-06 06:24:26
-16	erterter	terter	etetter	null	tert	erter@tret.tre	$2y$10$vawhluHPX9EYCxx7juk48un4suWF.xQSqXVEt7dCm8VuSSfSQIKWa	\N	\N	\N	2018-03-13 20:46:16	2018-03-13 21:00:41	2018-03-13 21:00:41
-15	tetet	etetete	etet	null	tetet	ette@etet.tet	$2y$10$9NkrZW5uQ9peoq0Nvu9/S.RbAkecXktlmEXC6YLy/ate.eZPBOQ9G	\N	\N	\N	2018-03-13 20:33:24	2018-03-13 21:00:46	2018-03-13 21:00:46
-23	retyrty	retyrtyretyrety	rtyrty	rtyy	rtyrteyr	tyrtyr@ytery.cl	$2y$10$pHMqxMAEEJOLpQhNfwVkO.T0vZ7jYllgdrbjqxyLP67nXKlXqX/k6	\N	\N	\N	2018-03-13 20:56:27	2018-03-13 21:00:52	2018-03-13 21:00:52
-25	Nuevo	Nuevo Usuario Prueba	Usuario	Prueba	nup	nup@nup.nup	$2y$10$kcj09pQUPi.Oxmm20t6kYuGR8GbtBQQdlry2PWeU/GgZ1Eydmy4nm	\N	\N	\N	2018-03-14 15:46:52	2018-03-14 16:02:08	2018-03-14 16:02:08
-6	wererwe	rwerwer	werwer	werwer	werwerwe	ewrwe@ewre.dfssdf	$2y$10$SmkQ3TBcV0Tpio.sBrR10uTD5hjueAoq0gXKCTR/6WmMhSRiNPlhS	\N	\N	\N	2018-03-13 18:57:50	2018-03-13 19:13:49	2018-03-13 19:13:49
-7	adsdad	sdasdsa	sdsadas	dasda	dasd	asdasd@sad.ad	$2y$10$ez0ZyUI7umQ6wyBiPSfRTOvaoEuGJnie1fbnAep0hRdrbaIKDgevC	\N	\N	\N	2018-03-13 19:01:00	2018-03-13 19:13:55	2018-03-13 19:13:55
-26	eqwe	qweqwe	qwe	eqwewqe	qweqweq	weq@qwe.cl	$2y$10$7MbMwBObPp4pO5qm1QrJve/FOMFblwDGHXoEM3WPf9r4fCbFWlHrG	\N	\N	\N	2018-03-14 16:01:58	2018-03-14 16:02:14	2018-03-14 16:02:14
-27	test	test	test	test	testest	test@teset.test	$2y$10$AGVefv00CMW.dn.IbMe1mettsnxJGNAUzgXTjPoVLuGdbNJ5XA3aG	\N	\N	\N	2018-03-20 19:17:31	2018-03-20 19:17:46	2018-03-20 19:17:46
-28	test2	test2	test2	test2	test2	test@minsal.cl2	$2y$10$3R21jKze4ADH41u7YR4hAeZ4KOkgwgFhbFD4LHV92rOBKN4dI/tGC	\N	\N	\N	2018-03-20 19:31:56	2018-03-20 19:32:25	2018-03-20 19:32:25
-4	Esteban	\N	Ramos	Fernandez	fsdsf	esteban.ramos.f@gmail.com	$2y$10$LqVvP2ZOOp42RP.ifSWY4O.m.LAPo0D0bhqcWpWY2msVWk0Y0evxe	C3Xe87hwIoNBSotULjJ6gMLOtfiiEjVINBfH10OU8SCoKd8gZR8arJ5kEeBw	\N	\N	2018-02-27 23:36:43	2018-04-16 18:32:05	2018-04-16 18:32:05
-29	test	test	test	teswt	test	test@minsal.cl	$2y$10$GYNUQ7CuxnaIcmgOR/0QQOQYhC49EmWFywS72cAKzlnqT.9hTf/W6	\N	\N	\N	2018-04-16 19:08:03	2018-04-16 19:08:14	2018-04-16 19:08:14
-12	Hugo	Hugo Pino	Pino	null	hpino	hpino@minsal.cl	$2y$10$YLKHc/gQbgQHZJ/iYAEYO.m8CfE5hAz3uQ.S4sXeMIJnXw44RgMV2	\N	\N	\N	2018-03-13 20:01:32	2018-06-15 20:51:54	2018-06-15 20:51:54
-8	Sergio	Sergio Roca Munoz	Roca	Munoz	sroca	sergio.roca@minsal.cl	$2y$10$ES1CoNEJU/d9TXqr0Ypvb.fkLNfvrSu4Icb/rT0Pd7v/mjfyjqxvO	\N	\N	\N	2018-03-13 19:12:12	2018-06-15 20:51:57	2018-06-15 20:51:57
-11	Karina	Karina Itter	Itter	null	null	kitter@minsal.cl	$2y$10$c.mygSpSG3iS/G/p9uwa4eegsCyJrEvlMKPnDLMdTo2mOSwRFzacu	\N	\N	\N	2018-03-13 19:57:56	2018-06-15 20:52:35	2018-06-15 20:52:35
-10	Jose	Jose Rivero	Rivero	null	jrivero	jose.rivero@minsal.cl	$2y$10$Ojy/rWGMpXv283lB20rx7.oVNAHCUbfMiOtuZC00OUAcnW6jvtzpa	\N	\N	\N	2018-03-13 19:53:23	2018-06-15 20:52:38	2018-06-15 20:52:38
-24	Gustavo	Gustavo Osorio	Osorio	null	gosorio	gustavo.osorio@minsal.cl	$2y$10$D8u5ZRC6lTcfYlMNmCBhS.sLEWvwjAWJM3WHfHq9fc6yb3hmWPgcC	\N	\N	\N	2018-03-13 21:05:02	2018-06-15 20:52:40	2018-06-15 20:52:40
-30	Pruebas	0	Pruebas	Pruebas	pruebas001	pruebas@minsal.cl	$2y$10$HV71pvrdFhHypg32MCYtCuyk3S7EKJUpMkB4SjuM00Kp6mYlMstIy	x3ZaqrRi9p8Id9bZcPFDdjDMWkDqlH2mEvAK4svJ1RdYFrnqj9bHUZk0gHLe	\N	\N	2018-04-23 20:01:26	2018-06-15 20:52:41	2018-06-15 20:52:41
-1	Esteban	\N	Ramos	\N	eramosf	esteban.ramos@minsal.cl	$2y$10$xgxgVXFtlUWmsrNLTrfmQeuo2Baz.BeFOP1vSQyvDVvMwM3NMaa6m	FnsnrNfM5dor7mah9fzH5IqCpJKFTHZq3xpeA7i6bR3cBbmvqukL6eUGkbmK	\N	\N	2018-02-19 18:08:14	2018-06-15 20:52:42	2018-06-15 20:52:42
 9	Victoria	Victoria Garrido	Garrido	null	vgarrido	vgarrido@minsal.cl	$2y$10$zR22y6JR64b7Hzm074Nt2.ZWJ/LLzj75sbTAGYhPzNZDXP/2IEAtG	nkNJHHbYsaGb8RyKhA8PGsGCwnhLXgvy64IOqrJLdX0XNCUbFJqrtxtrMlpq	\N	\N	2018-03-13 19:13:40	2018-06-15 20:53:43	\N
+31	Desarrollador	Test	Test	Test	test	desarrollo@minsal.cl	$2y$10$gJtHKgxiDSv3iBsqPa/ZKe5T0wdiBDDii1fxhF1GPgzBmWhlkng4a	\N	\N	\N	2018-06-15 21:10:50	2018-06-15 21:10:50	\N
 \.
 
 
@@ -6944,6 +6922,7 @@ COPY public.usuarios_cargos (id_usuario_cargo, id_usuario, id_cargo, id_usuario_
 30	29	1	1	1	2018-04-16 19:08:04	2018-04-16 19:08:04	\N
 31	30	1	1	1	2018-04-23 20:01:26	2018-04-23 20:01:26	\N
 24	9	10	4	9	2018-03-13 21:07:06	2018-06-15 20:53:43	\N
+32	31	10	9	9	2018-06-15 21:10:50	2018-06-15 21:10:50	\N
 \.
 
 
@@ -6982,6 +6961,7 @@ COPY public.usuarios_estados (id_usuario_estado, id_estado, id_usuario, id_usuar
 29	2	1	4	4	2018-03-27 19:38:24	2018-03-27 19:38:24	\N
 30	3	29	1	1	2018-04-16 19:08:04	2018-04-16 19:08:04	\N
 31	2	30	1	1	2018-04-23 20:01:26	2018-04-23 20:01:26	\N
+32	2	31	9	9	2018-06-15 21:10:50	2018-06-15 21:10:50	\N
 \.
 
 
@@ -7007,6 +6987,7 @@ COPY public.usuarios_roles (id_usuario_role, id_role, id_usuario, id_usuario_reg
 30	62	1	4	4	2018-03-27 19:38:24	2018-04-16 18:31:23	\N
 31	63	29	1	1	2018-04-16 19:08:04	2018-04-16 19:08:04	\N
 32	62	30	1	1	2018-04-23 20:01:26	2018-04-23 20:01:26	\N
+33	70	31	9	9	2018-06-15 21:10:50	2018-06-15 21:10:50	\N
 \.
 
 
@@ -7538,7 +7519,7 @@ SELECT pg_catalog.setval('public.usuarios_bitacora_servicios_id_seq', 21, true);
 -- Name: usuarios_cargos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_cargos_id_seq', 31, true);
+SELECT pg_catalog.setval('public.usuarios_cargos_id_seq', 32, true);
 
 
 --
@@ -7547,7 +7528,7 @@ SELECT pg_catalog.setval('public.usuarios_cargos_id_seq', 31, true);
 -- Name: usuarios_estados_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_estados_id_seq', 31, true);
+SELECT pg_catalog.setval('public.usuarios_estados_id_seq', 32, true);
 
 
 --
@@ -7556,7 +7537,7 @@ SELECT pg_catalog.setval('public.usuarios_estados_id_seq', 31, true);
 -- Name: usuarios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_id_seq', 30, true);
+SELECT pg_catalog.setval('public.usuarios_id_seq', 31, true);
 
 
 --
@@ -7565,7 +7546,7 @@ SELECT pg_catalog.setval('public.usuarios_id_seq', 30, true);
 -- Name: usuarios_roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_roles_id_seq', 32, true);
+SELECT pg_catalog.setval('public.usuarios_roles_id_seq', 33, true);
 
 
 --
@@ -7729,7 +7710,7 @@ ALTER TABLE ONLY public.usuarios_roles
 CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
 
 
--- Completed on 2018-06-15 17:00:01 -04
+-- Completed on 2018-06-15 17:28:42 -04
 
 --
 -- PostgreSQL database dump complete
