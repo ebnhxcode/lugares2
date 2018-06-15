@@ -34,7 +34,7 @@
             <dd>
                <p class="control has-icon has-icon-right">
                   <input type="text" v-model="telefono.cod_area" name="cod_area"
-                         v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500"
+                         v-validate="{required:true,regex:/^[0-9]+$/i,max:3}" data-vv-delay="500"
                          class="form-control"/>
 
                   <transition name="bounce">
@@ -57,7 +57,7 @@
 
                <p class="control has-icon has-icon-right">
                   <input type="text" v-model="telefono.num_telefono" name="num_telefono"
-                         v-validate="{required:true,regex:/^[0-9_ ]+$/i}" data-vv-delay="500"
+                         v-validate="{required:true,regex:/^[0-9_ ]+$/i,max:10}" data-vv-delay="500"
                          class="form-control"/>
 
                   <transition name="bounce">
