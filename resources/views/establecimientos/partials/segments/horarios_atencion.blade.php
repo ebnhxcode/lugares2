@@ -91,6 +91,32 @@
             </dd>
          </div>
 
+         <hr>
+         <br>
+         <br>
+
+         <div class="col-sm-12 col-md-12">
+            <dt>Observaciones para horario de atención</dt>
+            <dd>
+
+               <p class="control has-icon has-icon-right">
+            <textarea cols="15" rows="1" v-model="establecimiento.observaciones_horario_atencion" name="observaciones_horario_atencion"
+                      v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
+                      class="form-control"></textarea>
+
+                  <transition name="bounce">
+                     <i v-show="errors.has('observaciones_horario_atencion')" class="fa fa-exclamation-circle"></i>
+                  </transition>
+
+                  <transition name="bounce">
+               <span v-show="errors.has('observaciones_horario_atencion')" class="text-danger small">
+                  @{{ errors.first('observaciones_horario_atencion') }}
+               </span>
+                  </transition>
+               </p>
+            </dd>
+         </div><!-- .col -->
+
       </div>
    </div>
 
