@@ -4708,7 +4708,8 @@ var EstablecimientoController = new Vue({
             'id_comuna': null,
             'id_region': null,
             'id_tipo_establecimiento': null,
-            'estado_actualizacion': null
+            'estado_actualizacion': null,
+            'updated_at': null
          },
 
          'datos_excel': [],
