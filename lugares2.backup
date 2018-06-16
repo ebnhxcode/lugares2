@@ -5,7 +5,7 @@
 -- Dumped from database version 10.4
 -- Dumped by pg_dump version 10.3
 
--- Started on 2018-06-15 17:28:41 -04
+-- Started on 2018-06-16 00:27:54 -04
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -5751,7 +5751,6 @@ COPY public.establecimientos (id_establecimiento, id_establecimiento_antiguo, id
 124554	24-554	24	10	10102	Posta de Salud Rural Huayún	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	desactualizado	\N	\N
 124555	24-555	24	10	10103	Posta de Salud Rural Llaguepe	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	desactualizado	\N	\N
 124715	24-715	24	10	10101	Centro Comunitario de Salud Familiar Chamiza	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	desactualizado	\N	\N
-124531	24-531	24	10	10401	Posta de Salud Rural Ayacara	39814	\N	2017-10-31 11:06:00	2018-06-15 20:26:01	\N	\N	9	4	1	1	Test	Ejemplo	http://www.www.www	123	abc@mail.cl	OBS	1234	123	si	al_dia	\N	\N
 123304	23-304	23	10	10304	Centro de Salud Familiar Entre Lagos	39814		2017-10-31 11:06:00	\N	\N	\N	\N	16	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	desactualizado	\N	\N
 124274	24-274	10	10	10101	Clínica Complejo Penitenciario de Puerto Montt	39814		2017-10-31 11:06:00	\N	\N	\N	\N	23	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	desactualizado	\N	\N
 124454	24-454	24	10	10102	Posta de Salud Rural Tabón	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	desactualizado	\N	\N
@@ -5777,6 +5776,7 @@ COPY public.establecimientos (id_establecimiento, id_establecimiento_antiguo, id
 124535	24-535	24	10	10402	Posta de Salud Rural El Azul	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	desactualizado	\N	\N
 124536	24-536	24	10	10404	Posta de Salud Rural El Malito	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	desactualizado	\N	\N
 124537	24-537	24	10	10102	Posta de Salud Rural Chope	39814		2017-10-31 11:06:00	\N	\N	\N	\N	4	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	desactualizado	\N	\N
+124531	24-531	24	10	10401	Posta de Salud Rural Ayacara	39814	\N	2017-10-31 11:06:00	2018-06-15 21:42:50	\N	\N	33	4	1	1	Test	Ejemplo	http://www.www.www	123	abc@mail.cl	OBS	1234	123	si	al_dia	\N	\N
 \.
 
 
@@ -5948,11 +5948,11 @@ COPY public.menus (id_menu, url_menu, nom_menu, det_menu, cod_menu, id_usuario_r
 7	actividades	Actividades	actividades	actividades01	4	4	2018-03-28 19:08:03	2018-04-04 05:00:17	2018-04-04 05:00:17	\N	\N
 5	servidores	Servidores	servidores	servidores01	4	4	2018-03-28 19:07:03	2018-04-05 23:10:34	2018-04-05 23:10:34	\N	\N
 6	aplicaciones	Aplicaciones	aplicacion	aplicacion01	4	4	2018-03-28 19:07:22	2018-04-05 23:10:40	2018-04-05 23:10:40	\N	\N
-3	home	Home	Home es el menu central	home01	4	1	2018-03-28 19:04:04	2018-04-17 14:08:35	\N	/img/mosaico.jpg	\N
 4	servicios	Servicios	Los servicios contienen informacion de servidores, aplicaciones y credenciales, aplicable para casos como herramienta de base informativa ante contingencias, buscando credenciales, puertos de acceso, ubicacion de un servidor, ips, bitacoras, ultima version de algun proyecto en especifico, asignacion y busqueda de informacion mantenida por el area de TI	servicios01	4	4	2018-03-28 19:05:04	2018-05-28 08:21:31	2018-05-28 08:21:31	/img/servicio.jpg	\N
 8	servicios	Catalogo	El catalogo agrupa los servicios segun la usabilidad de sistema o aplicacion, esta funcion  estara disponible a medida que se use el sistema	catalogos01	4	1	2018-03-28 19:08:21	2018-05-28 08:21:35	2018-05-28 08:21:35	/img/catalogo.png	\N
-11	establecimientos	Establecimiento	Establecimiento	establecimiento001	9	9	2018-06-11 03:56:38	2018-06-11 03:56:38	\N	0	0
 10	usuarios	Usuarios	Usuarios	usuarios01	1	1	2018-05-28 08:44:07	2018-06-15 21:27:37	2018-06-15 21:27:37	/img/mosaico.jpg	0
+11	establecimientos	Establecimiento	Establecimiento	establecimiento001	9	9	2018-06-11 03:56:38	2018-06-16 01:57:04	\N	/img/mosaico.jpg	0
+3	home	Home	Home es el menu central	home01	4	1	2018-03-28 19:04:04	2018-06-16 01:57:24	2018-06-16 01:57:24	/img/mosaico.jpg	\N
 \.
 
 
@@ -6882,8 +6882,10 @@ COPY public.tipos_telefonos (id_tipo_telefono, nom_tipo_telefono, det_tipo_telef
 --
 
 COPY public.usuarios (id_usuario, nom_usuario, nom_completo, ape_paterno, ape_materno, username, email, password, remember_token, id_usuario_registra, id_usuario_modifica, created_at, updated_at, deleted_at) FROM stdin;
-9	Victoria	Victoria Garrido	Garrido	null	vgarrido	vgarrido@minsal.cl	$2y$10$zR22y6JR64b7Hzm074Nt2.ZWJ/LLzj75sbTAGYhPzNZDXP/2IEAtG	nkNJHHbYsaGb8RyKhA8PGsGCwnhLXgvy64IOqrJLdX0XNCUbFJqrtxtrMlpq	\N	\N	2018-03-13 19:13:40	2018-06-15 20:53:43	\N
-31	Desarrollador	Test	Test	Test	test	desarrollo@minsal.cl	$2y$10$gJtHKgxiDSv3iBsqPa/ZKe5T0wdiBDDii1fxhF1GPgzBmWhlkng4a	\N	\N	\N	2018-06-15 21:10:50	2018-06-15 21:10:50	\N
+9	Victoria	Victoria Garrido	Garrido	null	vgarrido	vgarrido@minsal.cl	$2y$10$zR22y6JR64b7Hzm074Nt2.ZWJ/LLzj75sbTAGYhPzNZDXP/2IEAtG	uia3z9YFnAUQ0WqxS7CFXbmKAwQfB0VekNslS3GsK7IeVo0o3ubRgYIV47nS	\N	\N	2018-03-13 19:13:40	2018-06-15 20:53:43	\N
+33	Modificador	Modificador	Modificador	Modificador	modificador	modificador@minsal.cl	$2y$10$lWC95Pb6qwgN72RoXfN.fuxad.tHOgxLldxDIyTlAGIWlj1pXf93C	\N	\N	\N	2018-06-15 21:35:18	2018-06-15 21:35:18	\N
+31	Desarrollador	Test	Test	Test	test	desarrollo@minsal.cl	$2y$10$gJtHKgxiDSv3iBsqPa/ZKe5T0wdiBDDii1fxhF1GPgzBmWhlkng4a	VJU2kDW6j9tsSYBcVL1hD9V15Qvo7Moc7o8yAa62R4S8Cjc2lElzPXxy2R0w	\N	\N	2018-06-15 21:10:50	2018-06-15 21:10:50	\N
+32	Creador	0	Creador	Creador	creador	creador@minsal.cl	$2y$10$/mQg0OIsB.0CN.qp03FCM.f2O2uyKOeZlmjPg2tz.hKVQ.udUC0qq	TH1c2EmooGmFakh9jxAsmh69KH74iejHEU43yxwgvLGI3HyOIXmDu92EEDmq	\N	\N	2018-06-15 21:34:39	2018-06-15 21:34:39	\N
 \.
 
 
@@ -6923,6 +6925,8 @@ COPY public.usuarios_cargos (id_usuario_cargo, id_usuario, id_cargo, id_usuario_
 31	30	1	1	1	2018-04-23 20:01:26	2018-04-23 20:01:26	\N
 24	9	10	4	9	2018-03-13 21:07:06	2018-06-15 20:53:43	\N
 32	31	10	9	9	2018-06-15 21:10:50	2018-06-15 21:10:50	\N
+33	32	10	9	9	2018-06-15 21:34:39	2018-06-15 21:34:39	\N
+34	33	10	9	9	2018-06-15 21:35:18	2018-06-15 21:35:18	\N
 \.
 
 
@@ -6962,6 +6966,8 @@ COPY public.usuarios_estados (id_usuario_estado, id_estado, id_usuario, id_usuar
 30	3	29	1	1	2018-04-16 19:08:04	2018-04-16 19:08:04	\N
 31	2	30	1	1	2018-04-23 20:01:26	2018-04-23 20:01:26	\N
 32	2	31	9	9	2018-06-15 21:10:50	2018-06-15 21:10:50	\N
+33	2	32	9	9	2018-06-15 21:34:39	2018-06-15 21:34:39	\N
+34	2	33	9	9	2018-06-15 21:35:18	2018-06-15 21:35:18	\N
 \.
 
 
@@ -6988,6 +6994,8 @@ COPY public.usuarios_roles (id_usuario_role, id_role, id_usuario, id_usuario_reg
 31	63	29	1	1	2018-04-16 19:08:04	2018-04-16 19:08:04	\N
 32	62	30	1	1	2018-04-23 20:01:26	2018-04-23 20:01:26	\N
 33	70	31	9	9	2018-06-15 21:10:50	2018-06-15 21:10:50	\N
+34	74	32	9	9	2018-06-15 21:34:39	2018-06-15 21:34:39	\N
+35	73	33	9	9	2018-06-15 21:35:18	2018-06-15 21:35:18	\N
 \.
 
 
@@ -7519,7 +7527,7 @@ SELECT pg_catalog.setval('public.usuarios_bitacora_servicios_id_seq', 21, true);
 -- Name: usuarios_cargos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_cargos_id_seq', 32, true);
+SELECT pg_catalog.setval('public.usuarios_cargos_id_seq', 34, true);
 
 
 --
@@ -7528,7 +7536,7 @@ SELECT pg_catalog.setval('public.usuarios_cargos_id_seq', 32, true);
 -- Name: usuarios_estados_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_estados_id_seq', 32, true);
+SELECT pg_catalog.setval('public.usuarios_estados_id_seq', 34, true);
 
 
 --
@@ -7537,7 +7545,7 @@ SELECT pg_catalog.setval('public.usuarios_estados_id_seq', 32, true);
 -- Name: usuarios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_id_seq', 31, true);
+SELECT pg_catalog.setval('public.usuarios_id_seq', 33, true);
 
 
 --
@@ -7546,7 +7554,7 @@ SELECT pg_catalog.setval('public.usuarios_id_seq', 31, true);
 -- Name: usuarios_roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_roles_id_seq', 33, true);
+SELECT pg_catalog.setval('public.usuarios_roles_id_seq', 35, true);
 
 
 --
@@ -7710,7 +7718,7 @@ ALTER TABLE ONLY public.usuarios_roles
 CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
 
 
--- Completed on 2018-06-15 17:28:42 -04
+-- Completed on 2018-06-16 00:27:55 -04
 
 --
 -- PostgreSQL database dump complete
