@@ -145,6 +145,8 @@ const EstablecimientoController = new Vue({
             'estado_actualizacion':null,
             'updated_at':null,
          },
+
+         'spinner_table':true,
          
          'datos_excel':[],
          'usuario_auth':{},
@@ -344,6 +346,35 @@ const EstablecimientoController = new Vue({
    },
    components: {
       //'download-excel': DownloadExcel,
+      'loader': {
+         props: [''],
+         'name': 'loader',
+         'template':`<div class="loader">Loading...</div>`,
+         data () {
+            return {
+            }
+         },
+         ready () {},
+         created(){},
+         filters: {},
+         methods: {},
+      },
+      'spinner': {
+         props: [''],
+         'name': 'spinner',
+         'template': `
+         <div class="loader text-center">Cargando tabla, espere por favor...</div>
+      `,
+         data () {
+            return {
+               visible: false,
+            }
+         },
+         ready () {},
+         created(){},
+         filters: {},
+         methods: {},
+      },
    },
    created(){
       this.inicializar();
@@ -417,6 +448,12 @@ const EstablecimientoController = new Vue({
             }
 
          }
+         for (var t in this.tabla_campos) {
+            if (this.tabla_campos[t] != null) {
+               this.filtrar_grid(t);
+            }
+         }
+
          this.datos_excel = this.lista_objs_model = this.filterBy(this.lista_objs_model, this.filtros[key], key);
 
       },

@@ -2856,12 +2856,18 @@ var inyeccion_funciones_compartidas = {
       inicializar: function inicializar() {
          var _this10 = this;
 
+         if (typeof this.spinner_table != "undefined") {
+            this.spinner_table = true;
+         }
          this.$http.get('/ajax/' + this.nombre_ruta).then(function (response) {
             // success callback
             if (response.status == 200) {
                _this10.configurar_relaciones(response.body[_this10.nombre_ruta].data, _this10.relaciones_clase);
                _this10.asignar_recursos(response);
                _this10.limpiar_tabla_campos();
+               if (typeof _this10.spinner_table != "undefined") {
+                  _this10.spinner_table = false;
+               }
             } else {
                _this10.checkear_estado_respuesta_http(response.status);
             }
@@ -2873,6 +2879,9 @@ var inyeccion_funciones_compartidas = {
       navigate: function navigate(page) {
          var _this11 = this;
 
+         if (typeof this.spinner_table != "undefined") {
+            this.spinner_table = true;
+         }
          if (typeof this.filtros != "undefined") {
             for (var f in this.filtros) {
                this.filtros[f] = null;
@@ -2883,6 +2892,9 @@ var inyeccion_funciones_compartidas = {
             if (response.status == 200) {
                _this11.configurar_relaciones(response.body[_this11.nombre_ruta].data, _this11.relaciones_clase);
                _this11.asignar_recursos(response);
+               if (typeof _this11.spinner_table != "undefined") {
+                  _this11.spinner_table = false;
+               }
             } else {
                _this11.checkear_estado_respuesta_http(response.status);
             }
@@ -2893,6 +2905,9 @@ var inyeccion_funciones_compartidas = {
       navigateCustom: function navigateCustom() {
          var _this12 = this;
 
+         if (typeof this.spinner_table != "undefined") {
+            this.spinner_table = true;
+         }
          if (typeof this.filtros != "undefined") {
             for (var f in this.filtros) {
                this.filtros[f] = null;
@@ -2904,6 +2919,9 @@ var inyeccion_funciones_compartidas = {
             if (response.status == 200) {
                _this12.configurar_relaciones(response.body[_this12.nombre_ruta].data, _this12.relaciones_clase);
                _this12.asignar_recursos(response);
+               if (typeof _this12.spinner_table != "undefined") {
+                  _this12.spinner_table = false;
+               }
             } else {
                _this12.checkear_estado_respuesta_http(response.status);
             }
