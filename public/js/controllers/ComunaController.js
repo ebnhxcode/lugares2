@@ -3448,6 +3448,12 @@ var inyeccion_funciones_compartidas = {
       navigate: function navigate(page) {
          var _this11 = this;
 
+         if (typeof this.filtros != "undefined") {
+            for (var f in this.filtros) {
+               this.filtros[f] = null;
+            }
+            this.borrar_filtros();
+         }
          this.$http.get('/ajax/' + this.nombre_ruta + '?page=' + page + '&per_page=' + this.pagination.per_page).then(function (response) {
             if (response.status == 200) {
                _this11.configurar_relaciones(response.body[_this11.nombre_ruta].data, _this11.relaciones_clase);
@@ -3466,6 +3472,7 @@ var inyeccion_funciones_compartidas = {
             for (var f in this.filtros) {
                this.filtros[f] = null;
             }
+            this.borrar_filtros();
          }
          this.$http.get('/ajax/' + this.nombre_ruta + '?page=' + 1 + '&per_page=' + this.pagination.per_page).then(function (response) {
             console.log(response);

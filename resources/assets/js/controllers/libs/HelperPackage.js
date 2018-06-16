@@ -737,6 +737,12 @@ export const inyeccion_funciones_compartidas = {
       },
 
       navigate (page) {
+         if (typeof this.filtros != "undefined") {
+            for (var f in this.filtros) {
+               this.filtros[f] = null;
+            }
+            this.borrar_filtros();
+         }
          this.$http.get(`/ajax/${this.nombre_ruta}?page=` + page + '&per_page=' + this.pagination.per_page).then(response => {
             if (response.status == 200) {
                this.configurar_relaciones(response.body[this.nombre_ruta].data, this.relaciones_clase);
@@ -750,6 +756,7 @@ export const inyeccion_funciones_compartidas = {
             for (var f in this.filtros) {
                this.filtros[f] = null;
             }
+            this.borrar_filtros();
          }
          this.$http.get(`/ajax/${this.nombre_ruta}?page=` + 1 + '&per_page=' + this.pagination.per_page).then(response => {
             console.log(response);

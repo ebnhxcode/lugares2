@@ -409,7 +409,16 @@ const EstablecimientoController = new Vue({
       },
 
       filtrar_adicional: function (key) {
+
+         this.datos_excel = this.lista_objs_model = this.$data[this.nombre_ruta];
+         for (var f in this.filtros) {
+            if (key != f) {
+               this.datos_excel = this.lista_objs_model = this.filterBy(this.lista_objs_model, this.filtros[f], f);
+            }
+
+         }
          this.datos_excel = this.lista_objs_model = this.filterBy(this.lista_objs_model, this.filtros[key], key);
+
       },
       
       eliminar_telefono: function (id) {

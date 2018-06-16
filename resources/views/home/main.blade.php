@@ -20,7 +20,7 @@
 
 
       <!-- Seccion de menus -->
-      <div v-if="home_items && home_items.length > 0">
+      <div v-if="home_items && home_items.length > 0" class="col-md-4">
          <h3>
             <i class="fa fa-sort-alpha-asc btn btn-info btn-sm float-right" @click.prevent="cambiar_orden_lista('nom_menu','home_items')" aria-hidden="true"
                data-placement="top" data-toggle="tooltip" title="Clic para ordenar menu principal"></i>
@@ -29,17 +29,17 @@
 
          <!-- Tarjetas dinámicas -->
          <div class="card-deck{{--card-columns--}}" v-show="filterBy(home_items, filtro_head).length > 0">
-            <div class="card bg-primary text-white border-light mb-12" v-for="i in filterBy(home_items, filtro_head)">
+            <div class="card bg-primary text-white border-light" v-for="i in filterBy(home_items, filtro_head)">
                <div class="card-header">@{{ i.nom_menu }}</div>
                <div class="img-responsive">
-
+                  <img class="card-img-top" :src="i.imagen_menu || `/img/logo180-180.png`">
                </div>
                <div class="card-body">
                   <h5 class="card-title">
                      <div class="media">
                         <i :class="i.font_icon_menu" aria-hidden="true"></i>
                         <div class="media-body">
-                           <h5 class="mt-0">@{{ i.nom_menu }}</h5>
+                           <span class=" h5 mt-0">@{{ i.nom_menu }}</span>
                            <p style="font-size: 14px;">
                               @{{ i.det_menu }}
                            </p>
@@ -79,9 +79,7 @@
 
          <!-- Tarjetas dinámicas -->
          <div class="card-columns" v-show="filterBy(mantenedores, filtro_head).length > 0">
-
-            <div class="card bg-secondary text-white border-light mb-12" v-for="m in filterBy(mantenedores, filtro_head)">
-
+            <div class="card bg-primary text-white border-light" v-for="m in filterBy(mantenedores, filtro_head)">
                <div class="card-header">@{{ m.nom_mantenedor }}</div>
                <div class="img-responsive">
                   {{--<img class="card-img-top" :src="`/img/mosaicomini.jpg`" /><!-- m.imagen_mantenedor ||  -->--}}
@@ -103,10 +101,12 @@
                   </p>
                </div><!-- -card-body -->
                <div class="card-footer">
-                  <a :href="`${m.url_mantenedor}`" class="btn-link">
-                        <i class="fa fa-sign-in"></i>
+                  <form :action="m.url_mantenedor" method="GET">
+                     <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
                         Ingresar
-                  </a>
+                     </button>
+                  </form>
                </div>
             </div><!-- .card -->
 
