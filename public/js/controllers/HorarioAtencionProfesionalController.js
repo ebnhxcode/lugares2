@@ -2397,6 +2397,9 @@ var UsuarioBitacoraServicioController = new Vue({
          'usuarios_bitacora_servicios': [],
          'actividades': [],
          'servicios': [],
+
+         'spinner_table': true,
+
          'datos_excel': [],
          'usuario_auth': [],
 

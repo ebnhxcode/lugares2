@@ -4870,6 +4870,9 @@ var MantenedorController = new Vue({
          'lom': {},
          'lista_objs_model': [],
          'mantenedores': [],
+
+         'spinner_table': true,
+
          'datos_excel': [],
          'usuario_auth': {},
 

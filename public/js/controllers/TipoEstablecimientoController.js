@@ -4894,6 +4894,9 @@ var TipoEstablecimientoController = new Vue({
          'lom': {},
          'lista_objs_model': [],
          'tipos_establecimientos': [],
+
+         'spinner_table': true,
+
          'datos_excel': [],
          'usuario_auth': {},
 

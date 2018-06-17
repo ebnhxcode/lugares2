@@ -4900,6 +4900,9 @@ var TelefonoController = new Vue({
          'lista_objs_model': [],
          'telefonos': [],
          'tipos_telefonos': [],
+
+         'spinner_table': true,
+
          'datos_excel': [],
          'usuario_auth': {},
 

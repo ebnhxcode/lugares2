@@ -4816,6 +4816,9 @@ var CargoController = new Vue({
          'lom': {},
          'lista_objs_model': [],
          'cargos': [],
+
+         'spinner_table': true,
+
          'datos_excel': [],
          'usuario_auth': {},
 
