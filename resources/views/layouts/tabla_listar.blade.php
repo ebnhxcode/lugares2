@@ -62,7 +62,7 @@
                     data-placement="top" data-toggle="tooltip" title="Actualizar desde modal"
                     @click.prevent="mostrar_modal_actualizar(lom[`id_${nombre_model}`])"
                     v-show="id_en_edicion == null">
-               <i class="fa fa-rocket" ></i>
+               <i class="fa fa-eye" ></i>
             </button>
             <button class="btn"
                     data-placement="top" data-toggle="tooltip" title="Dejar de editar"

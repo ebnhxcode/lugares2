@@ -34,6 +34,7 @@
          <p class="control has-icon has-icon-right">
             <select class="custom-select" v-model="establecimiento.id_comuna" name="id_comuna"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
+               <option value="" v-if="establecimiento.id_comuna==null">Debe seleccionar una región</option>
                <option :value="c.id_comuna" v-for="c in comunas" v-if="establecimiento.id_region==c.id_region">
                   @{{ `${c.nom_comuna} -> ${c.det_comuna}` }}
                </option>

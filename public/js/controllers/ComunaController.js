@@ -3103,7 +3103,9 @@ var inyeccion_funciones_compartidas = {
                var formData = new FormData();
                //Conforma objeto paramétrico para solicitud http
                for (var i in _this6.permitido_guardar) {
-                  formData.append('' + _this6.permitido_guardar[i], _this6.$data['' + _this6.nombre_model]['' + _this6.permitido_guardar[i]] || 0);
+                  if (_this6.$data['' + _this6.nombre_model]['' + _this6.permitido_guardar[i]] !== null) {
+                     formData.append('' + _this6.permitido_guardar[i], _this6.$data['' + _this6.nombre_model]['' + _this6.permitido_guardar[i]] || 0);
+                  }
                }
                _this6.$http.post('/' + _this6.nombre_ruta, formData).then(function (response) {
                   // success callback

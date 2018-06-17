@@ -428,7 +428,9 @@ export const inyeccion_funciones_compartidas = {
                var formData = new FormData();
                //Conforma objeto paramétrico para solicitud http
                for (let i in this.permitido_guardar) {
-                  formData.append(`${this.permitido_guardar[i]}`, this.$data[`${this.nombre_model}`][`${this.permitido_guardar[i]}`] || 0);
+                  if (this.$data[`${this.nombre_model}`][`${this.permitido_guardar[i]}`] !== null) {
+                     formData.append(`${this.permitido_guardar[i]}`, this.$data[`${this.nombre_model}`][`${this.permitido_guardar[i]}`] || 0);
+                  }
                }
                this.$http.post(`/${this.nombre_ruta}`, formData).then(response => { // success callback
                   if (response.status == 200) {
