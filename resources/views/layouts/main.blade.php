@@ -228,7 +228,8 @@
                            <select class="custom-select" v-model="filtros.id_comuna" name="id_comuna"
                                    @change.prevent="filtrar_adicional('id_comuna')"
                                    v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
-                              <option value=""></option>
+                              <option value="" v-if="filtros.id_comuna==null">Debe seleccionar una región</option>
+                              <option value="" v-else></option>
                               <option :value="c.id_comuna" v-for="c in comunas" v-if="filtros.id_region==c.id_region">
                                  @{{ `${c.nom_comuna}` }}
                               </option>
