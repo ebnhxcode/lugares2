@@ -56,6 +56,9 @@ const ServicioSaludController = new Vue({
          'lista_objs_model':[],
          'servicios_salud':[],
          'regiones':[],
+
+         'spinner_table':true,
+
          'datos_excel':[],
          'usuario_auth':{},
 

@@ -45,6 +45,9 @@ const DiaSemanaController = new Vue({
          'relaciones_clase':[],
          'lom':{},
          'lista_objs_model':[],
+
+         'spinner_table':true,
+
          'dias_semana':[],
          'datos_excel':[],
          'usuario_auth':{},

@@ -33,9 +33,14 @@ mix.js(
       'public/css/all.css'); // Este archivo se creara y compilara todos los CSS que en el array se encuentren.
 */
 
-
+/*
+* Componentes de utilidad y complementos básicos
+* */
 mix.js('resources/assets/js/components/DownloadExcel.vue','public/js/components/DownloadExcel.vue');
 mix.js('resources/assets/js/components/Paginators.vue','public/js/components/Paginators.vue');
+mix.js('resources/assets/js/components/Spinner.vue','public/js/components/Spinner.vue');
+
+
 mix.js('resources/assets/js/controllers/SideMenuController.js','public/js/controllers/SideMenuController.js');
 mix.js('resources/assets/js/controllers/HomeController.js','public/js/controllers/HomeController.js');
 

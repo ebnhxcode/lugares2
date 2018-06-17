@@ -56,6 +56,8 @@ const HorarioAtencionEstablecimientoController = new Vue({
          'lista_objs_model':[],
          'horarios_atencion_establecimientos':[],
 
+         'spinner_table':true,
+
          'datos_excel':[],
          'usuario_auth':[],
 

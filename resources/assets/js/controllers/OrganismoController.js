@@ -54,6 +54,9 @@ const OrganismoController = new Vue({
          'lista_objs_model':[],
          'organismos':[],
          'tipos_organismos':[],
+
+         'spinner_table':true,
+
          'datos_excel':[],
          'usuario_auth':{},
 

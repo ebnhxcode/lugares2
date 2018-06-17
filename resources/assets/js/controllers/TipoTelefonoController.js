@@ -46,6 +46,9 @@ const TipoTelefonoController = new Vue({
          'lom':{},
          'lista_objs_model':[],
          'tipos_telefonos': [],
+
+         'spinner_table':true,
+
          'datos_excel': [],
          'usuario_auth': {},
 

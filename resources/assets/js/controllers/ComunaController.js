@@ -59,6 +59,9 @@ const ComunaController = new Vue({
          'lista_objs_model':[],
          'comunas':[],
          'regiones':[],
+
+         'spinner_table':true,
+
          'datos_excel':[],
          'usuario_auth':{},
 

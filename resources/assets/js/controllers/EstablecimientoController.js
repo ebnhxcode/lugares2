@@ -11,7 +11,8 @@ import Clipboard from 'v-clipboard';
 Vue.use(Clipboard);
 
 Vue.component('download-excel', require('../components/DownloadExcel.vue'));
-Vue.component('paginators', require('../components/Paginators.vue'));
+
+
 
 const EstablecimientoController = new Vue({
    el: '#EstablecimientoController',
@@ -346,35 +347,8 @@ const EstablecimientoController = new Vue({
    },
    components: {
       //'download-excel': DownloadExcel,
-      'loader': {
-         props: [''],
-         'name': 'loader',
-         'template':`<div class="loader">Loading...</div>`,
-         data () {
-            return {
-            }
-         },
-         ready () {},
-         created(){},
-         filters: {},
-         methods: {},
-      },
-      'spinner': {
-         props: [''],
-         'name': 'spinner',
-         'template': `
-         <div class="loader text-center">Cargando tabla, espere por favor...</div>
-      `,
-         data () {
-            return {
-               visible: false,
-            }
-         },
-         ready () {},
-         created(){},
-         filters: {},
-         methods: {},
-      },
+
+
    },
    created(){
       this.inicializar();

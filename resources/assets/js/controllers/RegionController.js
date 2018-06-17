@@ -51,6 +51,9 @@ const RegionController = new Vue({
          'lom':{},
          'lista_objs_model':[],
          'regiones':[],
+
+         'spinner_table':true,
+
          'datos_excel':[],
          'usuario_auth':{},
 
