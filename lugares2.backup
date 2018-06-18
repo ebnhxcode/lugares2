@@ -5,7 +5,7 @@
 -- Dumped from database version 10.4
 -- Dumped by pg_dump version 10.3
 
--- Started on 2018-06-16 00:27:54 -04
+-- Started on 2018-06-18 00:48:38 -04
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -6882,9 +6882,9 @@ COPY public.tipos_telefonos (id_tipo_telefono, nom_tipo_telefono, det_tipo_telef
 --
 
 COPY public.usuarios (id_usuario, nom_usuario, nom_completo, ape_paterno, ape_materno, username, email, password, remember_token, id_usuario_registra, id_usuario_modifica, created_at, updated_at, deleted_at) FROM stdin;
-9	Victoria	Victoria Garrido	Garrido	null	vgarrido	vgarrido@minsal.cl	$2y$10$zR22y6JR64b7Hzm074Nt2.ZWJ/LLzj75sbTAGYhPzNZDXP/2IEAtG	uia3z9YFnAUQ0WqxS7CFXbmKAwQfB0VekNslS3GsK7IeVo0o3ubRgYIV47nS	\N	\N	2018-03-13 19:13:40	2018-06-15 20:53:43	\N
+31	Desarrollador	Test	Test	Test	test	desarrollo@minsal.cl	$2y$10$gJtHKgxiDSv3iBsqPa/ZKe5T0wdiBDDii1fxhF1GPgzBmWhlkng4a	fr4rZOjl0laMPizUqe5cEBPBb9Zqr1P2UHAodKSDBAWWIMPZuTDq6EI2NsNO	\N	\N	2018-06-15 21:10:50	2018-06-15 21:10:50	\N
+9	Victoria	Victoria Garrido	Garrido	null	vgarrido	vgarrido@minsal.cl	$2y$10$zR22y6JR64b7Hzm074Nt2.ZWJ/LLzj75sbTAGYhPzNZDXP/2IEAtG	EcgyJOMjTbRsGMWAtPahLyxlxEtcG0kMerWeKCDwU14XoHFPOc3oYiDIcAnT	\N	\N	2018-03-13 19:13:40	2018-06-15 20:53:43	\N
 33	Modificador	Modificador	Modificador	Modificador	modificador	modificador@minsal.cl	$2y$10$lWC95Pb6qwgN72RoXfN.fuxad.tHOgxLldxDIyTlAGIWlj1pXf93C	\N	\N	\N	2018-06-15 21:35:18	2018-06-15 21:35:18	\N
-31	Desarrollador	Test	Test	Test	test	desarrollo@minsal.cl	$2y$10$gJtHKgxiDSv3iBsqPa/ZKe5T0wdiBDDii1fxhF1GPgzBmWhlkng4a	VJU2kDW6j9tsSYBcVL1hD9V15Qvo7Moc7o8yAa62R4S8Cjc2lElzPXxy2R0w	\N	\N	2018-06-15 21:10:50	2018-06-15 21:10:50	\N
 32	Creador	0	Creador	Creador	creador	creador@minsal.cl	$2y$10$/mQg0OIsB.0CN.qp03FCM.f2O2uyKOeZlmjPg2tz.hKVQ.udUC0qq	TH1c2EmooGmFakh9jxAsmh69KH74iejHEU43yxwgvLGI3HyOIXmDu92EEDmq	\N	\N	2018-06-15 21:34:39	2018-06-15 21:34:39	\N
 \.
 
@@ -7718,7 +7718,7 @@ ALTER TABLE ONLY public.usuarios_roles
 CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
 
 
--- Completed on 2018-06-16 00:27:55 -04
+-- Completed on 2018-06-18 00:48:38 -04
 
 --
 -- PostgreSQL database dump complete
