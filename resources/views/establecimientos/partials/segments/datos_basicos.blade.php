@@ -54,11 +54,12 @@
       <dt>Tipo establecimiento</dt>
       <dd>
          <p class="control has-icon has-icon-right">
-            <select class="custom-select" v-model="establecimiento.id_tipo_establecimiento"
-                    name="id_tipo_establecimiento"
-                    v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
+            <select v-model="establecimiento.id_tipo_establecimiento" name="id_tipo_establecimiento"
+                    v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500"
+                    class="custom-select">
                <option :value="t.id_tipo_establecimiento" v-for="t in tipos_establecimientos">
-                  @{{ `${t.nom_tipo_establecimiento} -> ${t.det_tipo_establecimiento}` }}
+                  @{{ `${t.nom_tipo_establecimiento}` }}
+                  {{-- -> ${t.det_tipo_establecimiento}--}}
                </option>
             </select>
 

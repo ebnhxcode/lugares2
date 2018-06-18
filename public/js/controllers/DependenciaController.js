@@ -3065,7 +3065,9 @@ var inyeccion_funciones_compartidas = {
 
          //Ejecuta validacion sobre los campos con validaciones
          //console.log(this.validar_campos());
+         console.log(this.establecimiento);
          this.$validator.validateAll().then(function (res) {
+            console.log(res);
             if (res == true) {
                //Se adjunta el token
                Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();

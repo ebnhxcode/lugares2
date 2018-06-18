@@ -110,9 +110,11 @@
          <p class="control has-icon has-icon-right">
             <select class="custom-select" v-model="establecimiento.id_organismo" name="id_organismo"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
+               <option value="" v-if="establecimiento.id_tipo_organismo==null">Debe seleccionar un organismo</option>
                <option :value="to.id_organismo" v-for="to in organismos"
                        v-if="establecimiento.id_tipo_organismo==to.id_tipo_organismo">
-                  @{{ `${to.nom_organismo} -> ${to.det_organismo}` }}
+                  @{{ `${to.nom_organismo}` }}
+                  {{-- -> ${to.det_organismo}--}}
                </option>
             </select>
 

@@ -16,6 +16,7 @@
    </tr>
    </thead>
    <tbody>
+
    <tr class="text-center" v-for="lom in filterBy(lista_objs_model, filtro_head)"
        {{--@dblclick.prevent="editar(lom[`id_${nombre_model}`])"--}}>
       <template v-if="id_en_edicion != lom[`id_${nombre_model}`] || modal_actualizar_activo == true">

@@ -420,7 +420,9 @@ export const inyeccion_funciones_compartidas = {
       guardar: function () {
          //Ejecuta validacion sobre los campos con validaciones
          //console.log(this.validar_campos());
+         console.log(this.establecimiento);
          this.$validator.validateAll().then( res => {
+            console.log(res);
             if (res == true) {
                //Se adjunta el token
                Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();

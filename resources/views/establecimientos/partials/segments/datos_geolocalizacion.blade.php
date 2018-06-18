@@ -8,7 +8,8 @@
             <select class="custom-select" v-model="establecimiento.id_region" name="id_region"
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option :value="r.id_region" v-for="r in regiones">
-                  @{{ `${r.nom_region} -> ${r.det_region}` }}
+                  @{{ `${r.nom_region}` }}
+                  {{-- -> ${r.det_region}--}}
                </option>
             </select>
 
@@ -36,7 +37,8 @@
                     v-validate="{required:true,regex:/^[0-9]+$/i}" data-vv-delay="500">
                <option value="" v-if="establecimiento.id_comuna==null">Debe seleccionar una región</option>
                <option :value="c.id_comuna" v-for="c in comunas" v-if="establecimiento.id_region==c.id_region">
-                  @{{ `${c.nom_comuna} -> ${c.det_comuna}` }}
+                  @{{ `${c.nom_comuna}` }}
+                  {{-- -> ${c.det_comuna}--}}
                </option>
             </select>
 
