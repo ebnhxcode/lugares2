@@ -12,8 +12,6 @@ Vue.use(Clipboard);
 
 Vue.component('download-excel', require('../components/DownloadExcel.vue'));
 
-
-
 const EstablecimientoController = new Vue({
    el: '#EstablecimientoController',
    data(){

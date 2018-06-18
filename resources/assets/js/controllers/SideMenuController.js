@@ -107,6 +107,9 @@ Vue.use(ToggleButton);
 Vue.component('spinner', require('../components/Spinner.vue'));
 Vue.component('paginators', require('../components/Paginators.vue'));
 
+
+//Vue.component('vue-xlsx-table', require('../components/vueXlsxTable.vue'));
+
 /*
 import tinymce from 'tinymce/tinymce'
 import 'tinymce/themes/modern/theme'

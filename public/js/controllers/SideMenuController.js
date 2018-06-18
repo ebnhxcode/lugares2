@@ -47875,6 +47875,8 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_5_vue_js_toggle_button___default.a);
 Vue.component('spinner', __webpack_require__(29));
 Vue.component('paginators', __webpack_require__(8));
 
+//Vue.component('vue-xlsx-table', require('../components/vueXlsxTable.vue'));
+
 /*
 import tinymce from 'tinymce/tinymce'
 import 'tinymce/themes/modern/theme'
