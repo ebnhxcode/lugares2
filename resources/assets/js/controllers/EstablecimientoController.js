@@ -42,6 +42,7 @@ const EstablecimientoController = new Vue({
             'estado_actualizacion':null,
             'observaciones_horario_atencion':null,
             'observaciones_horario_visita':null,
+            'observaciones_horario_profesionales':null,
 
             'id_establecimiento_antiguo':null,
 
@@ -107,6 +108,7 @@ const EstablecimientoController = new Vue({
             'id_establecimiento_antiguo',
             'observaciones_horario_atencion',
             'observaciones_horario_visita',
+            'observaciones_horario_profesionales',
 
             'id_tipo_establecimiento',
             'id_servicio_salud',
@@ -222,7 +224,8 @@ const EstablecimientoController = new Vue({
             'estado_actualizacion':'Estado del registro',
             'id_establecimiento_antiguo':'Id establecimiento antiguo',
             'observaciones_horario_atencion':'Observaciones horario atención',
-            'observaciones_horario_visita':'observaciones horario visita',
+            'observaciones_horario_visita':'Observaciones horario visita',
+            'observaciones_horario_profesionales':'Observaciones horario profesionales',
 
             'id_tipo_establecimiento':'Id Tipo Establecimiento',
             'nom_tipo_establecimiento':'Nombre Tipo Establecimiento',
@@ -265,6 +268,7 @@ const EstablecimientoController = new Vue({
             'nom_tipo_establecimiento':'String',
             'observaciones_horario_atencion':'String',
             'observaciones_horario_visita':'String',
+            'observaciones_horario_profesionales':'String',
             //'id_servicio_salud':'String',
             //'nom_servicio_salud':'String',
             //'id_dependencia':'String',
@@ -323,6 +327,7 @@ const EstablecimientoController = new Vue({
                'nom_tipo_establecimiento': establecimiento.nom_tipo_establecimiento || '-',
                'observaciones_horario_atencion': establecimiento.observaciones_horario_atencion || '-',
                'observaciones_horario_visita': establecimiento.observaciones_horario_visita || '-',
+               'observaciones_horario_profesionales': establecimiento.observaciones_horario_profesionales || '-',
                //'id_servicio_salud': establecimiento.id_servicio_salud || '-',
                //'nom_servicio_salud': establecimiento.nom_servicio_salud || '-',
                //'id_dependencia': establecimiento.id_dependencia || '-',

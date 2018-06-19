@@ -31,6 +31,7 @@ class Establecimiento extends Model {
       'estado_actualizacion',
       'observaciones_horario_atencion',
       'observaciones_horario_visita',
+      'observaciones_horario_profesionales',
 
       # relaciones -> pks
 

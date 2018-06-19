@@ -1,7 +1,7 @@
 <h5>EXTENSIÓN HORARIA</h5>
 <div class="row">
 
-   <div class="col-sm-1 col-md-1">
+   <div class="col-sm-12 col-md-4">
 
       <dt>Extensión Horaria</dt>
       <dd>
@@ -25,21 +25,16 @@
          </p>
       </dd>
 
-
    </div><!-- .col -->
-
-
-
-
-
 
 </div><!-- .row -->
 
+<hr>
 
-<h5 v-if="establecimiento.ext_horaria=='si'">HORARIO DE ANTENCIÓN DE PROFESIONALES</h5>
 <div class="row" v-if="establecimiento.ext_horaria=='si'">
 
-   <div class="col-sm-6 col-md-6">
+   <div class="col-sm-12 col-md-6">
+      <h5>HORARIO DE ANTENCIÓN DE PROFESIONALES</h5>
       <div class="row">
 
          <div class="col-sm-12 col-md-12">
@@ -158,11 +153,38 @@
          </div>
 
       </div>
+
+      <hr>
+
+      <div class="row">
+         <div class="col-sm-12 col-md-12">
+            <dt>Observaciones generales para horario de atención</dt>
+            <dd>
+
+               <p class="control has-icon has-icon-right">
+            <textarea cols="15" rows="1" v-model="establecimiento.observaciones_horario_profesionales" name="observaciones_horario_profesionales"
+                      v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
+                      class="form-control"></textarea>
+
+                  <transition name="bounce">
+                     <i v-show="errors.has('observaciones_horario_profesionales')" class="fa fa-exclamation-circle"></i>
+                  </transition>
+
+                  <transition name="bounce">
+               <span v-show="errors.has('observaciones_horario_profesionales')" class="text-danger small">
+                  @{{ errors.first('observaciones_horario_profesionales') }}
+               </span>
+                  </transition>
+               </p>
+            </dd>
+         </div><!-- .col -->
+      </div>
+
    </div>
 
 
 
-   <div class="col-sm-6 col-md-6">
+   <div class="col-sm-12 col-md-6">
       <h5>HORARIOS DE ATENCIÓN DISPONIBLES</h5>
       <div class="table-responsive">
 

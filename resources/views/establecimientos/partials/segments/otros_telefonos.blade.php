@@ -1,7 +1,7 @@
 <h5>OTROS TELÉFONOS</h5>
 <div class="row" v-if="modal_actualizar_activo==true">
 
-   <div class="col-md-6">
+   <div class="col-md-6 col-md-6">
       <div class="row">
 
          <div class="col-sm-4 col-md-4">
@@ -110,7 +110,7 @@
       </div>
    </div>
 
-   <div class="col-sm-6 col-md-6">
+   <div class="col-sm-12 col-md-6">
       <h5>LISTA DE TELÉFONOS</h5>
       <div class="table-responsive">
          <table class="table table-striped table-hover table-sm" v-if="establecimiento.telefonos && establecimiento.telefonos.length > 0">

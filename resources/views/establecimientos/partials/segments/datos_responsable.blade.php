@@ -1,6 +1,6 @@
 <h5>DATOS DEL RESPONSABLE</h5>
 <div class="row">
-   <div class="col-sm-4 col-md-4">
+   <div class="col-sm-12 col-md-6">
 
       <dt>Nombre responsable</dt>
       <dd>

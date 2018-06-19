@@ -207,6 +207,7 @@ class EstablecimientoController extends Controller {
          #'id_establecimiento_antiguo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'observaciones_horario_atencion' => "nullable|regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u",
          'observaciones_horario_visita' => "nullable|regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u",
+         'observaciones_horario_profesionales' => "nullable|regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u",
 
          'id_tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
          'id_servicio_salud' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
@@ -241,6 +242,9 @@ class EstablecimientoController extends Controller {
          'fecha_cierre' => $this->establecimiento['fecha_cierre'],
          'estado_actualizacion' => 'nuevo',
          'id_establecimiento_antiguo' => $this->establecimiento['id_establecimiento_antiguo'],
+         'observaciones_horario_atencion' => $this->establecimiento['observaciones_horario_atencion'],
+         'observaciones_horario_visita' => $this->establecimiento['observaciones_horario_visita'],
+         'observaciones_horario_profesionales' => $this->establecimiento['observaciones_horario_profesionales'],
 
          'id_tipo_establecimiento' => $this->establecimiento['id_tipo_establecimiento'],
          'id_servicio_salud' => $this->establecimiento['id_servicio_salud'],
@@ -283,6 +287,7 @@ class EstablecimientoController extends Controller {
          #'id_establecimiento_antiguo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'observaciones_horario_atencion' => "nullable|regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u",
          'observaciones_horario_visita' => "nullable|regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u",
+         'observaciones_horario_profesionales' => "nullable|regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u",
 
          'id_tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'id_servicio_salud' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",

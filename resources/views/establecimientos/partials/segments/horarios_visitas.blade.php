@@ -1,7 +1,7 @@
 <h5>HORARIO DE VISITAS</h5>
 <div class="row">
 
-   <div class="col-sm-6 col-md-6">
+   <div class="col-sm-12 col-md-6">
       <div class="row">
 
          <div class="col-sm-4 col-md-4">
@@ -91,12 +91,14 @@
             </dd>
          </div>
 
-         <hr>
-         <br>
-         <br>
 
+      </div>
+
+      <hr>
+
+      <div class="row">
          <div class="col-sm-12 col-md-12">
-            <dt>Observaciones para horario de visita</dt>
+            <dt>Observaciones generales para horario de visita</dt>
             <dd>
 
                <p class="control has-icon has-icon-right">
@@ -116,13 +118,12 @@
                </p>
             </dd>
          </div><!-- .col -->
-
       </div>
    </div>
 
 
 
-   <div class="col-sm-6 col-md-6">
+   <div class="col-sm-12 col-md-6">
       <h5>HORARIOS DE VISITA DISPONIBLES</h5>
       <div class="table-responsive">
 

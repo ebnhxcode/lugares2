@@ -1,7 +1,7 @@
 <h5>DATOS DE CONTACTO</h5>
 <div class="row">
 
-   <div class="col-sm-2 col-md-2">
+   <div class="col-sm-12 col-md-2">
       <dt>Código área Fax</dt>
       <dd>
          <p class="control has-icon has-icon-right">
@@ -22,7 +22,7 @@
       </dd>
    </div><!-- .col -->
 
-   <div class="col-sm-4 col-md-4">
+   <div class="col-sm-12 col-md-2">
       <dt>Fax</dt>
       <dd>
          <p class="control has-icon has-icon-right">
@@ -43,7 +43,7 @@
       </dd>
    </div><!-- .col -->
 
-   <div class="col-sm-4 col-md-4">
+   <div class="col-sm-12 col-md-4">
       <dt>Email</dt>
       <dd>
          <p class="control has-icon has-icon-right">
@@ -64,7 +64,7 @@
       </dd>
    </div><!-- .col -->
 
-   <div class="col-sm-4 col-md-4">
+   <div class="col-sm-12 col-md-4">
       <dt>Sitio web</dt>
       <dd>
          <p class="control has-icon has-icon-right">

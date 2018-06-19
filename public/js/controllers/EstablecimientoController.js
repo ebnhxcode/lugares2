@@ -4241,6 +4241,7 @@ var EstablecimientoController = new Vue({
             'estado_actualizacion': null,
             'observaciones_horario_atencion': null,
             'observaciones_horario_visita': null,
+            'observaciones_horario_profesionales': null,
 
             'id_establecimiento_antiguo': null,
 
@@ -4289,7 +4290,7 @@ var EstablecimientoController = new Vue({
             'hora_termino_profesional': null
          },
 
-         'permitido_guardar': ['id_establecimiento', 'nom_establecimiento', 'observaciones', 'nom_direccion', 'num_calle', 'nom_responsable', 'sitio_web', 'email', 'cod_area_fax', 'fax', 'ext_horaria', 'vigencia_desde', 'fecha_cierre', 'id_establecimiento_antiguo', 'observaciones_horario_atencion', 'observaciones_horario_visita', 'id_tipo_establecimiento', 'id_servicio_salud', 'id_dependencia', 'id_organismo', 'id_region', 'id_comuna'],
+         'permitido_guardar': ['id_establecimiento', 'nom_establecimiento', 'observaciones', 'nom_direccion', 'num_calle', 'nom_responsable', 'sitio_web', 'email', 'cod_area_fax', 'fax', 'ext_horaria', 'vigencia_desde', 'fecha_cierre', 'id_establecimiento_antiguo', 'observaciones_horario_atencion', 'observaciones_horario_visita', 'observaciones_horario_profesionales', 'id_tipo_establecimiento', 'id_servicio_salud', 'id_dependencia', 'id_organismo', 'id_region', 'id_comuna'],
          'relaciones_clase': [{ 'tipo_establecimiento': ['id_tipo_establecimiento', 'nom_tipo_establecimiento'] }, { 'servicio_salud': ['id_servicio_salud', 'nom_servicio_salud'] }, { 'dependencia': ['id_dependencia', 'nom_dependencia'] }, { 'organismo': ['id_organismo', 'nom_organismo'] }, { 'region': ['id_region', 'nom_region'] }, { 'comuna': ['id_comuna', 'nom_comuna'] }],
          'lom': {},
          'lista_objs_model': [],
@@ -4390,7 +4391,8 @@ var EstablecimientoController = new Vue({
             'estado_actualizacion': 'Estado del registro',
             'id_establecimiento_antiguo': 'Id establecimiento antiguo',
             'observaciones_horario_atencion': 'Observaciones horario atención',
-            'observaciones_horario_visita': 'observaciones horario visita',
+            'observaciones_horario_visita': 'Observaciones horario visita',
+            'observaciones_horario_profesionales': 'Observaciones horario profesionales',
 
             'id_tipo_establecimiento': 'Id Tipo Establecimiento',
             'nom_tipo_establecimiento': 'Nombre Tipo Establecimiento',
@@ -4433,6 +4435,7 @@ var EstablecimientoController = new Vue({
             'nom_tipo_establecimiento': 'String',
             'observaciones_horario_atencion': 'String',
             'observaciones_horario_visita': 'String',
+            'observaciones_horario_profesionales': 'String',
             //'id_servicio_salud':'String',
             //'nom_servicio_salud':'String',
             //'id_dependencia':'String',
@@ -4495,6 +4498,7 @@ var EstablecimientoController = new Vue({
                'nom_tipo_establecimiento': establecimiento.nom_tipo_establecimiento || '-',
                'observaciones_horario_atencion': establecimiento.observaciones_horario_atencion || '-',
                'observaciones_horario_visita': establecimiento.observaciones_horario_visita || '-',
+               'observaciones_horario_profesionales': establecimiento.observaciones_horario_profesionales || '-',
                //'id_servicio_salud': establecimiento.id_servicio_salud || '-',
                //'nom_servicio_salud': establecimiento.nom_servicio_salud || '-',
                //'id_dependencia': establecimiento.id_dependencia || '-',

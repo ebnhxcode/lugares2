@@ -144,7 +144,7 @@
 
                   <h5>FILTROS POR REFERENCIA</h5>
                   <br>
-                  <div class="row">
+                  <div class="row" v-if="typeof spinner_table != 'undefined' && spinner_table == false">
                      <div class="col-md-6 col-lg-6" v-for="c,key,i in tabla_campos" v-if="c.visibility == true">
                         @{{ tabla_labels[key] }}
                         <input type="text" class="form-control input-sm"
@@ -153,6 +153,7 @@
 
                      </div>
                   </div>
+                  <spinner v-else></spinner>
 
                   <br>
                </div>
@@ -211,7 +212,7 @@
 
                      <h5>OTROS FILTROS {{--ADICIONALES--}}</h5>
                      <br>
-                     <div class="row">
+                     <div class="row" v-if="typeof spinner_table != 'undefined' && spinner_table == false">
                         <div class="col-md-6 col-lg-6">
                            Filtro por Región
                            <select class="custom-select" v-model="filtros.id_region" name="id_region"
@@ -258,6 +259,8 @@
                            </select>
                         </div>
                      </div>
+                     <spinner v-else></spinner>
+
                      {{--@if(in_array(Request::path(), ['establecimientos']))@endif--}}
                   </div>
                </div>

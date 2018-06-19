@@ -1,7 +1,7 @@
 <h5>DATOS DE UBICACIÓN</h5>
 <div class="row">
 
-   <div class="col-sm-4 col-md-4">
+   <div class="col-sm-12 col-md-8">
 
       <dt>Calle</dt>
       <dd>
@@ -25,7 +25,7 @@
 
    </div><!-- .col -->
 
-   <div class="col-sm-4 col-md-4">
+   <div class="col-sm-12 col-md-4">
 
       <dt>Número Ej: 1234-B</dt>
       <dd>
@@ -49,7 +49,7 @@
 
    </div><!-- .col -->
 
-   <div class="col-sm-4 col-md-4">
+   <div class="col-sm-12 col-md-4">
 
       <dt>Dependencia</dt>
       <dd>
@@ -76,7 +76,7 @@
 
    </div><!-- .col -->
 
-   <div class="col-sm-4 col-md-4">
+   <div class="col-sm-12 col-md-4">
 
       <dt>Tipo organismo</dt>
       <dd>
@@ -103,7 +103,7 @@
 
    </div><!-- .col -->
 
-   <div class="col-sm-4 col-md-4">
+   <div class="col-sm-12 col-md-4">
 
       <dt>Organismo</dt>
       <dd>
