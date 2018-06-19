@@ -76,6 +76,11 @@
 
    </div><!-- .col -->
 
+
+
+   {{--
+   Se deja comentado hasta que sea requerido incluir en el formulario, para descomentar eliminar los {{ -- -- }}
+
    <div class="col-sm-12 col-md-4">
 
       <dt>Tipo organismo</dt>
@@ -114,7 +119,6 @@
                <option :value="to.id_organismo" v-for="to in organismos"
                        v-if="establecimiento.id_tipo_organismo==to.id_tipo_organismo">
                   @{{ `${to.nom_organismo}` }}
-                  {{-- -> ${to.det_organismo}--}}
                </option>
             </select>
 
@@ -132,4 +136,5 @@
       </dd>
 
    </div><!-- .col -->
+   --}}
 </div><!-- .row -->

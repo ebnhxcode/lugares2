@@ -507,6 +507,8 @@ const EstablecimientoController = new Vue({
                         'cod_area':null,
                      };
                      this.establecimiento.telefonos.push(response.body.telefono);
+                     this.$validator.clean();
+                     //this.errors.clear();
 
                   } else {
                      this.checkear_estado_respuesta_http(response.status);
@@ -562,6 +564,7 @@ const EstablecimientoController = new Vue({
                         'id_dia_atencion',
                         'asc'
                      );
+                     this.$validator.clean();
 
                   } else {
                      this.checkear_estado_respuesta_http(response.status);
@@ -656,6 +659,8 @@ const EstablecimientoController = new Vue({
                         'id_dia_visita',
                         'asc'
                      );
+
+                     this.$validator.clean();
 
                   } else {
                      this.checkear_estado_respuesta_http(response.status);
@@ -753,6 +758,8 @@ const EstablecimientoController = new Vue({
                         'id_dia_profesional',
                         'asc'
                      );
+
+                     this.$validator.clean();
 
                   } else {
                      this.checkear_estado_respuesta_http(response.status);
