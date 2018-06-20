@@ -16,7 +16,7 @@
 
       <dt>Guardar para finalizar</dt>
       <dd>
-         <button class="btn btn-success" @click.prevent="guardar">
+         <button class="btn btn-success float-left" @click.prevent="guardar">
             Guardar
          </button>
          <button class="btn float-right" @click.prevent="limpiar_objeto_clase_local">

@@ -127,7 +127,7 @@ class EstablecimientoController extends Controller {
             'regiones' => $this->regiones,
             'comunas' => $this->comunas,
             'dias_semana' => $this->dias_semana,
-            'usuario_auth' => $this->usuario_auth,
+            'usuario_auth' => $this->usuario_auth->load('usuario_role.role'),
          ]);
       }
    }
@@ -212,7 +212,7 @@ class EstablecimientoController extends Controller {
          'id_tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
          'id_servicio_salud' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
          'id_dependencia' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
-         'id_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
+         #'id_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
          'id_region' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
          'id_comuna' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&]+)(\d+)?$)/u|max:255",
       ]);
@@ -249,7 +249,7 @@ class EstablecimientoController extends Controller {
          'id_tipo_establecimiento' => $this->establecimiento['id_tipo_establecimiento'],
          'id_servicio_salud' => $this->establecimiento['id_servicio_salud'],
          'id_dependencia' => $this->establecimiento['id_dependencia'],
-         'id_organismo' => $this->establecimiento['id_organismo'],
+         #'id_organismo' => $this->establecimiento['id_organismo'],
          'id_region' => $this->establecimiento['id_region'],
          'id_comuna' => $this->establecimiento['id_comuna'],
 
@@ -292,7 +292,7 @@ class EstablecimientoController extends Controller {
          'id_tipo_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'id_servicio_salud' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'id_dependencia' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
-         'id_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         #'id_organismo' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'id_region' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'id_comuna' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
       ]);

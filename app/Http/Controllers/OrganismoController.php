@@ -61,7 +61,7 @@ class OrganismoController extends Controller {
             'status' => 200,
             'organismos' => $this->organismos,
             'tipos_organismos' => $this->tipos_organismos,
-            'usuario_auth' => $this->usuario_auth,
+            'usuario_auth' => $this->usuario_auth->load('usuario_role.role'),
          ]);
       }
    }

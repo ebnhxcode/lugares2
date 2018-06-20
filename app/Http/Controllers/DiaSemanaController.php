@@ -57,7 +57,7 @@ class DiaSemanaController extends Controller {
          return response()->json([
             'status' => 200,
             'dias_semana' => $this->dias_semana,
-            'usuario_auth' => $this->usuario_auth,
+            'usuario_auth' => $this->usuario_auth->load('usuario_role.role'),
          ]);
       }
    }

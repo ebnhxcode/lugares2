@@ -61,7 +61,7 @@ class ServicioSaludController extends Controller {
             'status' => 200,
             'servicios_salud' => $this->servicios_salud,
             'regiones' => $this->regiones,
-            'usuario_auth' => $this->usuario_auth,
+            'usuario_auth' => $this->usuario_auth->load('usuario_role.role'),
          ]);
       }
    }

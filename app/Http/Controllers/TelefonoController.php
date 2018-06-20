@@ -66,7 +66,7 @@ class TelefonoController extends Controller {
             'telefonos' => $this->telefonos,
             'tipos_telefonos' => $this->tipos_telefonos,
             'establecimientos' => $this->establecimientos,
-            'usuario_auth' => $this->usuario_auth,
+            'usuario_auth' => $this->usuario_auth->load('usuario_role.role'),
          ]);
       }
    }

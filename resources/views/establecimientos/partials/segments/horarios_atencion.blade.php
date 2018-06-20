@@ -62,8 +62,10 @@
             <dt>Hora de Término</dt>
             <dd>
                <p class="control has-icon has-icon-right">
-                  <input type="time" v-model="horario_atencion_establecimiento.hora_termino_atencion" name="hora_termino_atencion"
-                         v-validate="{required:true,regex:/^[0-9_ :]+$/i}" data-vv-delay="500"
+                  <input type="time" v-model="horario_atencion_establecimiento.hora_termino_atencion"
+                         name="hora_termino_atencion"
+                         v-validate="{required:true,regex:/^[0-9_ :]+$/i}"
+                         data-vv-delay="500"
                          class="form-control"/>
 
                   <transition name="bounce">
@@ -87,8 +89,12 @@
             <dt>Obervaciones</dt>
             <dd>
                <p class="control has-icon has-icon-right">
-                  <textarea cols="15" rows="1" v-model="horario_atencion_establecimiento.obs_atencion_establecimiento" name="obs_atencion_establecimiento"
-                            v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
+                  <textarea cols="15"
+                            rows="1"
+                            v-model="horario_atencion_establecimiento.obs_atencion_establecimiento"
+                            name="obs_atencion_establecimiento"
+                            v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+$/i}"
+                            data-vv-delay="500"
                             class="form-control"></textarea>
 
                   <transition name="bounce">
@@ -171,7 +177,7 @@
                <td>@{{ h.obs_atencion_establecimiento }}</td>
                <td>
                   <button class="btn btn-danger"
-                          v-if="en_array(['Administrador','Jefe de Area','Lider Equipo','App Manager'],usuario_auth.usuario_role.role.nom_role)"
+                          v-if="usuario_auth.usuario_role&&en_array(['Administrador','Jefe de Area','Lider Equipo','App Manager'],usuario_auth.usuario_role.role.nom_role)"
                           @click.prevent="eliminar_horario_atencion(h.id_horario_atencion_establecimiento)"
                           data-placement="top" data-toggle="tooltip" title="Quitar">
                      <i class="fa fa-close"></i>

@@ -61,7 +61,7 @@ class ComunaController extends Controller {
             'status' => 200,
             'comunas' => $this->comunas,
             'regiones' => $this->regiones,
-            'usuario_auth' => $this->usuario_auth,
+            'usuario_auth' => $this->usuario_auth->load('usuario_role.role'),
          ]);
       }
    }

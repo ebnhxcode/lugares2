@@ -77,7 +77,7 @@ class TipoProfesionalController extends Controller {
          return response()->json([
             'status' => 200,
             'tipos_profesionales' => $this->tipos_profesionales,
-            'usuario_auth' => $this->usuario_auth,
+            'usuario_auth' => $this->usuario_auth->load('usuario_role.role'),
          ]);
       }
    }

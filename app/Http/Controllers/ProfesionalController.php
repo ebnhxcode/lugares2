@@ -71,7 +71,7 @@ class ProfesionalController extends Controller {
             'tipos_profesionales' => $this->tipos_profesionales,
             'cargos' => $this->cargos,
             'estados' => $this->estados,
-            'usuario_auth' => $this->usuario_auth,
+            'usuario_auth' => $this->usuario_auth->load('usuario_role.role'),
          ]);
       }
    }

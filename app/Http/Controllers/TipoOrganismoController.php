@@ -77,7 +77,7 @@ class TipoOrganismoController extends Controller {
          return response()->json([
             'status' => 200,
             'tipos_organismos' => $this->tipos_organismos,
-            'usuario_auth' => $this->usuario_auth,
+            'usuario_auth' => $this->usuario_auth->load('usuario_role.role'),
          ]);
       }
    }
