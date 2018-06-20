@@ -272,7 +272,7 @@ class EstablecimientoController extends Controller {
       #Se realiza validacion de los parametros de entrada que vienen desde el formulario
       $this->validacion = Validator::make($request->all(), [
          'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
-         'nom_establecimiento' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
+         'nom_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.\-áéíóúñÁÉÍÓÚÑ()]+)(\d+)?$)/u|required|max:255",
          'observaciones' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_direccion' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_responsable' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
