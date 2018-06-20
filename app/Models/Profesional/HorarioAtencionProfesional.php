@@ -16,6 +16,7 @@ class HorarioAtencionProfesional extends Model {
       # columns
       'hora_inicio_profesional',
       'hora_termino_profesional',
+      'obs_atencion_profesional',
 
       # relaciones -> pks
       'id_establecimiento',

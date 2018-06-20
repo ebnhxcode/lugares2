@@ -16,6 +16,7 @@ class HorarioVisitaEstablecimiento extends Model {
       # columns
       'hora_inicio_visita',
       'hora_termino_visita',
+      'obs_visita_establecimiento',
 
       # relaciones -> pks
       'id_establecimiento',

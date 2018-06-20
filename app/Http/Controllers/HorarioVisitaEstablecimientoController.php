@@ -70,6 +70,7 @@ class HorarioVisitaEstablecimientoController extends Controller {
          'id_dia_visita' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'hora_inicio_visita' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
          'hora_termino_visita' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
+         'obs_visita_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -87,6 +88,7 @@ class HorarioVisitaEstablecimientoController extends Controller {
          'id_dia_visita' => $this->horario_visita_establecimiento['id_dia_visita'],
          'hora_inicio_visita' => $this->horario_visita_establecimiento['hora_inicio_visita'],
          'hora_termino_visita' => $this->horario_visita_establecimiento['hora_termino_visita'],
+         'obs_visita_establecimiento' => $this->horario_visita_establecimiento['obs_visita_establecimiento'],
          'id_usuario_registra' => Auth::user()->id_usuario,
          'id_usuario_modifica' => Auth::user()->id_usuario,
       ]);
@@ -110,6 +112,7 @@ class HorarioVisitaEstablecimientoController extends Controller {
          'id_dia_visita' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'hora_inicio_visita' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
          'hora_termino_visita' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
+         'obs_visita_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
       ]);
       #Valida si la informacion que se envia para editar al horario_visita_establecimiento son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {

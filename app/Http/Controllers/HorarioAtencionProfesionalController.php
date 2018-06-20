@@ -70,6 +70,7 @@ class HorarioAtencionProfesionalController extends Controller {
          'id_dia_profesional' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'hora_inicio_profesional' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
          'hora_termino_profesional' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
+         'obs_atencion_profesional' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
       ]);
       #Se valida la respuesta con la salida de la validacion
       if ($this->validacion->fails() == true) {
@@ -88,6 +89,7 @@ class HorarioAtencionProfesionalController extends Controller {
          'id_dia_profesional' => $this->horario_atencion_profesional['id_dia_profesional'],
          'hora_inicio_profesional' => $this->horario_atencion_profesional['hora_inicio_profesional'],
          'hora_termino_profesional' => $this->horario_atencion_profesional['hora_termino_profesional'],
+         'obs_atencion_profesional' => $this->horario_atencion_profesional['obs_atencion_profesional'],
          'id_usuario_registra' => Auth::user()->id_usuario,
          'id_usuario_modifica' => Auth::user()->id_usuario,
       ]);
@@ -112,6 +114,7 @@ class HorarioAtencionProfesionalController extends Controller {
          'id_dia_profesional' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'hora_inicio_profesional' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
          'hora_termino_profesional' => "regex:/(^([0-9_ :]+)(\d+)?$)/u|required|max:255",
+         'obs_atencion_profesional' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
       ]);
       #Valida si la informacion que se envia para editar al horario_atencion_profesional son iguales los ids
       if ($id != $request["id_$this->nombre_modelo"]) {

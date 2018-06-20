@@ -32,7 +32,7 @@
 
          </div><!-- .col -->
 
-         <div class="col-sm-3 col-md-3">
+         <div class="col-sm-4 col-md-4">
 
             <dt>Hora de Inicio</dt>
             <dd>
@@ -57,7 +57,7 @@
 
          </div><!-- .col -->
 
-         <div class="col-sm-3 col-md-3">
+         <div class="col-sm-4 col-md-4">
 
             <dt>Hora de Término</dt>
             <dd>
@@ -73,6 +73,31 @@
                   <transition name="bounce">
                <span v-show="errors.has('hora_termino_visita')" class="text-danger small">
                   @{{ errors.first('hora_termino_visita') }}
+               </span>
+                  </transition>
+               </p>
+
+            </dd>
+
+
+         </div><!-- .col -->
+
+         <div class="col-sm-10 col-md-10">
+
+            <dt>Obervaciones</dt>
+            <dd>
+               <p class="control has-icon has-icon-right">
+                  <textarea cols="15" rows="1" v-model="horario_visita_establecimiento.obs_visita_establecimiento" name="obs_visita_establecimiento"
+                            v-validate="{regex:/^[a-zA-Z0-9_ ,.!@#$%*&-áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
+                            class="form-control"></textarea>
+
+                  <transition name="bounce">
+                     <i v-show="errors.has('obs_visita_establecimiento')" class="fa fa-exclamation-circle"></i>
+                  </transition>
+
+                  <transition name="bounce">
+               <span v-show="errors.has('obs_visita_establecimiento')" class="text-danger small">
+                  @{{ errors.first('obs_visita_establecimiento') }}
                </span>
                   </transition>
                </p>
@@ -131,19 +156,19 @@
                 v-if="establecimiento.horarios_visita_establecimientos && establecimiento.horarios_visita_establecimientos.length > 0">
             <thead>
             <tr>
-               <th>Nombre Establecimiento</th>
                <th>Día</th>
                <th>Hora Inicio</th>
                <th>Hora Término</th>
+               <th>Observaciones</th>
                <th>Acción</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="h in establecimiento.horarios_visita_establecimientos">
-               <td>@{{ h.establecimiento.nom_establecimiento }}</td>
                <td>@{{ h.dia.nom_dia_semana }}</td>
                <td>@{{ h.hora_inicio_visita || 'Sin definir' }}</td>
                <td>@{{ h.hora_termino_visita || 'Sin definir' }}</td>
+               <td>@{{ h.obs_visita_establecimiento }}</td>
                <td>
                   <button class="btn btn-danger"
                           v-if="en_array(['Administrador','Jefe de Area','Lider Equipo','App Manager'],usuario_auth.usuario_role.role.nom_role)"

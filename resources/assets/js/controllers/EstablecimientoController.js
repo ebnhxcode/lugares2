@@ -76,12 +76,14 @@ const EstablecimientoController = new Vue({
             'id_dia_atencion':null,
             'hora_inicio_atencion':null,
             'hora_termino_atencion':null,
+            'obs_atencion_establecimiento':null,
          },
          'horario_visita_establecimiento':{
             'id_establecimiento':null,
             'id_dia_visita':null,
             'hora_inicio_visita':null,
             'hora_termino_visita':null,
+            'obs_visita_establecimiento':null,
          },
          'horario_atencion_profesional':{
             'id_establecimiento':null,
@@ -89,6 +91,7 @@ const EstablecimientoController = new Vue({
             'id_dia_profesional':null,
             'hora_inicio_profesional':null,
             'hora_termino_profesional':null,
+            'obs_atencion_profesional':null,
          },
 
          'permitido_guardar':[
@@ -401,7 +404,7 @@ const EstablecimientoController = new Vue({
                this.telefono.cod_area = 569;
                break;
             case 'linea800':
-               this.telefono.cod_area = 0;
+               this.telefono.cod_area = this.establecimiento.comuna.cod_area;
                break;
          }
       },
@@ -541,6 +544,7 @@ const EstablecimientoController = new Vue({
                formData.append(`id_dia_atencion`, this.horario_atencion_establecimiento.id_dia_atencion);
                formData.append(`hora_inicio_atencion`, this.horario_atencion_establecimiento.hora_inicio_atencion);
                formData.append(`hora_termino_atencion`, this.horario_atencion_establecimiento.hora_termino_atencion);
+               formData.append(`obs_atencion_establecimiento`, this.horario_atencion_establecimiento.obs_atencion_establecimiento || 'Sin observaciones');
                formData.append(`id_establecimiento`, this.establecimiento.id_establecimiento);
 
                this.$http.post(`/horarios_atencion_establecimientos`, formData).then(response => { // success callback
@@ -555,6 +559,7 @@ const EstablecimientoController = new Vue({
                         'id_dia_atencion':null,
                         'hora_inicio_atencion':null,
                         'hora_termino_atencion':null,
+                        'obs_atencion_establecimiento':null,
                      };
 
                      this.establecimiento.horarios_atencion_establecimientos.push(response.body.horario_atencion_establecimiento);
@@ -564,7 +569,7 @@ const EstablecimientoController = new Vue({
                         'id_dia_atencion',
                         'asc'
                      );
-                     this.$validator.clean();
+                     this.errors.clear();
 
                   } else {
                      this.checkear_estado_respuesta_http(response.status);
@@ -636,6 +641,7 @@ const EstablecimientoController = new Vue({
                formData.append(`id_dia_visita`, this.horario_visita_establecimiento.id_dia_visita);
                formData.append(`hora_inicio_visita`, this.horario_visita_establecimiento.hora_inicio_visita);
                formData.append(`hora_termino_visita`, this.horario_visita_establecimiento.hora_termino_visita);
+               formData.append(`obs_visita_establecimiento`, this.horario_visita_establecimiento.obs_visita_establecimiento || 'Sin observaciones');
                formData.append(`id_establecimiento`, this.establecimiento.id_establecimiento);
 
                this.$http.post(`/horarios_visita_establecimientos`, formData).then(response => { // success callback
@@ -650,6 +656,7 @@ const EstablecimientoController = new Vue({
                         'id_dia_visita':null,
                         'hora_inicio_visita':null,
                         'hora_termino_visita':null,
+                        'obs_visita_establecimiento':null,
                      };
 
                      this.establecimiento.horarios_visita_establecimientos.push(response.body.horario_visita_establecimiento);
@@ -660,7 +667,8 @@ const EstablecimientoController = new Vue({
                         'asc'
                      );
 
-                     this.$validator.clean();
+                     //this.$validator.clean();
+                     this.errors.clear();
 
                   } else {
                      this.checkear_estado_respuesta_http(response.status);
@@ -734,6 +742,7 @@ const EstablecimientoController = new Vue({
                formData.append(`id_profesional`, this.horario_atencion_profesional.id_profesional);
                formData.append(`hora_inicio_profesional`, this.horario_atencion_profesional.hora_inicio_profesional);
                formData.append(`hora_termino_profesional`, this.horario_atencion_profesional.hora_termino_profesional);
+               formData.append(`obs_atencion_profesional`, this.horario_atencion_profesional.obs_atencion_profesional || 'Sin observaciones');
                formData.append(`id_establecimiento`, this.establecimiento.id_establecimiento);
 
                this.$http.post(`/horarios_atencion_profesionales`, formData).then(response => { // success callback
@@ -749,6 +758,7 @@ const EstablecimientoController = new Vue({
                         'id_dia_profesional':null,
                         'hora_inicio_profesional':null,
                         'hora_termino_profesional':null,
+                        'obs_atencion_profesional':null,
                      };
 
                      this.establecimiento.horarios_atencion_profesionales.push(response.body.horario_atencion_profesional);

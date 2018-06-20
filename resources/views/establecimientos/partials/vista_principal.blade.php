@@ -100,18 +100,18 @@
                 v-if="establecimiento.horarios_atencion_establecimientos && establecimiento.horarios_atencion_establecimientos.length > 0">
             <thead>
             <tr>
-               <th>Nombre Establecimiento</th>
                <th>Día</th>
                <th>Hora Inicio</th>
                <th>Hora Término</th>
+               <th>Observaciones</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="h in establecimiento.horarios_atencion_establecimientos">
-               <td>@{{ h.establecimiento.nom_establecimiento }}</td>
                <td>@{{ h.dia.nom_dia_semana }}</td>
                <td>@{{ h.hora_inicio_atencion || 'Sin definir' }}</td>
                <td>@{{ h.hora_termino_atencion || 'Sin definir' }}</td>
+               <td>@{{ h.obs_atencion_establecimiento }}</td>
             </tr>
             </tbody>
 
@@ -130,18 +130,18 @@
                 v-if="establecimiento.horarios_visita_establecimientos && establecimiento.horarios_visita_establecimientos.length > 0">
             <thead>
             <tr>
-               <th>Nombre Establecimiento</th>
                <th>Día</th>
                <th>Hora Inicio</th>
                <th>Hora Término</th>
+               <th>Observaciones</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="h in establecimiento.horarios_visita_establecimientos">
-               <td>@{{ h.establecimiento.nom_establecimiento }}</td>
                <td>@{{ h.dia.nom_dia_semana }}</td>
                <td>@{{ h.hora_inicio_visita || 'Sin definir' }}</td>
                <td>@{{ h.hora_termino_visita || 'Sin definir' }}</td>
+               <td>@{{ h.obs_visita_establecimiento }}</td>
             </tr>
             </tbody>
 
@@ -160,20 +160,20 @@
                 v-if="establecimiento.horarios_atencion_profesionales && establecimiento.horarios_atencion_profesionales.length > 0">
             <thead>
             <tr>
-               <th>Nombre Establecimiento</th>
                <th>Profesional</th>
                <th>Día</th>
                <th>Hora Inicio</th>
                <th>Hora Término</th>
+               <th>Observaciones</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="h in establecimiento.horarios_atencion_profesionales">
-               <td>@{{ h.establecimiento.nom_establecimiento }}</td>
                <td>@{{ h.profesional.nom_profesional }}</td>
                <td>@{{ h.dia.nom_dia_semana }}</td>
                <td>@{{ h.hora_inicio_profesional || 'Sin definir' }}</td>
                <td>@{{ h.hora_termino_profesional || 'Sin definir' }}</td>
+               <td>@{{ h.obs_atencion_profesional }}</td>
             </tr>
             </tbody>
 

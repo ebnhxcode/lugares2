@@ -12,7 +12,7 @@ Relacionados a ➜ <span class="text-info">@{{ $data[`${nombre_model}`][`nom_${n
 <ul class="nav nav-tabs justify-content-center" id="tab_panel" role="tablist">
    <li class="nav-item" @click.prevent="buscar_objeto_clase_config_relaciones(id_en_edicion, relaciones_clase)">
       <a class="nav-link" data-toggle="tab" href="#vista_principal_tab" role="tab"
-         aria-controls="vista_principal" aria-selected="true">Vista Principal</a>
+         aria-controls="vista_principal" aria-selected="true">Vista Principal Pública</a>
    </li>
    <li class="nav-item"
        v-if="en_array(['Administrador','Jefe de Area','Lider Equipo','Modificador','Creador'],usuario_auth.usuario_role.role.nom_role)">
