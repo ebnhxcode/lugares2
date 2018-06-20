@@ -122,7 +122,7 @@ class DependenciaController extends Controller {
       #Se crea el nuevo registro
       $this->new_dependencia = Dependencia::create([
          'nom_dependencia' => $this->dependencia['nom_dependencia'],
-         'det_dependencia' => $this->dependencia['det_dependencia'],
+         'det_dependencia' => isset($this->dependencia['det_dependencia'])?$this->dependencia['det_dependencia']:'',
          'id_usuario_registra' => Auth::user()->id_usuario,
          'id_usuario_modifica' => Auth::user()->id_usuario,
       ]);
