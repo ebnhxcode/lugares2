@@ -24,7 +24,7 @@ class RegionController extends Controller {
 
    public function __construct () {
       $this->middleware('auth');
-      $this->nombre_modelo = "d"; //nombre tabla o de ruta
+      $this->nombre_modelo = "region"; //nombre tabla o de ruta
       $this->nombre_tabla = $this->nombre_ruta = "regiones";
       $this->nombre_detalle = "Regiones";
       $this->nombre_controller = "RegionController";

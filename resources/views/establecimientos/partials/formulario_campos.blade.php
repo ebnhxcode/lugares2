@@ -27,25 +27,25 @@
       @include('establecimientos.partials.segments.datos_contacto')
    </div>
 </div>
-<br>
+<br v-if="modal_actualizar_activo==true">
 <div class="card" v-if="modal_actualizar_activo==true">
    <div class="card-body pro">
       @include('establecimientos.partials.segments.otros_telefonos')
    </div>
 </div>
-<br>
+<br v-if="modal_actualizar_activo==true">
 <div class="card" v-if="modal_actualizar_activo==true">
    <div class="card-body pro">
       @include('establecimientos.partials.segments.horarios_atencion')
    </div>
 </div>
-<br>
+<br v-if="modal_actualizar_activo==true">
 <div class="card" v-if="modal_actualizar_activo==true">
    <div class="card-body pro">
       @include('establecimientos.partials.segments.horarios_visitas')
    </div>
 </div>
-<br>
+<br v-if="modal_actualizar_activo==true">
 <div class="card" v-if="modal_actualizar_activo==true">
    <div class="card-body pro">
       @include('establecimientos.partials.segments.extension_horaria')

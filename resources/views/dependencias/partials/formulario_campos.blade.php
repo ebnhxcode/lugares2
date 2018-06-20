@@ -1,4 +1,3 @@
-
 <div class="card">
    <div class="card-body pro">
       <h5>Datos básicos</h5>
