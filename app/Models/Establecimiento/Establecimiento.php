@@ -23,6 +23,7 @@ class Establecimiento extends Model {
       'nom_responsable',
       'sitio_web',
       'email',
+      'dominio_email',
       'cod_area_fax',
       'fax',
       'ext_horaria',

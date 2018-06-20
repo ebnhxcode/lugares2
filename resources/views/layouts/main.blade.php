@@ -258,6 +258,9 @@
                               <option value="al_dia">Actualizados</option>
 
                            </select>
+                           <div v-if="en_array(['al_dia','nuevo','desactualizado'],filtros.estado_actualizacion)">
+                              <small class="float-right">@{{ filterBy(lista_objs_model, filtros.estado_actualizacion).length || 0 }} resultados.</small>
+                           </div>
                         </div>
                      </div>
                      <spinner v-else></spinner>

@@ -6,7 +6,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="establecimiento.cod_area_fax" name="cod_area_fax"
-                   v-validate="{required:true,regex:/^[0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
+                   v-validate="{regex:/^[0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control"/>
 
             <transition name="bounce">
@@ -27,7 +27,7 @@
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="establecimiento.fax" name="fax"
-                   v-validate="{required:true,regex:/^[0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
+                   v-validate="{regex:/^[0-9_ áéíóúñÁÉÍÓÚÑ]+$/i}" data-vv-delay="500"
                    class="form-control"/>
 
             <transition name="bounce">
@@ -43,12 +43,12 @@
       </dd>
    </div><!-- .col -->
 
-   <div class="col-sm-12 col-md-4">
+   <div class="col-sm-5 col-md-2">
       <dt>Email</dt>
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="establecimiento.email" name="email"
-                   v-validate="{required:true,email:true}" data-vv-delay="500"
+                   v-validate="{regex:/^[a-zA-Z0-9_ ,.]+$/i}" data-vv-delay="500"
                    class="form-control"/>
 
             <transition name="bounce">
@@ -64,12 +64,41 @@
       </dd>
    </div><!-- .col -->
 
-   <div class="col-sm-12 col-md-4">
+   <div class="col-sm-5 col-md-1">
+      <dt>
+         &nbsp;
+      </dt>
+      <dd style="font-size: 22px;">
+         @
+      </dd>
+   </div><!-- .col -->
+   <div class="col-sm-5 col-md-2">
+      <dt>Dominio Email</dt>
+      <dd>
+         <p class="control has-icon has-icon-right">
+            <input type="text" v-model="establecimiento.dominio_email" name="dominio_email"
+                   v-validate="{regex:/^[a-zA-Z0-9_ ,.]+$/i}" data-vv-delay="500"
+                   class="form-control"/>
+
+            <transition name="bounce">
+               <i v-show="errors.has('dominio_email')" class="fa fa-exclamation-circle"></i>
+            </transition>
+
+            <transition name="bounce">
+                  <span v-show="errors.has('dominio_email')" class="text-danger small">
+                     @{{ errors.first('dominio_email') }}
+                  </span>
+            </transition>
+         </p>
+      </dd>
+   </div><!-- .col -->
+
+   <div class="col-sm-12 col-md-3">
       <dt>Sitio web</dt>
       <dd>
          <p class="control has-icon has-icon-right">
             <input type="text" v-model="establecimiento.sitio_web" name="sitio_web"
-                   v-validate="{required:true,url:true}" data-vv-delay="500"
+                   v-validate="{url:true}" data-vv-delay="500"
                    class="form-control"/>
 
             <transition name="bounce">
