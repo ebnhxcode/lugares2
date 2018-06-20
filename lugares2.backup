@@ -5,7 +5,7 @@
 -- Dumped from database version 10.4
 -- Dumped by pg_dump version 10.3
 
--- Started on 2018-06-20 01:22:51 -04
+-- Started on 2018-06-20 10:48:09 -04
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -2108,6 +2108,8 @@ COPY public.comunas (id_comuna, nom_comuna, det_comuna, alias, orden, id_usuario
 
 COPY public.dependencias (id_dependencia, id_establecimiento, id_usuario_registra, id_usuario_modifica, created_at, updated_at, deleted_at, nom_dependencia, det_dependencia) FROM stdin;
 1	\N	9	9	2018-06-07 13:26:40	2018-06-07 13:26:40	\N	Dependencia1	Dependencia1
+3	\N	9	9	2018-06-20 14:47:13	2018-06-20 14:47:17	2018-06-20 14:47:17	deqwe	wqeqweqw
+2	\N	9	9	2018-06-20 14:47:03	2018-06-20 14:47:20	2018-06-20 14:47:20	test	test
 \.
 
 
@@ -5828,7 +5830,7 @@ COPY public.horarios_atencion_establecimientos (id_horario_atencion_establecimie
 30	124531	4	9	9	2018-06-14 17:47:59	2018-06-14 17:47:59	\N	10:00	20:00	\N
 31	124531	1	9	9	2018-06-14 17:48:16	2018-06-14 17:50:15	2018-06-14 17:50:15	20:30	00:00	\N
 32	124531	2	9	9	2018-06-20 04:35:44	2018-06-20 04:37:52	2018-06-20 04:37:52	10:00	22:00	OBS
-33	124531	1	9	9	2018-06-20 04:59:36	2018-06-20 04:59:36	\N	10:00	22:00	TEST
+33	124531	1	9	9	2018-06-20 04:59:36	2018-06-20 14:43:34	2018-06-20 14:43:34	10:00	22:00	TEST
 \.
 
 
@@ -5849,8 +5851,8 @@ COPY public.horarios_atencion_profesionales (id_horario_atencion_profesional, id
 8	124531	6	9	9	2018-06-12 19:37:39	2018-06-12 19:37:39	\N	2	10:00	21:00	\N
 9	124531	3	9	9	2018-06-13 05:59:52	2018-06-13 05:59:52	\N	2	10:10	20:00	\N
 10	124531	4	9	9	2018-06-14 17:48:34	2018-06-14 17:48:34	\N	5	10:00	20:00	\N
-11	124531	4	9	9	2018-06-20 05:01:47	2018-06-20 05:01:47	\N	3	10:00	22:00	Sin observaciones
-12	124531	4	9	9	2018-06-20 05:03:30	2018-06-20 05:03:30	\N	2	10:00	22:00	test
+11	124531	4	9	9	2018-06-20 05:01:47	2018-06-20 14:43:17	2018-06-20 14:43:17	3	10:00	22:00	Sin observaciones
+12	124531	4	9	9	2018-06-20 05:03:30	2018-06-20 14:43:23	2018-06-20 14:43:23	2	10:00	22:00	test
 \.
 
 
@@ -5869,7 +5871,7 @@ COPY public.horarios_visita_establecimientos (id_horario_visita_establecimiento,
 6	124531	7	9	9	2018-06-12 19:37:03	2018-06-12 19:37:03	\N	10:00	22:00	\N
 7	124531	2	9	9	2018-06-18 19:43:14	2018-06-18 19:43:21	2018-06-18 19:43:21	20:20	20:20	\N
 8	124531	2	9	9	2018-06-20 04:36:08	2018-06-20 04:37:48	2018-06-20 04:37:48	10:00	22:00	OBS
-9	124531	1	9	9	2018-06-20 04:59:53	2018-06-20 04:59:53	\N	10:00	20:00	test
+9	124531	1	9	9	2018-06-20 04:59:53	2018-06-20 14:43:30	2018-06-20 14:43:30	10:00	20:00	test
 \.
 
 
@@ -5933,8 +5935,6 @@ COPY public.mantenedores (id_mantenedor, url_mantenedor, nom_mantenedor, det_man
 26	tipos_establecimientos	Tipos Establecimientos	Tipos Establecimientos	tipos_establecimientos001	9	9	2018-06-06 22:00:50	2018-06-06 22:00:50	\N	0	0
 27	telefonos	Telefono	Telefono	telefono001	9	9	2018-06-07 12:51:48	2018-06-07 12:51:48	\N	0	0
 28	tipos_telefonos	Tipo Telefono	Tipo Telefono	tipos_telefonos001	9	9	2018-06-07 12:52:07	2018-06-07 12:52:07	\N	0	0
-29	organismos	Organismo	Organismo	organismo001	9	9	2018-06-07 13:13:53	2018-06-07 13:13:53	\N	0	0
-30	tipos_organismos	Tipo Organismo	Tipo Organismo	tipos_organismos001	9	9	2018-06-07 13:14:12	2018-06-07 13:14:12	\N	0	0
 31	dependencias	Dependencia	Dependencia	dependencias001	9	9	2018-06-07 13:21:48	2018-06-07 13:21:48	\N	0	0
 32	regiones	Region	Regiones	regiones001	9	9	2018-06-07 13:34:07	2018-06-07 13:34:07	\N	0	0
 33	comunas	Comuna	Comunas	comuna001	9	9	2018-06-07 13:34:18	2018-06-07 13:34:18	\N	0	0
@@ -5944,6 +5944,8 @@ COPY public.mantenedores (id_mantenedor, url_mantenedor, nom_mantenedor, det_man
 37	dias_semana	Dia Semana	Dia Semana	dias_semana001	9	9	2018-06-07 15:26:22	2018-06-07 15:26:22	\N	0	0
 38	horarios_atencion_establecimientos	Horario Atencion Establecimientos	Horario Atencion Establecimientos	horarios_atencion_establecimientos001	9	9	2018-06-11 16:17:26	2018-06-12 02:19:44	2018-06-12 02:19:44	0	0
 39	horarios_visita_establecimientos	Horario Visita Establecimientos	Horario Visita Establecimientos	horarios_visita_establecimientos001	9	9	2018-06-11 16:17:43	2018-06-12 02:19:51	2018-06-12 02:19:51	0	0
+29	organismos	Organismo	Organismo	organismo001	9	9	2018-06-07 13:13:53	2018-06-20 14:41:18	2018-06-20 14:41:18	0	0
+30	tipos_organismos	Tipo Organismo	Tipo Organismo	tipos_organismos001	9	9	2018-06-07 13:14:12	2018-06-20 14:41:23	2018-06-20 14:41:23	0	0
 \.
 
 
@@ -7142,7 +7144,7 @@ SELECT pg_catalog.setval('public.datacentros_id_seq', 7, true);
 -- Name: dependencias_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.dependencias_id_seq', 1, true);
+SELECT pg_catalog.setval('public.dependencias_id_seq', 3, true);
 
 
 --
@@ -7738,7 +7740,7 @@ ALTER TABLE ONLY public.usuarios_roles
 CREATE INDEX password_resets_email_index ON public.password_resets USING btree (email);
 
 
--- Completed on 2018-06-20 01:22:52 -04
+-- Completed on 2018-06-20 10:48:10 -04
 
 --
 -- PostgreSQL database dump complete
