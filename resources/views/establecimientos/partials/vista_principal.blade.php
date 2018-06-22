@@ -3,15 +3,22 @@
 
       <!-- este bloque será reemplazado dinamicamente -->
       <div class="card pro" style="{{--width: 18rem;--}}" v-if="establecimiento && establecimiento.tipo_establecimiento">
-         <img class="card-img-top" src="{{ url('/img/datacentro.png') }}" alt="Card image cap">
+         <img class="card-img-top" src="{{ url('/img/lugares.png') }}" alt="Card image cap">
          <div class="card-body">
             <h5 class="card-title">
                @{{ establecimiento.nom_establecimiento || '' }}
             </h5>
             <p class="card-text">
 
-            <dl class="row">
-               <dd class="col-md-12">@{{ establecimiento.tipo_establecimiento.nom_tipo_establecimiento || '' }}</dd>
+            <dl>
+               <dt>Info</dt>
+               <dd>@{{ establecimiento.tipo_establecimiento.nom_tipo_establecimiento || '' }}</dd>
+               <dt>Contacto</dt>
+               <dd>Fax: @{{ establecimiento.cod_area_fax+' '+establecimiento.fax || 'No registrado' }}</dd>
+               <dd>Email: @{{ establecimiento.email+'@'+establecimiento.dominio_email || 'No registrado' }}</dd>
+               <dd>Sitio web: <a :href="establecimiento.sitio_web" v-if="establecimiento.sitio_web">@{{ establecimiento.sitio_web }}</a>
+                  <a href="#|" v-else>No registrado</a>
+               </dd>
             </dl>
 
             </p>
