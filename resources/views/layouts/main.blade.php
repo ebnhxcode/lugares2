@@ -160,6 +160,7 @@
                </div>
             </div>
          </div>
+
          <div class="col-md-6">
             {{--@if(in_array(Request::path(), ['establecimientos']))@endif--}}
             @if(in_array(Request::path(), ['establecimientos']))
@@ -272,6 +273,7 @@
                <br>
             @endif
          </div>
+
       </div>
 
       <br>

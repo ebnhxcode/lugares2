@@ -735,6 +735,7 @@ export const inyeccion_funciones_compartidas = {
          if (typeof this.spinner_table != "undefined") {
             this.spinner_table = true;
          }
+         this.borrar_filtros();
          this.$http.get(`/ajax/${this.nombre_ruta}`).then(response => { // success callback
             if (response.status == 200) {
                this.configurar_relaciones(response.body[this.nombre_ruta].data, this.relaciones_clase);

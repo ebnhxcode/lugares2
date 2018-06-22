@@ -193,7 +193,7 @@ class EstablecimientoController extends Controller {
       $this->validacion = Validator::make($request->all(), [
          'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|unique:$this->nombre_tabla|max:255",
          'nom_establecimiento' => "regex:/(^([a-zA-Z0-9_ áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|required|max:255",
-         'observaciones' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'observaciones' => "nullable|regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_direccion' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'num_calle' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_responsable' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
@@ -275,7 +275,7 @@ class EstablecimientoController extends Controller {
       $this->validacion = Validator::make($request->all(), [
          'id_establecimiento' => "regex:/(^([0-9]+)(\d+)?$)/u|required|max:255",
          'nom_establecimiento' => "regex:/(^([a-zA-Z0-9_ ,.\-áéíóúñÁÉÍÓÚÑ()]+)(\d+)?$)/u|required|max:255",
-         'observaciones' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
+         'observaciones' => "nullable|regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_direccion' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'nom_responsable' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",
          'num_calle' => "regex:/(^([a-zA-Z0-9_ ,.!@#$%*&áéíóúñÁÉÍÓÚÑ]+)(\d+)?$)/u|max:255",

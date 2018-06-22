@@ -1,4 +1,4 @@
-<table class="table table-sm" v-if="typeof spinner_table != 'undefined' && spinner_table == false">
+<table class="table table-sm">
    <thead>
    <tr class="text-center">
       <th v-for="c,i in tabla_campos" v-if="c.visibility!=false">
